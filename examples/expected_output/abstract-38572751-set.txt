@@ -1,0 +1,234 @@
+1. CA Cancer J Clin. 2024;74(3):229-263. doi: 10.3322/caac.21834.
+
+Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries.
+
+Bray F(1), Laversanne M(2), Sung H(3), Ferlay J(4), Siegel RL(5), Soerjomataram I(6), Jemal A(7).
+
+Author information:
+(1)Cancer Surveillance Branch, International Agency for Research on Cancer, Lyon, France.
+(2)Cancer Surveillance Branch, International Agency for Research on Cancer, Lyon, France.
+(3)Surveillance and Health Equity Science, American Cancer Society, Atlanta, Georgia, USA.
+(4)Cancer Surveillance Branch, International Agency for Research on Cancer, Lyon, France.
+(5)Surveillance and Health Equity Science, American Cancer Society, Atlanta, Georgia, USA.
+(6)Cancer Surveillance Branch, International Agency for Research on Cancer, Lyon, France.
+(7)Surveillance and Health Equity Science, American Cancer Society, Atlanta, Georgia, USA.
+
+This article presents global cancer statistics by world region for the year 2022 based on updated estimates from the International Agency for Research on Cancer (IARC). There were close to 20 million new cases of cancer in the year 2022 (including nonmelanoma skin cancers [NMSCs]) alongside 9.7 million deaths from cancer (including NMSC). The estimates suggest that approximately one in five men or women develop cancer in a lifetime, whereas around one in nine men and one in 12 women die from it. Lung cancer was the most frequently diagnosed cancer in 2022, responsible for almost 2.5 million new cases, or one in eight cancers worldwide (12.4% of all cancers globally), followed by cancers of the female breast (11.6%), colorectum (9.6%), prostate (7.3%), and stomach (4.9%). Lung cancer was also the leading cause of cancer death, with an estimated 1.8 million deaths (18.7%), followed by colorectal (9.3%), liver (7.8%), female breast (6.9%), and stomach (6.8%) cancers. Breast cancer and lung cancer were the most frequent cancers in women and men, respectively (both cases and deaths). Incidence rates (including NMSC) varied from four-fold to five-fold across world regions, from over 500 in Australia/New Zealand (507.9 per 100,000) to under 100 in Western Africa (97.1 per 100,000) among men, and from over 400 in Australia/New Zealand (410.5 per 100,000) to close to 100 in South-Central Asia (103.3 per 100,000) among women. The authors examine the geographic variability across 20 world regions for the 10 leading cancer types, discussing recent trends, the underlying determinants, and the prospects for global cancer prevention and control. With demographics-based predictions indicating that the number of new cases of cancer will reach 35 million by 2050, investments in prevention, including the targeting of key risk factors for cancer (including smoking, overweight and obesity, and infection), could avert millions of future cancer diagnoses and save many lives worldwide, bringing huge economic as well as societal dividends to countries over the forthcoming decades.
+
+DOI: 10.3322/caac.21834
+PMID: 38572751
+
+
+2. Gen Psychiatr. 2022;35(5):e100871. doi: 10.1136/gpsych-2022-100871.
+
+Cancer-related psychosocial challenges.
+
+Wang Y(1), Feng W(2).
+
+Author information:
+(1)Department of Psychological Medicine, Fudan University Shanghai Cancer Center, Shanghai, China.
+(1)Department of Oncology, Shanghai Medical College of Fudan University, Shanghai, China.
+(2)Department of Psychological Medicine, Fudan University Shanghai Cancer Center, Shanghai, China.
+(2)Department of Oncology, Shanghai Medical College of Fudan University, Shanghai, China.
+
+Over the past decade, cancer incidence has increased globally while its mortality has decreased. Accordingly, healthcare practitioners aim to provide comprehensive care to cancer patients. The biopsychosocial model suggests medical professionals' understanding of how psychosocial factors influence the entire course of cancer is critical. However, until now, an integrative review summarising the full scope of these psychosocial domains has been lacking. This review substantiates that cancer patients, survivors, their caregivers, and oncology professionals face substantial psychosocial challenges. Cancer patients and survivors may experience deterioration of self-concept, disturbance of body image, sexual problems and difficulties in social relationships while attempting to cope with casual issues. The burdens of care provision and the impact on the health of caregivers of cancer patients are also noteworthy. Improving the quality of patient-doctor communication and overcoming burnout are significant challenges for oncology healthcare professionals.
+
+DOI: 10.1136/gpsych-2022-100871
+PMCID: PMC9540834
+PMID: 36311374
+
+
+3. J Psychosom Res. 2023 Feb;165:111139. doi: 10.1016/j.jpsychores.2022.111139.
+
+The facets of psychopathology in patients with cancer: Cross-sectional and longitudinal network analyses.
+
+Murri MB(1), Caruso R(2), Christensen AP(3), Folesani F(4), Nanni MG(5), Grassi L(6).
+
+Author information:
+(1)Institute of Psychiatry, Department of Neuroscience and Rehabilitation, University of Ferrara, Italy. Electronic address: martino.belvederimurri@unife.it.
+(2)Institute of Psychiatry, Department of Neuroscience and Rehabilitation, University of Ferrara, Italy.
+(3)Department of Psychology, University of North Carolina at Greensboro, Greensboro, United States.
+(4)Institute of Psychiatry, Department of Neuroscience and Rehabilitation, University of Ferrara, Italy.
+(5)Institute of Psychiatry, Department of Neuroscience and Rehabilitation, University of Ferrara, Italy.
+(6)Institute of Psychiatry, Department of Neuroscience and Rehabilitation, University of Ferrara, Italy.
+
+OBJECTIVE: Cancer patients display heterogeneous psychopathology, comprising depressive, anxiety, hostility, and somatic symptoms. Often, clinical pictures evolve over time deteriorating the individual functioning and prognosis. Network models can reveal the relationships between symptoms, thus providing clinical insights.
+METHOD: This study examined data of the Brief Symptom Inventory and the Distress Thermometer, from 1108 cancer outpatients. Gaussian Graphical Models were estimated using regularized and non-regularized Bayesian methods. In addition, we used community detection methods to identify the most relevant symptom groupings, and longitudinal network analyses on 515 participants to examine the connections between symptoms over three months.
+RESULTS: The network models derived from baseline data suggested symptoms clustered into three main complexes (depression/anxiety, hostility, and somatic symptoms). Symptoms related to depression and hostility were highly connected with suicidal and death thoughts. Faintness, weakness, chest pain, and dyspnoea, among somatic symptoms, were more strongly connected with psychopathological features. Longitudinal analyses revealed that sadness, irritability, nervousness, and tension predicted each other. Panic and death thoughts predicted fearfulness and faintness.
+CONCLUSIONS: Somatic symptoms, sadness, irritability, chronic and acute anxiety interact between each other, shaping the heterogeneous clinical picture of distress in cancer. This study, strengthened by robust methods, is the first to employ longitudinal network analyses in cancer patients. Further studies should evaluate whether targeting specific symptoms might prevent the onset of chronic distress and improve clinical outcomes in cancer patients.
+
+DOI: 10.1016/j.jpsychores.2022.111139
+PMID: 36610333
+
+
+4. [PubMed上に該当文献が見つかりませんでした: Les Ressources Psychologiques Face Aux Maladies Somatiques Chroniques / PSN]
+
+
+5. Encephale. 2020 Feb;46(1):13-22. doi: 10.1016/j.encep.2019.07.005.
+
+[Intervention focused on resources to reduce anxiety and depression disorders in cancer patients: A pilot study].
+
+Lantheaume S(1), Montagne M(2), Shankland R(3).
+
+Author information:
+(1)Soins de support, hôpital privé Drôme Ardèche, clinique Pasteur, 294, boulevard Charles-de-Gaulle, 07500 Guilherand-Granges, France. Electronic address: lantheaume.sophie@hotmail.fr.
+(2)Soins de support, hôpital privé Drôme Ardèche, clinique Pasteur, 294, boulevard Charles-de-Gaulle, 07500 Guilherand-Granges, France. Electronic address: morgane.montagne.pro@gmail.com.
+(3)Laboratoire interuniversitaires de psychologie LIP/PC2S, université Grenoble Alpes, 1251, avenue Centrale, 38000 Grenoble, France. Electronic address: rebecca.shankland@univ-grenoble-alpes.fr.
+
+INTRODUCTION: Cancer, a widespread chronic disease, represented 400,000 diagnoses in France in 2017. The diagnoses as well as the treatments are a major source of stress for most patients concerned. Secondary effects may be painful and disturbing (pain, nausea, fatigue, loss of social and/or professional status, anxiety of death), and may lead to maladaptive coping strategies (avoidant coping), psychological inflexibility, anxiety, depression, and suicide risks which are twice as important as in the general population. Research in the field of psychotherapy for cancer patients represents an important international target, in particular in what concerns enhanced patient quality of life during and after treatment. Cognitive Behavioral Therapy, Mindfulness-Based Stress Reduction, as well as adapted physical activity have shown promising results to enhance patients' quality of life at different stages of the process. However, results mainly show significant short-term effects and usually only for patients with high levels of anxiety and depression symptoms. With the development of third wave Cognitive Behavioral Therapy, more global interventions (not just aimed at anxiety and depression symptoms) have emerged. Research has underlined their efficacy on both symptom reduction (anxiety and depression) and quality of life enhancement through the development of more varied and adaptive responses to stressful situations. Positive psychology interventions, mindfulness, and Acceptance and Commitment Therapy have inspired third wave Cognitive Behavioral Therapy. Emotional acceptance, mindful awareness of thoughts and emotions, and engaging in actions that are coherent with one's values all form part of the means by which these interventions may help patients to find ways to better adjust to their stressful situation. The results of the efficacy trials carried out using these approaches were mixed, and effects were mainly modest. Furthermore, most of the studies only tested one approach at a time, while each approach activated mechanisms, which can be useful for these patients. Hence, the aim of the current study was to test an integrative program based on classical second wave Cognitive Behavioral Therapy as well as on practices from the third wave of Cognitive Behavioral Therapy. We aimed at carrying out a preliminary study assessing the potential effects of the program on cancer patients' anxiety, depression symptoms, well-being and psychological flexibility.
+METHOD: Sixteen cancer patients were enrolled in a second and third wave Cognitive Behavioral Therapy workshop composed of six sessions. In-session practices were based on validated practices. Participants completed the following questionnaires before the first workshop (T1) and at the end of the sessions (T2) in order to assess anxiety, depression symptoms, well-being and psychological flexibility: HAD, WEMWBS, MPFI, AAQ-2. Qualitative data regarding acceptability were also collected at the end of the last session.
+RESULTS: Among the sixteen participants, nine women (mean age=56.1years old) completed the questionnaires seven of whom had breast cancer. The results of this preliminary study showed a significant pre-to-post reduction in anxiety and depression symptoms (P=0.017) as well as on certain dimensions of psychological flexibility: reduced "self as content" (P=0.011), and enhanced cognitive diffusion (P=0.018). Only marginal differences were found on other dimensions: reduced inaction (P=0.074) and experiential avoidance (P=0.089), and enhanced "self as context" (P=0.062). Content analysis showed (1) increased positive perceptions about experiences with more serenity, (2) positive attitudes towards self (self-compassion), (3) enhanced positive relationships, and (4) ability to accept negative affect.
+CONCLUSION: Patients' qualitative feedback highlighted the potential feasibility and adaptability of the program for this population. The results of this preliminary study show promising avenues for research in the field of cancer patients' adaptive coping enhancement as well as reduce anxiety and depression symptoms. This type of workshop can be considered as complementary to individual psychotherapies as they may tap into different mechanisms that help foster psychological flexibility as the group format enhances decentering processes. Further research avenues are proposed in order to assess the efficacy of such interventions in cancer patients compared to other types of interventions. Further research should also look into individual differences in order to orient patients towards practices that fit them best.
+
+DOI: 10.1016/j.encep.2019.07.005
+PMID: 31610923
+
+
+6. Am Psychol. 2000 Jan;55(1):5-14. doi: 10.1037//0003-066x.55.1.5.
+
+Positive psychology. An introduction.
+
+Seligman ME(1), Csikszentmihalyi M.
+
+Author information:
+(1)Department of Psychology, University of Pennsylvania, 3813 Walnut Street, Philadelphia, PA 19104-3604, USA. seligman@cattell.psych.upenn.edu
+
+A science of positive subjective experience, positive individual traits, and positive institutions promises to improve quality of life and prevent the pathologies that arise when life is barren and meaningless. The exclusive focus on pathology that has dominated so much of our discipline results in a model of the human being lacking the positive features that make life worth living. Hope, wisdom, creativity, future mindedness, courage, spirituality, responsibility, and perseverance are ignored or explained as transformations of more authentic negative impulses. The 15 articles in this millennial issue of the American Psychologist discuss such issues as what enables happiness, the effects of autonomy and self-regulation, how optimism and hope affect health, what constitutes wisdom, and how talent and creativity come to fruition. The authors outline a framework for a science of positive psychology, point to gaps in our knowledge, and predict that the next century will see a science and profession that will come to understand and build the factors that allow individuals, communities, and societies to flourish.
+
+DOI: 10.1037//0003-066x.55.1.5
+PMID: 11392865
+
+
+7. [PubMed上に該当文献が見つかりませんでした: Positive Psychology / Theory Psychol.]
+
+
+8. [PubMed上に該当文献が見つかりませんでした: Centenary Personality: Are There Psychological Resources that Distinguish Centenarians? / J. Happiness Stud.]
+
+
+9. [PubMed上に該当文献が見つかりませんでした: Resource Activation: Using Clients' Own Strengths in Psychotherapy and Counseling / Hogrefe Publishing]
+
+
+10. [PubMed上に該当文献が見つかりませんでした: Social and Psychological Resources and Adaptation / Rev. Gen. Psychol.]
+
+
+11. [PubMed上に該当文献が見つかりませんでした: Positive Psychological Capital: Measurement and Relationship with Performance and Satisfaction / Personnel Psychology]
+
+
+12. J Urol. 2025 Jan;213(1):40-51. doi: 10.1097/JU.0000000000004257.
+
+Characterizing Psychological Resources and Resilience in Patients With Bladder Cancer: Associations With Frailty and Quality of Life.
+
+Petersen E(1), Holt S(2), Browning A(3), Cavanaugh D(4), Jannat S(5), Wright J(6), Gore J(7), Schade G(8), Reed M(9), Garcia J(10), Bentov I(11), Master V(12), Berry D(13), Fintelmann FJ(14), Marquardt JP(15), O'Malley R(16), Psutka SP(17).
+
+Author information:
+(1)University of Washington School of Medicine, Seattle, Washington.
+(2)Department of Urology, University of Washington, Seattle, Washington.
+(2)Department of Urology, Emory School of Medicine, Atlanta, Georgia.
+(3)University of Washington School of Medicine, Seattle, Washington.
+(4)Icahn School of Medicine at Mount Sinai, New York, New York.
+(5)Department of Urology, University of Washington, Seattle, Washington.
+(6)Department of Urology, University of Washington, Seattle, Washington.
+(7)Department of Urology, University of Washington, Seattle, Washington.
+(8)Department of Urology, University of Washington, Seattle, Washington.
+(9)University of Washington Geriatric Medicine and Puget Sound VAHCS GRECC, Seattle, Washington.
+(10)University of Washington Geriatric Medicine and Puget Sound VAHCS GRECC, Seattle, Washington.
+(11)University of Washington Anesthesiology, Seattle, Washington.
+(12)Department of Urology, Emory School of Medicine, Atlanta, Georgia.
+(13)Department of Urology, University of Washington, Seattle, Washington.
+(13)University of Washington Biobehavioral Nursing and Health Informatics, Seattle, Washington.
+(14)Department of Radiology, Massachusetts General Hospital, Boston, Massachusetts.
+(15)Department of Radiology, Massachusetts General Hospital, Boston, Massachusetts.
+(16)Midwest Radiology, Roseville, Minnesota.
+(17)Department of Urology, University of Washington, Seattle, Washington.
+
+PURPOSE: Resilience, the ability to maintain or restore baseline function after a stressor, remains unexplored in patients with bladder cancer. Our objective was to demonstrate the feasibility of prospectively characterizing baseline resilience, related psychological resources, and frailty in patients with bladder cancer and evaluate associations with quality-of-life and mental health outcomes over time.
+MATERIALS AND METHODS: We enrolled patients with bladder cancer (N = 67, September 2020-July 2021) into a prospective, observational, cohort study. At intake, patients completed validated assessments of frailty domains and psychological resources (resilience, psychological capital, self-compassion, and thriving, collectively PsyResources). Validated quality-of-life surveys were completed at 2 weeks, 3 months, and 6 months after treatment selection. Correlation matrices were constructed to quantify correlations between baseline PsyResources and frailty measures (reported with Spearman correlation coefficient [ρ]). Associations between PsyResources and quality-of-life outcomes were evaluated with linear regression.
+RESULTS: The median age was 71 years (83.6% male), and 77.6% had muscle-invasive bladder cancer (cN+: 21%, M1: 7.6%). Baseline PsyResources were inversely correlated with the Geriatric Depression Scale (ρ = -0.50 to 0.65, P < .0001). Higher baseline PsyResources were associated with improved global symptoms and emotional function and decreased anxiety and depression over time (B: -0.17 to -2.5; P < .05).
+CONCLUSIONS: We present the first prospective characterization of baseline PsyResources in patients with bladder cancer. We observed positive correlations with improved mental health and quality-of-life outcomes over time. Ongoing work is exploring the relationship between resilience, frailty domains, and their role in functional recovery after treatment. Future work is needed to understand associations between PsyResources and treatment tolerance, recovery trajectories, and oncologic outcomes.
+
+DOI: 10.1097/JU.0000000000004257
+PMID: 39348716
+
+
+13. Jpn J Clin Oncol. 2017 Sep 01;47(9):849-855. doi: 10.1093/jjco/hyx079.
+
+Optimism, pessimism and self-efficacy in female cancer patients.
+
+Thieme M(1), Einenkel J(2), Zenger M(3), Hinz A(4).
+
+Author information:
+(1)Department of Medical Psychology and Medical Sociology, University of Leipzig, Leipzig.
+(2)Department of Gynecology and Obstetrics, University of Leipzig, Leipzig.
+(3)Faculty of Applied Human Studies, University of Applied Sciences Magdeburg-Stendal, Stendal.
+(3)Integrated Research and Treatment Center Adiposity Diseases, Leipzig University Medical Center, Leipzig, Germany.
+(4)Department of Medical Psychology and Medical Sociology, University of Leipzig, Leipzig.
+
+OBJECTIVE: The aim of this examination was to study whether psychological resource variables (optimism and self-efficacy) decrease when cancer is present and to test the predictive power of these variables for anxiety, depression and quality of life (QoL).
+METHODS: The patient sample was comprised of 354 German women suffering from breast cancer or gynecological cancer. Participants filled in the resource assessment tools Life Orientation Test-Revised and the General Self-Efficacy Scale as well as the Hospital Anxiety and Depression Scale, the Patient Health Questionnaire-4 and the QoL instrument EORTC QLQ-C30 at two time points: (t1) during patients' hospital stay and (t2) 3 months later.
+RESULTS: The mean scores for optimism (total score: M = 16.2) and self-efficacy (M = 29.8) were even somewhat higher than the corresponding means of the general population. Optimism and self-efficacy were positively correlated with QoL (r between 0.15 and 0.17, P < 0.01) and negatively associated with anxiety and depression (r between -0.17 and -0.36, P < 0.01). However, only optimism was predictive of the t2 anxiety, depression and QoL scores when statistically taking into account the baseline levels of the outcome variables.
+CONCLUSIONS: Having cancer does not generally reduce optimism and self-efficacy on the level of patients' mean scores. Cancer patients with a high level of habitual optimism will adapt to their disease better than pessimistic patients, even if the baseline levels of the outcome variables have been accounted for.
+
+DOI: 10.1093/jjco/hyx079
+PMID: 28591864
+
+
+14. Front Psychol. 2022;13:883157. doi: 10.3389/fpsyg.2022.883157.
+
+The Correlation Between Quality of Life and Positive Psychological Resources in Cancer Patients: A Meta-Analysis.
+
+Zhao X(1), Tong S(2), Yang Y(3).
+
+Author information:
+(1)Department of Hospice, ShengJing Hospital of China Medical University, Shenyang, China.
+(2)Lymphedema Therapeutic Center, Liaoning Cancer Hospital and Institute, Cancer Hospital of China Medical University, Shenyang, China.
+(3)Department of Ultrasound, ShengJing Hospital of China Medical University, Shenyang, China.
+
+PURPOSE: This study aimed to assess the evidence of the association between positive psychological resources and quality of life in patients with cancer.
+METHODS: Electronic searching was performed to retrieve articles from PubMed, Web of Science, Embase, CNKI, and CBM (from inception to 7 April 2022). Summary correlation coefficient (r) values were extracted from each study, and 95% CIs were calculated by the random-effect model. Subgroup and sensitivity analyses were performed to investigate potential heterogeneity.
+RESULTS: In total, sixty-six articles were included in the present study. The pooled r for resilience was 0.71 (95%CI: 0.55, 0.87), hope 0.50 (95%CI: 0.43, 0.56), self-efficacy 0.53 (95%CI: 0.46, 0.61), self-esteem 0.46 (95%CI: 0.28, 0.63), and optimism 0.30 (95%CI: 0.19, 0.40). For subgroup analysis, no significant differences were found between minors and adults.
+CONCLUSION: This study indicated that resilience, hope, optimism, self-esteem, and self-efficacy were positively correlated with quality of life in patients with cancers. Therefore, intervention programs should be focused on increasing state-like positive psychological resources to improve the quality of life in patients with cancer.
+
+DOI: 10.3389/fpsyg.2022.883157
+PMCID: PMC9245894
+PMID: 35783766
+
+
+15. BMJ. 2021 Mar 29;372:n160. doi: 10.1136/bmj.n160.
+
+PRISMA 2020 explanation and elaboration: updated guidance and exemplars for reporting systematic reviews.
+
+Page MJ(1), Moher D(2), Bossuyt PM(3), Boutron I(4), Hoffmann TC(5), Mulrow CD(6), Shamseer L(7), Tetzlaff JM(8), Akl EA(9), Brennan SE(10), Chou R(11), Glanville J(12), Grimshaw JM(13), Hróbjartsson A(14), Lalu MM(15), Li T(16), Loder EW(17), Mayo-Wilson E(18), McDonald S(19), McGuinness LA(20), Stewart LA(21), Thomas J(22), Tricco AC(23), Welch VA(24), Whiting P(25), McKenzie JE(26).
+
+Author information:
+(1)School of Public Health and Preventive Medicine, Monash University, Melbourne, Australia matthew.page@monash.edu.
+(2)Centre for Journalology, Clinical Epidemiology Program, Ottawa Hospital Research Institute, Ottawa, Canada; School of Epidemiology and Public Health, Faculty of Medicine, University of Ottawa, Ottawa, Canada.
+(3)Department of Clinical Epidemiology, Biostatistics and Bioinformatics, Amsterdam University Medical Centres, University of Amsterdam, Amsterdam, Netherlands.
+(4)Université de Paris, Centre of Epidemiology and Statistics (CRESS), Inserm, F 75004 Paris, France.
+(5)Institute for Evidence-Based Healthcare, Faculty of Health Sciences and Medicine, Bond University, Gold Coast, Australia.
+(6)University of Texas Health Science Center at San Antonio, San Antonio, Texas, United States; Annals of Internal Medicine.
+(7)Knowledge Translation Program, Li Ka Shing Knowledge Institute, Toronto, Canada; School of Epidemiology and Public Health, Faculty of Medicine, University of Ottawa, Ottawa, Canada.
+(8)Evidence Partners, Ottawa, Canada.
+(9)Clinical Research Institute, American University of Beirut, Beirut, Lebanon; Department of Health Research Methods, Evidence, and Impact, McMaster University, Hamilton, Ontario, Canada.
+(10)School of Public Health and Preventive Medicine, Monash University, Melbourne, Australia.
+(11)Department of Medical Informatics and Clinical Epidemiology, Oregon Health & Science University, Portland, Oregon, United States.
+(12)York Health Economics Consortium (YHEC Ltd), University of York, York, UK.
+(13)Clinical Epidemiology Program, Ottawa Hospital Research Institute, Ottawa, Canada; School of Epidemiology and Public Health, University of Ottawa, Ottawa, Canada; Department of Medicine, University of Ottawa, Ottawa, Canada.
+(14)Centre for Evidence-Based Medicine Odense, Odense University Hospital, Odense, Denmark; Department of Clinical Research, University of Southern Denmark, Odense, Denmark; Open Patient data Explorative Network, Odense University Hospital, Odense, Denmark.
+(15)Department of Anesthesiology and Pain Medicine, The Ottawa Hospital, Ottawa, Canada; Clinical Epidemiology Program, Blueprint Translational Research Group, Ottawa Hospital Research Institute, Ottawa, Canada; Regenerative Medicine Program, Ottawa Hospital Research Institute, Ottawa, Canada.
+(16)Department of Ophthalmology, School of Medicine, University of Colorado Denver, Denver, Colorado, United States; Department of Epidemiology, Johns Hopkins Bloomberg School of Public Health, Baltimore, Maryland, United States.
+(17)Division of Headache, Department of Neurology, Brigham and Women's Hospital, Harvard Medical School, Boston, Massachusetts, United States; Head of Research, The BMJ, London, UK.
+(18)Department of Epidemiology and Biostatistics, Indiana University School of Public Health-Bloomington, Bloomington, Indiana, United States.
+(19)School of Public Health and Preventive Medicine, Monash University, Melbourne, Australia.
+(20)Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, UK.
+(21)Centre for Reviews and Dissemination, University of York, York, UK.
+(22)EPPI-Centre, UCL Social Research Institute, University College London, London, UK.
+(23)Li Ka Shing Knowledge Institute of St. Michael's Hospital, Unity Health Toronto, Toronto, Canada; Epidemiology Division of the Dalla Lana School of Public Health and the Institute of Health Management, Policy, and Evaluation, University of Toronto, Toronto, Canada; Queen's Collaboration for Health Care Quality Joanna Briggs Institute Centre of Excellence, Queen's University, Kingston, Canada.
+(24)Methods Centre, Bruyère Research Institute, Ottawa, Ontario, Canada; School of Epidemiology and Public Health, Faculty of Medicine, University of Ottawa, Ottawa, Canada.
+(25)Population Health Sciences, Bristol Medical School, University of Bristol, Bristol, UK.
+(26)School of Public Health and Preventive Medicine, Monash University, Melbourne, Australia.
+
+The methods and results of systematic reviews should be reported in sufficient detail to allow users to assess the trustworthiness and applicability of the review findings. The Preferred Reporting Items for Systematic reviews and Meta-Analyses (PRISMA) statement was developed to facilitate transparent and complete reporting of systematic reviews and has been updated (to PRISMA 2020) to reflect recent advances in systematic review methodology and terminology. Here, we present the explanation and elaboration paper for PRISMA 2020, where we explain why reporting of each item is recommended, present bullet points that detail the reporting recommendations, and present examples from published reviews. We hope that changes to the content and structure of PRISMA 2020 will facilitate uptake of the guideline and lead to more transparent, complete, and accurate reporting of systematic reviews.
+
+DOI: 10.1136/bmj.n160
+PMCID: PMC8005925
+PMID: 33781993

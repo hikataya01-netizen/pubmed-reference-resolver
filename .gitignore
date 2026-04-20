@@ -1,0 +1,14 @@
+# API keys — NEVER commit
+.env
+.env.local
+.env.*.local
+
+# Outputs
+out/
+out_*/
+*.skill
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
