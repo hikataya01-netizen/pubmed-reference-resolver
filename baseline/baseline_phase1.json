@@ -1,0 +1,99 @@
+{
+  "input_file": "input_References.docx",
+  "source_type": "docx",
+  "stage1_raw_length": 36963,
+  "stage2_cleaned_length": 35556,
+  "line_number_detection": {
+    "detected": true,
+    "min_val": 567,
+    "max_val": 910,
+    "count_removed": null
+  },
+  "preprocess_trace": {
+    "hyphen_bridge_rescued": null,
+    "soft_linebreaks_joined": 145,
+    "standalone_line_numbers_removed": null
+  },
+  "phase1_results": {
+    "blocks_detected": 147,
+    "ref_nos_range": [
+      1,
+      149
+    ],
+    "missing_ref_nos": [
+      40,
+      140
+    ],
+    "duplicate_ref_nos": [],
+    "avg_block_char_length": 236.6,
+    "suspicious_oversized_blocks": [
+      {
+        "ref_no": 39,
+        "char_length": 556
+      }
+    ]
+  },
+  "blocks_preview": [
+    {
+      "ref_no": 1,
+      "char_length": 287,
+      "raw_text_head": "Bray, F.; Laversanne, M.; Sung, H.; Ferlay, J.; Siegel, R.L.; Soerjomataram, I.; Jemal, A. Global cancer statistics 2022..."
+    },
+    {
+      "ref_no": 2,
+      "char_length": 137,
+      "raw_text_head": "Wang, Y.; Feng, W. Cancer-related psychosocial challenges. Gen. Psychiatry 2022, 35, e100871, https://doi.org/10.1136/gp..."
+    },
+    {
+      "ref_no": 3,
+      "char_length": 276,
+      "raw_text_head": "Murri, M.B.; Caruso, R.; Christensen, A.P.; Folesani, F.; Nanni, M.G.; Grassi, L. The facets of psychopathology in patie..."
+    },
+    {
+      "ref_no": 4,
+      "char_length": 115,
+      "raw_text_head": "Robieux, L.; Bridou, M. Les Ressources Psychologiques Face Aux Maladies Somatiques Chroniques. PSN 2022, 20, 37–56."
+    },
+    {
+      "ref_no": 5,
+      "char_length": 294,
+      "raw_text_head": "Lantheaume, S.; Montagne, M.; Shankland, R. Intervention centrée sur les ressources pour réduire les troubles anxieux et..."
+    },
+    {
+      "ref_no": 6,
+      "char_length": 148,
+      "raw_text_head": "Seligman, M.E.P.; Csikszentmihalyi, M. Positive psychology: An introduction.. Am. Psychol. 2000, 55, 5–14, https://doi.o..."
+    },
+    {
+      "ref_no": 7,
+      "char_length": 121,
+      "raw_text_head": "Becker, D.; Marecek, J. Positive Psychology. Theory Psychol. 2008, 18, 591–604, https://doi.org/10.1177/0959354308093397..."
+    },
+    {
+      "ref_no": 8,
+      "char_length": 246,
+      "raw_text_head": "Merino, M.D.; Sánchez-Ortega, M.; Elvira-Flores, E.; Mateo-Rodríguez, I. Centenary Personality: Are There Psychological ..."
+    },
+    {
+      "ref_no": 9,
+      "char_length": 185,
+      "raw_text_head": "Flückiger, C.; Wüsten, G.; Zinbarg, R.E.; Wampold, B.E. Resource Activation: Using Clients’ Own Strengths in Psychothera..."
+    },
+    {
+      "ref_no": 10,
+      "char_length": 144,
+      "raw_text_head": "Hobfoll, S.E. Social and Psychological Resources and Adaptation. Rev. Gen. Psychol. 2002, 6, 307–324, https://doi.org/10..."
+    }
+  ],
+  "elapsed_seconds": 0.082,
+  "comparison": {
+    "gold_ref_count": 149,
+    "baseline_detected": 147,
+    "delta": 2,
+    "refs_missing_in_baseline": [
+      40,
+      140
+    ],
+    "interpretation": "✗ 基準値がゴールドに 2 件不足。欠落 refs: [40, 140]。統合パッチ適用により +2 件の改善が見込まれる"
+  }
+}
