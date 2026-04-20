@@ -61,57 +61,13 @@ def phase1_blocks(main_module):
 
 
 # ============================================================================
-# 基準値テスト (現状の挙動を固定)
+# Phase 1 post-integration behavior is now tested in
+# tests/test_split_references_doi_boundary.py (149/149 blocks detected,
+# #40 van der Biessen / #140 van Zyl correctly isolated).
+# The pre-integration characterization tests that previously lived here
+# (TestPhase1CurrentBehavior) have been removed after commit applying
+# integration/patches/01_split_references_fix.patch.
 # ============================================================================
-
-# 統合前の期待値 (現状のバグ込み)
-BASELINE_BLOCKS_DETECTED = 147   # 本来は 149 だが #40, #140 が欠落
-BASELINE_MISSING_REFS = [40, 140]
-BASELINE_OVERSIZED_REF = 39       # #39 に #40 が統合されて肥大化
-
-
-class TestPhase1CurrentBehavior:
-    """統合前本体の Phase 1 挙動を特徴付けるテスト。"""
-
-    def test_phase1_runs_without_error(self, phase1_blocks):
-        """Phase 1 はクラッシュせずに完走すること。"""
-        assert phase1_blocks is not None
-        assert isinstance(phase1_blocks, list)
-
-    def test_phase1_detects_baseline_count(self, phase1_blocks):
-        """
-        現状の検出ブロック数を 147 として固定する。
-
-        統合パッチ適用後はこのテストが FAIL する (= 改善)。
-        FAIL を確認したら BASELINE_BLOCKS_DETECTED を 149 に更新すること。
-        """
-        assert len(phase1_blocks) == BASELINE_BLOCKS_DETECTED, (
-            f"Phase 1 検出数 {len(phase1_blocks)} ≠ 既知の基準値 "
-            f"{BASELINE_BLOCKS_DETECTED}。本体または Phase 1 の挙動が変化しました。"
-            f" もしこれが統合パッチによる改善なら、expected を更新してください。"
-        )
-
-    def test_phase1_loses_known_refs(self, phase1_blocks):
-        """Ref #40 および #140 が欠落することを確認 (既知のバグ)。"""
-        ref_nos = sorted(b.ref_no for b in phase1_blocks)
-        missing = [n for n in range(1, 150) if n not in ref_nos]
-        assert missing == BASELINE_MISSING_REFS, (
-            f"欠落 refs が基準値と異なります: {missing} vs {BASELINE_MISSING_REFS}。"
-            f" 統合パッチ適用後の場合、missing=[] を期待値として更新してください。"
-        )
-
-    def test_phase1_oversized_block_contains_merged_ref(self, phase1_blocks):
-        """Ref #39 が異常に大きく、本来の #40 を含んでいることを確認。"""
-        block_39 = next((b for b in phase1_blocks if b.ref_no == 39), None)
-        assert block_39 is not None, "Ref #39 が存在しないのは想定外"
-        assert block_39.char_length > 400, (
-            f"Ref #39 のサイズ {block_39.char_length} が想定より小さい。"
-            f" 統合パッチによる改善の可能性"
-        )
-        assert "van der Biessen" in block_39.raw_text, (
-            f"Ref #39 に #40 の著者 'van der Biessen' が含まれない。"
-            f" この統合バグが既に解消されている可能性"
-        )
 
 
 # ============================================================================
