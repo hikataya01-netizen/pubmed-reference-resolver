@@ -111,6 +111,47 @@ def test_structure_all_references_routes_all_149_refs_to_fast_path():
     )
 
 
+def test_structure_all_references_with_overrides_applied():
+    """fast-path + overrides: 4 flagged refs are corrected per manual_overrides.yaml."""
+    import main as main_mod
+
+    OVERRIDES_YAML = (
+        Path(__file__).parent.parent / "integration" / "src" / "manual_overrides.yaml"
+    )
+
+    blocks, ln_report = _load_phase1_blocks_with_ln_report()
+    overrides = main_mod._load_overrides_yaml(OVERRIDES_YAML)
+
+    result = main_mod.structure_all_references(
+        blocks,
+        ln_report,
+        api_key=None,
+        verbose=False,
+        enable_mdpi_fast_path=True,
+        overrides=overrides,
+    )
+
+    result_by_refno = {r["ref_no"]: r for r in result}
+
+    # Ref #66: journal corrected
+    assert result_by_refno[66]["journal"] == "Psicooncología"
+    assert "override applied" in (result_by_refno[66].get("notes") or "")
+
+    # Ref #137: journal corrected (city retained)
+    assert result_by_refno[137]["journal"] == "Basic Book: New York"
+
+    # Ref #141: is_book True, year 2004 (book classification recovered)
+    assert result_by_refno[141]["is_book"] is True
+    assert result_by_refno[141]["year"] == 2004
+
+    # Ref #148: title/journal boundary corrected
+    assert "Perspect" not in result_by_refno[148]["title"]
+    assert result_by_refno[148]["journal"] == "Perspect. Psychol. Sci."
+
+    # Non-override refs are not affected
+    assert "override applied" not in (result_by_refno[1].get("notes") or "")
+
+
 @pytest.mark.skipif(
     not os.environ.get("ANTHROPIC_API_KEY"),
     reason="ANTHROPIC_API_KEY not set; LLM fallback path requires API access",
