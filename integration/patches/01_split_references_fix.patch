@@ -1,0 +1,31 @@
+diff --git a/main.py b/main.py
+index 55eae40..6e94a9c 100644
+--- a/main.py
++++ b/main.py
+@@ -379,7 +379,13 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
+     - LISが参照マーカー群、外れ値は本文内の誤マッチ (例: "39 Years") と判定
+     """
+     # より寛容な候補検出: ピリオド or 空白で数字と著者を区切る
+-    matcher = re.compile(r"(?<![\d.])(\d+)[\.\s]+(?=[A-Z])")
++    # NOTE: lookahead allows lowercase prefixes for Dutch/French surnames
++    # (van, de, du, den, von) which start with lowercase letters.
++    # Without this, refs like "40. van der Biessen" are silently dropped.
++    matcher = re.compile(
++        r"(?<![\d.])(\d+)[\.\s]+"
++        r"(?=[A-Z]|van\s|de\s+[A-Z]|du\s+[A-Z]|den\s+[A-Z]|von\s+[A-Z])"
++    )
+     candidates = [(m.start(), m.end(), int(m.group(1))) for m in matcher.finditer(cleaned)]
+     if not candidates:
+         return []
+@@ -394,7 +400,10 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
+     # 健全性チェック: LIS が1 or 2から始まり、かつ3件以上 (単発誤検出を排除)
+     if selected[0][2] > 3 or len(selected) < 2:
+         # フォールバック: 標準regex のみで再試行
+-        standard = re.compile(r"(?<![\d.])(\d+)\.\s+(?=[A-Z])")
++        standard = re.compile(
++            r"(?<![\d.])(\d+)\.\s+"
++            r"(?=[A-Z]|van\s|de\s+[A-Z]|du\s+[A-Z]|den\s+[A-Z]|von\s+[A-Z])"
++        )
+         strict_hits = list(standard.finditer(cleaned))
+         if not strict_hits:
+             return []

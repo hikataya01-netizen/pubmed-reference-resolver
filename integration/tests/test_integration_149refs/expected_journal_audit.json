@@ -1,0 +1,807 @@
+[
+  {
+    "ref_no": 13,
+    "cite_journal": "Ultrasound Med. Biol",
+    "pm_journal": "Jpn J Clin Oncol",
+    "pmid": "28591864",
+    "similarity": 44
+  },
+  {
+    "ref_no": 5,
+    "cite_journal": "Enceph. De Psychiatr. Clin. Biol. Et Ther",
+    "pm_journal": "Encephale",
+    "pmid": "31610923",
+    "similarity": 80
+  },
+  {
+    "ref_no": 101,
+    "cite_journal": "Int. J. Color. Dis",
+    "pm_journal": "Int J Colorectal Dis",
+    "pmid": "28913686",
+    "similarity": 86
+  },
+  {
+    "ref_no": 29,
+    "cite_journal": "Heal. Psychol",
+    "pm_journal": "Health Psychol",
+    "pmid": "20836603",
+    "similarity": 92
+  },
+  {
+    "ref_no": 52,
+    "cite_journal": "Heal. Psychol",
+    "pm_journal": "Health Psychol",
+    "pmid": "34323543",
+    "similarity": 92
+  },
+  {
+    "ref_no": 60,
+    "cite_journal": "Heal. Psychol",
+    "pm_journal": "Health Psychol",
+    "pmid": "31343219",
+    "similarity": 92
+  },
+  {
+    "ref_no": 110,
+    "cite_journal": "Heal. Psychol",
+    "pm_journal": "Health Psychol",
+    "pmid": "25545043",
+    "similarity": 92
+  },
+  {
+    "ref_no": 122,
+    "cite_journal": "Heal. Psychol",
+    "pm_journal": "Health Psychol",
+    "pmid": "4029106",
+    "similarity": 92
+  },
+  {
+    "ref_no": 142,
+    "cite_journal": "J. Heal. Psychol",
+    "pm_journal": "J Health Psychol",
+    "pmid": "21346007",
+    "similarity": 93
+  },
+  {
+    "ref_no": 41,
+    "cite_journal": "Psychol. Heal. Med",
+    "pm_journal": "Psychol Health Med",
+    "pmid": "28554229",
+    "similarity": 94
+  },
+  {
+    "ref_no": 42,
+    "cite_journal": "Psychol. Heal. Med",
+    "pm_journal": "Psychol Health Med",
+    "pmid": "30514112",
+    "similarity": 94
+  },
+  {
+    "ref_no": 48,
+    "cite_journal": "Br. J. Heal. Psychol",
+    "pm_journal": "Br J Health Psychol",
+    "pmid": "28960718",
+    "similarity": 94
+  },
+  {
+    "ref_no": 50,
+    "cite_journal": "Psychol. Heal. Med",
+    "pm_journal": "Psychol Health Med",
+    "pmid": "26708250",
+    "similarity": 94
+  },
+  {
+    "ref_no": 81,
+    "cite_journal": "Psychol. Heal. Med",
+    "pm_journal": "Psychol Health Med",
+    "pmid": "35686311",
+    "similarity": 94
+  },
+  {
+    "ref_no": 136,
+    "cite_journal": "Heal. Educ. Behav",
+    "pm_journal": "Health Educ Behav",
+    "pmid": "9952053",
+    "similarity": 94
+  },
+  {
+    "ref_no": 33,
+    "cite_journal": "Heal. Qual. Life Outcomes",
+    "pm_journal": "Health Qual Life Outcomes",
+    "pmid": "28818112",
+    "similarity": 96
+  },
+  {
+    "ref_no": 37,
+    "cite_journal": "Heal. Qual. Life Outcomes",
+    "pm_journal": "Health Qual Life Outcomes",
+    "pmid": "33413485",
+    "similarity": 96
+  },
+  {
+    "ref_no": 54,
+    "cite_journal": "Int. J. Clin. Heal. Psychol",
+    "pm_journal": "Int J Clin Health Psychol",
+    "pmid": "30487907",
+    "similarity": 96
+  },
+  {
+    "ref_no": 102,
+    "cite_journal": "Heal. Qual. Life Outcomes",
+    "pm_journal": "Health Qual Life Outcomes",
+    "pmid": "26651334",
+    "similarity": 96
+  },
+  {
+    "ref_no": 108,
+    "cite_journal": "Heal. Qual. Life Outcomes",
+    "pm_journal": "Health Qual Life Outcomes",
+    "pmid": "25889384",
+    "similarity": 96
+  },
+  {
+    "ref_no": 44,
+    "cite_journal": "Child Abus. Negl",
+    "pm_journal": "Child Abuse Negl",
+    "pmid": "28888809",
+    "similarity": 97
+  },
+  {
+    "ref_no": 84,
+    "cite_journal": "Arch. Women's Ment. Heal",
+    "pm_journal": "Arch Womens Ment Health",
+    "pmid": "33161489",
+    "similarity": 98
+  },
+  {
+    "ref_no": 1,
+    "cite_journal": "CA: A Cancer J. Clin",
+    "pm_journal": "CA Cancer J Clin",
+    "pmid": "38572751",
+    "similarity": 100
+  },
+  {
+    "ref_no": 2,
+    "cite_journal": "Gen. Psychiatry",
+    "pm_journal": "Gen Psychiatr",
+    "pmid": "36311374",
+    "similarity": 100
+  },
+  {
+    "ref_no": 3,
+    "cite_journal": "J. Psychosom. Res",
+    "pm_journal": "J Psychosom Res",
+    "pmid": "36610333",
+    "similarity": 100
+  },
+  {
+    "ref_no": 6,
+    "cite_journal": "Am. Psychol",
+    "pm_journal": "Am Psychol",
+    "pmid": "11392865",
+    "similarity": 100
+  },
+  {
+    "ref_no": 12,
+    "cite_journal": "J. Urol",
+    "pm_journal": "J Urol",
+    "pmid": "39348716",
+    "similarity": 100
+  },
+  {
+    "ref_no": 14,
+    "cite_journal": "Front. Psychol",
+    "pm_journal": "Front Psychol",
+    "pmid": "35783766",
+    "similarity": 100
+  },
+  {
+    "ref_no": 15,
+    "cite_journal": "BMJ",
+    "pm_journal": "BMJ",
+    "pmid": "33781993",
+    "similarity": 100
+  },
+  {
+    "ref_no": 16,
+    "cite_journal": "Spinal Cord",
+    "pm_journal": "Spinal Cord",
+    "pmid": "22124343",
+    "similarity": 100
+  },
+  {
+    "ref_no": 17,
+    "cite_journal": "BMC Med Res. Methodol",
+    "pm_journal": "BMC Med Res Methodol",
+    "pmid": "31253092",
+    "similarity": 100
+  },
+  {
+    "ref_no": 18,
+    "cite_journal": "BMJ",
+    "pm_journal": "BMJ",
+    "pmid": "31462531",
+    "similarity": 100
+  },
+  {
+    "ref_no": 20,
+    "cite_journal": "BMC Psychiatry",
+    "pm_journal": "BMC Psychiatry",
+    "pmid": "36199048",
+    "similarity": 100
+  },
+  {
+    "ref_no": 21,
+    "cite_journal": "Qual. Life Res",
+    "pm_journal": "Qual Life Res",
+    "pmid": "30128785",
+    "similarity": 100
+  },
+  {
+    "ref_no": 22,
+    "cite_journal": "Eur. J. Oncol. Nurs",
+    "pm_journal": "Eur J Oncol Nurs",
+    "pmid": "29784133",
+    "similarity": 100
+  },
+  {
+    "ref_no": 23,
+    "cite_journal": "Support. Care Cancer",
+    "pm_journal": "Support Care Cancer",
+    "pmid": "32918129",
+    "similarity": 100
+  },
+  {
+    "ref_no": 24,
+    "cite_journal": "J. Behav. Med",
+    "pm_journal": "J Behav Med",
+    "pmid": "32939680",
+    "similarity": 100
+  },
+  {
+    "ref_no": 27,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "27723939",
+    "similarity": 100
+  },
+  {
+    "ref_no": 28,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "31218773",
+    "similarity": 100
+  },
+  {
+    "ref_no": 30,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "27191964",
+    "similarity": 100
+  },
+  {
+    "ref_no": 31,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "24722558",
+    "similarity": 100
+  },
+  {
+    "ref_no": 32,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "27072749",
+    "similarity": 100
+  },
+  {
+    "ref_no": 34,
+    "cite_journal": "Int. J. Nurs. Stud",
+    "pm_journal": "Int J Nurs Stud",
+    "pmid": "24315542",
+    "similarity": 100
+  },
+  {
+    "ref_no": 35,
+    "cite_journal": "J. Pain Symptom Manag",
+    "pm_journal": "J Pain Symptom Manage",
+    "pmid": "20579840",
+    "similarity": 100
+  },
+  {
+    "ref_no": 36,
+    "cite_journal": "Front. Psychol",
+    "pm_journal": "Front Psychol",
+    "pmid": "34122231",
+    "similarity": 100
+  },
+  {
+    "ref_no": 38,
+    "cite_journal": "BMC Psychiatry",
+    "pm_journal": "BMC Psychiatry",
+    "pmid": "35585529",
+    "similarity": 100
+  },
+  {
+    "ref_no": 39,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "31046153",
+    "similarity": 100
+  },
+  {
+    "ref_no": 40,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "28665008",
+    "similarity": 100
+  },
+  {
+    "ref_no": 43,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "31509614",
+    "similarity": 100
+  },
+  {
+    "ref_no": 46,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "28419640",
+    "similarity": 100
+  },
+  {
+    "ref_no": 47,
+    "cite_journal": "Eur. J. Oncol. Nurs",
+    "pm_journal": "Eur J Oncol Nurs",
+    "pmid": "33610930",
+    "similarity": 100
+  },
+  {
+    "ref_no": 49,
+    "cite_journal": "J. Relig. Heal",
+    "pm_journal": "J Relig Health",
+    "pmid": "34514549",
+    "similarity": 100
+  },
+  {
+    "ref_no": 51,
+    "cite_journal": "Psychol. Heal",
+    "pm_journal": "Psychol Health",
+    "pmid": "21391129",
+    "similarity": 100
+  },
+  {
+    "ref_no": 53,
+    "cite_journal": "Oncol. Nurs. Forum",
+    "pm_journal": "Oncol Nurs Forum",
+    "pmid": "28635986",
+    "similarity": 100
+  },
+  {
+    "ref_no": 55,
+    "cite_journal": "Geriatr. Gerontol. Int",
+    "pm_journal": "Geriatr Gerontol Int",
+    "pmid": "25303007",
+    "similarity": 100
+  },
+  {
+    "ref_no": 56,
+    "cite_journal": "Psychol. Heal",
+    "pm_journal": "Psychol Health",
+    "pmid": "26559446",
+    "similarity": 100
+  },
+  {
+    "ref_no": 57,
+    "cite_journal": "Psychol. Heal",
+    "pm_journal": "Psychol Health",
+    "pmid": "20397294",
+    "similarity": 100
+  },
+  {
+    "ref_no": 58,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "31957127",
+    "similarity": 100
+  },
+  {
+    "ref_no": 59,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "25612065",
+    "similarity": 100
+  },
+  {
+    "ref_no": 61,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "27124466",
+    "similarity": 100
+  },
+  {
+    "ref_no": 62,
+    "cite_journal": "Psychol. Heal",
+    "pm_journal": "Psychol Health",
+    "pmid": "22490001",
+    "similarity": 100
+  },
+  {
+    "ref_no": 63,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "36525411",
+    "similarity": 100
+  },
+  {
+    "ref_no": 64,
+    "cite_journal": "Psychol. Trauma: Theory, Res. Pr. Policy",
+    "pm_journal": "Psychol Trauma",
+    "pmid": "28981316",
+    "similarity": 100
+  },
+  {
+    "ref_no": 65,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "35290419",
+    "similarity": 100
+  },
+  {
+    "ref_no": 67,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "27731954",
+    "similarity": 100
+  },
+  {
+    "ref_no": 68,
+    "cite_journal": "J. Relig. Heal",
+    "pm_journal": "J Relig Health",
+    "pmid": "28725952",
+    "similarity": 100
+  },
+  {
+    "ref_no": 69,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "20878854",
+    "similarity": 100
+  },
+  {
+    "ref_no": 71,
+    "cite_journal": "J. Trauma. Stress",
+    "pm_journal": "J Trauma Stress",
+    "pmid": "23073975",
+    "similarity": 100
+  },
+  {
+    "ref_no": 72,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "24136875",
+    "similarity": 100
+  },
+  {
+    "ref_no": 73,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "27479936",
+    "similarity": 100
+  },
+  {
+    "ref_no": 74,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "33609048",
+    "similarity": 100
+  },
+  {
+    "ref_no": 75,
+    "cite_journal": "Eur. J. Cancer Care",
+    "pm_journal": "Eur J Cancer Care (Engl)",
+    "pmid": "25711851",
+    "similarity": 100
+  },
+  {
+    "ref_no": 76,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "25967598",
+    "similarity": 100
+  },
+  {
+    "ref_no": 77,
+    "cite_journal": "Eur. J. Cancer Care",
+    "pm_journal": "Eur J Cancer Care (Engl)",
+    "pmid": "24506500",
+    "similarity": 100
+  },
+  {
+    "ref_no": 78,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "34668264",
+    "similarity": 100
+  },
+  {
+    "ref_no": 79,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "27128438",
+    "similarity": 100
+  },
+  {
+    "ref_no": 80,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "34751457",
+    "similarity": 100
+  },
+  {
+    "ref_no": 82,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "31087804",
+    "similarity": 100
+  },
+  {
+    "ref_no": 83,
+    "cite_journal": "Perspect. Psychiatr. Care",
+    "pm_journal": "Perspect Psychiatr Care",
+    "pmid": "35535488",
+    "similarity": 100
+  },
+  {
+    "ref_no": 85,
+    "cite_journal": "Cancer Nurs",
+    "pm_journal": "Cancer Nurs",
+    "pmid": "25521911",
+    "similarity": 100
+  },
+  {
+    "ref_no": 86,
+    "cite_journal": "Support. Care Cancer",
+    "pm_journal": "Support Care Cancer",
+    "pmid": "29473117",
+    "similarity": 100
+  },
+  {
+    "ref_no": 87,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "32726344",
+    "similarity": 100
+  },
+  {
+    "ref_no": 88,
+    "cite_journal": "PLOS ONE",
+    "pm_journal": "PLoS One",
+    "pmid": "34029344",
+    "similarity": 100
+  },
+  {
+    "ref_no": 89,
+    "cite_journal": "BMC Psychiatry",
+    "pm_journal": "BMC Psychiatry",
+    "pmid": "36572859",
+    "similarity": 100
+  },
+  {
+    "ref_no": 90,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "31291695",
+    "similarity": 100
+  },
+  {
+    "ref_no": 91,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "27167009",
+    "similarity": 100
+  },
+  {
+    "ref_no": 92,
+    "cite_journal": "Clin. Psychol. Psychother",
+    "pm_journal": "Clin Psychol Psychother",
+    "pmid": "23526623",
+    "similarity": 100
+  },
+  {
+    "ref_no": 93,
+    "cite_journal": "Eur. J. Cancer Care",
+    "pm_journal": "Eur J Cancer Care (Engl)",
+    "pmid": "19659666",
+    "similarity": 100
+  },
+  {
+    "ref_no": 94,
+    "cite_journal": "Scand. J. Caring Sci",
+    "pm_journal": "Scand J Caring Sci",
+    "pmid": "25756731",
+    "similarity": 100
+  },
+  {
+    "ref_no": 95,
+    "cite_journal": "Nurs. Open",
+    "pm_journal": "Nurs Open",
+    "pmid": "33599393",
+    "similarity": 100
+  },
+  {
+    "ref_no": 96,
+    "cite_journal": "Qual. Life Res",
+    "pm_journal": "Qual Life Res",
+    "pmid": "30324585",
+    "similarity": 100
+  },
+  {
+    "ref_no": 97,
+    "cite_journal": "BMC Psychiatry",
+    "pm_journal": "BMC Psychiatry",
+    "pmid": "37143028",
+    "similarity": 100
+  },
+  {
+    "ref_no": 98,
+    "cite_journal": "Eur. J. Oncol. Nurs",
+    "pm_journal": "Eur J Oncol Nurs",
+    "pmid": "34507151",
+    "similarity": 100
+  },
+  {
+    "ref_no": 99,
+    "cite_journal": "Neuropsychiatr. Dis. Treat",
+    "pm_journal": "Neuropsychiatr Dis Treat",
+    "pmid": "31920312",
+    "similarity": 100
+  },
+  {
+    "ref_no": 100,
+    "cite_journal": "J. Psychosom. Res",
+    "pm_journal": "J Psychosom Res",
+    "pmid": "21511071",
+    "similarity": 100
+  },
+  {
+    "ref_no": 103,
+    "cite_journal": "Eur. J. Oncol. Nurs",
+    "pm_journal": "Eur J Oncol Nurs",
+    "pmid": "34509089",
+    "similarity": 100
+  },
+  {
+    "ref_no": 104,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "31670431",
+    "similarity": 100
+  },
+  {
+    "ref_no": 105,
+    "cite_journal": "Front. Psychol",
+    "pm_journal": "Front Psychol",
+    "pmid": "32714254",
+    "similarity": 100
+  },
+  {
+    "ref_no": 106,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "21910162",
+    "similarity": 100
+  },
+  {
+    "ref_no": 107,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "19353527",
+    "similarity": 100
+  },
+  {
+    "ref_no": 109,
+    "cite_journal": "Oncol. Nurs. Forum",
+    "pm_journal": "Oncol Nurs Forum",
+    "pmid": "23448737",
+    "similarity": 100
+  },
+  {
+    "ref_no": 111,
+    "cite_journal": "Eur. J. Cancer Care",
+    "pm_journal": "Eur J Cancer Care (Engl)",
+    "pmid": "26215314",
+    "similarity": 100
+  },
+  {
+    "ref_no": 112,
+    "cite_journal": "J. Pain Symptom Manag",
+    "pm_journal": "J Pain Symptom Manage",
+    "pmid": "29857179",
+    "similarity": 100
+  },
+  {
+    "ref_no": 119,
+    "cite_journal": "J. Pers. Soc. Psychol",
+    "pm_journal": "J Pers Soc Psychol",
+    "pmid": "12703651",
+    "similarity": 100
+  },
+  {
+    "ref_no": 128,
+    "cite_journal": "Child Dev",
+    "pm_journal": "Child Dev",
+    "pmid": "10953923",
+    "similarity": 100
+  },
+  {
+    "ref_no": 129,
+    "cite_journal": "Dev. Psychopathol",
+    "pm_journal": "Dev Psychopathol",
+    "pmid": "22559117",
+    "similarity": 100
+  },
+  {
+    "ref_no": 130,
+    "cite_journal": "Psychiatry Investig",
+    "pm_journal": "Psychiatry Investig",
+    "pmid": "25395975",
+    "similarity": 100
+  },
+  {
+    "ref_no": 133,
+    "cite_journal": "PsychoOncology",
+    "pm_journal": "Psychooncology",
+    "pmid": "32100897",
+    "similarity": 100
+  },
+  {
+    "ref_no": 138,
+    "cite_journal": "Soc. Sci. Med",
+    "pm_journal": "Soc Sci Med",
+    "pmid": "8480217",
+    "similarity": 100
+  },
+  {
+    "ref_no": 139,
+    "cite_journal": "J. Palliat. Med",
+    "pm_journal": "J Palliat Med",
+    "pmid": "12006231",
+    "similarity": 100
+  },
+  {
+    "ref_no": 144,
+    "cite_journal": "Front. Psychol",
+    "pm_journal": "Front Psychol",
+    "pmid": "36570997",
+    "similarity": 100
+  },
+  {
+    "ref_no": 145,
+    "cite_journal": "Clin. Psychol. Rev",
+    "pm_journal": "Clin Psychol Rev",
+    "pmid": "31078056",
+    "similarity": 100
+  },
+  {
+    "ref_no": 146,
+    "cite_journal": "Ann. Behav. Med",
+    "pm_journal": "Ann Behav Med",
+    "pmid": "20091429",
+    "similarity": 100
+  },
+  {
+    "ref_no": 147,
+    "cite_journal": "Am. Psychol",
+    "pm_journal": "Am Psychol",
+    "pmid": "30525784",
+    "similarity": 100
+  },
+  {
+    "ref_no": 149,
+    "cite_journal": "Psychol. Bull",
+    "pm_journal": "Psychol Bull",
+    "pmid": "29771554",
+    "similarity": 100
+  }
+]
