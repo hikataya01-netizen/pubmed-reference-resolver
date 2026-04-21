@@ -16,6 +16,8 @@ import unicodedata
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
+import mdpi_parser
+
 
 # =============================================================================
 # .env ファイル自動読み込み (スキル/CLI どちらでも利用可)
@@ -422,7 +424,7 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
 
 
 # =============================================================================
-# Stage 3: LLM による構造化
+# Stage 3: 構造化 (MDPI fast-path + LLM フォールバック)
 # =============================================================================
 
 LLM_MODEL = "claude-sonnet-4-6"
@@ -499,26 +501,72 @@ def structure_all_references(
     *,
     api_key: str | None = None,
     verbose: bool = True,
+    enable_mdpi_fast_path: bool = True,
 ) -> list[dict]:
-    """全参照ブロックを逐次LLM投入して構造化結果のリストを返す。"""
-    try:
-        import anthropic
-    except ImportError as e:
-        raise RuntimeError("anthropic SDK is required. Install: pip install anthropic") from e
-    if api_key is None:
-        api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY not set. Pass via env or --api-key.")
-    client = anthropic.Anthropic(api_key=api_key)
-    system_prompt = _load_system_prompt()
+    """全参照ブロックを構造化する。
 
-    results: list[dict] = []
-    for i, b in enumerate(blocks, 1):
+    enable_mdpi_fast_path=True の場合、MDPI 形式と判定されたブロックは
+    mdpi_parser (決定論的) で処理され、LLM API コストがかからない。
+    非 MDPI 形式 (Vancouver, AMA, APA 等) のブロックは従来通り LLM を使う。
+    両者とも llm_parsing_prompt.md のスキーマに準拠した出力を返す。
+
+    Args:
+        enable_mdpi_fast_path: True で MDPI fast-path を有効化 (default)
+    """
+    # ブロックを MDPI 形式 / 非 MDPI 形式に分類
+    mdpi_blocks: list[ReferenceBlock] = []
+    non_mdpi_blocks: list[ReferenceBlock] = []
+    if enable_mdpi_fast_path:
+        for b in blocks:
+            if mdpi_parser.is_mdpi_style(b.raw_text):
+                mdpi_blocks.append(b)
+            else:
+                non_mdpi_blocks.append(b)
+    else:
+        non_mdpi_blocks = list(blocks)
+
+    results_by_refno: dict[int, dict] = {}
+
+    # MDPI fast-path (LLM 不使用)
+    if mdpi_blocks:
         if verbose:
-            print(f"  [{i:>2}/{len(blocks)}] Ref #{b.ref_no} ({b.char_length} chars)...", flush=True)
-        obj = structure_reference(client, system_prompt, b, ln_report)
-        results.append(obj)
-    return results
+            print(f"[Phase 2] MDPI fast-path: {len(mdpi_blocks)} blocks (no LLM)",
+                  flush=True)
+        for r in mdpi_parser.structure_all_mdpi(mdpi_blocks, verbose=verbose):
+            results_by_refno[r["ref_no"]] = r
+
+    # 非 MDPI 形式は従来通り LLM 処理
+    if non_mdpi_blocks:
+        if verbose:
+            print(f"[Phase 2] LLM path: {len(non_mdpi_blocks)} blocks",
+                  flush=True)
+        try:
+            import anthropic
+        except ImportError as e:
+            raise RuntimeError(
+                "anthropic SDK is required. Install: pip install anthropic"
+            ) from e
+        if api_key is None:
+            api_key = os.environ.get("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise RuntimeError(
+                "ANTHROPIC_API_KEY not set. Pass via env or --api-key."
+            )
+        client = anthropic.Anthropic(api_key=api_key)
+        system_prompt = _load_system_prompt()
+
+        for i, b in enumerate(non_mdpi_blocks, 1):
+            if verbose:
+                print(
+                    f"  [{i:>3}/{len(non_mdpi_blocks)}] Ref #{b.ref_no} "
+                    f"({b.char_length} chars, LLM)...",
+                    flush=True,
+                )
+            obj = structure_reference(client, system_prompt, b, ln_report)
+            results_by_refno[obj["ref_no"]] = obj
+
+    ordered = sorted(results_by_refno.values(), key=lambda x: x["ref_no"])
+    return ordered
 
 
 # =============================================================================
