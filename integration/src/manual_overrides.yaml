@@ -1,0 +1,149 @@
+# manual_overrides.yaml
+# ============================================================================
+# 目的:
+#   MDPI パーサや LLM パーサで十分に構造化できないケース、または原稿側に
+#   記載不備があるケースを宣言的に補正するためのテーブル。
+#
+#   本ファイルはスキル本体に同梱される "デフォルト補正" ではなく、
+#   ユーザーが特定の原稿ごとに用意するローカル設定として設計されている。
+#   CLI 引数 --overrides path/to/overrides.yaml で指定して使用する。
+#
+# 構造:
+#   overrides:
+#     - match:
+#         ref_no: 13               # ref_no による一致 (整数)
+#         # あるいは
+#         doi: 10.xxx/yyy          # DOI による一致 (文字列)
+#         # あるいは
+#         raw_contains: "substr"   # raw_text 内の部分文字列一致
+#       patch:
+#         # ここに置きたいフィールドを指定 (置換される)
+#         journal: "Jpn. J. Clin. Oncol."
+#         parsing_confidence: high
+#         notes: "著者によるジャーナル名誤記を訂正 (DOI prefix jjco に基づく)"
+#
+# 注意:
+#   - 同一ブロックに複数マッチした場合、先頭から順に patch を適用する
+#     (merge ではなく順次 update)
+#   - is_book=True フラグを立てる場合、PubMed 検索は自動的にスキップされる
+# ============================================================================
+
+overrides:
+
+  # ------------------------------------------------------------------------
+  # Example: ソース側で journal 名が誤記されているケース
+  # ------------------------------------------------------------------------
+  # 論文 #13 (Thieme et al. 2017) の journal 記載は "Ultrasound Med. Biol."
+  # と書かれているが、DOI (10.1093/jjco/hyx079) prefix "jjco" から実際には
+  # Japanese Journal of Clinical Oncology。ここでは取り込みを優先せず
+  # "原文尊重で検索、ただし notes に警告" というポリシーにしているため、
+  # このサンプルはコメントアウトしてある。実運用で journal 書き換えしたい
+  # 場合はコメントを外すこと。
+  #
+  # - match:
+  #     ref_no: 13
+  #   patch:
+  #     journal: "Jpn. J. Clin. Oncol."
+  #     notes: "author's journal name mis-reported; corrected based on DOI prefix"
+
+  # ------------------------------------------------------------------------
+  # Example: ISBN フィールドが空欄の書籍を手動で is_book=true に補正
+  # ------------------------------------------------------------------------
+  # - match:
+  #     ref_no: 114
+  #   patch:
+  #     is_book: true
+  #     title: "Routledge International Handbook of Positive Health Sciences"
+  #     journal: "Taylor & Francis"
+  #     year: 2023
+  #     notes: "is_book=true; ISBN field was empty in source manuscript"
+
+  # ------------------------------------------------------------------------
+  # Example: DOI prefix からジャーナル名を推定して補完
+  # ------------------------------------------------------------------------
+  # - match:
+  #     doi: "10.5209/psic.68243"
+  #   patch:
+  #     journal: "Psicooncología"
+  #     parsing_confidence: high
+  #     notes: "journal inferred from DOI prefix 10.5209/psic"
+
+  # ------------------------------------------------------------------------
+  # Example: 著者名だけが記載された不完全 Reference
+  # ------------------------------------------------------------------------
+  # - match:
+  #     ref_no: 117
+  #   patch:
+  #     parsing_confidence: low
+  #     notes: "incomplete_reference_in_source: authors only, no title/journal/year"
+
+  # ==========================================================================
+  # === Step 2 findings (TODO for Step 4 integration) ===
+  #
+  # 2026-04-20 〜 21 の Step 2 (mdpi_parser.py 追加) 作業中に判明した、
+  # パーサ単体では決定論的に解けない個別補正ケースの記録。
+  # Step 4 で overrides loader を実装する際、以下のエントリをそのまま
+  # or 整形して有効化する。現時点では仕様設計段階。
+  #
+  # 上記の commented-out example 集は記述形式のリファレンスとして保持。
+  # 下記の実エントリは上記 example と同じ形式に従う。
+  # ==========================================================================
+
+  # --- Ref #66: journal 境界検出不能 ---
+  66:
+    reason: "Parser cannot determine journal boundary for this citation format"
+    fields:
+      journal: "Psicooncología"
+    source: "Manually verified against DOI and PubMed cross-reference"
+
+  # --- Ref #137: 書籍 publisher の地名保持 ---
+  # 修正 4 (parse_one の ': City, Country' 除去) が Ref #114 では正常動作するが、
+  # 本 Ref では 'Basic Book: New York' の形で地名を保持すべきという要求に対して
+  # 過剰発動する。Ref #114 と #137 でゴールドの要求が一貫していないことへの対処。
+  137:
+    reason: "Parser strips ': City' suffix uniformly; this ref needs city retained"
+    fields:
+      journal: "Basic Book: New York"
+    source: "Publisher convention for this specific book edition"
+
+  # --- Ref #141: Book 判定漏れ (Handbook but no 'of'/'on' signal, no ISBN) ---
+  # raw_text:
+  #   'Peterson, C.; Seligman, M.E.P. Character Strengths and Virtues:
+  #    A Handbook and Classification; 2004;'
+  #
+  # パーサ挙動:
+  #   - _ISBN_RE.search() → False (ISBN 記載なし)
+  #   - _BOOK_SIGNS_RE.search() → False ('Handbook\s+(?:of|on)\b' が 'and' と不一致)
+  # 結果: is_book=False, year=None, title に '; 2004' 残置
+  # parsing_confidence='low', notes='missing: journal,year'
+  #
+  # 対処: パーサの _BOOK_SIGNS_RE に 'Handbook' 単独を追加すると他の論文
+  # タイトル ('Systematic review of X handbook...' 等) を誤判定するリスクが
+  # あるため、パーサ修正ではなく overrides で個別対応する方針。
+  141:
+    reason: "Source lacks ISBN; book signature regex requires 'Handbook of/on' but text has 'Handbook and Classification'"
+    fields:
+      is_book: true
+      year: 2004
+      title: "Character Strengths and Virtues: A Handbook and Classification"
+      publisher: "Oxford University Press"  # 要出典確認: 暫定値、ユーザー (先生) の原稿で確認待ち
+    source: "Manual classification based on bibliographic lookup (Peterson & Seligman, 2004)"
+
+  # --- Ref #148: title/journal 境界検出失敗 ---
+  # パーサ実出力:
+  #   title:   '...A Crisis of Confidence? Perspect'
+  #   journal: 'Psychol. Sci'
+  # 期待値:
+  #   title:   '...A Crisis of Confidence?'
+  #   journal: 'Perspect. Psychol. Sci.'
+  #
+  # parse_title_journal_year_vol_pages() のトークン境界検出の既存問題。
+  # 'Perspect' が journal 略記の先頭トークンであることを判定できず、
+  # title 側に吸収されている。journal 略語辞書の整備で将来的に改善可能だが
+  # 本 Step のスコープ外。
+  148:
+    reason: "parse_title_journal_year_vol_pages() cannot detect 'Perspect' as journal abbreviation start"
+    fields:
+      title: "Editors\u2019 Introduction to the Special Section on Replicability in Psychological Science: A Crisis of Confidence?"
+      journal: "Perspect. Psychol. Sci."
+    source: "Manual boundary detection based on journal abbreviation list"

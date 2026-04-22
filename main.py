@@ -16,6 +16,9 @@ import unicodedata
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
+import journal_audit
+import mdpi_parser
+
 
 # =============================================================================
 # .env ファイル自動読み込み (スキル/CLI どちらでも利用可)
@@ -379,7 +382,13 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
     - LISが参照マーカー群、外れ値は本文内の誤マッチ (例: "39 Years") と判定
     """
     # より寛容な候補検出: ピリオド or 空白で数字と著者を区切る
-    matcher = re.compile(r"(?<![\d.])(\d+)[\.\s]+(?=[A-Z])")
+    # NOTE: lookahead allows lowercase prefixes for Dutch/French surnames
+    # (van, de, du, den, von) which start with lowercase letters.
+    # Without this, refs like "40. van der Biessen" are silently dropped.
+    matcher = re.compile(
+        r"(?<![\d.])(\d+)[\.\s]+"
+        r"(?=[A-Z]|van\s|de\s+[A-Z]|du\s+[A-Z]|den\s+[A-Z]|von\s+[A-Z])"
+    )
     candidates = [(m.start(), m.end(), int(m.group(1))) for m in matcher.finditer(cleaned)]
     if not candidates:
         return []
@@ -394,7 +403,10 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
     # 健全性チェック: LIS が1 or 2から始まり、かつ3件以上 (単発誤検出を排除)
     if selected[0][2] > 3 or len(selected) < 2:
         # フォールバック: 標準regex のみで再試行
-        standard = re.compile(r"(?<![\d.])(\d+)\.\s+(?=[A-Z])")
+        standard = re.compile(
+            r"(?<![\d.])(\d+)\.\s+"
+            r"(?=[A-Z]|van\s|de\s+[A-Z]|du\s+[A-Z]|den\s+[A-Z]|von\s+[A-Z])"
+        )
         strict_hits = list(standard.finditer(cleaned))
         if not strict_hits:
             return []
@@ -413,7 +425,7 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
 
 
 # =============================================================================
-# Stage 3: LLM による構造化
+# Stage 3: 構造化 (MDPI fast-path + LLM フォールバック)
 # =============================================================================
 
 LLM_MODEL = "claude-sonnet-4-6"
@@ -490,26 +502,189 @@ def structure_all_references(
     *,
     api_key: str | None = None,
     verbose: bool = True,
+    enable_mdpi_fast_path: bool = True,
+    overrides: dict[int, dict] | None = None,
 ) -> list[dict]:
-    """全参照ブロックを逐次LLM投入して構造化結果のリストを返す。"""
-    try:
-        import anthropic
-    except ImportError as e:
-        raise RuntimeError("anthropic SDK is required. Install: pip install anthropic") from e
-    if api_key is None:
-        api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY not set. Pass via env or --api-key.")
-    client = anthropic.Anthropic(api_key=api_key)
-    system_prompt = _load_system_prompt()
+    """全参照ブロックを構造化する。
 
-    results: list[dict] = []
-    for i, b in enumerate(blocks, 1):
+    enable_mdpi_fast_path=True の場合、MDPI 形式と判定されたブロックは
+    mdpi_parser (決定論的) で処理され、LLM API コストがかからない。
+    非 MDPI 形式 (Vancouver, AMA, APA 等) のブロックは従来通り LLM を使う。
+    両者とも llm_parsing_prompt.md のスキーマに準拠した出力を返す。
+
+    Args:
+        enable_mdpi_fast_path: True で MDPI fast-path を有効化 (default)
+        overrides: manual_overrides.yaml から loader で読み込んだ dict[ref_no -> entry]
+                   または None (None 時は override 適用なし、後方互換)
+    """
+    # ブロックを MDPI 形式 / 非 MDPI 形式に分類
+    mdpi_blocks: list[ReferenceBlock] = []
+    non_mdpi_blocks: list[ReferenceBlock] = []
+    if enable_mdpi_fast_path:
+        for b in blocks:
+            if mdpi_parser.is_mdpi_style(b.raw_text):
+                mdpi_blocks.append(b)
+            else:
+                non_mdpi_blocks.append(b)
+    else:
+        non_mdpi_blocks = list(blocks)
+
+    results_by_refno: dict[int, dict] = {}
+
+    # MDPI fast-path (LLM 不使用)
+    if mdpi_blocks:
         if verbose:
-            print(f"  [{i:>2}/{len(blocks)}] Ref #{b.ref_no} ({b.char_length} chars)...", flush=True)
-        obj = structure_reference(client, system_prompt, b, ln_report)
-        results.append(obj)
-    return results
+            print(f"[Phase 2] MDPI fast-path: {len(mdpi_blocks)} blocks (no LLM)",
+                  flush=True)
+        for r in mdpi_parser.structure_all_mdpi(mdpi_blocks, verbose=verbose):
+            results_by_refno[r["ref_no"]] = r
+
+    # 非 MDPI 形式は従来通り LLM 処理
+    if non_mdpi_blocks:
+        if verbose:
+            print(f"[Phase 2] LLM path: {len(non_mdpi_blocks)} blocks",
+                  flush=True)
+        try:
+            import anthropic
+        except ImportError as e:
+            raise RuntimeError(
+                "anthropic SDK is required. Install: pip install anthropic"
+            ) from e
+        if api_key is None:
+            api_key = os.environ.get("ANTHROPIC_API_KEY")
+        if not api_key:
+            raise RuntimeError(
+                "ANTHROPIC_API_KEY not set. Pass via env or --api-key."
+            )
+        client = anthropic.Anthropic(api_key=api_key)
+        system_prompt = _load_system_prompt()
+
+        for i, b in enumerate(non_mdpi_blocks, 1):
+            if verbose:
+                print(
+                    f"  [{i:>3}/{len(non_mdpi_blocks)}] Ref #{b.ref_no} "
+                    f"({b.char_length} chars, LLM)...",
+                    flush=True,
+                )
+            obj = structure_reference(client, system_prompt, b, ln_report)
+            results_by_refno[obj["ref_no"]] = obj
+
+    ordered = sorted(results_by_refno.values(), key=lambda x: x["ref_no"])
+    return _apply_overrides(ordered, overrides)
+
+
+def _apply_overrides(
+    structured: list[dict],
+    overrides: dict[int, dict] | None,
+) -> list[dict]:
+    """Apply manual overrides from manual_overrides.yaml to parser output.
+
+    Override entries follow this structure:
+        overrides:
+          <ref_no>:
+            reason: "human-readable explanation"
+            fields:
+              <field_name>: <override_value>
+            source: "provenance of the override value"
+
+    Behavior:
+        - If overrides is None or empty, structured is returned unchanged.
+        - For each ref_no present in overrides, the specified fields are
+          overwritten on the corresponding structured entry.
+        - parsing_confidence is NOT modified (preserves parser's own judgment).
+        - A marker is appended to notes: "override applied for: <field_list>"
+          so that audit reports can identify override-affected refs.
+        - Override entries for ref_no values not present in structured are
+          silently ignored (warning logged if verbose is True at caller level).
+
+    Args:
+        structured: list of structured reference dicts
+        overrides: dict mapping ref_no to override entry, or None
+
+    Returns:
+        list of structured dicts with overrides applied (same length as input).
+    """
+    if not overrides:
+        return structured
+
+    result = []
+    for entry in structured:
+        ref_no = entry.get("ref_no")
+        if ref_no is not None and ref_no in overrides:
+            override_entry = overrides[ref_no]
+            fields_to_override = override_entry.get("fields", {})
+            if fields_to_override:
+                new_entry = dict(entry)  # shallow copy
+                applied_fields = []
+                for field_name, override_value in fields_to_override.items():
+                    new_entry[field_name] = override_value
+                    applied_fields.append(field_name)
+                existing_notes = new_entry.get("notes") or ""
+                marker = f"override applied for: {','.join(applied_fields)}"
+                if existing_notes:
+                    new_entry["notes"] = f"{existing_notes}; {marker}"
+                else:
+                    new_entry["notes"] = marker
+                result.append(new_entry)
+                continue
+        result.append(entry)
+    return result
+
+
+def _load_overrides_yaml(path: Path) -> dict[int, dict]:
+    """Load manual_overrides.yaml and return dict[ref_no -> override_entry].
+
+    Expected YAML structure:
+        overrides:
+          <ref_no>:        # int or str (normalized to int)
+            reason: "..."
+            fields: {...}
+            source: "..."
+
+    Args:
+        path: path to the YAML file
+
+    Returns:
+        dict mapping ref_no (int) to override entry (dict).
+        Returns empty dict if the file has no 'overrides' key or it is null.
+
+    Raises:
+        FileNotFoundError: if path does not exist
+        ValueError: if YAML structure is malformed
+        yaml.YAMLError: if YAML parsing fails
+    """
+    try:
+        import yaml
+    except ImportError as e:
+        raise RuntimeError(
+            "PyYAML is required for --overrides. Install: pip install pyyaml"
+        ) from e
+    if not path.exists():
+        raise FileNotFoundError(f"Overrides file not found: {path}")
+    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    if data is None:
+        return {}
+    if not isinstance(data, dict):
+        raise ValueError(
+            f"Invalid overrides file format: expected top-level mapping, "
+            f"got {type(data).__name__}"
+        )
+    overrides = data.get("overrides")
+    if overrides is None:
+        return {}
+    if not isinstance(overrides, dict):
+        raise ValueError(
+            f"'overrides' key must be a mapping, got {type(overrides).__name__}"
+        )
+    normalized: dict[int, dict] = {}
+    for k, v in overrides.items():
+        try:
+            normalized[int(k)] = v
+        except (ValueError, TypeError) as e:
+            raise ValueError(
+                f"Override key must be convertible to int, got {k!r}"
+            ) from e
+    return normalized
 
 
 # =============================================================================
@@ -1125,8 +1300,14 @@ def _classify_reviewer_issues(
     resolutions: list[dict],
     structured: dict[int, dict],
     duplicates: dict[int, int],
+    journal_audit_findings: list[dict] | None = None,
 ) -> dict[str, list[str]]:
-    """査読コメント候補を Major / Moderate / Minor の3段階に分類する。"""
+    """査読コメント候補を Major / Moderate / Minor の3段階に分類する。
+
+    journal_audit_findings が与えられた場合、severity=="MAJOR" の所見を
+    issues["major"] 末尾に汎用テンプレ形式で追加する (既存の重複/年号/
+    タイトル判定とは独立、意味的に排他なバケツとして併記)。
+    """
     import rapidfuzz.fuzz as fz
     out: dict[str, list[str]] = {"major": [], "moderate": [], "minor": []}
 
@@ -1190,6 +1371,18 @@ def _classify_reviewer_issues(
                 f"**Ref #{ref_no} 引用記述に不整合 (LLM検出)**: {notes[:200]}"
             )
 
+    # journal_audit の MAJOR 所見を末尾に追加 (similarity 昇順)
+    if journal_audit_findings:
+        for f in journal_audit_findings:
+            if f.get("severity") != "MAJOR":
+                continue
+            out["major"].append(
+                f"**Ref #{f['ref_no']} ジャーナル名とDOIが不一致 "
+                f"(PMID: {f['pmid']})** — "
+                f"引用 `{f['cite_journal']}` vs PubMed `{f['pm_journal']}` "
+                f"(類似度 {f['similarity']}%)"
+            )
+
     return out
 
 
@@ -1219,8 +1412,15 @@ def write_report(
     path: Path,
     result: dict,
     duplicates: dict[int, int],
+    *,
+    audit_narrative_md: str | None = None,
 ) -> None:
-    """統合レポート: ダッシュボード + 優先度順要確認項目 + 未解決一覧 + 透明性トレース。"""
+    """統合レポート: ダッシュボード + 優先度順要確認項目 + 未解決一覧 + 透明性トレース。
+
+    audit_narrative_md が与えられた場合、免責事項セクションの直後に
+    ジャーナル名監査の補遺として連結する (format_summary_narrative 出力
+    を想定、先頭 `\\n---\\n` を含むため区切り線の追加は不要)。
+    """
     ln = result.get("stage2_5_line_number_detection", {})
     trace = result.get("stage2_preprocess_trace", {})
     structured = {s["ref_no"]: s for s in result.get("stage3_structured", [])}
@@ -1229,7 +1429,10 @@ def write_report(
 
     resolved = [r for r in resolutions if r.get("pmid")]
     unresolved = [r for r in resolutions if not r.get("pmid")]
-    issues = _classify_reviewer_issues(resolutions, structured, duplicates)
+    issues = _classify_reviewer_issues(
+        resolutions, structured, duplicates,
+        journal_audit_findings=result.get("stage5_journal_audit", []),
+    )
 
     # 解決経路
     strat_counts: dict[str, int] = {}
@@ -1456,19 +1659,39 @@ def write_report(
     lines.append("タイトル fuzzy match が低い場合、必ずしも誤引用とは限らず (例: 原典が多言語、タイトル翻訳等)、")
     lines.append("コンテキストを踏まえた判断が必要です。")
 
-    path.write_text("\n".join(lines), encoding="utf-8")
+    body = "\n".join(lines)
+    if audit_narrative_md:
+        # narrative は先頭 `\n---\n...` で始まるため、免責本文末尾
+        # (改行なし) との間に空行を挟むため `\n` を 1 つ補う。
+        body += "\n" + audit_narrative_md
+    path.write_text(body, encoding="utf-8")
 
 
 def synthesize_outputs(result: dict, output_dir: Path) -> dict:
-    """Phase 3 結果から最終3ファイルを合成する。
+    """Phase 3 結果から最終出力 (CSV / abstract / report / 監査 sidecar) を合成する。
 
     report.md は unresolved 一覧を内包し、ダッシュボード + 優先度別
-    要確認項目 + 透明性トレース を1ファイルに統合する。
+    要確認項目 + 透明性トレース を1ファイルに統合する。末尾には
+    journal_audit による citation journal と PubMed journal_iso の
+    類似度監査の要約を補遺として付加する (詳細は同ディレクトリの
+    journal_mismatch_audit.json に出力)。
     """
-    structured = {s["ref_no"]: s for s in result.get("stage3_structured", [])}
+    structured_list = result.get("stage3_structured", [])
+    structured = {s["ref_no"]: s for s in structured_list}
     resolutions = result.get("stage4_pubmed_resolutions", [])
 
     duplicates = detect_duplicates(resolutions, structured)
+
+    # Phase 5: Journal audit (sidecar + narrative)
+    all_findings = journal_audit.audit_journal_mismatch(
+        structured_list, resolutions, include_ok=True,
+    )
+    filtered_findings = [
+        f for f in all_findings if f.get("severity") != "OK"
+    ]
+    result["stage5_journal_audit"] = filtered_findings
+
+    narrative_md = journal_audit.format_summary_narrative(all_findings)
 
     # ファイル名用の first_pmid (解決済みの最初のPMID)
     first_pmid = next((r["pmid"] for r in resolutions if r.get("pmid")), None) or "nopmid"
@@ -1476,15 +1699,29 @@ def synthesize_outputs(result: dict, output_dir: Path) -> dict:
     csv_path = output_dir / f"csv-{first_pmid}-set.csv"
     abstract_path = output_dir / f"abstract-{first_pmid}-set.txt"
     report_path = output_dir / "report.md"
+    sidecar_path = output_dir / "journal_mismatch_audit.json"
 
     write_pubmed_csv(csv_path, resolutions, structured, duplicates)
     write_abstract_text(abstract_path, resolutions, structured)
-    write_report(report_path, result, duplicates)
+    write_report(
+        report_path, result, duplicates,
+        audit_narrative_md=narrative_md,
+    )
+    # sidecar では severity を除いた形式で書く (fixture 規約)
+    sidecar_entries = [
+        {k: v for k, v in f.items() if k != "severity"}
+        for f in all_findings
+    ]
+    sidecar_path.write_text(
+        json.dumps(sidecar_entries, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
     return {
         "csv": str(csv_path),
         "abstract": str(abstract_path),
         "report": str(report_path),
+        "journal_mismatch_audit": str(sidecar_path),
         "duplicates": duplicates,
     }
 
@@ -1547,14 +1784,22 @@ def _print_summary(result: dict) -> None:
     print("=" * 70)
 
 
-def run_phase2(input_path: Path, output_dir: Path, *, api_key: str | None = None) -> dict:
+def run_phase2(
+    input_path: Path,
+    output_dir: Path,
+    *,
+    api_key: str | None = None,
+    overrides: dict[int, dict] | None = None,
+) -> dict:
     """Phase 1 に続けて Stage 3 (LLM構造化) を実行。"""
     result = run_phase1(input_path, output_dir)
     blocks = [ReferenceBlock(**b) for b in result["stage3_reference_blocks"]]
     ln_report = LineNumberReport(**result["stage2_5_line_number_detection"])
     print(f"[Phase 2] LLM structuring {len(blocks)} refs via {LLM_MODEL}...")
     t0 = time.time()
-    structured = structure_all_references(blocks, ln_report, api_key=api_key)
+    structured = structure_all_references(
+        blocks, ln_report, api_key=api_key, overrides=overrides,
+    )
     elapsed = time.time() - t0
     result["stage3_structured"] = structured
     result["stage3_elapsed_seconds"] = round(elapsed, 2)
@@ -1625,6 +1870,7 @@ def run_phase3(
     api_key: str | None = None,
     ncbi_api_key: str | None = None,
     reuse_phase2: bool = False,
+    overrides: dict[int, dict] | None = None,
 ) -> dict:
     """Phase 2 の構造化結果に Stage 4 (PubMedカスケード) を適用。"""
     phase2_path = output_dir / "phase2_structured.json"
@@ -1632,7 +1878,9 @@ def run_phase3(
         print(f"[Phase 3] reusing existing {phase2_path}")
         result = json.loads(phase2_path.read_text(encoding="utf-8"))
     else:
-        result = run_phase2(input_path, output_dir, api_key=api_key)
+        result = run_phase2(
+            input_path, output_dir, api_key=api_key, overrides=overrides,
+        )
 
     structured = result["stage3_structured"]
     print(f"[Phase 3] PubMed cascade for {len(structured)} refs "
@@ -1703,6 +1951,7 @@ def run_phase4(
     ncbi_api_key: str | None = None,
     reuse_phase3: bool = False,
     reuse_phase2: bool = False,
+    overrides: dict[int, dict] | None = None,
 ) -> dict:
     """Phase 3 の結果に Stage 5 (出力合成) を適用して最終4ファイル生成。"""
     phase3_path = output_dir / "phase3_resolved.json"
@@ -1714,6 +1963,7 @@ def run_phase4(
             input_path, output_dir,
             api_key=api_key, ncbi_api_key=ncbi_api_key,
             reuse_phase2=reuse_phase2,
+            overrides=overrides,
         )
     print("[Phase 4] synthesizing outputs (CSV / abstract.txt / report.md / unresolved.csv)...")
     t0 = time.time()
@@ -1761,6 +2011,10 @@ def main(argv: list[str] | None = None) -> int:
                     help="既存の phase2_structured.json を再利用")
     ap.add_argument("--reuse-phase3", action="store_true",
                     help="既存の phase3_resolved.json を再利用 (Phase 4のみ実行)")
+    ap.add_argument("--overrides", type=Path, default=None, metavar="PATH",
+                    help="Path to manual_overrides.yaml for applying manual "
+                         "corrections to parser output. If not specified, no "
+                         "overrides are applied (default).")
     ap.add_argument("--quiet", action="store_true", help="サマリ出力を抑制")
     args = ap.parse_args(argv)
 
@@ -1788,12 +2042,22 @@ def main(argv: list[str] | None = None) -> int:
 
     ncbi_key = args.ncbi_api_key or os.environ.get("NCBI_API_KEY")
 
+    overrides_dict: dict[int, dict] | None = None
+    if args.overrides is not None:
+        overrides_dict = _load_overrides_yaml(args.overrides)
+        if not args.quiet:
+            print(f"[config] Loaded {len(overrides_dict)} overrides from "
+                  f"{args.overrides}", flush=True)
+
     if args.phase == 1:
         result = run_phase1(args.input, args.output_dir)
         if not args.quiet:
             _print_summary(result)
     elif args.phase == 2:
-        result = run_phase2(args.input, args.output_dir, api_key=args.api_key)
+        result = run_phase2(
+            args.input, args.output_dir,
+            api_key=args.api_key, overrides=overrides_dict,
+        )
         if not args.quiet:
             _print_summary(result)
             _print_phase2_summary(result)
@@ -1802,6 +2066,7 @@ def main(argv: list[str] | None = None) -> int:
             args.input, args.output_dir,
             api_key=args.api_key, ncbi_api_key=ncbi_key,
             reuse_phase2=args.reuse_phase2,
+            overrides=overrides_dict,
         )
         if not args.quiet:
             _print_phase3_summary(result)
@@ -1811,6 +2076,7 @@ def main(argv: list[str] | None = None) -> int:
             api_key=args.api_key, ncbi_api_key=ncbi_key,
             reuse_phase3=args.reuse_phase3,
             reuse_phase2=args.reuse_phase2,
+            overrides=overrides_dict,
         )
         if not args.quiet:
             if "stage4_pubmed_resolutions" in result:
