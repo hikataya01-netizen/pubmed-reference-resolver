@@ -18,8 +18,10 @@ Helper rationale:
 """
 from __future__ import annotations
 
+import difflib
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -178,3 +180,104 @@ def test_structure_all_references_with_fast_path_disabled_uses_llm():
     for r in result:
         assert "ref_no" in r
         # LLM path を通ったことを間接的に検証 (具体的内容は LLM 応答依存)
+
+
+# ============================================================================
+# Step 6: synthesize_outputs (Phase 4+5) integration
+# ============================================================================
+
+_TIMESTAMP_RE = re.compile(
+    r"\*\*実行\*\*: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}"
+)
+
+
+def _scrub_timestamp(s: str) -> str:
+    """report.md の実行日時行を固定文字列に置換し、byte 比較可能にする。"""
+    return _TIMESTAMP_RE.sub("**実行**: <TS>", s)
+
+
+@pytest.fixture(scope="module")
+def synthesize_output(tmp_path_factory):
+    """expected_phase3_resolved.json を入力として synthesize_outputs を
+    1 度だけ実行し、(output_dir, result) を返す module-scoped fixture。
+
+    下流 3 テスト (report / sidecar / result dict) で共用して合成処理を
+    1 回に抑える。
+    """
+    import main as main_mod
+
+    data = json.loads(
+        (FIXTURES / "expected_phase3_resolved.json").read_text(encoding="utf-8")
+    )
+    output_dir = tmp_path_factory.mktemp("synthesize_outputs_149refs")
+    main_mod.synthesize_outputs(data, output_dir)
+    return output_dir, data
+
+
+def test_synthesize_outputs_report_matches_expected(synthesize_output):
+    """生成 report.md が expected_report.md と byte 一致する
+    (timestamp 行は両者から除去して比較)。"""
+    output_dir, _ = synthesize_output
+
+    generated = (output_dir / "report.md").read_text(encoding="utf-8")
+    expected = (FIXTURES / "expected_report.md").read_text(encoding="utf-8")
+
+    gen_scrubbed = _scrub_timestamp(generated)
+    exp_scrubbed = _scrub_timestamp(expected)
+
+    if gen_scrubbed != exp_scrubbed:
+        diff = list(difflib.unified_diff(
+            exp_scrubbed.splitlines(keepends=True),
+            gen_scrubbed.splitlines(keepends=True),
+            fromfile="expected_report.md",
+            tofile="generated report.md",
+            n=2,
+        ))
+        preview = "".join(diff[:20])
+        pytest.fail(
+            f"report.md does not byte-match expected (timestamp scrubbed).\n"
+            f"First 20 diff lines:\n{preview}"
+        )
+
+
+def test_synthesize_outputs_sidecar_matches_expected(synthesize_output):
+    """生成 journal_mismatch_audit.json が expected_journal_audit.json と
+    byte 一致する。"""
+    output_dir, _ = synthesize_output
+
+    generated = (output_dir / "journal_mismatch_audit.json").read_text(
+        encoding="utf-8"
+    )
+    expected = (FIXTURES / "expected_journal_audit.json").read_text(
+        encoding="utf-8"
+    )
+
+    if generated != expected:
+        diff = list(difflib.unified_diff(
+            expected.splitlines(keepends=True),
+            generated.splitlines(keepends=True),
+            fromfile="expected_journal_audit.json",
+            tofile="generated sidecar",
+            n=2,
+        ))
+        preview = "".join(diff[:20])
+        pytest.fail(
+            f"journal_mismatch_audit.json does not byte-match expected.\n"
+            f"First 20 diff lines:\n{preview}"
+        )
+
+
+def test_synthesize_outputs_result_has_stage5_audit(synthesize_output):
+    """synthesize_outputs 実行後、入力 data dict に stage5_journal_audit
+    が追加され、Ref #13 の MAJOR finding を保持している。"""
+    _, data = synthesize_output
+
+    audit = data.get("stage5_journal_audit")
+    assert isinstance(audit, list), "stage5_journal_audit must be a list"
+    assert len(audit) == 1, f"expected 1 MAJOR finding, got {len(audit)}"
+
+    finding = audit[0]
+    assert finding["ref_no"] == 13
+    assert finding["severity"] == "MAJOR"
+    assert finding["pmid"] == "28591864"
+    assert finding["pm_journal"] == "Jpn J Clin Oncol"

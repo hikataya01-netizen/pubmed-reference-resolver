@@ -16,6 +16,7 @@ import unicodedata
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
 
+import journal_audit
 import mdpi_parser
 
 
@@ -1299,8 +1300,14 @@ def _classify_reviewer_issues(
     resolutions: list[dict],
     structured: dict[int, dict],
     duplicates: dict[int, int],
+    journal_audit_findings: list[dict] | None = None,
 ) -> dict[str, list[str]]:
-    """査読コメント候補を Major / Moderate / Minor の3段階に分類する。"""
+    """査読コメント候補を Major / Moderate / Minor の3段階に分類する。
+
+    journal_audit_findings が与えられた場合、severity=="MAJOR" の所見を
+    issues["major"] 末尾に汎用テンプレ形式で追加する (既存の重複/年号/
+    タイトル判定とは独立、意味的に排他なバケツとして併記)。
+    """
     import rapidfuzz.fuzz as fz
     out: dict[str, list[str]] = {"major": [], "moderate": [], "minor": []}
 
@@ -1364,6 +1371,18 @@ def _classify_reviewer_issues(
                 f"**Ref #{ref_no} 引用記述に不整合 (LLM検出)**: {notes[:200]}"
             )
 
+    # journal_audit の MAJOR 所見を末尾に追加 (similarity 昇順)
+    if journal_audit_findings:
+        for f in journal_audit_findings:
+            if f.get("severity") != "MAJOR":
+                continue
+            out["major"].append(
+                f"**Ref #{f['ref_no']} ジャーナル名とDOIが不一致 "
+                f"(PMID: {f['pmid']})** — "
+                f"引用 `{f['cite_journal']}` vs PubMed `{f['pm_journal']}` "
+                f"(類似度 {f['similarity']}%)"
+            )
+
     return out
 
 
@@ -1393,8 +1412,15 @@ def write_report(
     path: Path,
     result: dict,
     duplicates: dict[int, int],
+    *,
+    audit_narrative_md: str | None = None,
 ) -> None:
-    """統合レポート: ダッシュボード + 優先度順要確認項目 + 未解決一覧 + 透明性トレース。"""
+    """統合レポート: ダッシュボード + 優先度順要確認項目 + 未解決一覧 + 透明性トレース。
+
+    audit_narrative_md が与えられた場合、免責事項セクションの直後に
+    ジャーナル名監査の補遺として連結する (format_summary_narrative 出力
+    を想定、先頭 `\\n---\\n` を含むため区切り線の追加は不要)。
+    """
     ln = result.get("stage2_5_line_number_detection", {})
     trace = result.get("stage2_preprocess_trace", {})
     structured = {s["ref_no"]: s for s in result.get("stage3_structured", [])}
@@ -1403,7 +1429,10 @@ def write_report(
 
     resolved = [r for r in resolutions if r.get("pmid")]
     unresolved = [r for r in resolutions if not r.get("pmid")]
-    issues = _classify_reviewer_issues(resolutions, structured, duplicates)
+    issues = _classify_reviewer_issues(
+        resolutions, structured, duplicates,
+        journal_audit_findings=result.get("stage5_journal_audit", []),
+    )
 
     # 解決経路
     strat_counts: dict[str, int] = {}
@@ -1630,19 +1659,39 @@ def write_report(
     lines.append("タイトル fuzzy match が低い場合、必ずしも誤引用とは限らず (例: 原典が多言語、タイトル翻訳等)、")
     lines.append("コンテキストを踏まえた判断が必要です。")
 
-    path.write_text("\n".join(lines), encoding="utf-8")
+    body = "\n".join(lines)
+    if audit_narrative_md:
+        # narrative は先頭 `\n---\n...` で始まるため、免責本文末尾
+        # (改行なし) との間に空行を挟むため `\n` を 1 つ補う。
+        body += "\n" + audit_narrative_md
+    path.write_text(body, encoding="utf-8")
 
 
 def synthesize_outputs(result: dict, output_dir: Path) -> dict:
-    """Phase 3 結果から最終3ファイルを合成する。
+    """Phase 3 結果から最終出力 (CSV / abstract / report / 監査 sidecar) を合成する。
 
     report.md は unresolved 一覧を内包し、ダッシュボード + 優先度別
-    要確認項目 + 透明性トレース を1ファイルに統合する。
+    要確認項目 + 透明性トレース を1ファイルに統合する。末尾には
+    journal_audit による citation journal と PubMed journal_iso の
+    類似度監査の要約を補遺として付加する (詳細は同ディレクトリの
+    journal_mismatch_audit.json に出力)。
     """
-    structured = {s["ref_no"]: s for s in result.get("stage3_structured", [])}
+    structured_list = result.get("stage3_structured", [])
+    structured = {s["ref_no"]: s for s in structured_list}
     resolutions = result.get("stage4_pubmed_resolutions", [])
 
     duplicates = detect_duplicates(resolutions, structured)
+
+    # Phase 5: Journal audit (sidecar + narrative)
+    all_findings = journal_audit.audit_journal_mismatch(
+        structured_list, resolutions, include_ok=True,
+    )
+    filtered_findings = [
+        f for f in all_findings if f.get("severity") != "OK"
+    ]
+    result["stage5_journal_audit"] = filtered_findings
+
+    narrative_md = journal_audit.format_summary_narrative(all_findings)
 
     # ファイル名用の first_pmid (解決済みの最初のPMID)
     first_pmid = next((r["pmid"] for r in resolutions if r.get("pmid")), None) or "nopmid"
@@ -1650,15 +1699,29 @@ def synthesize_outputs(result: dict, output_dir: Path) -> dict:
     csv_path = output_dir / f"csv-{first_pmid}-set.csv"
     abstract_path = output_dir / f"abstract-{first_pmid}-set.txt"
     report_path = output_dir / "report.md"
+    sidecar_path = output_dir / "journal_mismatch_audit.json"
 
     write_pubmed_csv(csv_path, resolutions, structured, duplicates)
     write_abstract_text(abstract_path, resolutions, structured)
-    write_report(report_path, result, duplicates)
+    write_report(
+        report_path, result, duplicates,
+        audit_narrative_md=narrative_md,
+    )
+    # sidecar では severity を除いた形式で書く (fixture 規約)
+    sidecar_entries = [
+        {k: v for k, v in f.items() if k != "severity"}
+        for f in all_findings
+    ]
+    sidecar_path.write_text(
+        json.dumps(sidecar_entries, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
     return {
         "csv": str(csv_path),
         "abstract": str(abstract_path),
         "report": str(report_path),
+        "journal_mismatch_audit": str(sidecar_path),
         "duplicates": duplicates,
     }
 

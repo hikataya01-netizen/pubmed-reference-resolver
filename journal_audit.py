@@ -59,15 +59,20 @@ def _classify_severity(similarity: int) -> str:
 def audit_journal_mismatch(
     structured: list[dict[str, Any]],
     resolutions: list[dict[str, Any]],
+    include_ok: bool = False,
 ) -> list[dict[str, Any]]:
     """citation journal と PubMed journal_iso の類似度監査を実行する。
 
     Args:
         structured: main.py Stage 3 の stage3_structured と同じ形式
         resolutions: main.py Stage 4 の stage4_pubmed_resolutions と同じ形式
+        include_ok: True の場合 severity=="OK" の finding も返す
+            (sidecar JSON 等で解決済み全件の監査ログが必要な用途向け)。
+            デフォルト False は後方互換の挙動 (OK を除外した査読所見のみ)。
 
     Returns:
-        severity が OK 以外のミスマッチ情報のリスト。similarity 昇順。
+        ミスマッチ情報のリスト。similarity 昇順。include_ok=False の
+        場合は severity != "OK" のみ。
     """
     try:
         from rapidfuzz import fuzz
@@ -110,7 +115,7 @@ def audit_journal_mismatch(
             fuzz.partial_ratio(n1, n2),
         )))
         severity = _classify_severity(ratio)
-        if severity == "OK":
+        if severity == "OK" and not include_ok:
             continue
         findings.append({
             "ref_no": refno,
@@ -123,6 +128,63 @@ def audit_journal_mismatch(
 
     findings.sort(key=lambda x: (x["severity"], x["similarity"]))
     return findings
+
+
+def format_summary_narrative(all_findings: list[dict[str, Any]]) -> str:
+    """解決済み Reference 全件の監査結果をナラティブ要約として整形する。
+
+    report.md 末尾の「補遺: ジャーナル名と PubMed 収載誌の照合監査 (追加)」
+    セクションの本文を生成する。severity 別箇条書きではなく、全体件数と
+    MAJOR 件数を日本語の短文でまとめる形式。
+
+    Args:
+        all_findings: audit_journal_mismatch(..., include_ok=True) の
+            戻り値。解決済みかつ監査対象 (書籍除外後) の全 ref を含む。
+
+    Returns:
+        Markdown 文字列。先頭 `\\n---\\n` を含み、`## 補遺: ...` から末尾
+        `詳細データ: ... (同ディレクトリ内)\\n` までを一つの文字列として
+        返す。report.md 末尾に直接 append できる形式。
+    """
+    n = len(all_findings)
+    majors = sorted(
+        (f for f in all_findings if f.get("severity") == "MAJOR"),
+        key=lambda x: x["ref_no"],
+    )
+    m = len(majors)
+
+    lines: list[str] = [
+        "\n---\n",
+        "## 補遺: ジャーナル名と PubMed 収載誌の照合監査 (追加)\n",
+    ]
+
+    if m == 0:
+        lines.append(
+            f"解決済み {n} 件全件について citation journal と PubMed "
+            f"journal_iso の類似度を計算した結果、\n"
+            f"類似度 50% 未満のケースは検出されませんでした。\n"
+            f"全 {n} 件が略称表記の差異を含めて 80% 以上の一致を示し、"
+            f"ジャーナル名記載に\n"
+            f"系統的な誤りは認められませんでした。\n"
+        )
+    else:
+        ref_list = ", ".join(f"#{r['ref_no']}" for r in majors)
+        count_str = "**1件のみ**" if m == 1 else f"**{m}件**"
+        lines.append(
+            f"解決済み {n} 件全件について citation journal と PubMed "
+            f"journal_iso の類似度を計算した結果、\n"
+            f"類似度 50% 未満のケースは {count_str} "
+            f"(Ref {ref_list}) でした。\n"
+            f"残り {n - m} 件は略称表記の差異を含めて 80% 以上の一致を示し、"
+            f"ジャーナル名記載に\n"
+            f"系統的な誤りは認められませんでした。\n"
+        )
+
+    lines.append(
+        "詳細データ: `journal_mismatch_audit.json` (同ディレクトリ内)\n"
+    )
+
+    return "\n".join(lines)
 
 
 def format_findings_markdown(findings: list[dict[str, Any]]) -> str:

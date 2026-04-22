@@ -258,6 +258,134 @@ class TestFormatFindingsMarkdown:
 
 
 # ============================================================================
+# include_ok parameter (Step 6-1)
+# ============================================================================
+
+class TestIncludeOkParameter:
+    """include_ok フラグで severity==OK の finding を残すか除外するかを制御する。"""
+
+    def test_include_ok_false_filters_ok(self):
+        """include_ok=False (既定) では severity==OK は findings に含まれない。"""
+        from journal_audit import audit_journal_mismatch
+
+        structured = [{"ref_no": 1, "journal": "Cell", "is_book": False}]
+        resolutions = [{
+            "ref_no": 1,
+            "pmid": "12345678",
+            "metadata": {"journal_iso": "Cell"},
+        }]
+        findings = audit_journal_mismatch(structured, resolutions, include_ok=False)
+        assert findings == []
+
+    def test_include_ok_true_returns_all(self):
+        """include_ok=True では severity==OK も含む全 finding を返す。"""
+        from journal_audit import audit_journal_mismatch
+
+        structured = [
+            {"ref_no": 1, "journal": "Cell", "is_book": False},
+            {"ref_no": 2, "journal": "Zebrafish Research", "is_book": False},
+        ]
+        resolutions = [
+            {"ref_no": 1, "pmid": "11111111", "metadata": {"journal_iso": "Cell"}},
+            {"ref_no": 2, "pmid": "22222222", "metadata": {"journal_iso": "Nature"}},
+        ]
+        findings = audit_journal_mismatch(structured, resolutions, include_ok=True)
+        assert len(findings) == 2
+        by_ref = {f["ref_no"]: f for f in findings}
+        assert by_ref[1]["severity"] == "OK"
+        assert by_ref[1]["similarity"] >= 80
+        assert by_ref[2]["severity"] == "MAJOR"
+
+    def test_include_ok_default_matches_explicit_false(self):
+        """デフォルト引数の挙動が include_ok=False と同一であることの後方互換保証。"""
+        from journal_audit import audit_journal_mismatch
+
+        structured = [
+            {"ref_no": 1, "journal": "Cell", "is_book": False},
+            {"ref_no": 2, "journal": "Zebrafish Research", "is_book": False},
+        ]
+        resolutions = [
+            {"ref_no": 1, "pmid": "11111111", "metadata": {"journal_iso": "Cell"}},
+            {"ref_no": 2, "pmid": "22222222", "metadata": {"journal_iso": "Nature"}},
+        ]
+        default = audit_journal_mismatch(structured, resolutions)
+        explicit = audit_journal_mismatch(structured, resolutions, include_ok=False)
+        assert default == explicit
+        assert len(default) == 1
+        assert default[0]["severity"] == "MAJOR"
+
+
+# ============================================================================
+# format_summary_narrative (Step 6-2)
+# ============================================================================
+
+class TestFormatSummaryNarrative:
+    """report.md 末尾補遺のナラティブ要約生成。"""
+
+    def test_narrative_matches_expected_fixture(self):
+        """149-ref コーパスで生成した narrative が expected_report.md の
+        補遺セクションと byte 単位で完全一致する。"""
+        import json
+        from journal_audit import audit_journal_mismatch, format_summary_narrative
+
+        fixtures_dir = REPO_ROOT / "tests" / "fixtures" / "mdpi_149refs"
+        data = json.loads(
+            (fixtures_dir / "expected_phase3_resolved.json").read_text(encoding="utf-8")
+        )
+        findings = audit_journal_mismatch(
+            data["stage3_structured"],
+            data["stage4_pubmed_resolutions"],
+            include_ok=True,
+        )
+        narrative = format_summary_narrative(findings)
+
+        expected = (fixtures_dir / "expected_report.md").read_text(encoding="utf-8")
+        marker = "\n---\n\n## 補遺: ジャーナル名と PubMed 収載誌の照合監査 (追加)"
+        idx = expected.find(marker)
+        assert idx != -1, "expected_report.md に補遺セクションの目印が見つからない"
+        expected_tail = expected[idx:]
+
+        assert narrative == expected_tail
+
+    def test_narrative_no_major(self):
+        """MAJOR 0 件時は「検出されませんでした」と「全 N 件」を含む。"""
+        from journal_audit import format_summary_narrative
+
+        all_findings = [
+            {"ref_no": i, "severity": "OK", "similarity": 95}
+            for i in range(1, 11)
+        ]
+        narrative = format_summary_narrative(all_findings)
+        assert "10 件全件" in narrative
+        assert "検出されませんでした" in narrative
+        assert "全 10 件が" in narrative
+        assert "1件のみ" not in narrative
+        assert "**0件**" not in narrative
+        assert "Ref #" not in narrative
+
+    def test_narrative_multiple_majors(self):
+        """MAJOR 複数件時は件数と ref_no 列挙 (昇順) を含む。"""
+        from journal_audit import format_summary_narrative
+
+        all_findings = [
+            {"ref_no": 99, "severity": "MAJOR", "similarity": 25},
+            {"ref_no": 5, "severity": "MAJOR", "similarity": 30},
+            {"ref_no": 12, "severity": "MAJOR", "similarity": 40},
+        ] + [
+            {"ref_no": i, "severity": "OK", "similarity": 95}
+            for i in range(100, 150)
+        ]
+        narrative = format_summary_narrative(all_findings)
+        n = len(all_findings)  # 53
+        assert f"{n} 件全件" in narrative
+        assert "**3件**" in narrative
+        # ref_no 昇順で #5, #12, #99
+        assert "(Ref #5, #12, #99)" in narrative
+        assert f"残り {n - 3} 件" in narrative
+        assert "1件のみ" not in narrative
+
+
+# ============================================================================
 # _normalize_journal (internal helper, tested for contract stability)
 # ============================================================================
 
