@@ -1,3 +1,16 @@
+<!--
+Status: Archived (2026-04-23)
+
+本ブリーフが計画した 7 ステップの統合計画は、feature/mdpi-fast-path の main への
+merge (commit 5d2d5a9) をもって完了しました。以降は本ドキュメントを仕様の正本として
+参照せず、以下のファイルを参照してください。本ドキュメントは歴史的記録として
+原地に保持しています (archive 方針: 案 c、物理移動なし)。
+
+- README.md    : 現行の使用方法・機能概要
+- CHANGELOG.md : 変更履歴 (Keep a Changelog 1.1.0 準拠、Step 1-7 の commit hash 表を含む)
+- 実装エントリポイント: main.py, mdpi_parser.py, journal_audit.py (repo root)
+-->
+
 # INTEGRATION BRIEF: MDPI Fast-Path と監査機能強化
 
 **対象スキル**: `pubmed-reference-resolver`
