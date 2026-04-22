@@ -1,0 +1,13 @@
+# pubmed-reference-resolver — runtime + test dependencies
+#
+# Pinned-minor (>= current minor, < next major) to allow patch updates
+# while guarding against breaking major releases. Upgrade deliberately.
+#
+# Note: `anthropic` SDK is intentionally NOT listed. It is lazy-imported only
+# when the LLM path is taken. All 149 references in the MDPI fast-path
+# corpus resolve deterministically, so the test suite runs fully offline.
+
+python-docx>=1.2,<2.0   # extract_text() — DOCX ingestion
+rapidfuzz>=3.14,<4.0    # journal/title similarity in structure_all_references & synthesize_outputs
+PyYAML>=6.0,<7.0        # _load_overrides_yaml() — --overrides CLI flag
+pytest>=9.0,<10.0       # test runner
