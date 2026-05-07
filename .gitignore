@@ -12,3 +12,6 @@ out_*/
 __pycache__/
 *.pyc
 .pytest_cache/
+
+# Editor save backups (nano *.save, etc.)
+*.save
