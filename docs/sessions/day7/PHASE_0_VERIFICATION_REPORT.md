@@ -222,15 +222,129 @@ Phase ζ 第 2 相 5 commits は元の指示書 (PHASE_ZETA_INSTRUCTIONS.md) に
 
 ---
 
-## 8. 残存タスク
+## 8. Stage 2 実行と結果 (Phase 0 の本来目的)
 
-- **Stage 2 (実 OneDrive `参照.docx`) 検証** (Phase 0 の本来目的、別セッションでの実施推奨)
+(Q-β) 完了直後、先生のご判断で本セッション内で Stage 2 (実データ検証) も実施した。これは元の (R) ↔ (U) ↔ (R+) の流れの一部として完了した。
+
+### 8.1 入力データ
+
+- **入力**: `/Users/katayamahideki/Library/CloudStorage/OneDrive-個人用/参照.docx` (29819 bytes、Microsoft Word 2007+ DOCX)
+- **抽出**: 24 件 reference (Vancouver/AMA 系、医学領域、テーマ「親のがんが子に与える心理影響」)
+- **API key**: 先生が `~/.claude/skills/pubmed-reference-resolver/.env` に Anthropic + NCBI 両 key を事前設定済 (perm 600、`.gitignore` line 2 で commit リスク無)
+
+### 8.2 env loader 問題の発見と workaround
+
+初回起動 (`b9wkuu7w0`) は **`RuntimeError: ANTHROPIC_API_KEY not set.` で失敗** (3 秒で停止)。run.log には `[env] loaded from .../env` が出ており、env_file は読み込まれていた。真因解析の結果:
+
+- 親 shell (Claude Code harness 経由の python 実行環境) に `ANTHROPIC_API_KEY=` (**空値**、`len=0`) が export 済
+- main.py:91-92 の env loader: `if k not in os.environ and v: os.environ[k] = v` ← 「**存在すれば**スキップ」の設計
+- → 空値の既存値が `.env` からの正しい key 値による上書きを阻害
+
+仮説: Claude Code の harness が自身の API key 漏洩防止のため、サブプロセスに空値で継承させる設計。
+
+**Workaround**: `env -u ANTHROPIC_API_KEY python3 ...` で当該変数を環境から削除して起動 (POSIX 標準の env コマンド機能)。
+
+### 8.3 retry 起動と完走
+
+retry (`bnbhm6n67`) は **35 秒で完走** (exit 0):
+
+| Phase | 所要 | 備考 |
+|:---:|---:|:---|
+| Phase 2 (LLM 構造化) | 13.6 s | MDPI fast-path 21 件 (即時) + LLM 3 件 (~13 秒) |
+| Phase 3 (PubMed cascade) | 21.0 s | NCBI key 経由で 10 req/s、24 件 |
+| Phase 4 (出力合成) | 0.01 s | report.md / CSV / abstract / audit 生成 |
+| **合計** | **34.6 s** | |
+
+### 8.4 解決率と監査結果
+
+- **解決: 14/24 = 58.3%** (DOI: 11, PMID direct: 2, title+author+year: 1)
+- **未解決: 10**
+- **重大エラー: 4 件** (重複引用 1 + 別論文の可能性 3)
+- **要検討: 0、軽微: 1**
+- **journal_mismatch_audit: 3 件すべて 100% 一致** (警告なし)
+
+### 8.5 重大エラー 4 件の真因分析 (本セッションの重要な発見)
+
+| # | parser 出力 (title) | 本来の title (推定) | 真因 | 種別 |
+|:---:|:---|:---|:---|:---|
+| 21 = 8 | (重複引用) | — | 著者の引用ミス | **本物の MAJOR** |
+| 2 | `K, Armaly, J., Swieter A` | "Impact of Parental Cancer on Children" | parser が著者リスト末尾を title と誤認 | **parser 起因 false positive** |
+| 7 | `K, Baer, L., Pirl, W.F.,Muriel, A.C` | "Parenting changes in adults with cancer" | 同上 | **同 false positive** |
+| 16 | `Kroll L., Burke, O., Lee, J., ...` | "Qualitative interview study of communication..." | 同上 | **同 false positive** |
+
+→ **4 件中 1 件 (Ref #21) のみが本物**、3 件は **parser 起因の false positive**。実際は DOI 経由で正しい PMID にヒットしているが、parser の title が壊れているため類似度判定が低スコアとなり MAJOR と誤判定された。
+
+### 8.6 未解決 10 件の傾向
+
+未解決 10 件のうち**過半数で title フィールドが空または著者名のみ**:
+
+- Ref #1: title=`, & HoekstraWeebers, J.E` (`Hoekstra- Weebers` の hyphen 処理失敗で著者末尾が title へ)
+- Ref #3, #14, #19, #21, #22: title 空
+- Ref #11: title=`Romer, G,, Piha, J` (著者の一部のみ)
+- Ref #5, #8, #17: DOI が部分的 (truncate 痕跡)
+
+**真因**: parser が Vancouver/AMA 系の境界 (Authors と Title の区切り) を MDPI fast-path で誤処理。MDPI 中心の入力 (149-ref fixture) では発生しないが、Vancouver/AMA 系では 24 件中 8 件 (33%) で境界誤認。
+
+### 8.7 出力先 (Finder で開ける絶対パス)
+
+```
+/Users/katayamahideki/Desktop/Claude/査読出力/oneDrive_参照_20260507_185134_retry/
+```
+
+主要ファイル:
+- `report.md` (11582 B、監査レポート、Word 化推奨)
+- `csv-28739684-set.csv` (4480 B、PubMed 純正 CSV、Mendeley/Zotero インポート可)
+- `abstract-28739684-set.txt` (26745 B、番号付き abstract 集)
+- `journal_mismatch_audit.json` (415 B、journal 一致確認)
+- `phase{1,2,3,4}_*.{json,txt}` (intermediate)
+- `run.log` (7426 B)
+
+### 8.8 Stage 2 から抽出される追加学び
+
+#### 学び 7.6: サブプロセス環境変数の継承挙動と env loader 設計の相性
+
+env loader が「**未設定** (k not in os.environ) のときのみ書き込む」設計は、親プロセスが**空値で継承させる**環境では機能不全を起こす。Claude Code 等の harness 経由実行は本問題を顕在化させやすい。
+
+**改修案** (Day8 候補): main.py:91 の条件を以下のいずれかに変更:
+- `if (not os.environ.get(k)) and v:` ← 空値も上書き対象に (推奨)
+- `if k not in os.environ or not os.environ[k]:` ← 同等表現
+- `--env-file` 明示時は無条件上書き (`--env-file` の使用意図を尊重)
+
+#### 学び 7.7: parser のドメイン適用範囲の明示化必要性
+
+Day1-6 の golden は MDPI 形式 149 件で確立されたが、本 Stage 2 で**Vancouver/AMA 系では parser が境界誤認**することが判明。スキルの SKILL.md / USAGE_QUICKSTART には「MDPI 中心では byte 単位 fixture 一致を検証済」と明記されているが、**他形式での精度低下リスクは現状未明示**。
+
+**改修案** (Day8 候補):
+- USAGE_QUICKSTART に "Vancouver/AMA 系では parser 限界あり、人間による補正推奨" の警告セクション追加
+- MDPI fast-path 判定の厳格化 (Vancouver/AMA を MDPI と誤認しない)
+- Vancouver/AMA 系 reference 用の専用 parser または LLM フォールバック routing 強化
+- 別ドメインの golden fixture 追加 (`tests/fixtures/vancouver_*` 等)
+
+---
+
+## 9. 残存タスク (Stage 2 完了後の更新版)
+
+### 9.1 短期 (Day8 着手推奨)
+
+- **main.py env loader の空値上書き対応** (学び 7.6、上記 8.8、`env -u` workaround 不要に)
+- **PHASE_0_VERIFICATION_REPORT.md への Stage 2 追記の commit** ← (R+) で本書追記中
 - **環境依存フィールドの test 正規化拡張** (`input_file` path masking 等、現状は timestamp のみ scrubbing)
-- **Anthropic API key + NCBI API key の取得・設定手順 docs 化** (Stage 2 前の準備)
-- **`~/.claude/skills/pubmed-reference-resolver.old.20260502/` 最終削除** (Day6 残課題、1-2 週間後)
+
+### 9.2 中期 (1-2 週間)
+
+- **Vancouver/AMA 系 parser 改善** (学び 7.7、上記 8.8)
+- **USAGE_QUICKSTART への parser 限界注記追加** (同上)
+- **Anthropic + NCBI API key 取得・設定手順の docs 化** (`docs/operations/SETUP_API_KEYS.md` 等)
+- **`~/.claude/skills/pubmed-reference-resolver.old.20260502/` 最終削除** (Day6 残課題、1-2 週間後の予定)
+
+### 9.3 長期 (Day10+ 想定)
+
+- **別ドメイン golden fixture 追加** (`tests/fixtures/vancouver_*`, `tests/fixtures/apa_*` 等)
+- **MCP server / hook による Claude UI 経由起動の配線** (Stage 3、現状未配線)
 
 ---
 
 **記録完了日**: 2026/05/02
 **記録者**: Claude Code (Sonnet 4.6)
 **対応 Day7 完全記録 (リポジトリ外)**: `pubmed-reference-resolver-integration-chat-day7.md` (Claude Opus 4.7 が別途作成予定)
+**最終更新**: 2026/05/02 (R+) で 8 章 (Stage 2 実行と結果) を追記
