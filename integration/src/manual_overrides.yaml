@@ -126,7 +126,7 @@ overrides:
       is_book: true
       year: 2004
       title: "Character Strengths and Virtues: A Handbook and Classification"
-      publisher: "Oxford University Press"  # 要出典確認: 暫定値、ユーザー (先生) の原稿で確認待ち
+      journal: "Oxford University Press"    # was: publisher — renamed for proper field mapping. _apply_overrides() does not transpose publisher→journal even when is_book=True; for books the publisher/container is conventionally stored in the journal field. (Day7/Phase ζ regression fix)
     source: "Manual classification based on bibliographic lookup (Peterson & Seligman, 2004)"
 
   # --- Ref #148: title/journal 境界検出失敗 ---
