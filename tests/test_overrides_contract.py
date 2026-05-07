@@ -83,7 +83,7 @@ def test_apply_overrides_ref141_matches_expected():
     assert post["is_book"] is True
     assert post["year"] == 2004
     assert "Handbook and Classification" in post["title"]
-    assert post["publisher"] == "Oxford University Press"
+    assert post["journal"] == "Oxford University Press"
 
     assert post["parsing_confidence"] == snapshot["parsing_confidence"]
 
@@ -91,7 +91,7 @@ def test_apply_overrides_ref141_matches_expected():
     assert "is_book" in post["notes"]
     assert "year" in post["notes"]
     assert "title" in post["notes"]
-    assert "publisher" in post["notes"]
+    assert "journal" in post["notes"]
 
 
 def test_apply_overrides_preserves_non_override_refs():
