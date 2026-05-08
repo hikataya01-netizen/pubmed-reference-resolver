@@ -189,11 +189,68 @@ def test_structure_all_references_with_fast_path_disabled_uses_llm():
 _TIMESTAMP_RE = re.compile(
     r"\*\*実行\*\*: \d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}"
 )
+_INPUT_FILE_RE = re.compile(
+    r"\*\*入力\*\*: `[^`]+`"
+)
 
 
-def _scrub_timestamp(s: str) -> str:
-    """report.md の実行日時行を固定文字列に置換し、byte 比較可能にする。"""
-    return _TIMESTAMP_RE.sub("**実行**: <TS>", s)
+def _scrub_volatile_lines(s: str) -> str:
+    """report.md の environment-dependent 行を固定文字列に置換し、
+    byte 比較可能にする.
+
+    対象 (Day8 (W) 拡張):
+    - **実行**: YYYY-MM-DD HH:MM:SS  →  **実行**: <TS>
+    - **入力**: `<path>`             →  **入力**: `<INPUT>`
+
+    Day7 PHASE_0_VERIFICATION_REPORT §9.1 で指摘された 2 つの
+    volatile field を一括して masking する. cwd や入力ファイル選択に
+    依存しない byte 比較が可能になる.
+    """
+    s = _TIMESTAMP_RE.sub("**実行**: <TS>", s)
+    s = _INPUT_FILE_RE.sub("**入力**: `<INPUT>`", s)
+    return s
+
+
+# -----------------------------------------------------------------------------
+# Day8 (W): unit tests for _scrub_volatile_lines (the expanded scrubber that
+# normalizes both **実行** timestamp and **入力** file-path lines).
+#
+# Rationale: Day7 PHASE_0_VERIFICATION_REPORT §9.1 flagged that the existing
+# _scrub_timestamp masks only the timestamp; the input_file path is also
+# baked into report.md (line: `**入力**: \`tests/fixtures/...docx\`  |  **実行**: ...`)
+# and is sensitive to cwd / input choice. Future re-runs from a different
+# directory would falsely fail the byte-identity test even though the
+# substantive output is identical.
+#
+# Solution: rename _scrub_timestamp to _scrub_volatile_lines and add
+# input_file path masking.
+# -----------------------------------------------------------------------------
+
+
+def test__scrub_volatile_lines_normalizes_timestamp():
+    """timestamp 行は固定 <TS> に置換される (既存挙動の保護)."""
+    a = "**実行**: 2026-05-07 18:00:00"
+    b = "**実行**: 2026-12-31 23:59:59"
+    assert _scrub_volatile_lines(a) == _scrub_volatile_lines(b) == "**実行**: <TS>"
+
+
+def test__scrub_volatile_lines_normalizes_input_file_path():
+    """入力ファイルパス行は固定 <INPUT> に置換される (Day8 (W) 新挙動)."""
+    a = "**入力**: `tests/fixtures/mdpi_149refs/input_References.docx`"
+    b = "**入力**: `/abs/path/to/other.docx`"
+    assert _scrub_volatile_lines(a) == _scrub_volatile_lines(b) == "**入力**: `<INPUT>`"
+
+
+def test__scrub_volatile_lines_normalizes_both_in_same_line():
+    """report.md の冒頭は両者を同一行に持つ. 両方とも masking される."""
+    a = "**入力**: `path/A.docx`  |  **実行**: 2026-05-07 18:00:00"
+    b = "**入力**: `path/B.docx`  |  **実行**: 2026-12-31 23:59:59"
+    assert _scrub_volatile_lines(a) == _scrub_volatile_lines(b)
+    assert "<INPUT>" in _scrub_volatile_lines(a)
+    assert "<TS>" in _scrub_volatile_lines(a)
+    # 元の path / TS が残らない
+    assert "path/A.docx" not in _scrub_volatile_lines(a)
+    assert "2026-05-07" not in _scrub_volatile_lines(a)
 
 
 @pytest.fixture(scope="module")
@@ -222,8 +279,8 @@ def test_synthesize_outputs_report_matches_expected(synthesize_output):
     generated = (output_dir / "report.md").read_text(encoding="utf-8")
     expected = (FIXTURES / "expected_report.md").read_text(encoding="utf-8")
 
-    gen_scrubbed = _scrub_timestamp(generated)
-    exp_scrubbed = _scrub_timestamp(expected)
+    gen_scrubbed = _scrub_volatile_lines(generated)
+    exp_scrubbed = _scrub_volatile_lines(expected)
 
     if gen_scrubbed != exp_scrubbed:
         diff = list(difflib.unified_diff(
@@ -235,7 +292,7 @@ def test_synthesize_outputs_report_matches_expected(synthesize_output):
         ))
         preview = "".join(diff[:20])
         pytest.fail(
-            f"report.md does not byte-match expected (timestamp scrubbed).\n"
+            f"report.md does not byte-match expected (timestamp + input_file scrubbed).\n"
             f"First 20 diff lines:\n{preview}"
         )
 
