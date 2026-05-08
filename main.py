@@ -62,7 +62,10 @@ def load_env_files(input_path: Path | None = None) -> list[str]:
       3. {カレントディレクトリ}/.env          (呼び出し元のカレント)
       4. {入力ファイルのディレクトリ}/.env    (入力PDFと同じフォルダ)
 
-    既に os.environ にセット済みのキーは上書きしない (ユーザー指定が最優先)。
+    既に os.environ に**非空値で**セット済みのキーは上書きしない
+    (ユーザー指定が最優先)。**空値**でセット済みのキーは「未設定」と
+    みなして .env の値で上書きする (harness 経由のサブプロセス継承で
+    空値が export される事象への対応、Day7/Phase ζ §8.8 学び 7.6)。
     """
     candidates: list[Path] = []
     # 1. skill directory
@@ -88,7 +91,7 @@ def load_env_files(input_path: Path | None = None) -> list[str]:
         kv = _parse_env_file(p)
         added = 0
         for k, v in kv.items():
-            if k not in os.environ and v:
+            if (not os.environ.get(k)) and v:
                 os.environ[k] = v
                 added += 1
         if added:
