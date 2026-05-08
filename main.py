@@ -53,6 +53,34 @@ def _parse_env_file(path: Path) -> dict[str, str]:
     return out
 
 
+def _inject_env_kv(kv: dict[str, str]) -> int:
+    """Inject parsed .env KV pairs into os.environ.
+
+    Treats both *unset* and *empty-string* existing values as "not yet set"
+    and therefore eligible for overwrite. Non-empty existing values are
+    preserved (ユーザー指定が最優先 contract). Empty-string values in the
+    input kv dict are skipped (the `v` truthy check).
+
+    Args:
+        kv: dict of KEY -> VALUE pairs from a parsed .env file.
+
+    Returns:
+        The number of keys actually injected into os.environ.
+
+    Notes:
+        Day7/Phase ζ §8.8 学び 7.6: harness 経由のサブプロセス継承で空値が
+        export される事象に対応するため、空値の既存環境変数も「未設定」と
+        みなして上書きする。Day8 で関数 extract、両 caller (load_env_files /
+        main の --env-file 処理) でこのロジックを共有 (重複排除)。
+    """
+    added = 0
+    for k, v in kv.items():
+        if (not os.environ.get(k)) and v:
+            os.environ[k] = v
+            added += 1
+    return added
+
+
 def load_env_files(input_path: Path | None = None) -> list[str]:
     """複数の候補パスから .env を探索して os.environ に注入する。
 
@@ -89,11 +117,7 @@ def load_env_files(input_path: Path | None = None) -> list[str]:
         if not p.is_file():
             continue
         kv = _parse_env_file(p)
-        added = 0
-        for k, v in kv.items():
-            if (not os.environ.get(k)) and v:
-                os.environ[k] = v
-                added += 1
+        added = _inject_env_kv(kv)
         if added:
             loaded_from.append(f"{p} ({added} vars)")
     return loaded_from
@@ -2030,9 +2054,7 @@ def main(argv: list[str] | None = None) -> int:
         if args.env_file:
             if args.env_file.is_file():
                 kv = _parse_env_file(args.env_file)
-                for k, v in kv.items():
-                    if k not in os.environ and v:
-                        os.environ[k] = v
+                _inject_env_kv(kv)
                 if not args.quiet:
                     print(f"[env] loaded from {args.env_file}")
             else:

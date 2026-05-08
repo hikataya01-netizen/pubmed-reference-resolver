@@ -127,3 +127,100 @@ def test_load_env_files_skips_empty_value_in_env_file(
         "Empty .env value must not set os.environ "
         "(preserves the `v` truthy check)"
     )
+
+
+# -----------------------------------------------------------------------------
+# Tests for the shared injector function (_inject_env_kv)
+#
+# Day8/(V) verification revealed that load_env_files() and the --env-file
+# argparse path in main() each had their own inline injection loop with the
+# same buggy condition "k not in os.environ and v". The first Day8 fix
+# (commit d49dc58) corrected only load_env_files() at main.py:91, leaving
+# the --env-file path at main.py:2031 still broken. The fix below extracts
+# the loop into a single helper function _inject_env_kv() so both call
+# sites share the (corrected) behavior. These tests verify the helper
+# directly, eliminating reliance on cwd / chdir tricks.
+# -----------------------------------------------------------------------------
+
+
+def test_inject_env_kv_overwrites_empty_existing_env_var(
+    monkeypatch: pytest.MonkeyPatch,
+):
+    """The shared injector treats empty-string existing values as
+    overwriteable. This is the canonical case for the Claude Code harness
+    that exports KEY= (empty) to subprocesses.
+    """
+    # Pre-condition: empty existing env var
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "")
+
+    # Action: call the shared injector directly with a kv dict
+    added = main_mod._inject_env_kv({"ANTHROPIC_API_KEY": "sk-ant-test-XYZ"})
+
+    # Assertion: env var overwritten, return value reflects the addition
+    assert os.environ["ANTHROPIC_API_KEY"] == "sk-ant-test-XYZ", (
+        "Empty existing env var must be overwritten by the injector"
+    )
+    assert added == 1, f"injector should report 1 addition, got {added}"
+
+
+def test_inject_env_kv_preserves_non_empty_existing_env_var(
+    monkeypatch: pytest.MonkeyPatch,
+):
+    """Non-empty user-provided values must survive the injector
+    (preserves ユーザー指定が最優先 contract)."""
+    # Pre-condition: user-provided value
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "user-key-99999")
+
+    # Action
+    added = main_mod._inject_env_kv({"ANTHROPIC_API_KEY": "would-be-new"})
+
+    # Assertion: user-provided value retained, no addition reported
+    assert os.environ["ANTHROPIC_API_KEY"] == "user-key-99999", (
+        "Non-empty user-provided value must NOT be overwritten"
+    )
+    assert added == 0, f"injector should report 0 additions, got {added}"
+
+
+def test_inject_env_kv_skips_empty_value_in_kv(
+    monkeypatch: pytest.MonkeyPatch,
+):
+    """When the kv dict contains KEY="" (empty value), the injector must
+    not modify os.environ (preserves the `v` truthy check)."""
+    # Pre-condition: ensure no pre-existing key
+    monkeypatch.delenv("ANTHROPIC_API_KEY", raising=False)
+
+    # Action
+    added = main_mod._inject_env_kv({"ANTHROPIC_API_KEY": ""})
+
+    # Assertion: env var still unset, no addition reported
+    assert "ANTHROPIC_API_KEY" not in os.environ, (
+        "Empty kv value must not set os.environ"
+    )
+    assert added == 0, f"injector should report 0 additions, got {added}"
+
+
+def test_inject_env_kv_handles_multiple_keys(
+    monkeypatch: pytest.MonkeyPatch,
+):
+    """The injector processes a multi-key dict and returns the count of
+    actually-injected keys (not the dict size)."""
+    # Pre-condition: mixed existing-state environment
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "")             # empty -> will overwrite
+    monkeypatch.setenv("NCBI_API_KEY", "user-ncbi-key")     # non-empty -> preserve
+    monkeypatch.delenv("FOO_BAR", raising=False)            # unset -> will set
+
+    # Action
+    added = main_mod._inject_env_kv(
+        {
+            "ANTHROPIC_API_KEY": "new-anthropic",
+            "NCBI_API_KEY": "would-be-new-ncbi",
+            "FOO_BAR": "fresh-foo",
+        }
+    )
+
+    # Assertion: exactly two keys were added (anthropic overwrite + foo new),
+    # NCBI was preserved
+    assert os.environ["ANTHROPIC_API_KEY"] == "new-anthropic"
+    assert os.environ["NCBI_API_KEY"] == "user-ncbi-key"
+    assert os.environ["FOO_BAR"] == "fresh-foo"
+    assert added == 2, f"expected 2 additions (anthropic + foo), got {added}"
