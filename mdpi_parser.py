@@ -372,22 +372,35 @@ _BOOK_SIGNS_RE = re.compile(
 def is_mdpi_style(raw: str) -> bool:
     """ブロックが MDPI 形式 (または MDPI パーサで処理可能) と判定できるとき True。
 
-    判定基準:
-      1. 著者が "Surname, I.Y.;" 形式で少なくとも 1 名存在 (必須)
-      2. 以下いずれかが成立:
+    判定順序 (early return):
+      1. 著者必須: "Surname, I.Y.;" 形式が最低 1 名存在 (なければ False)
+      2. **Vancouver Veto**: "(YYYY)" 括弧年が含まれる場合は即 False
+         (MDPI は "YYYY, Vol" 前置コンマ形式のため (YYYY) は出現しない)
+      3. 以下いずれかが成立すれば MDPI fast-path 採用 (True):
          a) 末尾に "YYYY, Vol" パターン (標準的な MDPI 引用)
          b) DOI URL を含む
          c) ISBN または publisher/book signs を含む
-         d) Vancouver/AMA 形式の明確な特徴がない
-            (= 不完全な MDPI ref、mdpi_parser で graceful に処理する)
+      4. (e) 上記いずれにも該当しない = 不完全 MDPI ref、fast-path で graceful 処理 (True)
 
-    判定基準 (d) を含めることで、著者のみ記載の不完全 ref (#117, #123 等) や
+    判定 (4) により、著者のみ記載の不完全 ref (#117, #123 等) や
     出版社情報が欠落した書籍 (#141 等) も fast-path で処理でき、LLM 呼び出しを
     完全に回避できる。mdpi_parser 側は不完全 ref を parsing_confidence=low で
     マークするため、後段の判断に影響しない。
+
+    Day9 (2026/05/09) で Vancouver Veto を導入し、(YYYY) 括弧年を含む
+    Vancouver/AMA 系 ref が誤って MDPI fast-path に流れる問題を解消した。
+    旧 markers (Smith J,/;Vol:Pages) は実 data で Vancouver 24 件中 1 件のみ
+    捕捉と判明 (M1 = 24/24 の真サブセット) のため撤去。
+    参照: docs/sessions/day9/SPEC_mdpi_fast_path_strict.md
     """
     # 著者パターン (最低1名必須)
     if not _AUTHOR_ITEM_RE.search(raw):
+        return False
+    # Vancouver Veto: "(YYYY)" 括弧年が見つかれば LLM ルーティング (Day9 で導入)
+    #   このチェックは (a)(b)(c) より前に置く必要がある:
+    #   さもないと "doi.org/..." 等を含む Vancouver ref が (b) で True を返してしまう
+    #   (Stage 2 #1 Huizinga 2011 等が該当). SPEC §4.2 から実装段階で順序修正.
+    if re.search(r"\((?:19|20)\d{2}\)", raw):
         return False
     # (a) 標準的 MDPI 末尾パターン
     if re.search(r"\s\d{4}\s*,\s*\d+", raw):
@@ -398,16 +411,6 @@ def is_mdpi_style(raw: str) -> bool:
     # (c) ISBN または書籍署名
     if _ISBN_RE.search(raw) or _BOOK_SIGNS_RE.search(raw):
         return True
-    # (d) Vancouver/AMA 系の特徴検出 (これらは LLM にルーティング)
-    #     例: "Smith J, Lee K. Title. Journal 2024;10:100-5."
-    #     - "Surname I" (ピリオドなしイニシャル) + "," 連続
-    #     - ";VOLUME:PAGES" パターン
-    vancouver_markers = (
-        re.search(r"[A-Z][a-z]+ [A-Z]{1,3},\s+[A-Z][a-z]+ [A-Z]{1,3}[,.]", raw)
-        or re.search(r";\d+:\d+", raw)
-    )
-    if vancouver_markers:
-        return False
     # (e) 上記いずれにも該当しない = 不完全 MDPI ref、fast-path で処理
     return True
 
