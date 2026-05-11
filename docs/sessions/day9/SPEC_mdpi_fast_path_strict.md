@@ -121,12 +121,19 @@ Day9 brainstorm で測定:
 ### 4.1 変更箇所
 
 **ファイル**: `mdpi_parser.py` 1 ファイルのみ
-**範囲**: `is_mdpi_style()` 関数内の line 401-410 (Vancouver/AMA 検出ブロック)
-**変更性質**: 規則 2 本の撤去 + 規則 1 本 (M1) の追加 = **net -1 規則**
+**範囲**: `is_mdpi_style()` 関数内、著者チェック直後 (Vancouver Veto = 最優先 early return) + 旧 (d) ブロック (line 401-410) の撤去
+**変更性質**: 規則 2 本の撤去 + 規則 1 本 (M1) の追加 + **配置位置の変更** = **net -1 規則**
+
+**重要 (Day9 実装段階で確定)**:
+SPEC 初版では M1 を旧 (d) ブロック位置 (line 401-410) に置く設計だったが、TDD verify GREEN 段階で順序問題が発覚:
+- (b) `doi.org/` 等 を含む Vancouver ref (例: Stage 2 #1 Huizinga 2011 `doi.org/10.1002/pon.1779`) が、(d) に到達する前に (b) で True を返してしまう
+- 解決: M1 を**著者チェック直後**に moved up し、Vancouver Veto = 最優先 early return とした
+- 設計の本質 (Vancouver indicator が dominant) は維持、配置位置のみ変更
+- 詳細: docs/sessions/day9/DAY9_LESSONS_LEARNED.md (本実装の commit `ab25630`)
 
 ### 4.2 Before / After
 
-**Before** (line 401-410):
+**Before** (旧設計、line 401-410):
 
 ```python
 # (d) Vancouver/AMA 系の特徴検出 (これらは LLM にルーティング)
@@ -141,19 +148,24 @@ if vancouver_markers:
     return False
 ```
 
-**After**:
+**After (実装版、Day9 commit `ab25630`)**:
 
 ```python
-# (d) Vancouver/AMA 系の特徴検出 (これらは LLM にルーティング)
-#     検出 marker: "(YYYY)" 括弧年表記
-#       - MDPI は "YYYY, Vol" (前置コンマ) 形式のため (YYYY) は出現しない
-#       - 旧 markers (Smith J,/;Vol:Pages) は Day9 で撤去:
-#         実 data 測定で Vancouver 24 件中 1 件のみ捕捉
-#         (M1 = 24/24 の真サブセットと判明)
-#     参照: docs/sessions/day9/SPEC_mdpi_fast_path_strict.md
+# 著者パターン (最低1名必須)
+if not _AUTHOR_ITEM_RE.search(raw):
+    return False
+# Vancouver Veto: "(YYYY)" 括弧年が見つかれば LLM ルーティング (Day9 で導入)
+#   このチェックは (a)(b)(c) より前に置く必要がある:
+#   さもないと "doi.org/..." 等を含む Vancouver ref が (b) で True を返してしまう
+#   (Stage 2 #1 Huizinga 2011 等が該当). SPEC §4.2 から実装段階で順序修正.
 if re.search(r"\((?:19|20)\d{2}\)", raw):
     return False
+# (a) 標準的 MDPI 末尾パターン
+...
+# (旧 (d) ブロックは撤去。Vancouver Veto に統合済み)
 ```
+
+設計の本質 (Vancouver indicator が dominant) は SPEC 初版から不変、配置位置のみ実装段階で修正。
 
 ### 4.3 設計判断の根拠
 
@@ -179,25 +191,28 @@ if re.search(r"\((?:19|20)\d{2}\)", raw):
 
 `tests/test_mdpi_parser.py` に append (既存 4 test に追加).
 
-### 5.2 追加 test 一覧 (3 件)
+### 5.2 追加 test 一覧 (実装版 = 4 件、SPEC 初版 3 件 + 1)
+
+実装段階で test 3 を TDD skill "One behavior" rule に従い **2 件に細分化**:
 
 | # | test 名 | 性質 | 期待 |
 |:---:|:---|:---|:---|
 | 1 | `test_is_mdpi_style_returns_false_for_paren_year_vancouver` | RED → GREEN | Stage 2 raw_text **3 件** (Ref #1 Huizinga 2011 / Ref #2 Shah 2017 / Ref #11 Lindqvist 2007) → 全 False |
 | 2 | `test_is_mdpi_style_still_returns_true_for_pure_mdpi` | regression 保護 | MDPI fixture 代表 ref **3 件** (#1 Bray 2022 / #51 Gustavsson-Lilius / #141 Peterson book) → 全 True 維持 |
-| 3 | `test_is_mdpi_style_does_not_falsely_match_paren_year_in_mdpi_text` | edge case + 将来 monitoring | 合成 MDPI text 中に偶然 `(2020)` のような括弧年が混入したケースを構築し、誤検出しないことを確認 (ただし実測では MDPI fixture 0/149 hit のため将来用の保険) |
+| 3a | `test_is_mdpi_style_does_not_match_non_year_parens` | edge case | `(2nd ed.)` のような非年括弧は M1 regex に誤 match しない (4 桁年限定の証明) |
+| 3b | `test_is_mdpi_style_paren_year_dominates_over_mdpi_signals` | M1 dominance | `(1995)` を含む MDPI 形式 text でも False を返す (Vancouver Veto = 最優先 early return の確認) |
 
-### 5.3 RED 確認
+### 5.3 RED 確認 (実測)
 
-- test 1 が現状 fail 期待: 現在 `(YYYY)` を検出していないため True を返す → False 期待で AssertionError
-- test 2, 3 は現状 pass 期待 (regression 保護なので)
+- test 1, 3b が現状 fail (`feature missing`、確認済): `(YYYY)` を検出していないため True を返す → False 期待で AssertionError
+- test 2, 3a は現状 pass (regression 保護として既存 markers が機能しない領域)
 
-### 5.4 GREEN 確認
+### 5.4 GREEN 確認 (実測)
 
-- line 401-410 を After 版に置換
-- test 1, 2, 3 全 pass
+- mdpi_parser.py の `is_mdpi_style()` に Vancouver Veto を **著者チェック直後** に early-return で追加 (旧 (d) 位置からの順序修正、§4.1 の備考参照)
+- test 1, 2, 3a, 3b 全 pass
 - 既存 mdpi_parser test 4 件 pass (regression なし)
-- 全体 65 passed (Day8 末 62 → +3) / 1 skipped
+- **全体 66 passed (Day8 末 62 → +4) / 1 skipped** (SPEC 初版 65 → +1、test 細分化分)
 
 ### 5.5 統合検証
 
@@ -282,9 +297,18 @@ Refs: docs/sessions/day9/SPEC_mdpi_fast_path_strict.md;
 
 ---
 
-## 11. 完了条件
+## 11. 完了条件 (Day9 完了時点で達成)
 
 本 SPEC は以下が成立した時点で「実装完了」とする:
+
+- [x] mdpi_parser.py の `is_mdpi_style()` に Vancouver Veto を **著者チェック直後** に early-return で追加 (旧 (d) 位置からの順序修正)
+- [x] tests/test_mdpi_parser.py に **4 新 test** 追加 (SPEC 初版 3 → +1、TDD One behavior rule 細分化)
+- [x] `pytest tests/` が **66 passed, 1 skipped** を報告 (SPEC 初版 65 → +1)
+- [x] commit が 1 つ作成 (`ab25630`)、commit message に本 SPEC への参照あり
+- [x] git status が clean (untracked = .DS_Store のみ)
+- [x] **(Day9 (Z) 実機検証)** Stage 2 OneDrive 24 件で MDPI fast-path 0 件、LLM path 24 件、解決率 14/24 → **22/24 (+33% pt 改善)**
+
+(以下は元の完了条件、項目順保持のため残置)
 
 - [ ] mdpi_parser.py:401-410 が "After" 版に置換済
 - [ ] tests/test_mdpi_parser.py に 3 新 test 追加
