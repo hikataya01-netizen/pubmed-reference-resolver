@@ -3,6 +3,8 @@
 **pubmed-reference-resolver スキルの即時使用ガイド**
 
 **作成日**: 2026/05/02 (Day7 = Phase ζ で同梱)
+**最終更新**: 2026/05/11 (Day10、§X 変更履歴参照)
+**バージョン**: 1.1
 **対象**: 本スキルを利用する全ての利用者
 **配置**: `skill_package/references/USAGE_QUICKSTART.md` (symlink 経由で `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md` でも読み出し可能)
 
@@ -14,7 +16,7 @@
 2. **AI 捏造引用の検出**: ハルシネーション由来の存在しない論文・誤ったジャーナル/年/著者を**3 段階 severity で自動分類**
 3. **3 ファイル一括出力**: PubMed 純正互換 CSV + 番号付き abstract text + 統合監査レポート (HTML/Word) を 1 回の実行で生成
 
-LLM 費用: **MDPI 形式は 0 円** (deterministic parser で完結)、その他形式は LLM フォールバックでも軽量化済。
+LLM 費用: **MDPI 形式は 0 円** (deterministic parser で完結)、**Vancouver/AMA 系は LLM 経路で 24 件 約 $0.20** (Day9 (Z) 実測)。詳細は §III の引用スタイル別ガイド + §VI パフォーマンス特性 を参照。
 
 ---
 
@@ -118,6 +120,22 @@ pubmed-reference-resolver で一括検証してください。
 
 引用スタイル: Vancouver / AMA / APA / Harvard / Chicago / Nature / Cell / MDPI 等、**スタイル不問**で対応。
 
+### 引用スタイル別の処理経路 (Day9 で確立)
+
+is_mdpi_style() の判定により、入力 reference は以下のいずれかに routing される:
+
+| 引用スタイル | 判定 marker | 処理経路 | API key 必須 | 解決率 (実測) |
+|:---|:---|:---:|:---:|:---:|
+| **MDPI** (`Surname, I.; ... YYYY, Vol`) | 著者 `;` 区切り + 年前置コンマ | deterministic parser (fast-path) | ANTHROPIC: 不要、NCBI: 推奨 | 149/149 = 100% (golden fixture) |
+| **Vancouver / AMA** (`(YYYY)` 括弧年) | `(YYYY)` Vancouver Veto (Day9) | LLM (Claude Sonnet 4.6) | **ANTHROPIC: 必須**、NCBI: 推奨 | 22/24 = 91.7% (Day9 (Z) 実測) |
+| **APA / Harvard 等 (上記いずれにも該当しない)** | M1 (YYYY) hit なし、不完全 MDPI fallback | deterministic parser (fast-path、graceful 処理) | ANTHROPIC: 不要 | 未測定 (将来 fixture 化候補) |
+
+**Vancouver/AMA 系入力での重要事項**:
+- `.env` または `--env-file` で **ANTHROPIC_API_KEY を必ず設定**してください. 未設定の場合 Phase 2 で `RuntimeError: ANTHROPIC_API_KEY not set` が発生します.
+- 費用目安: 24 件で 約 $0.15-0.25 (Claude Sonnet 4.6 経由、Day9 (Z) 実測). 100 件超なら $1 前後.
+- 解決率は MDPI 同等の高水準 (91.7%) で、parser 起因の false positive 重大エラーが完全消滅します. 詳細は `docs/sessions/day9/DAY9_LESSONS_LEARNED.md` §4.2 参照.
+- 所要時間: 24 件で 約 2-3 分 (LLM 構造化が ~110 秒のボトルネック、Day7-8 の 35-61 秒より長い).
+
 ---
 
 ## IV. 出力 3 ファイルの構造
@@ -171,7 +189,16 @@ PMID: 23456789
 
 ### Q3. MDPI 形式以外で精度が低い
 
-→ MDPI 以外は LLM (Claude Sonnet 4.6) のフォールバック解析。複数の引用スタイル混在文献は誤解析しやすい。**Vancouver 形式のゴールドスタンダード追加**は Day7 以降の長期タスクとして計画中。
+→ **Day9 改修済 (2026/05/11)**. is_mdpi_style() に Vancouver Veto (`(YYYY)` 括弧年検出) を導入し、Vancouver/AMA 系入力は自動的に LLM 経路に routing されるようになりました.
+
+実績 (Day9 (Z) 実測、Stage 2 OneDrive 24 件):
+- 解決率: 旧 14/24 (58.3%) → **新 22/24 (91.7%)** (+33% pt)
+- 重大エラー: 旧 4 件 (うち 3 件 parser 起因 false positive) → **新 0 件** (完全解消)
+- title 抽出品質: parser 誤認 8 件 → LLM 解析で全件正解
+
+詳細: `docs/sessions/day9/DAY9_LESSONS_LEARNED.md` §4.2-4.4.
+
+なお、APA / Harvard 等の `(YYYY)` を含まないスタイルは現在も MDPI fast-path の不完全 ref fallback で処理されます. 将来的に別ドメイン golden fixture (`tests/fixtures/vancouver_*` / `apa_*` 等) を追加して個別最適化する計画です.
 
 ### Q4. 捏造判定で false positive が多い
 
@@ -185,17 +212,24 @@ PMID: 23456789
 
 ## VI. パフォーマンス特性
 
-| 文献数 | 所要時間 (NCBI API key あり) | LLM 呼出回数 (MDPI 中心) | LLM 呼出回数 (混在) |
-|:---:|:---:|:---:|:---:|
-| 30 | 1-3 分 | 0 (全 fast-path) | 5-15 |
-| 100 | 3-8 分 | 0-5 | 30-60 |
-| 200 | 8-15 分 | 0-10 | 60-120 |
+| 文献数 / スタイル | 所要時間 (NCBI key あり) | LLM 呼出回数 | 出典 |
+|:---|:---:|:---:|:---|
+| 30 件 (MDPI 中心) | 1-3 分 | 0 (全 fast-path) | 推定 |
+| 30 件 (混在) | 1-3 分 | 5-15 | 推定 |
+| 100 件 (MDPI 中心) | 3-8 分 | 0-5 | 推定 |
+| 100 件 (混在) | 3-8 分 | 30-60 | 推定 |
+| 200 件 (MDPI 中心) | 8-15 分 | 0-10 | 推定 |
+| 200 件 (混在) | 8-15 分 | 60-120 | 推定 |
+| **24 件 (Vancouver/AMA)** | **約 2.5 分** (Phase 2: 110s, Phase 3: 38s) | **24 (全件 LLM)** | **Day9 (Z) 実測** |
+| 149 件 (MDPI golden) | 3-4 分 | 0 (全 fast-path) | Day7 Stage 1 実測 |
 
 **LLM 費用見積り** (Claude Sonnet 4.6 前提):
 
 - 全 MDPI: **$0** (deterministic parser のみ)
 - 混在 30 件: 約 $0.10-0.30
+- **Vancouver/AMA 24 件: 約 $0.15-0.25** (Day9 (Z) 実測)
 - 混在 200 件: 約 $0.60-1.50
+- Vancouver/AMA 100 件 (推定): 約 $0.60-1.00
 
 (価格は変動する可能性があるため、実際の利用前に Anthropic API pricing を確認)
 
@@ -257,10 +291,29 @@ journal_audit のデフォルト閾値:
 
 ---
 
-**作成日**: 2026/05/02
-**作成者**: Claude Opus 4.7
+## X. 変更履歴
+
+### バージョン 1.1 (2026/05/11、Day10 更新)
+
+Day9 で発見・実装された Vancouver Veto と (Z) 実機検証データを反映:
+
+- **§I (3 行サマリー)**: LLM 費用記載に Vancouver/AMA 系の具体コスト ($0.20/24refs) を追記.
+- **§III (引用スタイル別の処理経路)**: 新サブセクションを追加. is_mdpi_style() の判定 marker、処理経路、API key 必須性、解決率 (実測) を表形式で整理. Vancouver/AMA 系入力での重要事項 (ANTHROPIC_API_KEY 必須、費用、所要時間) を明記.
+- **§V Q3 (MDPI 形式以外で精度が低い)**: 「Day7 以降の長期タスク計画中」から「Day9 改修済」に書換. Day9 (Z) 実績 (解決率 14/24 → 22/24, +33% pt; 重大エラー 4 → 0) を記載.
+- **§VI (パフォーマンス特性)**: 表に Vancouver/AMA 24 件 (Day9 (Z) 実測) と MDPI 149 件 (Day7 Stage 1 実測) の 2 行を追加. 推定値と実測値を「出典」列で明示区別. LLM 費用見積りに Vancouver/AMA 24 件の項目を追加.
+
+参照: `docs/sessions/day9/SPEC_mdpi_fast_path_strict.md`, `docs/sessions/day9/DAY9_LESSONS_LEARNED.md`.
+
+### バージョン 1.0 (2026/05/02、Day7 = Phase ζ で同梱、初版)
+
+初版作成. Day1-6 統合実装の skill 即時利用ガイドとして 9 章構成 (I-IX) で同梱. シナリオ A (peer review 1 論文) / B (系統的レビュー 100 件超) / C (AI 捏造引用検出) の 3 起動テンプレート、3 出力ファイル仕様、5 つの FAQ、性能特性、カスタマイズオプションを記載.
+
+---
+
+**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (バージョン 1.1 更新)
+**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1)
 **ファイル名**: `USAGE_QUICKSTART.md`
 **配置**: `skill_package/references/USAGE_QUICKSTART.md`
 **symlink 経由パス**: `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md`
 **メンテナ**: 片山英樹 (Hideki Katayama)
-**バージョン**: 1.0 (初版)
+**バージョン**: **1.1** (Day10 更新)
