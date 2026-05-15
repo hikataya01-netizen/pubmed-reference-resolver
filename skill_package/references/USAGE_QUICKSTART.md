@@ -3,8 +3,8 @@
 **pubmed-reference-resolver スキルの即時使用ガイド**
 
 **作成日**: 2026/05/02 (Day7 = Phase ζ で同梱)
-**最終更新**: 2026/05/11 (Day10、§X 変更履歴参照)
-**バージョン**: 1.1
+**最終更新**: 2026/05/13 (Day14、§X 変更履歴参照)
+**バージョン**: 1.2
 **対象**: 本スキルを利用する全ての利用者
 **配置**: `skill_package/references/USAGE_QUICKSTART.md` (symlink 経由で `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md` でも読み出し可能)
 
@@ -200,9 +200,38 @@ PMID: 23456789
 
 なお、APA / Harvard 等の `(YYYY)` を含まないスタイルは現在も MDPI fast-path の不完全 ref fallback で処理されます. 将来的に別ドメイン golden fixture (`tests/fixtures/vancouver_*` / `apa_*` 等) を追加して個別最適化する計画です.
 
-### Q4. 捏造判定で false positive が多い
+### Q4. 捏造判定で false positive が多い / 「PubMed 未ヒット = 捏造」と決めつけてよいか?
 
-→ 判定基準は "**MEDLINE 収録誌を名乗りながら PubMed 未ヒット + DOI 未解決**" の AND 条件。厳しすぎる場合は、`severity_threshold` パラメータで閾値調整可能。
+→ **「PubMed 未ヒット = 捏造」は単純化です** (Day13 INVESTIGATION で実証). 「PubMed 未ヒット」状態には実は **3 つの異なる原因** があり、すべてを同じ severity で扱うと false positive が発生します.
+
+#### PubMed 未ヒットの 3 分類
+
+| 分類 | 判定基準 | 例 | 真の severity | 査読者の対処 |
+|:---|:---|:---:|:---:|:---|
+| **A. 真の捏造 (LLM ハルシネーション)** | DOI 実在せず + Crossref hit なし + title でも他 DB ヒットせず | (典型例) ChatGPT が生成した架空 DOI | **重大** | 著者に削除/差し替え要求 |
+| **B. MEDLINE 非収録誌の正規論文** | DOI 実在 (Crossref hit) + journal の NLM Catalog `currentindexingstatus = N` | **#22 Gallina (OMICS Publishing Group)** | **軽微** (predatory 注意) | 引用根拠の信頼性確認、代替論文推奨 |
+| **C. MEDLINE 収録誌の indexing 漏れ論文** | DOI 実在 + journal `currentindexingstatus = Y` + 該当論文単体 unindexed | **#17 Davey (Fam Syst Health 2003)** | **軽微** (人手確認推奨) | DOI で landing page 確認、他 DB (PsycInfo / Scopus 等) で検証 |
+
+#### 補助検証手順 (API key 不要、curl + jq)
+
+```bash
+# (1) Crossref で DOI 実在確認
+curl -sf "https://api.crossref.org/works/{DOI}" | jq '.message | {journal:."container-title"[0], title:.title[0]}'
+
+# (2) NLM Catalog で journal の MEDLINE 収録状況確認
+curl -sf "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nlmcatalog&term={ISSN}%5BISSN%5D&retmode=json"
+# → ID 取得後、esummary で currentindexingstatus を確認 (Y / N)
+```
+
+詳細手順 (再現可能 curl コマンド + 3 分類判定 logic) は `docs/sessions/day13/INVESTIGATION_unresolved_2refs.md` §3-§4 を参照.
+
+#### 現状 skill の制約
+
+現状の audit logic は A/B/C を区別せず、すべて「未解決」として扱います (severity 区別なし). これは安全側 (human-in-the-loop で確認推奨) の設計ですが、将来 `audit_report` に 3 分類 logic を追加することで false positive を削減する改修が候補化されています (Day13 INVESTIGATION §6 案 A).
+
+#### 暫定的な severity 調整
+
+`severity_threshold` パラメータで閾値調整は可能ですが、本質的には査読者が DOI を Crossref で叩く / journal の NLM Catalog 状況を確認する手作業が現状最も確実です.
 
 ### Q5. 監査レポートで Word の表示が崩れる
 
@@ -293,6 +322,15 @@ journal_audit のデフォルト閾値:
 
 ## X. 変更履歴
 
+### バージョン 1.2 (2026/05/13、Day14 更新)
+
+Day13 INVESTIGATION (`docs/sessions/day13/INVESTIGATION_unresolved_2refs.md`) で発見された「PubMed 未ヒット 3 分類」を反映:
+
+- **§V Q4 (捏造判定で false positive が多い)**: 全面書き換え. 「PubMed 未ヒット = 捏造」の単純化を否定し、3 分類 (A. 真の捏造 / B. MEDLINE 非収録誌の正規論文 / C. MEDLINE 収録誌の indexing 漏れ論文) を table で整理. Day9 (Z) Ref #17 Davey (C 分類) と Ref #22 Gallina (B 分類) を実例として挙示. Crossref + NLM Catalog による補助検証手順 (curl コマンド例示) を併記.
+- 関連: SKILL.md description の「捏造引用検出」表記も同タイミングで 3 分類対応に精緻化 (Day14 commit で同梱).
+
+参照: `docs/sessions/day13/INVESTIGATION_unresolved_2refs.md` §3-§4 (3 分類体系 + 再現 curl コマンド), §6 (Day14+ skill 改修候補 4 案).
+
 ### バージョン 1.1 (2026/05/11、Day10 更新)
 
 Day9 で発見・実装された Vancouver Veto と (Z) 実機検証データを反映:
@@ -310,10 +348,10 @@ Day9 で発見・実装された Vancouver Veto と (Z) 実機検証データを
 
 ---
 
-**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (バージョン 1.1 更新)
-**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1)
+**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (バージョン 1.1 更新)、2026/05/13 (バージョン 1.2 更新)
+**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1, 1.2)
 **ファイル名**: `USAGE_QUICKSTART.md`
 **配置**: `skill_package/references/USAGE_QUICKSTART.md`
 **symlink 経由パス**: `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md`
 **メンテナ**: 片山英樹 (Hideki Katayama)
-**バージョン**: **1.1** (Day10 更新)
+**バージョン**: **1.2** (Day14 更新、PubMed 未ヒット 3 分類反映)

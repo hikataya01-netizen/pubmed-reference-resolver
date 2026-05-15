@@ -1,6 +1,6 @@
 ---
 name: pubmed-reference-resolver
-description: 査読対象論文のReferencesセクション(PDF/DOCX/TXT)から各文献をPubMedで逆引き検索し、PubMed純正互換CSV + 番号付きabstract text + 統合監査レポート(ダッシュボード+要確認項目+未解決参照詳細を1ファイルに統合)の3ファイルを自動生成する査読支援スキル。**MDPI形式の参照は決定論的fast-pathで処理し、LLM呼び出し費用ゼロで解決する**(Vancouver/AMA/APA/Harvard/Chicago/Nature/Cell/MDPI等の引用スタイルに不問で対応、MDPI以外はLLM経由)。PDFコピペ由来の行番号問題(行頭・行末・行中・数字連結・散在の5パターン)を統計的に検出・除去する。PubMed未ヒット文献は空行として保持、重複引用は複合キー(PMID/DOI/title+author+year)で検出、引用年誤記・タイトル改変・DOI-雑誌名不整合を重大/要検討/軽微の3段階に自動分類。**ジャーナル名類似度監査**により、引用ジャーナル名とPubMed側ジャーナル名の不一致をMAJOR/WARN/INFOの3段階severityで自動分類し、4層統合レポート(Dashboard/MAJOR詳細セクション/補遺narrative/sidecar JSON)として出力。**AI/LLMによる捏造引用の検出にも有効**(MEDLINE収録誌を名乗りながらPubMed未ヒット+DOI未解決の組合せを"捏造DOIの可能性"として可視化)。手動補正機能(manual_overrides.yaml)により、特殊ケース(書籍検出、出版社情報保持、smart quote処理等)を明示的に補正可能。想定参照数30件中心、100件超のレビュー論文にも対応(149件MDPIゴールドスタンダードでbyte単位fixture一致を検証済み)。和文文献・医中誌Web等は非対象(英語論文専用)。既存の `paper-search` スキル(新着pull型検索)とは明確に差別化される**push型の逆引き検証ツール**。以下のようなリクエストで必ず本スキルを使用すること:「この論文の参照文献をPubMedで逆引きして」「Referencesセクションを検証して」「査読対象論文の引用文献をチェック」「論文のReferences全件を一覧化して」「参照文献のPMIDを取得」「引用文献の抄録を全部まとめて」「査読用にabstract集を作成」「Referencesの重複引用を検出して」「引用年誤記をチェックして」「DOIから PubMed 情報を取得」「参照文献のPubMed CSV を作って」「捏造引用かチェックして」「AIが作った論文の引用が怪しいか調べて」「ジャーナル名とDOIの整合性をチェック」「MDPIの参照を検証して」。参照文献、References、逆引き、PMID取得、査読支援、引用文献チェック、重複引用検出、引用正確性、abstract text、PubMed CSV、捏造引用検出、ハルシネーション検証、ジャーナル名監査、MDPI fast-path等のキーワードが含まれる場合は積極的に本スキルを使用する。
+description: 査読対象論文のReferencesセクション(PDF/DOCX/TXT)から各文献をPubMedで逆引き検索し、PubMed純正互換CSV + 番号付きabstract text + 統合監査レポート(ダッシュボード+要確認項目+未解決参照詳細を1ファイルに統合)の3ファイルを自動生成する査読支援スキル。**MDPI形式の参照は決定論的fast-pathで処理し、LLM呼び出し費用ゼロで解決する**(Vancouver/AMA/APA/Harvard/Chicago/Nature/Cell/MDPI等の引用スタイルに不問で対応、MDPI以外はLLM経由)。PDFコピペ由来の行番号問題(行頭・行末・行中・数字連結・散在の5パターン)を統計的に検出・除去する。PubMed未ヒット文献は空行として保持、重複引用は複合キー(PMID/DOI/title+author+year)で検出、引用年誤記・タイトル改変・DOI-雑誌名不整合を重大/要検討/軽微の3段階に自動分類。**ジャーナル名類似度監査**により、引用ジャーナル名とPubMed側ジャーナル名の不一致をMAJOR/WARN/INFOの3段階severityで自動分類し、4層統合レポート(Dashboard/MAJOR詳細セクション/補遺narrative/sidecar JSON)として出力。**AI/LLMによる捏造引用の検出にも有効**(PubMed未ヒット文献を「真の捏造(DOI実在せず)/MEDLINE非収録誌の正規論文(predatory含む)/MEDLINE収録誌のindexing漏れ論文」の3分類で扱い、Crossref+NLM Catalog補助検証でfalse positiveを抑制可能。詳細はreferences/USAGE_QUICKSTART.md §V Q4参照)。手動補正機能(manual_overrides.yaml)により、特殊ケース(書籍検出、出版社情報保持、smart quote処理等)を明示的に補正可能。想定参照数30件中心、100件超のレビュー論文にも対応(149件MDPIゴールドスタンダードでbyte単位fixture一致を検証済み)。和文文献・医中誌Web等は非対象(英語論文専用)。既存の `paper-search` スキル(新着pull型検索)とは明確に差別化される**push型の逆引き検証ツール**。以下のようなリクエストで必ず本スキルを使用すること:「この論文の参照文献をPubMedで逆引きして」「Referencesセクションを検証して」「査読対象論文の引用文献をチェック」「論文のReferences全件を一覧化して」「参照文献のPMIDを取得」「引用文献の抄録を全部まとめて」「査読用にabstract集を作成」「Referencesの重複引用を検出して」「引用年誤記をチェックして」「DOIから PubMed 情報を取得」「参照文献のPubMed CSV を作って」「捏造引用かチェックして」「AIが作った論文の引用が怪しいか調べて」「ジャーナル名とDOIの整合性をチェック」「MDPIの参照を検証して」。参照文献、References、逆引き、PMID取得、査読支援、引用文献チェック、重複引用検出、引用正確性、abstract text、PubMed CSV、捏造引用検出、ハルシネーション検証、ジャーナル名監査、MDPI fast-path等のキーワードが含まれる場合は積極的に本スキルを使用する。
 ---
 
 # pubmed-reference-resolver
@@ -132,7 +132,10 @@ Stage 5: 出力合成 (CSV / abstract / report / sidecar JSON)
 - **雑誌名-DOI不整合 (MAJOR)**: journal_audit による類似度 50% 未満の自動検出
 - **ソフトハイフン破損の復元**: `RELA-TIONSHIP` → `RELATIONSHIP` 等
 - **DOI曖昧性の両形式保持**: `j.jpsy-chores` と `j.jpsychores` の両方を試行
-- **AI/LLM 捏造引用候補**: MEDLINE 収録誌を名乗りつつ PubMed 未ヒット + DOI 未解決の組合せ
+- **AI/LLM 捏造引用候補 (3 分類化、Day14 で精緻化)**: PubMed 未ヒット文献は以下の 3 分類で扱う (詳細: `references/USAGE_QUICKSTART.md` §V Q4 + `docs/sessions/day13/INVESTIGATION_unresolved_2refs.md`):
+  - **A. 真の捏造**: DOI 実在せず (Crossref hit なし) — **重大**
+  - **B. MEDLINE 非収録誌の正規論文**: DOI 実在 + journal `currentindexingstatus = N` (predatory journal 含む) — **軽微 (predatory 注意)**
+  - **C. MEDLINE 収録誌の indexing 漏れ論文**: DOI 実在 + journal `currentindexingstatus = Y` + 該当論文単体 unindexed — **軽微 (人手確認推奨)**
 
 ## 手動補正機能 (manual_overrides.yaml)
 
