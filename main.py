@@ -1441,12 +1441,20 @@ def write_report(
     duplicates: dict[int, int],
     *,
     audit_narrative_md: str | None = None,
+    three_class_classifications: list[dict] | None = None,
 ) -> None:
     """統合レポート: ダッシュボード + 優先度順要確認項目 + 未解決一覧 + 透明性トレース。
 
     audit_narrative_md が与えられた場合、免責事項セクションの直後に
     ジャーナル名監査の補遺として連結する (format_summary_narrative 出力
     を想定、先頭 `\\n---\\n` を含むため区切り線の追加は不要)。
+
+    Day15: three_class_classifications が non-empty なら §2 (未解決参照
+    詳細) の中に sub-section を挿入し、各未解決 ref に「PubMed 未ヒット
+    3 分類」(A/B/C/unknown) を表示する. None or 空 list なら sub-section
+    は生成しない (MDPI 149-ref fixture 等で全件解決時の report.md に変化
+    なし、既存 test_synthesize_outputs_report_matches_expected の regression
+    回避).
     """
     ln = result.get("stage2_5_line_number_detection", {})
     trace = result.get("stage2_preprocess_trace", {})
@@ -1572,6 +1580,35 @@ def write_report(
             lines.append(f"| {ref_no} | {title} | {journal} | {year} | `{doi}` | {lang} | {reason} |")
         lines.append("")
 
+        # Day15: 「PubMed 未ヒット 3 分類」sub-section (Day13 §6 改修候補 A、
+        # SPEC §5.1). classifications が non-empty の場合のみ生成、
+        # MDPI 149-ref 等の全件解決 fixture では section なし → 既存
+        # test_synthesize_outputs_report_matches_expected (byte 一致) は不変.
+        if three_class_classifications:
+            lines.append("### [3 分類化] PubMed 未ヒットの分類")
+            lines.append("")
+            lines.append("(Day13 INVESTIGATION で発見、Day15 で実装. "
+                         "詳細は `references/USAGE_QUICKSTART.md` §V Q4 参照)")
+            lines.append("")
+            lines.append("| ref | 分類 | 理由 |")
+            lines.append("|:---:|:---:|:---|")
+            class_counts = {"A": 0, "B": 0, "C": 0, "unknown": 0}
+            for c in three_class_classifications:
+                cls = c.get("class", "unknown")
+                class_counts[cls] = class_counts.get(cls, 0) + 1
+                lines.append(
+                    f"| #{c.get('ref_no')} | {cls} | "
+                    f"{_truncate(c.get('reason') or '', 100)} |"
+                )
+            lines.append("")
+            lines.append(
+                f"**集計**: A (真の捏造) {class_counts.get('A', 0)} 件 / "
+                f"B (MEDLINE 非収録誌) {class_counts.get('B', 0)} 件 / "
+                f"C (収録誌 indexing 漏れ) {class_counts.get('C', 0)} 件 / "
+                f"unknown (判定不可) {class_counts.get('unknown', 0)} 件"
+            )
+            lines.append("")
+
         lines.append("### 参照ごとの試行詳細")
         lines.append("")
         for r in unresolved:
@@ -1694,7 +1731,13 @@ def write_report(
     path.write_text(body, encoding="utf-8")
 
 
-def synthesize_outputs(result: dict, output_dir: Path) -> dict:
+def synthesize_outputs(
+    result: dict,
+    output_dir: Path,
+    *,
+    crossref_fn=None,
+    nlm_fn=None,
+) -> dict:
     """Phase 3 結果から最終出力 (CSV / abstract / report / 監査 sidecar) を合成する。
 
     report.md は unresolved 一覧を内包し、ダッシュボード + 優先度別
@@ -1702,7 +1745,20 @@ def synthesize_outputs(result: dict, output_dir: Path) -> dict:
     journal_audit による citation journal と PubMed journal_iso の
     類似度監査の要約を補遺として付加する (詳細は同ディレクトリの
     journal_mismatch_audit.json に出力)。
+
+    Day15 で「PubMed 未ヒット 3 分類」logic を統合 (Day13 §6 改修候補 A).
+    未解決 ref に対し three_class_classifier.classify_unresolved_refs() を
+    呼び、結果を result["stage5_3class_classification"] と
+    `three_class_classification.json` sidecar に出力. report.md §2 に
+    sub-section も追加 (classifications non-empty 時のみ).
+
+    Args:
+        crossref_fn: crossref_check.check_doi_exists 互換関数 (DI、test 用)
+        nlm_fn: nlm_catalog_check.get_journal_indexing_status 互換 (DI、test 用)
+        両者 None なら production の live API call.
     """
+    import three_class_classifier  # noqa: E402 (lazy import, optional dep)
+
     structured_list = result.get("stage3_structured", [])
     structured = {s["ref_no"]: s for s in structured_list}
     resolutions = result.get("stage4_pubmed_resolutions", [])
@@ -1720,6 +1776,27 @@ def synthesize_outputs(result: dict, output_dir: Path) -> dict:
 
     narrative_md = journal_audit.format_summary_narrative(all_findings)
 
+    # Phase 5: Day15「PubMed 未ヒット 3 分類」logic (Day13 §6 改修候補 A)
+    # 未解決 ref を抽出し、各 ref に doi (structured 由来) を併合した上で
+    # classify_unresolved_refs に渡す
+    unresolved_refs = []
+    for r in resolutions:
+        if r.get("pmid"):
+            continue
+        ref_no = r["ref_no"]
+        s = structured.get(ref_no, {})
+        unresolved_refs.append({
+            "ref_no": ref_no,
+            "doi": s.get("doi") or s.get("doi_alt"),
+            "journal": s.get("journal"),
+        })
+    classifications = three_class_classifier.classify_unresolved_refs(
+        unresolved_refs,
+        crossref_fn=crossref_fn,
+        nlm_fn=nlm_fn,
+    )
+    result["stage5_3class_classification"] = classifications
+
     # ファイル名用の first_pmid (解決済みの最初のPMID)
     first_pmid = next((r["pmid"] for r in resolutions if r.get("pmid")), None) or "nopmid"
 
@@ -1727,12 +1804,14 @@ def synthesize_outputs(result: dict, output_dir: Path) -> dict:
     abstract_path = output_dir / f"abstract-{first_pmid}-set.txt"
     report_path = output_dir / "report.md"
     sidecar_path = output_dir / "journal_mismatch_audit.json"
+    three_class_sidecar_path = output_dir / "three_class_classification.json"
 
     write_pubmed_csv(csv_path, resolutions, structured, duplicates)
     write_abstract_text(abstract_path, resolutions, structured)
     write_report(
         report_path, result, duplicates,
         audit_narrative_md=narrative_md,
+        three_class_classifications=classifications,
     )
     # sidecar では severity を除いた形式で書く (fixture 規約)
     sidecar_entries = [
@@ -1743,12 +1822,18 @@ def synthesize_outputs(result: dict, output_dir: Path) -> dict:
         json.dumps(sidecar_entries, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    # Day15: 3 分類 sidecar (常に出力、unresolved 0 件なら空配列)
+    three_class_sidecar_path.write_text(
+        json.dumps(classifications, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
     return {
         "csv": str(csv_path),
         "abstract": str(abstract_path),
         "report": str(report_path),
         "journal_mismatch_audit": str(sidecar_path),
+        "three_class_classification": str(three_class_sidecar_path),
         "duplicates": duplicates,
     }
 

@@ -195,6 +195,105 @@ def test_baseline_phase3_documents_resolution_count():
 # -----------------------------------------------------------------------------
 
 
+# -----------------------------------------------------------------------------
+# Day15 Phase 4: 3 分類化 integration test (synthesize_outputs 経由)
+# -----------------------------------------------------------------------------
+
+
+def test_synthesize_outputs_produces_three_class_classification(tmp_path):
+    """Day15 Phase 4 統合: baseline_phase3_resolved.json を入力に
+    synthesize_outputs を呼ぶと, three_class_classification.json sidecar が
+    生成され, #17→C, #22→B が記録されることを確認.
+
+    fixture-bound fake で crossref_fn / nlm_fn を渡し、live API call を skip.
+    """
+    import json
+    import main as main_mod  # noqa: E402
+    import crossref_check  # noqa: E402
+    import nlm_catalog_check  # noqa: E402
+
+    THREE_CLASS_FIXTURES = (
+        Path(__file__).parent / "fixtures" / "three_class_classification"
+    )
+
+    # baseline_phase3_resolved.json を入力として読出
+    data = json.loads(BASELINE_PHASE3.read_text(encoding="utf-8"))
+
+    # fixture-bound fake (Day15 Phase 3 と同パターン)
+    def fake_crossref(doi):
+        mapping = {
+            "10.1037/1091-7527.21.3.245":
+                THREE_CLASS_FIXTURES / "expected_crossref_10_1037-1091-7527.json",
+            "10.4172/2090-7214.1000217":
+                THREE_CLASS_FIXTURES / "expected_crossref_10_4172-2090-7214.json",
+        }
+        fp = mapping.get(doi)
+        if fp is None:
+            return {"exists": None, "metadata": None,
+                    "error": f"no fixture for DOI {doi!r}"}
+        return crossref_check.check_doi_exists(doi, fixture_path=fp)
+
+    def fake_nlm(journal_name=None, issn=None):
+        # Crossref response の ISSN list で dispatch
+        issn_map = {
+            "1091-7527": (
+                THREE_CLASS_FIXTURES / "expected_nlm_search_1091-7527.json",
+                THREE_CLASS_FIXTURES / "expected_nlm_summary_9610836.json",
+            ),
+            "1939-0602": (
+                THREE_CLASS_FIXTURES / "expected_nlm_search_1091-7527.json",
+                THREE_CLASS_FIXTURES / "expected_nlm_summary_9610836.json",
+            ),
+            "1812-5840": (
+                THREE_CLASS_FIXTURES / "expected_nlm_search_clin_mother.json",
+                THREE_CLASS_FIXTURES / "expected_nlm_summary_101300689.json",
+            ),
+            "2090-7214": (
+                THREE_CLASS_FIXTURES / "expected_nlm_search_clin_mother.json",
+                THREE_CLASS_FIXTURES / "expected_nlm_summary_101300689.json",
+            ),
+        }
+        if issn and issn in issn_map:
+            search_p, summary_p = issn_map[issn]
+            return nlm_catalog_check.get_journal_indexing_status(
+                issn=issn,
+                fixture_search_path=search_p,
+                fixture_summary_path=summary_p,
+            )
+        return {"status": None, "nlm_id": None, "medlineta": None,
+                "error": f"no fixture for issn={issn!r}, journal={journal_name!r}"}
+
+    # synthesize_outputs を fixture-bound fake で呼ぶ
+    main_mod.synthesize_outputs(
+        data, tmp_path,
+        crossref_fn=fake_crossref,
+        nlm_fn=fake_nlm,
+    )
+
+    # three_class_classification.json sidecar が生成されたか
+    sidecar = tmp_path / "three_class_classification.json"
+    assert sidecar.exists(), (
+        f"Expected three_class_classification.json sidecar at {sidecar}"
+    )
+
+    classifications = json.loads(sidecar.read_text(encoding="utf-8"))
+    by_ref = {c["ref_no"]: c for c in classifications}
+
+    # #17 Davey → C 分類
+    assert 17 in by_ref, f"Ref #17 not in classifications: {list(by_ref.keys())}"
+    assert by_ref[17]["class"] == "C", (
+        f"#17 Davey → C 期待 (Fam Syst Health 収録誌 indexing 漏れ), "
+        f"got class={by_ref[17].get('class')!r}, reason={by_ref[17].get('reason')!r}"
+    )
+
+    # #22 Gallina → B 分類
+    assert 22 in by_ref, f"Ref #22 not in classifications: {list(by_ref.keys())}"
+    assert by_ref[22]["class"] == "B", (
+        f"#22 Gallina → B 期待 (OMICS predatory, MEDLINE 非収録), "
+        f"got class={by_ref[22].get('class')!r}, reason={by_ref[22].get('reason')!r}"
+    )
+
+
 def test_baseline_report_documents_zero_major_errors():
     """baseline_report.md (Day9 (Z) 実測) のダッシュボードに
     「査読コメント: 重大 | 0」が記録されていることを確認.

@@ -256,10 +256,17 @@ def test__scrub_volatile_lines_normalizes_both_in_same_line():
 @pytest.fixture(scope="module")
 def synthesize_output(tmp_path_factory):
     """expected_phase3_resolved.json を入力として synthesize_outputs を
-    1 度だけ実行し、(output_dir, result) を返す module-scoped fixture。
+    1 度だけ実行し、(output_dir, result) を返す module-scoped fixture.
 
     下流 3 テスト (report / sidecar / result dict) で共用して合成処理を
-    1 回に抑える。
+    1 回に抑える.
+
+    Day15 (Phase 4): synthesize_outputs に Day13 §6 案 A の 3 分類 logic
+    が統合された. MDPI 149-ref fixture には 34 件未解決 ref があり、
+    各 ref で Crossref/NLM Catalog の live API call が走ると CI で network
+    依存 + SSL 証明書エラー等で flaky になる. 本 fixture では
+    "always-unknown stub" を渡して live API call を skip し、各未解決 ref
+    を class='unknown' として処理する (deterministic、no network).
     """
     import main as main_mod
 
@@ -267,7 +274,21 @@ def synthesize_output(tmp_path_factory):
         (FIXTURES / "expected_phase3_resolved.json").read_text(encoding="utf-8")
     )
     output_dir = tmp_path_factory.mktemp("synthesize_outputs_149refs")
-    main_mod.synthesize_outputs(data, output_dir)
+
+    # Day15: always-unknown stub で 3 分類 logic を skip (live API call なし)
+    def stub_crossref(doi):
+        return {"exists": None, "metadata": None,
+                "error": "test stub (Day15 fixture: no live API)"}
+
+    def stub_nlm(journal_name=None, issn=None):
+        return {"status": None, "nlm_id": None, "medlineta": None,
+                "error": "test stub (Day15 fixture: no live API)"}
+
+    main_mod.synthesize_outputs(
+        data, output_dir,
+        crossref_fn=stub_crossref,
+        nlm_fn=stub_nlm,
+    )
     return output_dir, data
 
 
