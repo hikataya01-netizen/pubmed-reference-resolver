@@ -3,8 +3,8 @@
 **pubmed-reference-resolver スキルの即時使用ガイド**
 
 **作成日**: 2026/05/02 (Day7 = Phase ζ で同梱)
-**最終更新**: 2026/05/13 (Day14、§X 変更履歴参照)
-**バージョン**: 1.2
+**最終更新**: 2026/05/16 (Day15、§X 変更履歴参照)
+**バージョン**: 1.3
 **対象**: 本スキルを利用する全ての利用者
 **配置**: `skill_package/references/USAGE_QUICKSTART.md` (symlink 経由で `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md` でも読み出し可能)
 
@@ -225,13 +225,22 @@ curl -sf "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nlmcatal
 
 詳細手順 (再現可能 curl コマンド + 3 分類判定 logic) は `docs/sessions/day13/INVESTIGATION_unresolved_2refs.md` §3-§4 を参照.
 
-#### 現状 skill の制約
+#### audit logic への実装状況 (Day15 で完了)
 
-現状の audit logic は A/B/C を区別せず、すべて「未解決」として扱います (severity 区別なし). これは安全側 (human-in-the-loop で確認推奨) の設計ですが、将来 `audit_report` に 3 分類 logic を追加することで false positive を削減する改修が候補化されています (Day13 INVESTIGATION §6 案 A).
+**Day15 (2026/05/16) で audit_report に 3 分類 logic が実装されました** (Day13 INVESTIGATION §6 改修候補 A 完了). Phase 4 の `synthesize_outputs` で各未解決 ref に対し Crossref + NLM Catalog の補助検証を自動実行し、結果を以下に出力:
 
-#### 暫定的な severity 調整
+- **`report.md` §2 (未解決参照詳細) 内の「[3 分類化] PubMed 未ヒットの分類」sub-section**: 各 ref の class (A/B/C/unknown) と理由を table 表示、末尾に集計行 (A 件数 / B 件数 / C 件数 / unknown 件数)
+- **`three_class_classification.json` (新 sidecar)**: 各 ref の class + reason + doi_resolved + journal_indexing + details (Crossref/NLM 元データ抜粋) を構造化保存
 
-`severity_threshold` パラメータで閾値調整は可能ですが、本質的には査読者が DOI を Crossref で叩く / journal の NLM Catalog 状況を確認する手作業が現状最も確実です.
+これにより、査読者は「どの未解決 ref が真の捏造候補か / predatory journal か / 単に indexing 漏れか」を audit_report 内で一望可能.
+
+#### fail-soft 設計
+
+network エラー時 (Crossref/NLM Catalog 不通) は `class='unknown'` で graceful 継続 (timeout 10s, retry 1 回, stderr WARN). main.py 全体は停止しません. 関連: `docs/operations/SETUP_API_KEYS.md` §6 Q2 (NCBI API rate limit) で NCBI key 設定推奨.
+
+#### 補助検証手順 (audit logic を補完する手作業)
+
+Day15 audit logic が `unknown` を返した場合や、第三者検証が必要な場合は、本書冒頭 §V Q4 の curl コマンドで手動検証可能.
 
 ### Q5. 監査レポートで Word の表示が崩れる
 
@@ -322,6 +331,15 @@ journal_audit のデフォルト閾値:
 
 ## X. 変更履歴
 
+### バージョン 1.3 (2026/05/16、Day15 更新)
+
+Day15 で Day13 §6 改修候補 A (audit_report に 3 分類 logic 追加) を実装 (commits `f30e8e1`, `ba4de85`, `3d232d2`, `71a318a`, `132ffab`):
+
+- **§V Q4 (捏造判定で false positive が多い)**: 「現状 skill の制約」section を「audit logic への実装状況 (Day15 で完了)」に書き換え. 新 sub-section に 3 分類 sub-section と sidecar JSON の出力仕様を記載. fail-soft 設計と補助検証手順 (手作業) も明示.
+- 関連: 新 modules `crossref_check.py`, `nlm_catalog_check.py`, `three_class_classifier.py` が project root に追加. `synthesize_outputs` が Phase 4 で `classify_unresolved_refs` を呼出. report.md / `three_class_classification.json` sidecar に分類結果を出力.
+
+参照: `docs/sessions/day15/SPEC_three_class_audit.md` (本実装の SPEC), `docs/sessions/day15/DAY15_LESSONS_LEARNED.md` (本実装の retro).
+
 ### バージョン 1.2 (2026/05/13、Day14 更新)
 
 Day13 INVESTIGATION (`docs/sessions/day13/INVESTIGATION_unresolved_2refs.md`) で発見された「PubMed 未ヒット 3 分類」を反映:
@@ -348,10 +366,10 @@ Day9 で発見・実装された Vancouver Veto と (Z) 実機検証データを
 
 ---
 
-**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (バージョン 1.1 更新)、2026/05/13 (バージョン 1.2 更新)
-**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1, 1.2)
+**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (1.1 更新)、2026/05/13 (1.2 更新)、2026/05/16 (1.3 更新)
+**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1, 1.2, 1.3)
 **ファイル名**: `USAGE_QUICKSTART.md`
 **配置**: `skill_package/references/USAGE_QUICKSTART.md`
 **symlink 経由パス**: `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md`
 **メンテナ**: 片山英樹 (Hideki Katayama)
-**バージョン**: **1.2** (Day14 更新、PubMed 未ヒット 3 分類反映)
+**バージョン**: **1.3** (Day15 更新、3 分類 audit logic 実装完了反映)
