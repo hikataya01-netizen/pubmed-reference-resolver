@@ -1,0 +1,80 @@
+{
+    "header": {
+        "type": "esummary",
+        "version": "0.3"
+    },
+    "result": {
+        "uids": [
+            "9610836"
+        ],
+        "9610836": {
+            "uid": "9610836",
+            "host": "",
+            "nlmuniqueid": "9610836",
+            "daterevised": "2026-05-08",
+            "authorlist": [],
+            "publicationinfolist": [
+                {
+                    "imprint": "Vernon, NJ : Families, Systems & Health, Inc., c1996-",
+                    "place": "Vernon, NJ :",
+                    "publisher": "Families, Systems & Health, Inc.,",
+                    "dateissued": "c1996-",
+                    "edition": "",
+                    "datesofserialpublication": "Vol. 14, no. 1 (Mar. 1996)-"
+                }
+            ],
+            "resourceinfolist": [
+                {
+                    "typeofresource": "Serial",
+                    "resourceunit": "Remote electronic resource, Text"
+                }
+            ],
+            "titlemainlist": [
+                {
+                    "sorttitle": "families systems health the journal of collaborative family healthcare",
+                    "title": "Families, systems & health : the journal of collaborative family healthcare.",
+                    "aiid": ""
+                }
+            ],
+            "titlemainsort": "families systems health the journal of collaborative family healthcare",
+            "titleotherlist": [
+                {
+                    "titlealternate": "Families, systems, and health",
+                    "otherinformation": "",
+                    "aiid": ""
+                },
+                {
+                    "titlealternate": "Family systems medicine",
+                    "otherinformation": "",
+                    "aiid": ""
+                }
+            ],
+            "issnlist": [
+                {
+                    "issn": "1091-7527",
+                    "validyn": "Y",
+                    "issntype": "Print"
+                },
+                {
+                    "issn": "1939-0602",
+                    "validyn": "Y",
+                    "issntype": "Electronic"
+                }
+            ],
+            "isbn": "",
+            "country": "United States",
+            "currentindexingstatus": "Y",
+            "medlineta": "Fam Syst Health",
+            "isoabbreviation": "",
+            "startyear": "1996",
+            "jrid": "28278",
+            "endyear": "9999",
+            "language": "eng",
+            "broadheading": [
+                "Primary Health Care",
+                "Psychology"
+            ],
+            "continuationnotes": "Title from cover.; Family systems medicine"
+        }
+    }
+}

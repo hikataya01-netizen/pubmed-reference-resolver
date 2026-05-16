@@ -1,0 +1,25 @@
+{
+    "header": {
+        "type": "esearch",
+        "version": "0.3"
+    },
+    "esearchresult": {
+        "count": "1",
+        "retmax": "1",
+        "retstart": "0",
+        "idlist": [
+            "9610836"
+        ],
+        "translationset": [],
+        "translationstack": [
+            {
+                "term": "1091-7527[ISSN]",
+                "field": "ISSN",
+                "count": "1",
+                "explode": "N"
+            },
+            "GROUP"
+        ],
+        "querytranslation": "1091-7527[ISSN]"
+    }
+}

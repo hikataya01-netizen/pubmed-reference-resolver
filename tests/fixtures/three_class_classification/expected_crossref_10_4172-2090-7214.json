@@ -1,0 +1,130 @@
+{
+    "status": "ok",
+    "message-type": "work",
+    "message-version": "1.0.0",
+    "message": {
+        "indexed": {
+            "date-parts": [
+                [
+                    2022,
+                    4,
+                    1
+                ]
+            ],
+            "date-time": "2022-04-01T22:47:09Z",
+            "timestamp": 1648853229405
+        },
+        "reference-count": 0,
+        "publisher": "OMICS Publishing Group",
+        "issue": "01",
+        "content-domain": {
+            "domain": [],
+            "crossmark-restriction": false
+        },
+        "short-container-title": [
+            "Clinics Mother Child Health"
+        ],
+        "DOI": "10.4172/2090-7214.1000217",
+        "type": "journal-article",
+        "created": {
+            "date-parts": [
+                [
+                    2016,
+                    4,
+                    16
+                ]
+            ],
+            "date-time": "2016-04-16T05:15:27Z",
+            "timestamp": 1460783727000
+        },
+        "source": "Crossref",
+        "is-referenced-by-count": 0,
+        "title": [
+            "How to Explain the Parent's Cancer to their Children: A Specific Intervention to Enhance Communication Inside the Family"
+        ],
+        "prefix": "10.4172",
+        "volume": "13",
+        "author": [
+            {
+                "given": "Gallina",
+                "family": "F",
+                "sequence": "first",
+                "affiliation": []
+            },
+            {
+                "given": "Mazza",
+                "family": "U",
+                "sequence": "additional",
+                "affiliation": []
+            }
+        ],
+        "member": "2674",
+        "published-online": {
+            "date-parts": [
+                [
+                    2016
+                ]
+            ]
+        },
+        "container-title": [
+            "Clinics in Mother and Child Health"
+        ],
+        "original-title": [],
+        "deposited": {
+            "date-parts": [
+                [
+                    2017,
+                    4,
+                    13
+                ]
+            ],
+            "date-time": "2017-04-13T17:48:48Z",
+            "timestamp": 1492105728000
+        },
+        "score": 1,
+        "resource": {
+            "primary": {
+                "URL": "https://www.omicsonline.com/open-access/how-to-explain-the-parents-cancer-to-their-children-a-specificintervention-to-enhance-communication-inside-the-family-2090-7214-1000217.php?aid=68023"
+            }
+        },
+        "subtitle": [],
+        "short-title": [],
+        "issued": {
+            "date-parts": [
+                [
+                    2016
+                ]
+            ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+            "issue": "01",
+            "published-online": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            }
+        },
+        "URL": "https://doi.org/10.4172/2090-7214.1000217",
+        "relation": {},
+        "ISSN": [
+            "2090-7214"
+        ],
+        "issn-type": [
+            {
+                "value": "2090-7214",
+                "type": "electronic"
+            }
+        ],
+        "subject": [],
+        "published": {
+            "date-parts": [
+                [
+                    2016
+                ]
+            ]
+        }
+    }
+}

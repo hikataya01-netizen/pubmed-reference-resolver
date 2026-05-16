@@ -1,0 +1,7 @@
+{
+    "_synthetic": true,
+    "_note": "Synthetic fixture for Day15 SPEC §6.3. Real Crossref 404 returns plain text 'Resource not found.' (not JSON), so this synthetic JSON simulates the post-parse state used by crossref_check.check_doi_exists() when HTTPError 404 is caught. Source DOI for live test: 10.9999/fake-doi-for-test-fabrication-12345 (returns 404 from Crossref).",
+    "status": "error",
+    "code": 404,
+    "error": "Resource not found"
+}

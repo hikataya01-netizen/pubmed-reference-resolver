@@ -1,0 +1,154 @@
+{
+    "status": "ok",
+    "message-type": "work",
+    "message-version": "1.0.0",
+    "message": {
+        "indexed": {
+            "date-parts": [
+                [
+                    2026,
+                    1,
+                    6
+                ]
+            ],
+            "date-time": "2026-01-06T02:22:21Z",
+            "timestamp": 1767666141388
+        },
+        "reference-count": 0,
+        "publisher": "American Psychological Association (APA)",
+        "issue": "3",
+        "content-domain": {
+            "domain": [],
+            "crossmark-restriction": false
+        },
+        "short-container-title": [
+            "Families, Systems, &amp; Health"
+        ],
+        "DOI": "10.1037/1091-7527.21.3.245",
+        "type": "journal-article",
+        "created": {
+            "date-parts": [
+                [
+                    2004,
+                    7,
+                    16
+                ]
+            ],
+            "date-time": "2004-07-16T16:49:45Z",
+            "timestamp": 1089996585000
+        },
+        "page": "245-258",
+        "source": "Crossref",
+        "is-referenced-by-count": 32,
+        "title": [
+            "Parent and adolescent responses to non-terminal parental cancer: A retrospective multiple-case pilot study."
+        ],
+        "prefix": "10.1037",
+        "volume": "21",
+        "author": [
+            {
+                "given": "Maureen P.",
+                "family": "Davey",
+                "sequence": "first",
+                "affiliation": []
+            },
+            {
+                "given": "Julie",
+                "family": "Askew",
+                "sequence": "additional",
+                "affiliation": []
+            },
+            {
+                "given": "Karen",
+                "family": "Godette",
+                "sequence": "additional",
+                "affiliation": []
+            }
+        ],
+        "member": "15",
+        "published-online": {
+            "date-parts": [
+                [
+                    2003
+                ]
+            ]
+        },
+        "container-title": [
+            "Families, Systems, &amp; Health"
+        ],
+        "original-title": [],
+        "language": "en",
+        "link": [
+            {
+                "URL": "http://psycnet.apa.org/journals/fsh/21/3/245.pdf",
+                "content-type": "unspecified",
+                "content-version": "vor",
+                "intended-application": "similarity-checking"
+            }
+        ],
+        "deposited": {
+            "date-parts": [
+                [
+                    2024,
+                    2,
+                    6
+                ]
+            ],
+            "date-time": "2024-02-06T20:30:30Z",
+            "timestamp": 1707251430000
+        },
+        "score": 1,
+        "resource": {
+            "primary": {
+                "URL": "https://doi.apa.org/doi/10.1037/1091-7527.21.3.245"
+            }
+        },
+        "subtitle": [],
+        "short-title": [],
+        "issued": {
+            "date-parts": [
+                [
+                    2003
+                ]
+            ]
+        },
+        "references-count": 0,
+        "journal-issue": {
+            "issue": "3",
+            "published-online": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            }
+        },
+        "alternative-id": [
+            "2003-09379-001"
+        ],
+        "URL": "https://doi.org/10.1037/1091-7527.21.3.245",
+        "relation": {},
+        "ISSN": [
+            "1939-0602",
+            "1091-7527"
+        ],
+        "issn-type": [
+            {
+                "value": "1939-0602",
+                "type": "electronic"
+            },
+            {
+                "value": "1091-7527",
+                "type": "print"
+            }
+        ],
+        "subject": [],
+        "published": {
+            "date-parts": [
+                [
+                    2003
+                ]
+            ]
+        }
+    }
+}

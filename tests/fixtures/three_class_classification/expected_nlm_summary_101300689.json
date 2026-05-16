@@ -1,0 +1,72 @@
+{
+    "header": {
+        "type": "esummary",
+        "version": "0.3"
+    },
+    "result": {
+        "uids": [
+            "101300689"
+        ],
+        "101300689": {
+            "uid": "101300689",
+            "host": "",
+            "nlmuniqueid": "101300689",
+            "daterevised": "2026-05-11",
+            "authorlist": [],
+            "publicationinfolist": [
+                {
+                    "imprint": "<2015- > : Foster City, CA : OMICS Publishing Group",
+                    "place": "Foster City, CA :",
+                    "publisher": "OMICS Publishing Group",
+                    "dateissued": "",
+                    "edition": "",
+                    "datesofserialpublication": "Began with Vol. 1, no. 1 (2004)."
+                }
+            ],
+            "resourceinfolist": [
+                {
+                    "typeofresource": "Serial",
+                    "resourceunit": "Remote electronic resource, Text"
+                }
+            ],
+            "titlemainlist": [
+                {
+                    "sorttitle": "clinics in mother and child health",
+                    "title": "Clinics in mother and child health.",
+                    "aiid": ""
+                }
+            ],
+            "titlemainsort": "clinics in mother and child health",
+            "titleotherlist": [
+                {
+                    "titlealternate": "Clinics in mother & child health",
+                    "otherinformation": "",
+                    "aiid": ""
+                }
+            ],
+            "issnlist": [
+                {
+                    "issn": "1812-5840",
+                    "validyn": "Y",
+                    "issntype": "Print"
+                },
+                {
+                    "issn": "2090-7214",
+                    "validyn": "Y",
+                    "issntype": "Electronic"
+                }
+            ],
+            "isbn": "",
+            "country": "Cameroon",
+            "currentindexingstatus": "N",
+            "medlineta": "Clin Mother Child Health",
+            "isoabbreviation": "",
+            "startyear": "2004",
+            "jrid": "48735",
+            "endyear": "9999",
+            "language": "fre eng",
+            "broadheading": [],
+            "continuationnotes": "Print issues ceased with v. 6, no. 2 (Dec 2009)?; Text in French and English."
+        }
+    }
+}
