@@ -400,7 +400,14 @@ def is_mdpi_style(raw: str) -> bool:
     #   このチェックは (a)(b)(c) より前に置く必要がある:
     #   さもないと "doi.org/..." 等を含む Vancouver ref が (b) で True を返してしまう
     #   (Stage 2 #1 Huizinga 2011 等が該当). SPEC §4.2 から実装段階で順序修正.
-    if re.search(r"\((?:19|20)\d{2}\)", raw):
+    #
+    # Day16 拡張: APA 7 の同一著者同一年 disambiguation suffix
+    #   "(YYYYa)", "(YYYYb)" 等も Vancouver Veto の対象に含める.
+    #   発端: apa_45refs fixture (PMC OA 3 論文) の Ackert et al. (2020a) /
+    #   (2020b) が MDPI publisher の "Religions" 誌掲載で、disambiguation 付き
+    #   paren year を旧 regex が捕捉せず fast-path に流れた事象. 拡張後も Day9
+    #   の不変性 (paren year 含む ref は LLM 経路) を APA 7 完全準拠で保護.
+    if re.search(r"\((?:19|20)\d{2}[a-z]?\)", raw):
         return False
     # (a) 標準的 MDPI 末尾パターン
     if re.search(r"\s\d{4}\s*,\s*\d+", raw):
