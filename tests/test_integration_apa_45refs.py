@@ -220,3 +220,97 @@ def test_baseline_report_documents_audit_summary():
         f"重大 {critical_count} 件, expected {EXPECTED_REPORT_CRITICAL_COUNT} 件. "
         f"If audit logic drift is the cause, regenerate baseline and update test."
     )
+
+
+# -----------------------------------------------------------------------------
+# Test 6: APA paren year pattern detected in all refs (parser-only)
+# -----------------------------------------------------------------------------
+
+
+def test_apa_paren_year_pattern_detected_in_all_refs():
+    """全 45 件の raw text に `(YYYY)` または `(YYYYa)` 等の APA 7 paren year
+    パターンが含まれることを確認 (APA 7 表記の中核特徴を fixture data 自体が
+    満たすことの assert、test data 健全性保護).
+
+    Day16 で mdpi_parser.py の Vancouver Veto regex も同 pattern に拡張
+    (`\\((?:19|20)\\d{2}[a-z]?\\)`)、ここで使う regex も同じ拡張形式.
+
+    将来 build_apa_fixture.py 変更で APA でない ref が混入した場合に検知.
+    """
+    blocks, _ = _load_phase1_blocks_with_ln_report()
+    paren_year_pattern = re.compile(r"\((?:19|20)\d{2}[a-z]?\)")
+    refs_without_paren_year = [
+        b.ref_no for b in blocks
+        if not paren_year_pattern.search(b.raw_text)
+    ]
+    assert refs_without_paren_year == [], (
+        f"APA fixture health regression: {len(refs_without_paren_year)} "
+        f"ref(s) lack `(YYYY)` pattern. ref_no: {refs_without_paren_year[:5]}"
+    )
+
+
+# -----------------------------------------------------------------------------
+# Test 7: APA `, & ` author separator presence (structural)
+# -----------------------------------------------------------------------------
+
+
+def test_apa_ampersand_author_separator_present():
+    """45 件中、最低 20 件が `, & ` を含むことを確認.
+
+    APA 7 規約: 3+ 著者列挙時の最終境界は `, & ` (Vancouver は `; ` または
+    `, `). 本 test は fixture が APA 7 規約を満たしていることを保証する
+    (build_apa_fixture.py の _format_authors() 出力品質の test data 健全性
+    保護).
+
+    20 という閾値は: 単著 ref / 2 著者 ref / 組織著者 ref がある程度
+    含まれることを許容しつつ、3+ 著者 ref が過半数を超えるという経験則
+    に基づく.
+    """
+    blocks, _ = _load_phase1_blocks_with_ln_report()
+    refs_with_ampersand = [
+        b.ref_no for b in blocks if ", & " in b.raw_text
+    ]
+    assert len(refs_with_ampersand) >= 20, (
+        f"APA 7 structural regression: only {len(refs_with_ampersand)}/45 "
+        f"refs contain `, & ` (APA author separator). "
+        f"Expected >=20. Refs with separator: {refs_with_ampersand}"
+    )
+
+
+# -----------------------------------------------------------------------------
+# Test 8: Three-class classification distribution (document-of-record)
+# -----------------------------------------------------------------------------
+
+EXPECTED_THREE_CLASS_DISTRIBUTION = {
+    "A": 4,
+    "B": 0,
+    "C": 0,
+    "unknown": 16,
+}  # Day16 Phase 0b 実測 (README.md 参照)
+
+
+def test_baseline_three_class_classification_distribution():
+    """baseline_three_class_classification.json の A/B/C/unknown 分布が
+    Day16 Phase 0b 実測値と一致することを確認.
+
+    Day15 で実装した三分類 audit logic (crossref_check + nlm_catalog_check)
+    が APA 7 入力に対しても正しく動作する baseline を document-of-record
+    として凍結する.
+
+    Day16 baseline では B=0, C=0 (全て unknown に倒れた) は Crossref/NLM
+    実行時の SSL 証明書問題によるネットワークエラー → graceful unknown
+    fail-soft (Day15 設計通り) が機能した結果. 将来 SSL 問題が解消されて
+    再生成された場合は B/C 分布が出現するため、baseline 更新 + 本
+    EXPECTED_THREE_CLASS_DISTRIBUTION 更新が必要になる.
+    """
+    classifications = json.loads(BASELINE_THREE_CLASS.read_text(encoding="utf-8"))
+    actual = {"A": 0, "B": 0, "C": 0, "unknown": 0}
+    for c in classifications:
+        cls = c.get("class", "unknown")
+        if cls not in actual:
+            actual[cls] = 0
+        actual[cls] += 1
+    assert actual == EXPECTED_THREE_CLASS_DISTRIBUTION, (
+        f"Day15 三分類 audit regression on APA fixture: "
+        f"got {actual}, expected {EXPECTED_THREE_CLASS_DISTRIBUTION}"
+    )
