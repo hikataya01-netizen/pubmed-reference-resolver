@@ -4,7 +4,7 @@
 
 **作成日**: 2026/05/02 (Day7 = Phase ζ で同梱)
 **最終更新**: 2026/05/16 (Day15、§X 変更履歴参照)
-**バージョン**: 1.3
+**バージョン**: 1.4
 **対象**: 本スキルを利用する全ての利用者
 **配置**: `skill_package/references/USAGE_QUICKSTART.md` (symlink 経由で `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md` でも読み出し可能)
 
@@ -331,6 +331,17 @@ journal_audit のデフォルト閾値:
 
 ## X. 変更履歴
 
+### バージョン 1.4 (2026/05/17、Day16 更新)
+
+Day16 で Day7 §9.3 long-term task の 4 件目 (APA / Cell 系 golden fixture) を APA に絞って完了 (commits `c35211f`, `d6e31c3`, `f7d5cb2`, `07eb100`):
+
+- **regression 保護対象の拡張**: Day9 Vancouver Veto の検証対象を Vancouver/AMA のみから **APA 7 (Death Studies / Health Communication / Frontiers in Psychology の PMC OA 3 論文計 45 件)** にも拡張. `tests/fixtures/apa_45refs/` 新設、`tests/test_integration_apa_45refs.py` に 8 tests 追加. 既存 81 passed → 89 passed.
+- **mdpi_parser.py の Vancouver Veto regex 拡張**: APA 7 同一著者同一年 disambiguation suffix (`(2020a)`, `(2020b)` 等) を捕捉するため、regex を `\((?:19|20)\d{2}\)` から `\((?:19|20)\d{2}[a-z]?\)` に拡張 (1 文字追加). Day9 不変性を APA 7 完全準拠に拡張.
+- **Day15 三分類 audit baseline の APA 適用記録**: `baseline_three_class_classification.json` で A=4, unknown=16 を凍結. Crossref/NLM の SSL 問題により B/C が unknown に倒れる挙動も graceful fail-soft 設計通りに動作することを記録.
+- **新規 tool 追加**: `tools/build_apa_fixture.py` (~410 行) で PMC OA から JATS XML 経由で APA 7 docx を再現生成可能.
+
+参照: `docs/sessions/day16/SPEC_apa_45refs_fixture.md` (本実装の SPEC), `docs/sessions/day16/PLAN_apa_45refs_fixture.md` (実装計画), `docs/sessions/day16/DAY16_LESSONS_LEARNED.md` (本実装の retro、教訓 D16-1: APA 7 disambiguation suffix と Vancouver Veto 拡張).
+
 ### バージョン 1.3 (2026/05/16、Day15 更新)
 
 Day15 で Day13 §6 改修候補 A (audit_report に 3 分類 logic 追加) を実装 (commits `f30e8e1`, `ba4de85`, `3d232d2`, `71a318a`, `132ffab`):
@@ -366,10 +377,10 @@ Day9 で発見・実装された Vancouver Veto と (Z) 実機検証データを
 
 ---
 
-**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (1.1 更新)、2026/05/13 (1.2 更新)、2026/05/16 (1.3 更新)
-**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1, 1.2, 1.3)
+**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (1.1 更新)、2026/05/13 (1.2 更新)、2026/05/16 (1.3 更新)、2026/05/17 (1.4 更新)
+**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1, 1.2, 1.3, 1.4)
 **ファイル名**: `USAGE_QUICKSTART.md`
 **配置**: `skill_package/references/USAGE_QUICKSTART.md`
 **symlink 経由パス**: `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md`
 **メンテナ**: 片山英樹 (Hideki Katayama)
-**バージョン**: **1.3** (Day15 更新、3 分類 audit logic 実装完了反映)
+**バージョン**: **1.4** (Day16 更新、APA 7 regression 保護 + Vancouver Veto regex 拡張)
