@@ -1,0 +1,249 @@
+{
+  "input_file": "tests/fixtures/cell_45refs/input_References.docx",
+  "source_type": "docx",
+  "stage1_raw_length": 9983,
+  "stage2_5_line_number_detection": {
+    "detected": false,
+    "count": 0,
+    "min_val": null,
+    "max_val": null,
+    "values": [],
+    "spans": [],
+    "total_candidates": 1,
+    "rationale": "LIS長=1 < 閾値10"
+  },
+  "stage2_preprocess_trace": {
+    "hyphen_bridged_removed": 0,
+    "standalone_removed": 0,
+    "soft_linebreaks_joined": 0,
+    "ref_blocks_found": 49,
+    "header_stripped": true
+  },
+  "stage3_reference_blocks": [
+    {
+      "ref_no": 1,
+      "raw_text": "Katoh, Y., Itoh, K., Yoshida, E., Miyagishi, M., Fukamizu, A., and Yamamoto, M. (2001). Two domains of Nrf2 cooperatively bind CBP, a CREB binding protein, and synergistically activate transcription. Genes Cells 6, 857-868. https://doi.org/10.1046/j.1365-2443.2001.00469.x",
+      "char_length": 272
+    },
+    {
+      "ref_no": 2,
+      "raw_text": "Zhang, D.D., and Hannink, M. (2003). Distinct cysteine residues in Keap1 are required for Keap1-dependent ubiquitination of Nrf2 and for stabilization of Nrf2 by chemopreventive agents and oxidative stress. Mol. Cell Biol. 23, 8137-8151. https://doi.org/10.1128/MCB.23.22.8137-8151.2003",
+      "char_length": 286
+    },
+    {
+      "ref_no": 3,
+      "raw_text": "Cuadrado, A. (2015). Structural and functional characterization of Nrf2 degradation by glycogen synthase kinase 3/β-TrCP. Free Radic. Biol. Med. 88, 147-157. https://doi.org/10.1016/j.freeradbiomed.2015.04.029",
+      "char_length": 209
+    },
+    {
+      "ref_no": 4,
+      "raw_text": "Rada, P., Rojo, A.I., Chowdhry, S., McMahon, M., Hayes, J.D., and Cuadrado, A. (2011). SCF/{beta}-TrCP Promotes Glycogen Synthase Kinase 3-Dependent Degradation of the Nrf2 Transcription Factor in a Keap1-Independent Manner. Mol. Cell Biol. 31, 1121-1133. https://doi.org/10.1128/MCB.01204-10",
+      "char_length": 292
+    },
+    {
+      "ref_no": 5,
+      "raw_text": "Cabrera, E., Raninga, P., Khanna, K.K., and Freire, R. (2019). GSK3-β Stimulates Claspin Degradation via β-TrCP Ubiquitin Ligase and Alters Cancer Cell Survival. Cancers 11, 1073. https://doi.org/10.3390/cancers11081073",
+      "char_length": 219
+    },
+    {
+      "ref_no": 6,
+      "raw_text": "Ruan, L., Liu, H., and Shi, H. (2018). Characterization and function of GSK3β from Litopenaeus vannamei in WSSV infection. Fish Shellfish Immunol. 82, 220-228. https://doi.org/10.1016/j.fsi.2018.08.032",
+      "char_length": 201
+    },
+    {
+      "ref_no": 7,
+      "raw_text": "Jope, R.S., Yuskaitis, C.J., and Beurel, E. (2007). Glycogen Synthase Kinase-3 (GSK3): Inflammation, Diseases, and Therapeutics. Neurochem. Res. 32, 577-595. https://doi.org/10.1007/s11064-006-9128-5",
+      "char_length": 199
+    },
+    {
+      "ref_no": 8,
+      "raw_text": "Hayes, J.D., Chowdhry, S., Dinkova-Kostova, A.T., and Sutherland, C. (2015). Dual regulation of transcription factor Nrf2 by Keap1 and by the combined actions of β-TrCP and GSK-3. Biochem. Soc. Trans. 43, 611-620. https://doi.org/10.1042/BST20150011",
+      "char_length": 249
+    },
+    {
+      "ref_no": 9,
+      "raw_text": "Jain, A.K., and Jaiswal, A.K. (2017). Phosphorylation of tyrosine 568 controls nuclear export of Nrf2. J. Biol. Chem. 292, 2051. https://doi.org/10.1074/jbc.A117.511198",
+      "char_length": 168
+    },
+    {
+      "ref_no": 10,
+      "raw_text": "Cui, D., Dai, X., Shu, J., Ma, Y., Wei, D., Xiong, X., and Zhao, Y. (2020). The cross talk of two family members of β-TrCP in the regulation of cell autophagy and growth. Cell Death Differ. 27, 1119-1133. https://doi.org/10.1038/s41418-019-0402-x",
+      "char_length": 246
+    },
+    {
+      "ref_no": 11,
+      "raw_text": "Wu, K., Fuchs, S.Y., Chen, A., Tan, P., Gomez, C., Ronai, Z., and Pan, Z.Q. (2000). The SCF(HOS/beta-TRCP)-ROC1 E3 ubiquitin ligase utilizes two distinct domains within CUL1 for substrate targeting and ubiquitin ligation. Mol. Cell Biol. 20, 1382-1393. https://doi.org/10.1128/MCB.20.4.1382-1393.2000",
+      "char_length": 300
+    },
+    {
+      "ref_no": 12,
+      "raw_text": "Wu, G., Xu, G., Schulman, B.A., Jeffrey, P.D., Harper, J.W., and Pavletich, N.P. (2003). Structure of a beta-TrCP1-Skp1-beta-catenin complex: destruction motif binding and lysine specificity of the SCF(beta-TrCP1) ubiquitin ligase. Mol. Cell 11, 1445-1456. https://doi.org/10.1016/S1097-2765(03)00234-X",
+      "char_length": 302
+    },
+    {
+      "ref_no": 13,
+      "raw_text": "Jiang, J., and Struhl, G. (1998). Regulation of the Hedgehog and Wingless signalling pathways by the F-box/WD40-repeat protein Slimb. Nature 391, 493-496. https://doi.org/10.1038/35154",
+      "char_length": 184
+    },
+    {
+      "ref_no": 14,
+      "raw_text": "Fuchs, S.Y., Spiegelman, V.S., and Kumar, K.G.S. (2004). The many faces of β-TrCP E3 ubiquitin ligases: reflections in the magic mirror of cancer. Oncogene 23, 2028-2036. https://doi.org/10.1038/sj.onc.1207389",
+      "char_length": 209
+    },
+    {
+      "ref_no": 15,
+      "raw_text": "Kitagawa, M., Hatakeyama, S., Shirane, M., Matsumoto, M., Ishida, N., Hattori, K., Nakamichi, I., Kikuchi, A., Nakayama, K., and Nakayama, K. (1999). An F-box protein, FWD1, mediates ubiquitin-dependent proteolysis of β-catenin. EMBO J. 18, 2401-2410. https://doi.org/10.1093/emboj/18.9.2401",
+      "char_length": 291
+    },
+    {
+      "ref_no": 16,
+      "raw_text": "Jacobson, L.K., Johnson, M.B., Dedhia, R.D., Niknam-Bienia, S., and Wong, A.K. (2017). Impaired wound healing after radiation therapy: A systematic review of pathogenesis and treatment. JPRAS Open 13, 92-105. https://doi.org/10.1016/J.JPRA.2017.04.001",
+      "char_length": 251
+    },
+    {
+      "ref_no": 17,
+      "raw_text": "Hassey Dow, K., Bucholtz, J.D., Iwamoto, R.R., Fieler, V., and Hilderley, L.J. (1997).",
+      "char_length": 86
+    },
+    {
+      "ref_no": 18,
+      "raw_text": "Payne, W.G., Naidu, D.K., Wheeler, C.K., Barkoe, D., Mentis, M., Salas, R.E., Smith, D.J., and Robson, M.C. (2008). Wound healing in patients with cancer. Eplasty 8.",
+      "char_length": 165
+    },
+    {
+      "ref_no": 19,
+      "raw_text": "Dormand, E.L., Banwell, P.E., and Goodacre, T.E.E. (2005). Radiotherapy and wound healing. Int. Wound J. 2, 112-127. https://doi.org/10.1111/j.1742-4801.2005.00079.x",
+      "char_length": 165
+    },
+    {
+      "ref_no": 20,
+      "raw_text": "Borrelli, M.R., Shen, A.H., Lee, G.K., Momeni, A., Longaker, M.T., and Wan, D.C. (2019). Radiation-induced skin fibrosis: pathogenesis, current treatment options, and emerging therapeutics. Ann. Plast. Surg. 83, S59-S64. https://doi.org/10.1097/SAP.0000000000002098",
+      "char_length": 265
+    },
+    {
+      "ref_no": 21,
+      "raw_text": "Ladwa, R., Fogarty, G., Chen, P., Grewal, G., McCormack, C., Mar, V., Kerob, D., and Khosrotehrani, K. (2024). Management of Skin Toxicities in Cancer Treatment: An Australian/New Zealand Perspective. Cancers 16, 2526. https://doi.org/10.3390/CANCERS16142526",
+      "char_length": 258
+    },
+    {
+      "ref_no": 22,
+      "raw_text": "Mongiardi, M.P., Pellegrini, M., Pallini, R., Levi, A., and Falchetti, M.L. (2021). Cancer Response to Therapy-Induced Senescence: A Matter of Dose and Timing. Cancers (Basel) 13, 484. https://doi.org/10.3390/CANCERS13030484",
+      "char_length": 224
+    },
+    {
+      "ref_no": 23,
+      "raw_text": "Wyld, L., Bellantuono, I., Tchkonia, T., Morgan, J., Turner, O., Foss, F., George, J., Danson, S., and Kirkland, J.L. (2020). Senescence and Cancer: A Review of Clinical Implications of Senescence and Senotherapies. Cancers 12, 2134. https://doi.org/10.3390/CANCERS12082134",
+      "char_length": 273
+    },
+    {
+      "ref_no": 24,
+      "raw_text": "Demaria, M., Ohtani, N., Youssef, S.A., Rodier, F., Toussaint, W., Mitchell, J.R., Laberge, R.M., Vijg, J., VanSteeg, H., and Dollé, M.E.T. (2014). An essential role for senescent cells in optimal wound healing through secretion of PDGF-AA. Dev. Cell 31, 722-733. https://doi.org/10.1016/j.devcel.2014.11.012",
+      "char_length": 308
+    },
+    {
+      "ref_no": 25,
+      "raw_text": "Jun, J.I., and Lau, L.F. (2010). The matricellular protein CCN1 induces fibroblast senescence and restricts fibrosis in cutaneous wound healing. Nat. Cell Biol. 12, 676-685. https://doi.org/10.1038/NCB2070",
+      "char_length": 205
+    },
+    {
+      "ref_no": 26,
+      "raw_text": "Li, M., You, L., Xue, J., and Lu, Y. (2018). Ionizing Radiation-Induced Cellular Senescence in Normal, Non-transformed Cells and the Involved DNA Damage Response: A Mini Review. Front. Pharmacol. 9, 522. https://doi.org/10.3389/FPHAR.2018.00522",
+      "char_length": 244
+    },
+    {
+      "ref_no": 27,
+      "raw_text": "Wang, B., Kohli, J., and Demaria, M. (2020). Senescent Cells in Cancer Therapy: Friends or Foes? Trends Cancer 6, 838-857. https://doi.org/10.1016/J.TRECAN.2020.05.004",
+      "char_length": 167
+    },
+    {
+      "ref_no": 28,
+      "raw_text": "Wang, H., Wang, Z., Huang, Y., Zhou, Y., Sheng, X., Jiang, Q., Wang, Y., Luo, P., Luo, M., and Shi, C. (2019). Senolytics (DQ) Mitigates Radiation Ulcers by Removing Senescent Cells. Front. Oncol. 9, 1576. https://doi.org/10.3389/FONC.2019.01576",
+      "char_length": 245
+    },
+    {
+      "ref_no": 29,
+      "raw_text": "Wilkinson, H.N., Clowes, C., Banyard, K.L., Matteuci, P., Mace, K.A., and Hardman, M.J. (2019). Elevated Local Senescence in Diabetic Wound Healing Is Linked to Pathological Repair via CXCR2. J. Invest. Dermatol. 139, 1171-1181.e6. https://doi.org/10.1016/J.JID.2019.01.005",
+      "char_length": 273
+    },
+    {
+      "ref_no": 30,
+      "raw_text": "Demaria, M., O’Leary, M.N., Chang, J., Shao, L., Liu, S., Alimirah, F., Koenig, K., Le, C., Mitin, N., and Deal, A.M. (2017). Cellular senescence promotes adverse effects of chemotherapy and cancer relapse. Cancer Discov. 7, 165-176. https://doi.org/10.1158/2159-8290.CD-16-0241",
+      "char_length": 278
+    },
+    {
+      "ref_no": 31,
+      "raw_text": "Kabish, A.K., Degefu, D.T., Gebregiorgis, Z.D., Babu, K.M., Kabish, A.K., Tesema, G.B., and Semahagn, B.K. (2024). Cotton Sector Development in Ethiopia: Challenges and Opportunities, 441-463.",
+      "char_length": 192
+    },
+    {
+      "ref_no": 32,
+      "raw_text": "Goyal, A., Parashar, M., and Nayak, R. (2023). Sustainable fibres for fashion and textile manufacturing, 51-74.",
+      "char_length": 111
+    },
+    {
+      "ref_no": 33,
+      "raw_text": "Al Mubarak, F., Rezaee, R., and Wood, D.A. (2024). Economic, societal, and environmental impacts of available energy sources: a review. Eng 5, 1232-1265.",
+      "char_length": 153
+    },
+    {
+      "ref_no": 34,
+      "raw_text": "Bappi, M.B.R., Swapno, S.M.R., and Rabbi, M.F. (2023). International Conference on Trends in Electronics and Health Informatics, 485-498.",
+      "char_length": 137
+    },
+    {
+      "ref_no": 35,
+      "raw_text": "Ayaz, M., Li, C.-H., Ali, Q., Zhao, W., Chi, Y.-K., Shafiq, M., Ali, F., Yu, X.-Y., Yu, Q., and Zhao, J.-T. (2023). Bacterial and fungal biocontrol agents for plant disease protection: Journey from lab to field, current status, challenges, and global perspectives. Molecules 28, 6735. https://doi.org/10.3390/molecules28186735",
+      "char_length": 326
+    },
+    {
+      "ref_no": 36,
+      "raw_text": "Owa, O.E., Chukwudi, C.E., Okongor, J.N., and Ezebuilo, P.C. (2024). Gio-nigeria economic relations on the development of the nigerian textile sector, 2006–2017. J. Int. Coop. Dev. 7, 79-116.",
+      "char_length": 191
+    },
+    {
+      "ref_no": 37,
+      "raw_text": "Gausa, M., and Tucci, G. (2024). Knitting Food: Food and Eco-textiles: New Perspectives for Sustainable Urban Production Systems, 259-270.",
+      "char_length": 138
+    },
+    {
+      "ref_no": 38,
+      "raw_text": "Dai, N., Li, L., Xu, K., Lu, Z., Hu, X., and Yuan, Y. (2025). Development of a standardized data collection and intelligent fabric quality prediction system for the weaving department. J. Eng. Fiber. Fabr. 20.",
+      "char_length": 209
+    },
+    {
+      "ref_no": 39,
+      "raw_text": "Zhang, D., Wang, Y., Gu, Q., Liu, L., Wang, Z., Zhang, J., Meng, C., Yang, J., Zhang, Z., and Ma, Z. (2025). Cotton rlp6 interacts with ndr1/hin6 to enhance verticillium wilt resistance via altering ros and sa. Mol. Plant Pathol. 26. https://doi.org/10.1111/mpp.70052",
+      "char_length": 267
+    },
+    {
+      "ref_no": 40,
+      "raw_text": "Ahmad, A., Saraswat, D., and El Gamal, A. (2023). A survey on using deep learning techniques for plant disease diagnosis and recommendations for development of appropriate tools. Smart Agric. Technol. 3.",
+      "char_length": 203
+    },
+    {
+      "ref_no": 41,
+      "raw_text": "Kaur, G., Dey, B.K., Pandey, P., Majumder, A., and Gupta, S. (2024). A smart manufacturing process for textile industry automation under uncertainties. Processes 12, 778.",
+      "char_length": 170
+    },
+    {
+      "ref_no": 42,
+      "raw_text": "Kukadiya, H., and Meva, D. (2022). International Conference on Advancements in Smart Computing and Information Security, 247-266.",
+      "char_length": 129
+    },
+    {
+      "ref_no": 43,
+      "raw_text": "Peyal, H.I., Pramanik, M.A.H., Nahiduzzaman, M., Goswami, P., Mahapatra, U., and Atusi, J.J. (2022). 2022 12th International Conference on Electrical and Computer Engineering (ICECE), 413-416.",
+      "char_length": 192
+    },
+    {
+      "ref_no": 44,
+      "raw_text": "Rai, C.K., and Pahuja, R. (2023). Classification of diseased cotton leaves and plants using improved deep convolutional neural network. Multimed. Tools Appl. 82, 25307-25325.",
+      "char_length": 174
+    },
+    {
+      "ref_no": 45,
+      "raw_text": "Memon, M.S., Kumar, P., and Iqbal, R. (2022). Meta deep learn leaf disease identification model for cotton crop. Computers 11, 102.",
+      "char_length": 131
+    }
+  ]
+}
