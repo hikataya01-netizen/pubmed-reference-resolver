@@ -1,0 +1,206 @@
+[
+  {
+    "ref_no": 3,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.2307/41166446"
+    }
+  },
+  {
+    "ref_no": 9,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1016/j.chb.2015.01.062"
+    }
+  },
+  {
+    "ref_no": 10,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1007/s10862-008-9113-1"
+    }
+  },
+  {
+    "ref_no": 11,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1027/1901-2276.61.3.4"
+    }
+  },
+  {
+    "ref_no": 25,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1177/14614456221110669"
+    }
+  },
+  {
+    "ref_no": 26,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1016/j.pragma.2008.10.004"
+    }
+  },
+  {
+    "ref_no": 28,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Department of Health and Social Care"
+    }
+  },
+  {
+    "ref_no": 29,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1016/j.pragma.2015.10.004"
+    }
+  },
+  {
+    "ref_no": 30,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Cambridge University Press"
+    }
+  },
+  {
+    "ref_no": 31,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1007/s11205-008-9242-7"
+    }
+  },
+  {
+    "ref_no": 32,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.3390/rel11020057"
+    }
+  },
+  {
+    "ref_no": 33,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.3390/rel12010009"
+    }
+  },
+  {
+    "ref_no": 34,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.3390/rel11110577"
+    }
+  },
+  {
+    "ref_no": 35,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.2190/GYPP-VBG3-M3AY-1ML9"
+    }
+  },
+  {
+    "ref_no": 37,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Agency for Integrated Care"
+    }
+  },
+  {
+    "ref_no": 40,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null
+    }
+  },
+  {
+    "ref_no": 41,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1177/009164710403200401"
+    }
+  },
+  {
+    "ref_no": 42,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1111/jssr.12183"
+    }
+  },
+  {
+    "ref_no": 43,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1080/03906701.2011.544190"
+    }
+  },
+  {
+    "ref_no": 44,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1080/09589236.2021.1962702"
+    }
+  }
+]

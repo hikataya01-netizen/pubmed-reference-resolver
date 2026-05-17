@@ -1,0 +1,4479 @@
+{
+  "input_file": "tests/fixtures/apa_45refs/input_References.docx",
+  "source_type": "docx",
+  "stage1_raw_length": 10108,
+  "stage2_5_line_number_detection": {
+    "detected": false,
+    "count": 0,
+    "min_val": null,
+    "max_val": null,
+    "values": [],
+    "spans": [],
+    "total_candidates": 0,
+    "rationale": "3桁の孤立整数候補が存在しない"
+  },
+  "stage2_preprocess_trace": {
+    "hyphen_bridged_removed": 0,
+    "standalone_removed": 0,
+    "soft_linebreaks_joined": 0,
+    "ref_blocks_found": 45,
+    "header_stripped": true
+  },
+  "stage3_reference_blocks": [
+    {
+      "ref_no": 1,
+      "raw_text": "Arthanat, S., Vroman, K. G., Lysack, C., & Grizzetti, J. (2019). Multi-stakeholder perspectives on information communication technology training for older adults: implications for teaching and learning. Disability and Rehabilitation Assistive Technology, 453-461. https://doi.org/10.1080/17483107.2018.1493752",
+      "char_length": 309
+    },
+    {
+      "ref_no": 2,
+      "raw_text": "Beaunoyer, E., Hiracheta Torres, L., Maessen, L., & Guitton, M. J. (2020). Grieving in the digital era: Mapping online support for grief and bereavement. Patient Education and Counseling, 2515-2524. https://doi.org/10.1016/j.pec.2020.06.013",
+      "char_length": 240
+    },
+    {
+      "ref_no": 3,
+      "raw_text": "Bitner, M. J., Ostrom, A. L., & Morgan, F. N. (2008). Service Blueprinting: A Practical Technique for Service Innovation. California Management Review, 66-94. https://doi.org/10.2307/41166446",
+      "char_length": 191
+    },
+    {
+      "ref_no": 4,
+      "raw_text": "Brandl, L., Cabrita, M., Brodbeck, J., Heylen, D., & van Velsen, L. (2022). Consulting the Oracle: A Delphi study for determining parameters for a mental health user profile and personalization strategy for an online service to aid grieving older adults. Internet Interventions, 100534. https://doi.org/10.1016/j.invent.2022.100534",
+      "char_length": 331
+    },
+    {
+      "ref_no": 5,
+      "raw_text": "Brodbeck, J., Berger, T., Biesold, N., Rockstroh, F., Schmidt, S. J., & Znoj, H. (2022). The Role of Emotion Regulation and Loss-Related Coping Self-efficacy in an Internet Intervention for Grief: Mediation Analysis. JMIR Mental Health, e27707. https://doi.org/10.2196/27707",
+      "char_length": 274
+    },
+    {
+      "ref_no": 6,
+      "raw_text": "Brodbeck, J., Berger, T., Biesold, N., Rockstroh, F., & Znoj, H. J. (2019). Evaluation of a guided internet-based self-help intervention for older adults after spousal bereavement or separation/divorce: A randomised controlled trial. Journal of Affective Disorders, 440-449. https://doi.org/10.1016/j.jad.2019.04.008",
+      "char_length": 316
+    },
+    {
+      "ref_no": 7,
+      "raw_text": "Broekhuis, M., Dekker-van Weering, M., Schuit, C., Schürz, S., & van Velsen, L. (2021). Designing a stakeholder-inclusive service model for an eHealth service to support older adults in an active and social life. BMC Health Services Research, 1-17. https://doi.org/10.1186/s12913-021-06597-9",
+      "char_length": 291
+    },
+    {
+      "ref_no": 8,
+      "raw_text": "Gaffney, H., Mansell, W., & Tai, S. (2019). Conversational Agents in the Treatment of Mental Health Problems: Mixed-Method Systematic Review. JMIR Mental Health, e14166. https://doi.org/10.2196/14166",
+      "char_length": 199
+    },
+    {
+      "ref_no": 9,
+      "raw_text": "Hill, R., Betts, L. R., & Gardner, S. E. (2015). Older adults’ experiences and perceptions of digital technology: (Dis)empowerment, wellbeing, and inclusion. Computers in Human Behavior, 415-423. https://doi.org/10.1016/j.chb.2015.01.062",
+      "char_length": 237
+    },
+    {
+      "ref_no": 10,
+      "raw_text": "Holland, J. M., Neimeyer, R. A., Boelen, P. A., & Prigerson, H. G. (2009). The Underlying Structure of Grief: A Taxometric Investigation of Prolonged and Normal Reactions to Loss. Journal of Psychopathology and Behavioral Assessment, 190-201. https://doi.org/10.1007/s10862-008-9113-1",
+      "char_length": 284
+    },
+    {
+      "ref_no": 11,
+      "raw_text": "Iversen, T. N., Larsen, L., & Solem, P. E. (2009). A conceptual analysis of Ageism. Nordic Psychology, 4-22. https://doi.org/10.1027/1901-2276.61.3.4",
+      "char_length": 149
+    },
+    {
+      "ref_no": 12,
+      "raw_text": "Kramer, L. L., Ter Stal, S., Mulder, B. C., de Vet, E., & van Velsen, L. (2020). Developing Embodied Conversational Agents for Coaching People in a Healthy Lifestyle: Scoping Review. Journal of Medical Internet Research, e14058. https://doi.org/10.2196/14058",
+      "char_length": 258
+    },
+    {
+      "ref_no": 13,
+      "raw_text": "LeRouge, C., Ma, J., Sneha, S., & Tolle, K. (2013). User profiles and personas in the design and development of consumer health technologies. International Journal of Medical Informatics, e251-e268. https://doi.org/10.1016/j.ijmedinf.2011.03.006",
+      "char_length": 245
+    },
+    {
+      "ref_no": 14,
+      "raw_text": "Lundorff, M., Holmgren, H., Zachariae, R., Farver-Vestergaard, I., & O'Connor, M. (2017). Prevalence of prolonged grief disorder in adult bereavement: A systematic review and meta-analysis. Journal of Affective Disorders, 138-149. https://doi.org/10.1016/j.jad.2017.01.030",
+      "char_length": 272
+    },
+    {
+      "ref_no": 15,
+      "raw_text": "March, S., Day, J., Ritchie, G., Rowe, A., Gough, J., Hall, T., Yuen, C. Y. J., Donovan, C. L., & Ireland, M. (2018). Attitudes Toward e-Mental Health Services in a Community Sample of Adults: Online Survey. Journal of Medical Internet Research, e59. https://doi.org/10.2196/jmir.9109",
+      "char_length": 284
+    },
+    {
+      "ref_no": 16,
+      "raw_text": "Albury, C., Hall, A., Syed, A., Ziebland, S., Stokoe, E., Roberts, N., Webb, H., & Aveyard, P. (2019). Communication practices for delivering health behaviour change conversations in primary care: A systematic review and thematic synthesis. BMC Family Practice, 20(1). https://doi.org/10.1186/s12875-019-0992-x",
+      "char_length": 310
+    },
+    {
+      "ref_no": 17,
+      "raw_text": "Albury, C., Webb, H., Ziebland, S., Aveyard, P., & Stokoe, E. (2022). What happens when patients say “no” to offers of referral for weight loss? - Results and recommendations from a conversation analysis of primary care interactions. Patient Education and Counseling, 105(3), 524-533. https://doi.org/10.1016/j.pec.2021.08.017",
+      "char_length": 326
+    },
+    {
+      "ref_no": 18,
+      "raw_text": "Albury, C., Ziebland, S., Webb, H., Stokoe, E., & Aveyard, P. (2020). Discussing weight loss opportunistically and effectively in family practice: A qualitative study of clinical interactions using conversation analysis in UK family practice. Family Practice, 38(3), 321-328. https://doi.org/10.1093/fampra/cmaa121",
+      "char_length": 314
+    },
+    {
+      "ref_no": 19,
+      "raw_text": "Ananthakumar, T., Jones, N. R., Hinton, L., & Aveyard, P. (2020). Clinical encounters about obesity: Systematic review of patients’ perspectives. Clinical Obesity, 10(1). https://doi.org/10.1111/cob.12347",
+      "char_length": 204
+    },
+    {
+      "ref_no": 20,
+      "raw_text": "Aveyard, P., Lewis, A., Tearne, S., Hood, K., Christian-Brown, A., Adab, P., Begh, R., Jolly, K., Daley, A., Farley, A., Lycett, D., Nickless, A., Yu, L. M., Retat, L., Webber, L., Pimpin, L., & Jebb, S. A. (2016). Screening and brief intervention for obesity in primary care: A parallel, two-arm, randomised trial. Lancet, 388(10059), 2492-2500. https://doi.org/10.1016/S0140-6736(16)31893-1",
+      "char_length": 392
+    },
+    {
+      "ref_no": 21,
+      "raw_text": "Beach, W. A., & Prickett, E. (2017). Laughter, humor, and cancer: Delicate moments and poignant interactional circumstances. Health Communication, 32(7), 791-802. https://doi.org/10.1080/10410236.2016.1172291",
+      "char_length": 208
+    },
+    {
+      "ref_no": 22,
+      "raw_text": "Bergen, C. (2020). The conditional legitimacy of behavior change advice in primary care. Social Science & Medicine, 255. https://doi.org/10.1016/j.socscimed.2020.112985",
+      "char_length": 168
+    },
+    {
+      "ref_no": 23,
+      "raw_text": "Bergen, C., & Stivers, T. (2013). Patient disclosure of medical misdeeds. Journal of Health and Social Behavior, 54(2), 221-240. https://doi.org/10.1177/0022146513487379",
+      "char_length": 169
+    },
+    {
+      "ref_no": 24,
+      "raw_text": "Blackburn, M., & Stathi, A. (2019). Moral discourse in general practitioners’ accounts of obesity communication. Social Science & Medicine, 230, 166-173. https://doi.org/10.1016/j.socscimed.2019.03.032",
+      "char_length": 201
+    },
+    {
+      "ref_no": 25,
+      "raw_text": "Bloch, S., & Antaki, C. (2022). How professionals deal with clients’ explicit objections to their advice. Discourse Studies, 24(4), 385-403. https://doi.org/10.1177/14614456221110669",
+      "char_length": 182
+    },
+    {
+      "ref_no": 26,
+      "raw_text": "Bolden, G. B. (2009). Implementing incipient actions: The discourse marker ‘so’ in English conversation. Journal of Pragmatics, 41(5), 974-998. https://doi.org/10.1016/j.pragma.2008.10.004",
+      "char_length": 188
+    },
+    {
+      "ref_no": 27,
+      "raw_text": "Busetto, L., Sbraccia, P., & Vettor, R. (2022). Obesity management: At the forefront against disease stigma and therapeutic inertia. Eating and Weight Disorders - Studies on Anorexia, Bulimia and Obesity, 27(2), 761-768. https://doi.org/10.1007/s40519-021-01217-1",
+      "char_length": 263
+    },
+    {
+      "ref_no": 28,
+      "raw_text": "Department of Health and Social Care (2020). Tackling Obesity: Empowering Adults and Children to Live Healthy Lives.",
+      "char_length": 116
+    },
+    {
+      "ref_no": 29,
+      "raw_text": "Ekberg, K., & LeCouteur, A. (2015). Clients’ resistance to therapists’ proposals: Managing epistemic and deontic status. Journal of Pragmatics, 90, 12-25. https://doi.org/10.1016/j.pragma.2015.10.004",
+      "char_length": 199
+    },
+    {
+      "ref_no": 30,
+      "raw_text": "Glenn, P. (2003). Laughter in interaction.",
+      "char_length": 42
+    },
+    {
+      "ref_no": 31,
+      "raw_text": "Abdullah, K., Noor, N. M., & Wok, S. (2008). The perceptions of women’s roles and progress: a study of Malay women. Soc. Indic. Res., 89, 439-455. https://doi.org/10.1007/s11205-008-9242-7",
+      "char_length": 188
+    },
+    {
+      "ref_no": 32,
+      "raw_text": "Ackert, M., Maglakelidze, E., Badurashvili, I., & Huber, S. (2020a). Validation of the short forms of the centrality of religiosity scale in Georgia. Religions, 11, 1-22. https://doi.org/10.3390/rel11020057",
+      "char_length": 206
+    },
+    {
+      "ref_no": 33,
+      "raw_text": "Ackert, M., & Plopeanu, A.-P. (2021). Short forms of the centrality of religiosity scale: validation and application in the context of religious individualism of orthodox and Pentecostal Christians in Romania. Religions, 12, 1-29. https://doi.org/10.3390/rel12010009",
+      "char_length": 266
+    },
+    {
+      "ref_no": 34,
+      "raw_text": "Ackert, M., Prutskova, E., & Zabaev, I. (2020b). Validation of the short forms of centrality of religiosity scale in Russia. Religions, 11, 1-35. https://doi.org/10.3390/rel11110577",
+      "char_length": 181
+    },
+    {
+      "ref_no": 35,
+      "raw_text": "Aday, R. H. (1985). Belief in afterlife and death anxiety: correlates and comparisons. OMEGA J. Death Dying, 15, 67-75. https://doi.org/10.2190/GYPP-VBG3-M3AY-1ML9",
+      "char_length": 163
+    },
+    {
+      "ref_no": 36,
+      "raw_text": "Adelirad, F., Sabahiazar, K., Asghari-Jafarabadi, M., Namjoo, S., Chattu, V. K., & Allahverdipour, H. (2021). Gender difference about death anxiety among older adults: structural equation model. Psychogeriatrics, 21, 296-303. https://doi.org/10.1111/psyg.12663",
+      "char_length": 260
+    },
+    {
+      "ref_no": 37,
+      "raw_text": "Agency for Integrated Care (2023).",
+      "char_length": 34
+    },
+    {
+      "ref_no": 38,
+      "raw_text": "Allport, G. W., & Ross, J. M. (1967). Personal religious orientation and prejudice. J. Pers. Soc. Psychol., 5, 432-443. https://doi.org/10.1037/h0021212",
+      "char_length": 152
+    },
+    {
+      "ref_no": 39,
+      "raw_text": "Ang, G., Zhang, D., & Lim, K. (2016). Differences in attitudes to end-of-life care among patients, relatives and healthcare professionals. Singapore Med. J., 57, 22-28. https://doi.org/10.11622/smedj.2016008",
+      "char_length": 207
+    },
+    {
+      "ref_no": 40,
+      "raw_text": "Batson, C. D., Schoenrade, P., Ventis, W. L., & Batson, C. D. (1993). Religion and the individual: A social-psychological perspective.",
+      "char_length": 134
+    },
+    {
+      "ref_no": 41,
+      "raw_text": "Beck, R., & Jessup, R. K. (2004). The multidimensional nature of quest motivation. J. Psychol. Theol., 32, 283-294. https://doi.org/10.1177/009164710403200401",
+      "char_length": 158
+    },
+    {
+      "ref_no": 42,
+      "raw_text": "Bengtson, V. L., Silverstein, M., Putney, N. M., & Harris, S. C. (2015). Does religiousness increase with age? Age changes and generational differences over 35 years. J. Sci. Study Relig., 54, 363-379. https://doi.org/10.1111/jssr.12183",
+      "char_length": 236
+    },
+    {
+      "ref_no": 43,
+      "raw_text": "Bruce, S. (2011). Defining religion: a practical response. Int. Rev. Sociol., 21, 107-120. https://doi.org/10.1080/03906701.2011.544190",
+      "char_length": 135
+    },
+    {
+      "ref_no": 44,
+      "raw_text": "Bryukhanov, M., & Fedotenkov, I. (2023). Gender differences in religiosity: a report on Russian data. J. Gend. Stud., 32, 107-123. https://doi.org/10.1080/09589236.2021.1962702",
+      "char_length": 176
+    },
+    {
+      "ref_no": 45,
+      "raw_text": "Burke, B. L., Martens, A., & Faucher, E. H. (2010). Two decades of terror management theory: a meta-analysis of mortality salience research. Personal. Soc. Psychol. Rev., 14, 155-195. https://doi.org/10.1177/1088868309352321",
+      "char_length": 224
+    }
+  ],
+  "stage3_structured": [
+    {
+      "ref_no": 1,
+      "authors": [
+        {
+          "surname": "Arthanat",
+          "given": "S.",
+          "raw": "Arthanat, S."
+        },
+        {
+          "surname": "Vroman",
+          "given": "K. G.",
+          "raw": "Vroman, K. G."
+        },
+        {
+          "surname": "Lysack",
+          "given": "C.",
+          "raw": "Lysack, C."
+        },
+        {
+          "surname": "Grizzetti",
+          "given": "J.",
+          "raw": "Grizzetti, J."
+        }
+      ],
+      "title": "Multi-stakeholder perspectives on information communication technology training for older adults: implications for teaching and learning",
+      "journal": "Disability and Rehabilitation: Assistive Technology",
+      "year": 2019,
+      "volume": null,
+      "issue": null,
+      "pages": "453-461",
+      "doi": "10.1080/17483107.2018.1493752",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume and issue not present in raw citation. Journal name appears truncated in raw string ('Disability and Rehabilitation Assistive Technology'); likely full title is 'Disability and Rehabilitation: Assistive Technology'.",
+      "_usage": {
+        "input_tokens": 133,
+        "output_tokens": 340,
+        "cache_creation_input_tokens": 1375,
+        "cache_read_input_tokens": 0
+      }
+    },
+    {
+      "ref_no": 2,
+      "authors": [
+        {
+          "surname": "Beaunoyer",
+          "given": "E.",
+          "raw": "Beaunoyer, E."
+        },
+        {
+          "surname": "Hiracheta Torres",
+          "given": "L.",
+          "raw": "Hiracheta Torres, L."
+        },
+        {
+          "surname": "Maessen",
+          "given": "L.",
+          "raw": "Maessen, L."
+        },
+        {
+          "surname": "Guitton",
+          "given": "M. J.",
+          "raw": "Guitton, M. J."
+        }
+      ],
+      "title": "Grieving in the digital era: Mapping online support for grief and bereavement",
+      "journal": "Patient Education and Counseling",
+      "year": 2020,
+      "volume": null,
+      "issue": null,
+      "pages": "2515-2524",
+      "doi": "10.1016/j.pec.2020.06.013",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume and issue not present in the raw citation; pages extracted directly. DOI appears clean with no suspect hyphens.",
+      "_usage": {
+        "input_tokens": 133,
+        "output_tokens": 319,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 3,
+      "authors": [
+        {
+          "surname": "Bitner",
+          "given": "M. J.",
+          "raw": "Bitner, M. J."
+        },
+        {
+          "surname": "Ostrom",
+          "given": "A. L.",
+          "raw": "Ostrom, A. L."
+        },
+        {
+          "surname": "Morgan",
+          "given": "F. N.",
+          "raw": "Morgan, F. N."
+        }
+      ],
+      "title": "Service Blueprinting: A Practical Technique for Service Innovation",
+      "journal": "California Management Review",
+      "year": 2008,
+      "volume": null,
+      "issue": null,
+      "pages": "66-94",
+      "doi": "10.2307/41166446",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume and issue not provided in the raw citation; only page range given.",
+      "_usage": {
+        "input_tokens": 109,
+        "output_tokens": 263,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 4,
+      "authors": [
+        {
+          "surname": "Brandl",
+          "given": "L.",
+          "raw": "Brandl, L."
+        },
+        {
+          "surname": "Cabrita",
+          "given": "M.",
+          "raw": "Cabrita, M."
+        },
+        {
+          "surname": "Brodbeck",
+          "given": "J.",
+          "raw": "Brodbeck, J."
+        },
+        {
+          "surname": "Heylen",
+          "given": "D.",
+          "raw": "Heylen, D."
+        },
+        {
+          "surname": "van Velsen",
+          "given": "L.",
+          "raw": "van Velsen, L."
+        }
+      ],
+      "title": "Consulting the Oracle: A Delphi study for determining parameters for a mental health user profile and personalization strategy for an online service to aid grieving older adults",
+      "journal": "Internet Interventions",
+      "year": 2022,
+      "volume": null,
+      "issue": null,
+      "pages": "100534",
+      "doi": "10.1016/j.invent.2022.100534",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Article number 100534 used as pages field; no volume/issue provided in citation.",
+      "_usage": {
+        "input_tokens": 147,
+        "output_tokens": 346,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 5,
+      "authors": [
+        {
+          "surname": "Brodbeck",
+          "given": "J.",
+          "raw": "Brodbeck, J."
+        },
+        {
+          "surname": "Berger",
+          "given": "T.",
+          "raw": "Berger, T."
+        },
+        {
+          "surname": "Biesold",
+          "given": "N.",
+          "raw": "Biesold, N."
+        },
+        {
+          "surname": "Rockstroh",
+          "given": "F.",
+          "raw": "Rockstroh, F."
+        },
+        {
+          "surname": "Schmidt",
+          "given": "S. J.",
+          "raw": "Schmidt, S. J."
+        },
+        {
+          "surname": "Znoj",
+          "given": "H.",
+          "raw": "Znoj, H."
+        }
+      ],
+      "title": "The Role of Emotion Regulation and Loss-Related Coping Self-efficacy in an Internet Intervention for Grief: Mediation Analysis",
+      "journal": "JMIR Mental Health",
+      "year": 2022,
+      "volume": null,
+      "issue": null,
+      "pages": "e27707",
+      "doi": "10.2196/27707",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "No volume or issue number present in citation; page is an article ID (e27707). DOI extracted cleanly.",
+      "_usage": {
+        "input_tokens": 143,
+        "output_tokens": 370,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 6,
+      "authors": [
+        {
+          "surname": "Brodbeck",
+          "given": "J.",
+          "raw": "Brodbeck, J."
+        },
+        {
+          "surname": "Berger",
+          "given": "T.",
+          "raw": "Berger, T."
+        },
+        {
+          "surname": "Biesold",
+          "given": "N.",
+          "raw": "Biesold, N."
+        },
+        {
+          "surname": "Rockstroh",
+          "given": "F.",
+          "raw": "Rockstroh, F."
+        },
+        {
+          "surname": "Znoj",
+          "given": "H. J.",
+          "raw": "Znoj, H. J."
+        }
+      ],
+      "title": "Evaluation of a guided internet-based self-help intervention for older adults after spousal bereavement or separation/divorce: A randomised controlled trial",
+      "journal": "Journal of Affective Disorders",
+      "year": 2019,
+      "volume": null,
+      "issue": null,
+      "pages": "440-449",
+      "doi": "10.1016/j.jad.2019.04.008",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume number is absent from the raw citation; only page range provided. DOI present and clean.",
+      "_usage": {
+        "input_tokens": 151,
+        "output_tokens": 353,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 7,
+      "authors": [
+        {
+          "surname": "Broekhuis",
+          "given": "M.",
+          "raw": "Broekhuis, M."
+        },
+        {
+          "surname": "Dekker-van Weering",
+          "given": "M.",
+          "raw": "Dekker-van Weering, M."
+        },
+        {
+          "surname": "Schuit",
+          "given": "C.",
+          "raw": "Schuit, C."
+        },
+        {
+          "surname": "Schürz",
+          "given": "S.",
+          "raw": "Schürz, S."
+        },
+        {
+          "surname": "van Velsen",
+          "given": "L.",
+          "raw": "van Velsen, L."
+        }
+      ],
+      "title": "Designing a stakeholder-inclusive service model for an eHealth service to support older adults in an active and social life",
+      "journal": "BMC Health Services Research",
+      "year": 2021,
+      "volume": null,
+      "issue": null,
+      "pages": "1-17",
+      "doi": "10.1186/s12913-021-06597-9",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Hyphen in 'Dekker-van Weering' is a genuine compound surname hyphen, not a line-wrap artifact. No volume/issue number provided in citation.",
+      "_usage": {
+        "input_tokens": 145,
+        "output_tokens": 370,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 8,
+      "authors": [
+        {
+          "surname": "Gaffney",
+          "given": "H.",
+          "raw": "Gaffney, H."
+        },
+        {
+          "surname": "Mansell",
+          "given": "W.",
+          "raw": "Mansell, W."
+        },
+        {
+          "surname": "Tai",
+          "given": "S.",
+          "raw": "Tai, S."
+        }
+      ],
+      "title": "Conversational Agents in the Treatment of Mental Health Problems: Mixed-Method Systematic Review",
+      "journal": "JMIR Mental Health",
+      "year": 2019,
+      "volume": null,
+      "issue": null,
+      "pages": "e14166",
+      "doi": "10.2196/14166",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "No volume or issue number provided; page given as article identifier e14166.",
+      "_usage": {
+        "input_tokens": 110,
+        "output_tokens": 262,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 9,
+      "authors": [
+        {
+          "surname": "Hill",
+          "given": "R.",
+          "raw": "Hill, R."
+        },
+        {
+          "surname": "Betts",
+          "given": "L. R.",
+          "raw": "Betts, L. R."
+        },
+        {
+          "surname": "Gardner",
+          "given": "S. E.",
+          "raw": "Gardner, S. E."
+        }
+      ],
+      "title": "Older adults' experiences and perceptions of digital technology: (Dis)empowerment, wellbeing, and inclusion",
+      "journal": "Computers in Human Behavior",
+      "year": 2015,
+      "volume": null,
+      "issue": null,
+      "pages": "415-423",
+      "doi": "10.1016/j.chb.2015.01.062",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume number not present in the raw citation; pages extracted as given. DOI appears clean with no hyphen ambiguity.",
+      "_usage": {
+        "input_tokens": 128,
+        "output_tokens": 289,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 10,
+      "authors": [
+        {
+          "surname": "Holland",
+          "given": "J. M.",
+          "raw": "Holland, J. M."
+        },
+        {
+          "surname": "Neimeyer",
+          "given": "R. A.",
+          "raw": "Neimeyer, R. A."
+        },
+        {
+          "surname": "Boelen",
+          "given": "P. A.",
+          "raw": "Boelen, P. A."
+        },
+        {
+          "surname": "Prigerson",
+          "given": "H. G.",
+          "raw": "Prigerson, H. G."
+        }
+      ],
+      "title": "The Underlying Structure of Grief: A Taxometric Investigation of Prolonged and Normal Reactions to Loss",
+      "journal": "Journal of Psychopathology and Behavioral Assessment",
+      "year": 2009,
+      "volume": null,
+      "issue": null,
+      "pages": "190-201",
+      "doi": "10.1007/s10862-008-9113-1",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume and issue not present in the raw citation. Pages extracted directly. DOI appears clean with no suspect line-break hyphens.",
+      "_usage": {
+        "input_tokens": 143,
+        "output_tokens": 335,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 11,
+      "authors": [
+        {
+          "surname": "Iversen",
+          "given": "T. N.",
+          "raw": "Iversen, T. N."
+        },
+        {
+          "surname": "Larsen",
+          "given": "L.",
+          "raw": "Larsen, L."
+        },
+        {
+          "surname": "Solem",
+          "given": "P. E.",
+          "raw": "Solem, P. E."
+        }
+      ],
+      "title": "A conceptual analysis of Ageism",
+      "journal": "Nordic Psychology",
+      "year": 2009,
+      "volume": "61",
+      "issue": "3",
+      "pages": "4-22",
+      "doi": "10.1027/1901-2276.61.3.4",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Volume 61, issue 3 inferred from DOI path segment '1901-2276.61.3.4'. Pages 4-22 taken from raw citation; page start '4' also matches DOI suffix.",
+      "_usage": {
+        "input_tokens": 111,
+        "output_tokens": 302,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 12,
+      "authors": [
+        {
+          "surname": "Kramer",
+          "given": "L. L.",
+          "raw": "Kramer, L. L."
+        },
+        {
+          "surname": "Ter Stal",
+          "given": "S.",
+          "raw": "Ter Stal, S."
+        },
+        {
+          "surname": "Mulder",
+          "given": "B. C.",
+          "raw": "Mulder, B. C."
+        },
+        {
+          "surname": "de Vet",
+          "given": "E.",
+          "raw": "de Vet, E."
+        },
+        {
+          "surname": "van Velsen",
+          "given": "L.",
+          "raw": "van Velsen, L."
+        }
+      ],
+      "title": "Developing Embodied Conversational Agents for Coaching People in a Healthy Lifestyle: Scoping Review",
+      "journal": "Journal of Medical Internet Research",
+      "year": 2020,
+      "volume": null,
+      "issue": null,
+      "pages": "e14058",
+      "doi": "10.2196/14058",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "No volume/issue number present in citation; page identifier is article number e14058.",
+      "_usage": {
+        "input_tokens": 135,
+        "output_tokens": 338,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 13,
+      "authors": [
+        {
+          "surname": "LeRouge",
+          "given": "C.",
+          "raw": "LeRouge, C."
+        },
+        {
+          "surname": "Ma",
+          "given": "J.",
+          "raw": "Ma, J."
+        },
+        {
+          "surname": "Sneha",
+          "given": "S.",
+          "raw": "Sneha, S."
+        },
+        {
+          "surname": "Tolle",
+          "given": "K.",
+          "raw": "Tolle, K."
+        }
+      ],
+      "title": "User profiles and personas in the design and development of consumer health technologies",
+      "journal": "International Journal of Medical Informatics",
+      "year": 2013,
+      "volume": null,
+      "issue": null,
+      "pages": "e251-e268",
+      "doi": "10.1016/j.ijmedinf.2011.03.006",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume and issue not present in the raw citation. Pages given as e251-e268 (electronic pagination). DOI path contains no suspected line-break hyphens.",
+      "_usage": {
+        "input_tokens": 123,
+        "output_tokens": 314,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 14,
+      "authors": [
+        {
+          "surname": "Lundorff",
+          "given": "M.",
+          "raw": "Lundorff, M."
+        },
+        {
+          "surname": "Holmgren",
+          "given": "H.",
+          "raw": "Holmgren, H."
+        },
+        {
+          "surname": "Zachariae",
+          "given": "R.",
+          "raw": "Zachariae, R."
+        },
+        {
+          "surname": "Farver-Vestergaard",
+          "given": "I.",
+          "raw": "Farver-Vestergaard, I."
+        },
+        {
+          "surname": "O'Connor",
+          "given": "M.",
+          "raw": "O'Connor, M."
+        }
+      ],
+      "title": "Prevalence of prolonged grief disorder in adult bereavement: A systematic review and meta-analysis",
+      "journal": "Journal of Affective Disorders",
+      "year": 2017,
+      "volume": null,
+      "issue": null,
+      "pages": "138-149",
+      "doi": "10.1016/j.jad.2017.01.030",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Volume number is missing from the raw citation; only page range provided. DOI appears clean with no suspect hyphens. 'Farver-Vestergaard' is a genuine hyphenated surname.",
+      "_usage": {
+        "input_tokens": 144,
+        "output_tokens": 373,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 15,
+      "authors": [
+        {
+          "surname": "March",
+          "given": "S.",
+          "raw": "March, S."
+        },
+        {
+          "surname": "Day",
+          "given": "J.",
+          "raw": "Day, J."
+        },
+        {
+          "surname": "Ritchie",
+          "given": "G.",
+          "raw": "Ritchie, G."
+        },
+        {
+          "surname": "Rowe",
+          "given": "A.",
+          "raw": "Rowe, A."
+        },
+        {
+          "surname": "Gough",
+          "given": "J.",
+          "raw": "Gough, J."
+        },
+        {
+          "surname": "Hall",
+          "given": "T.",
+          "raw": "Hall, T."
+        },
+        {
+          "surname": "Yuen",
+          "given": "C. Y. J.",
+          "raw": "Yuen, C. Y. J."
+        },
+        {
+          "surname": "Donovan",
+          "given": "C. L.",
+          "raw": "Donovan, C. L."
+        },
+        {
+          "surname": "Ireland",
+          "given": "M.",
+          "raw": "Ireland, M."
+        }
+      ],
+      "title": "Attitudes Toward e-Mental Health Services in a Community Sample of Adults: Online Survey",
+      "journal": "Journal of Medical Internet Research",
+      "year": 2018,
+      "volume": null,
+      "issue": null,
+      "pages": "e59",
+      "doi": "10.2196/jmir.9109",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "No volume or issue number present in citation; page is an article ID (e59). DOI is clean with no suspected line-break artifacts.",
+      "_usage": {
+        "input_tokens": 146,
+        "output_tokens": 437,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 16,
+      "authors": [
+        {
+          "surname": "Albury",
+          "given": "C.",
+          "raw": "Albury, C."
+        },
+        {
+          "surname": "Hall",
+          "given": "A.",
+          "raw": "Hall, A."
+        },
+        {
+          "surname": "Syed",
+          "given": "A.",
+          "raw": "Syed, A."
+        },
+        {
+          "surname": "Ziebland",
+          "given": "S.",
+          "raw": "Ziebland, S."
+        },
+        {
+          "surname": "Stokoe",
+          "given": "E.",
+          "raw": "Stokoe, E."
+        },
+        {
+          "surname": "Roberts",
+          "given": "N.",
+          "raw": "Roberts, N."
+        },
+        {
+          "surname": "Webb",
+          "given": "H.",
+          "raw": "Webb, H."
+        },
+        {
+          "surname": "Aveyard",
+          "given": "P.",
+          "raw": "Aveyard, P."
+        }
+      ],
+      "title": "Communication practices for delivering health behaviour change conversations in primary care: A systematic review and thematic synthesis",
+      "journal": "BMC Family Practice",
+      "year": 2019,
+      "volume": "20",
+      "issue": "1",
+      "pages": null,
+      "doi": "10.1186/s12875-019-0992-x",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 145,
+        "output_tokens": 381,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 17,
+      "authors": [
+        {
+          "surname": "Albury",
+          "given": "C.",
+          "raw": "Albury, C."
+        },
+        {
+          "surname": "Webb",
+          "given": "H.",
+          "raw": "Webb, H."
+        },
+        {
+          "surname": "Ziebland",
+          "given": "S.",
+          "raw": "Ziebland, S."
+        },
+        {
+          "surname": "Aveyard",
+          "given": "P.",
+          "raw": "Aveyard, P."
+        },
+        {
+          "surname": "Stokoe",
+          "given": "E.",
+          "raw": "Stokoe, E."
+        }
+      ],
+      "title": "What happens when patients say \"no\" to offers of referral for weight loss? - Results and recommendations from a conversation analysis of primary care interactions",
+      "journal": "Patient Education and Counseling",
+      "year": 2022,
+      "volume": "105",
+      "issue": "3",
+      "pages": "524-533",
+      "doi": "10.1016/j.pec.2021.08.017",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 149,
+        "output_tokens": 324,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 18,
+      "authors": [
+        {
+          "surname": "Albury",
+          "given": "C.",
+          "raw": "Albury, C."
+        },
+        {
+          "surname": "Ziebland",
+          "given": "S.",
+          "raw": "Ziebland, S."
+        },
+        {
+          "surname": "Webb",
+          "given": "H.",
+          "raw": "Webb, H."
+        },
+        {
+          "surname": "Stokoe",
+          "given": "E.",
+          "raw": "Stokoe, E."
+        },
+        {
+          "surname": "Aveyard",
+          "given": "P.",
+          "raw": "Aveyard, P."
+        }
+      ],
+      "title": "Discussing weight loss opportunistically and effectively in family practice: A qualitative study of clinical interactions using conversation analysis in UK family practice",
+      "journal": "Family Practice",
+      "year": 2020,
+      "volume": "38",
+      "issue": "3",
+      "pages": "321-328",
+      "doi": "10.1093/fampra/cmaa121",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 138,
+        "output_tokens": 313,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 19,
+      "authors": [
+        {
+          "surname": "Ananthakumar",
+          "given": "T.",
+          "raw": "Ananthakumar, T."
+        },
+        {
+          "surname": "Jones",
+          "given": "N. R.",
+          "raw": "Jones, N. R."
+        },
+        {
+          "surname": "Hinton",
+          "given": "L.",
+          "raw": "Hinton, L."
+        },
+        {
+          "surname": "Aveyard",
+          "given": "P.",
+          "raw": "Aveyard, P."
+        }
+      ],
+      "title": "Clinical encounters about obesity: Systematic review of patients' perspectives",
+      "journal": "Clinical Obesity",
+      "year": 2020,
+      "volume": "10",
+      "issue": "1",
+      "pages": null,
+      "doi": "10.1111/cob.12347",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 115,
+        "output_tokens": 274,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 20,
+      "authors": [
+        {
+          "surname": "Aveyard",
+          "given": "P.",
+          "raw": "Aveyard, P."
+        },
+        {
+          "surname": "Lewis",
+          "given": "A.",
+          "raw": "Lewis, A."
+        },
+        {
+          "surname": "Tearne",
+          "given": "S.",
+          "raw": "Tearne, S."
+        },
+        {
+          "surname": "Hood",
+          "given": "K.",
+          "raw": "Hood, K."
+        },
+        {
+          "surname": "Christian-Brown",
+          "given": "A.",
+          "raw": "Christian-Brown, A."
+        },
+        {
+          "surname": "Adab",
+          "given": "P.",
+          "raw": "Adab, P."
+        },
+        {
+          "surname": "Begh",
+          "given": "R.",
+          "raw": "Begh, R."
+        },
+        {
+          "surname": "Jolly",
+          "given": "K.",
+          "raw": "Jolly, K."
+        },
+        {
+          "surname": "Daley",
+          "given": "A.",
+          "raw": "Daley, A."
+        },
+        {
+          "surname": "Farley",
+          "given": "A.",
+          "raw": "Farley, A."
+        },
+        {
+          "surname": "Lycett",
+          "given": "D.",
+          "raw": "Lycett, D."
+        },
+        {
+          "surname": "Nickless",
+          "given": "A.",
+          "raw": "Nickless, A."
+        },
+        {
+          "surname": "Yu",
+          "given": "L. M.",
+          "raw": "Yu, L. M."
+        },
+        {
+          "surname": "Retat",
+          "given": "L.",
+          "raw": "Retat, L."
+        },
+        {
+          "surname": "Webber",
+          "given": "L.",
+          "raw": "Webber, L."
+        },
+        {
+          "surname": "Pimpin",
+          "given": "L.",
+          "raw": "Pimpin, L."
+        },
+        {
+          "surname": "Jebb",
+          "given": "S. A.",
+          "raw": "Jebb, S. A."
+        }
+      ],
+      "title": "Screening and brief intervention for obesity in primary care: A parallel, two-arm, randomised trial",
+      "journal": "Lancet",
+      "year": 2016,
+      "volume": "388",
+      "issue": "10059",
+      "pages": "2492-2500",
+      "doi": "10.1016/S0140-6736(16)31893-1",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Hyphen in 'Christian-Brown' is a legitimate compound surname, preserved. DOI contains no suspect line-break hyphens.",
+      "_usage": {
+        "input_tokens": 214,
+        "output_tokens": 670,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 21,
+      "authors": [
+        {
+          "surname": "Beach",
+          "given": "W. A.",
+          "raw": "Beach, W. A."
+        },
+        {
+          "surname": "Prickett",
+          "given": "E.",
+          "raw": "Prickett, E."
+        }
+      ],
+      "title": "Laughter, humor, and cancer: Delicate moments and poignant interactional circumstances",
+      "journal": "Health Communication",
+      "year": 2017,
+      "volume": "32",
+      "issue": "7",
+      "pages": "791-802",
+      "doi": "10.1080/10410236.2016.1172291",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 118,
+        "output_tokens": 230,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 22,
+      "authors": [
+        {
+          "surname": "Bergen",
+          "given": "C.",
+          "raw": "Bergen, C."
+        }
+      ],
+      "title": "The conditional legitimacy of behavior change advice in primary care",
+      "journal": "Social Science & Medicine",
+      "year": 2020,
+      "volume": "255",
+      "issue": null,
+      "pages": null,
+      "doi": "10.1016/j.socscimed.2020.112985",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Article number 112985 used as identifier; no page range provided. Volume 255 extracted from citation.",
+      "_usage": {
+        "input_tokens": 94,
+        "output_tokens": 209,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 23,
+      "authors": [
+        {
+          "surname": "Bergen",
+          "given": "C.",
+          "raw": "Bergen, C."
+        },
+        {
+          "surname": "Stivers",
+          "given": "T.",
+          "raw": "Stivers, T."
+        }
+      ],
+      "title": "Patient disclosure of medical misdeeds",
+      "journal": "Journal of Health and Social Behavior",
+      "year": 2013,
+      "volume": "54",
+      "issue": "2",
+      "pages": "221-240",
+      "doi": "10.1177/0022146513487379",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 103,
+        "output_tokens": 213,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 24,
+      "authors": [
+        {
+          "surname": "Blackburn",
+          "given": "M.",
+          "raw": "Blackburn, M."
+        },
+        {
+          "surname": "Stathi",
+          "given": "A.",
+          "raw": "Stathi, A."
+        }
+      ],
+      "title": "Moral discourse in general practitioners' accounts of obesity communication",
+      "journal": "Social Science & Medicine",
+      "year": 2019,
+      "volume": "230",
+      "issue": null,
+      "pages": "166-173",
+      "doi": "10.1016/j.socscimed.2019.03.032",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 109,
+        "output_tokens": 221,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 25,
+      "authors": [
+        {
+          "surname": "Bloch",
+          "given": "S.",
+          "raw": "Bloch, S."
+        },
+        {
+          "surname": "Antaki",
+          "given": "C.",
+          "raw": "Antaki, C."
+        }
+      ],
+      "title": "How professionals deal with clients' explicit objections to their advice",
+      "journal": "Discourse Studies",
+      "year": 2022,
+      "volume": "24",
+      "issue": "4",
+      "pages": "385-403",
+      "doi": "10.1177/14614456221110669",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 105,
+        "output_tokens": 216,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 26,
+      "authors": [
+        {
+          "surname": "Bolden",
+          "given": "G. B.",
+          "raw": "Bolden, G. B."
+        }
+      ],
+      "title": "Implementing incipient actions: The discourse marker 'so' in English conversation",
+      "journal": "Journal of Pragmatics",
+      "year": 2009,
+      "volume": "41",
+      "issue": "5",
+      "pages": "974-998",
+      "doi": "10.1016/j.pragma.2008.10.004",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 112,
+        "output_tokens": 205,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 27,
+      "authors": [
+        {
+          "surname": "Busetto",
+          "given": "L.",
+          "raw": "Busetto, L."
+        },
+        {
+          "surname": "Sbraccia",
+          "given": "P.",
+          "raw": "Sbraccia, P."
+        },
+        {
+          "surname": "Vettor",
+          "given": "R.",
+          "raw": "Vettor, R."
+        }
+      ],
+      "title": "Obesity management: At the forefront against disease stigma and therapeutic inertia",
+      "journal": "Eating and Weight Disorders - Studies on Anorexia, Bulimia and Obesity",
+      "year": 2022,
+      "volume": "27",
+      "issue": "2",
+      "pages": "761-768",
+      "doi": "10.1007/s40519-021-01217-1",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 140,
+        "output_tokens": 273,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 28,
+      "authors": [
+        {
+          "surname": "Department of Health and Social Care",
+          "given": "",
+          "raw": "Department of Health and Social Care"
+        }
+      ],
+      "title": "Tackling Obesity: Empowering Adults and Children to Live Healthy Lives",
+      "journal": "Department of Health and Social Care",
+      "year": 2020,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": true,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "This is a government policy document/report, not a journal article or traditional book. Author is an institutional body (UK Department of Health and Social Care). No DOI, volume, or page information present. Classified as is_book=true as the closest applicable category.",
+      "_usage": {
+        "input_tokens": 73,
+        "output_tokens": 239,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 29,
+      "authors": [
+        {
+          "surname": "Ekberg",
+          "given": "K.",
+          "raw": "Ekberg, K."
+        },
+        {
+          "surname": "LeCouteur",
+          "given": "A.",
+          "raw": "LeCouteur, A."
+        }
+      ],
+      "title": "Clients' resistance to therapists' proposals: Managing epistemic and deontic status",
+      "journal": "Journal of Pragmatics",
+      "year": 2015,
+      "volume": "90",
+      "issue": null,
+      "pages": "12-25",
+      "doi": "10.1016/j.pragma.2015.10.004",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 117,
+        "output_tokens": 230,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 30,
+      "authors": [
+        {
+          "surname": "Glenn",
+          "given": "P.",
+          "raw": "Glenn, P."
+        }
+      ],
+      "title": "Laughter in interaction",
+      "journal": "Cambridge University Press",
+      "year": 2003,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": true,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "This appears to be a book reference (no journal, volume, or pages present). Publisher inferred as Cambridge University Press based on known publication, but not explicitly stated in raw string. Human review recommended.",
+      "_usage": {
+        "input_tokens": 58,
+        "output_tokens": 203,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 31,
+      "authors": [
+        {
+          "surname": "Abdullah",
+          "given": "K.",
+          "raw": "Abdullah, K."
+        },
+        {
+          "surname": "Noor",
+          "given": "N. M.",
+          "raw": "Noor, N. M."
+        },
+        {
+          "surname": "Wok",
+          "given": "S.",
+          "raw": "Wok, S."
+        }
+      ],
+      "title": "The perceptions of women's roles and progress: a study of Malay women",
+      "journal": "Soc. Indic. Res.",
+      "year": 2008,
+      "volume": "89",
+      "issue": null,
+      "pages": "439-455",
+      "doi": "10.1007/s11205-008-9242-7",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 125,
+        "output_tokens": 258,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 32,
+      "authors": [
+        {
+          "surname": "Ackert",
+          "given": "M.",
+          "raw": "Ackert, M."
+        },
+        {
+          "surname": "Maglakelidze",
+          "given": "E.",
+          "raw": "Maglakelidze, E."
+        },
+        {
+          "surname": "Badurashvili",
+          "given": "I.",
+          "raw": "Badurashvili, I."
+        }
+      ],
+      "title": ", & Huber, S. (2020a). Validation of the short forms of the centrality of religiosity scale in Georgia. Religions, 11, 1-22",
+      "journal": null,
+      "year": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": "10.3390/rel11020057",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "missing: journal,year"
+    },
+    {
+      "ref_no": 33,
+      "authors": [
+        {
+          "surname": "Ackert",
+          "given": "M.",
+          "raw": "Ackert, M."
+        },
+        {
+          "surname": "Plopeanu",
+          "given": "A.-P.",
+          "raw": "Plopeanu, A.-P."
+        }
+      ],
+      "title": "Short forms of the centrality of religiosity scale: validation and application in the context of religious individualism of orthodox and Pentecostal Christians in Romania",
+      "journal": "Religions",
+      "year": 2021,
+      "volume": "12",
+      "issue": null,
+      "pages": "1-29",
+      "doi": "10.3390/rel12010009",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Author second surname contains a real hyphen (A.-P. is a double initial). DOI confirmed clean.",
+      "_usage": {
+        "input_tokens": 125,
+        "output_tokens": 265,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 34,
+      "authors": [
+        {
+          "surname": "Ackert",
+          "given": "M.",
+          "raw": "Ackert, M."
+        },
+        {
+          "surname": "Prutskova",
+          "given": "E.",
+          "raw": "Prutskova, E."
+        }
+      ],
+      "title": ", & Zabaev, I. (2020b). Validation of the short forms of centrality of religiosity scale in Russia. Religions, 11, 1-35",
+      "journal": null,
+      "year": null,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": "10.3390/rel11110577",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "missing: journal,year"
+    },
+    {
+      "ref_no": 35,
+      "authors": [
+        {
+          "surname": "Aday",
+          "given": "R. H.",
+          "raw": "Aday, R. H."
+        }
+      ],
+      "title": "Belief in afterlife and death anxiety: correlates and comparisons",
+      "journal": "OMEGA - Journal of Death and Dying",
+      "year": 1985,
+      "volume": "15",
+      "issue": null,
+      "pages": "67-75",
+      "doi": "10.2190/GYPP-VBG3-M3AY-1ML9",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Journal abbreviated as 'OMEGA J. Death Dying'; expanded to full title. DOI hyphens are part of the real DOI structure.",
+      "_usage": {
+        "input_tokens": 115,
+        "output_tokens": 243,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 36,
+      "authors": [
+        {
+          "surname": "Adelirad",
+          "given": "F.",
+          "raw": "Adelirad, F."
+        },
+        {
+          "surname": "Sabahiazar",
+          "given": "K.",
+          "raw": "Sabahiazar, K."
+        },
+        {
+          "surname": "Asghari-Jafarabadi",
+          "given": "M.",
+          "raw": "Asghari-Jafarabadi, M."
+        },
+        {
+          "surname": "Namjoo",
+          "given": "S.",
+          "raw": "Namjoo, S."
+        },
+        {
+          "surname": "Chattu",
+          "given": "V. K.",
+          "raw": "Chattu, V. K."
+        },
+        {
+          "surname": "Allahverdipour",
+          "given": "H.",
+          "raw": "Allahverdipour, H."
+        }
+      ],
+      "title": "Gender difference about death anxiety among older adults: structural equation model",
+      "journal": "Psychogeriatrics",
+      "year": 2021,
+      "volume": "21",
+      "issue": null,
+      "pages": "296-303",
+      "doi": "10.1111/psyg.12663",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Hyphen in 'Asghari-Jafarabadi' is a genuine compound surname, not a line-break artifact.",
+      "_usage": {
+        "input_tokens": 147,
+        "output_tokens": 390,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 37,
+      "authors": [],
+      "title": null,
+      "journal": "Agency for Integrated Care",
+      "year": 2023,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "Incomplete reference. Only the organization name 'Agency for Integrated Care' and year 2023 are present. No title, journal, or other bibliographic details available. Likely a report or online resource with missing fields. Human review required.",
+      "_usage": {
+        "input_tokens": 53,
+        "output_tokens": 185,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 38,
+      "authors": [
+        {
+          "surname": "Allport",
+          "given": "G. W.",
+          "raw": "Allport, G. W."
+        },
+        {
+          "surname": "Ross",
+          "given": "J. M.",
+          "raw": "Ross, J. M."
+        }
+      ],
+      "title": "Personal religious orientation and prejudice",
+      "journal": "J. Pers. Soc. Psychol.",
+      "year": 1967,
+      "volume": "5",
+      "issue": null,
+      "pages": "432-443",
+      "doi": "10.1037/h0021212",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 107,
+        "output_tokens": 221,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 39,
+      "authors": [
+        {
+          "surname": "Ang",
+          "given": "G.",
+          "raw": "Ang, G."
+        },
+        {
+          "surname": "Zhang",
+          "given": "D.",
+          "raw": "Zhang, D."
+        },
+        {
+          "surname": "Lim",
+          "given": "K.",
+          "raw": "Lim, K."
+        }
+      ],
+      "title": "Differences in attitudes to end-of-life care among patients, relatives and healthcare professionals",
+      "journal": "Singapore Med. J.",
+      "year": 2016,
+      "volume": "57",
+      "issue": null,
+      "pages": "22-28",
+      "doi": "10.11622/smedj.2016008",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 114,
+        "output_tokens": 244,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 40,
+      "authors": [
+        {
+          "surname": "Batson",
+          "given": "C. D.",
+          "raw": "Batson, C. D."
+        },
+        {
+          "surname": "Schoenrade",
+          "given": "P.",
+          "raw": "Schoenrade, P."
+        },
+        {
+          "surname": "Ventis",
+          "given": "W. L.",
+          "raw": "Ventis, W. L."
+        },
+        {
+          "surname": "Batson",
+          "given": "C. D.",
+          "raw": "Batson, C. D."
+        }
+      ],
+      "title": "Religion and the individual: A social-psychological perspective",
+      "journal": null,
+      "year": 1993,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": true,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "This is a book reference with no publisher information provided. The duplicate 'Batson, C. D.' in the author list appears in the raw citation; may reflect a formatting artifact or genuine co-authorship. No journal, volume, pages, or DOI present.",
+      "_usage": {
+        "input_tokens": 91,
+        "output_tokens": 320,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 41,
+      "authors": [
+        {
+          "surname": "Beck",
+          "given": "R.",
+          "raw": "Beck, R."
+        },
+        {
+          "surname": "Jessup",
+          "given": "R. K.",
+          "raw": "Jessup, R. K."
+        }
+      ],
+      "title": "The multidimensional nature of quest motivation",
+      "journal": "J. Psychol. Theol.",
+      "year": 2004,
+      "volume": "32",
+      "issue": null,
+      "pages": "283-294",
+      "doi": "10.1177/009164710403200401",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 106,
+        "output_tokens": 218,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 42,
+      "authors": [
+        {
+          "surname": "Bengtson",
+          "given": "V. L.",
+          "raw": "Bengtson, V. L."
+        },
+        {
+          "surname": "Silverstein",
+          "given": "M.",
+          "raw": "Silverstein, M."
+        },
+        {
+          "surname": "Putney",
+          "given": "N. M.",
+          "raw": "Putney, N. M."
+        },
+        {
+          "surname": "Harris",
+          "given": "S. C.",
+          "raw": "Harris, S. C."
+        }
+      ],
+      "title": "Does religiousness increase with age? Age changes and generational differences over 35 years",
+      "journal": "Journal for the Scientific Study of Religion",
+      "year": 2015,
+      "volume": "54",
+      "issue": null,
+      "pages": "363-379",
+      "doi": "10.1111/jssr.12183",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Journal abbreviated as 'J. Sci. Study Relig.' expanded to full name. DOI is clean with no suspect hyphens.",
+      "_usage": {
+        "input_tokens": 131,
+        "output_tokens": 319,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 43,
+      "authors": [
+        {
+          "surname": "Bruce",
+          "given": "S.",
+          "raw": "Bruce, S."
+        }
+      ],
+      "title": "Defining religion: a practical response",
+      "journal": "Int. Rev. Sociol.",
+      "year": 2011,
+      "volume": "21",
+      "issue": null,
+      "pages": "107-120",
+      "doi": "10.1080/03906701.2011.544190",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 96,
+        "output_tokens": 186,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 44,
+      "authors": [
+        {
+          "surname": "Bryukhanov",
+          "given": "M.",
+          "raw": "Bryukhanov, M."
+        },
+        {
+          "surname": "Fedotenkov",
+          "given": "I.",
+          "raw": "Fedotenkov, I."
+        }
+      ],
+      "title": "Gender differences in religiosity: a report on Russian data",
+      "journal": "J. Gend. Stud.",
+      "year": 2023,
+      "volume": "32",
+      "issue": null,
+      "pages": "107-123",
+      "doi": "10.1080/09589236.2021.1962702",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 116,
+        "output_tokens": 232,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 45,
+      "authors": [
+        {
+          "surname": "Burke",
+          "given": "B. L.",
+          "raw": "Burke, B. L."
+        },
+        {
+          "surname": "Martens",
+          "given": "A.",
+          "raw": "Martens, A."
+        },
+        {
+          "surname": "Faucher",
+          "given": "E. H.",
+          "raw": "Faucher, E. H."
+        }
+      ],
+      "title": "Two decades of terror management theory: a meta-analysis of mortality salience research",
+      "journal": "Personality and Social Psychology Review",
+      "year": 2010,
+      "volume": "14",
+      "issue": null,
+      "pages": "155-195",
+      "doi": "10.1177/1088868309352321",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Journal abbreviated as 'Personal. Soc. Psychol. Rev.' expanded to full title. DOI extracted cleanly from URL.",
+      "_usage": {
+        "input_tokens": 124,
+        "output_tokens": 285,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    }
+  ],
+  "stage3_elapsed_seconds": 172.05,
+  "stage4_pubmed_resolutions": [
+    {
+      "ref_no": 1,
+      "pmid": "30044659",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1080/17483107.2018.1493752\"[AID] OR \"10.1080/17483107.2018.1493752\"[DOI]",
+          "success": true,
+          "pmid": "30044659",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "30044659",
+        "title": "Multi-stakeholder perspectives on information communication technology training for older adults: implications for teaching and learning.",
+        "journal_full": "Disability and rehabilitation. Assistive technology",
+        "journal_iso": "Disabil Rehabil Assist Technol",
+        "volume": "14",
+        "issue": "5",
+        "pages": "453-461",
+        "year": "2019",
+        "month": "Jul",
+        "day": null,
+        "create_date": "2020/02/13",
+        "authors": [
+          {
+            "last": "Arthanat",
+            "fore": "Sajay",
+            "initials": "S",
+            "affiliations": [
+              "a Department of Occupational Therapy, College of Health and Human Services , University of New Hampshire , Durham , NH , USA."
+            ]
+          },
+          {
+            "last": "Vroman",
+            "fore": "Kerryellen G",
+            "initials": "KG",
+            "affiliations": [
+              "a Department of Occupational Therapy, College of Health and Human Services , University of New Hampshire , Durham , NH , USA."
+            ]
+          },
+          {
+            "last": "Lysack",
+            "fore": "Catherine",
+            "initials": "C",
+            "affiliations": [
+              "b Department of Health Care Sciences , Wayne State University , Detroit , MI , USA."
+            ]
+          },
+          {
+            "last": "Grizzetti",
+            "fore": "Joseph",
+            "initials": "J",
+            "affiliations": [
+              "a Department of Occupational Therapy, College of Health and Human Services , University of New Hampshire , Durham , NH , USA."
+            ]
+          }
+        ],
+        "doi": "10.1080/17483107.2018.1493752",
+        "pmcid": "PMC6347545",
+        "nihms_id": "NIHMS985548",
+        "abstract": "Objectives: The objective of this research was to identify and conceptualize barriers and strategies for effective implementation of information communication technology (ICT) training for older adults. Methods: A grounded theory approach was used to collect and analyze qualitative data from 61 participants in three stakeholder groups: older-adult ICT trainees, care providers and ICT trainers. Results: Care providers expressed older adults' reluctance, lack of affinity, fears and socio-contextual attributes as barriers to overcome with ICT training. ICT trainers highlighted motivation, trainer-trainee relationship, patience, self-reliance and mutual value as strategic themes. ICT trainees elucidated occupational accomplishment, challenges and a sense of competence as themes from their experience with training. Discussion: While digital literacy and skill building have traditionally been the key focus of ageing-centred ICT training, a deeper approach to address internal (personal) and external (socio-contextual) barriers, as conceptualized in the study finding, is vital in yielding successful outcomes. Implications for rehabilitation Information communication technology (ICT) is a vital resource for older adults to age-in-place and for health professionals in delivery of tele-rehabilitation. Family members and care providers realize the scope of ICT for ageing-in-place but raise doubts on the inherent motivation and abilities of older adults to adopt ICT. On the other hand, older adults who engage in one-on-one ICT training value their new-found sense of accomplishment and competence in using the Internet and social media. Graduate students who provided the training greatly appreciate their own learning experience, and stress the need for mutual trust, patience and simplicity in teaching ICT. A major precursor to imparting digital literacy and skills in older adults who lack ICT exposure is to help them overcome deep-seated attitudinal and socio-contextual barriers through a one-on-one approach.",
+        "citation": "Disabil Rehabil Assist Technol. 2019 Jul;14(5):453-461."
+      }
+    },
+    {
+      "ref_no": 2,
+      "pmid": "32591255",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.pec.2020.06.013\"[AID] OR \"10.1016/j.pec.2020.06.013\"[DOI]",
+          "success": true,
+          "pmid": "32591255",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "32591255",
+        "title": "Grieving in the digital era: Mapping online support for grief and bereavement.",
+        "journal_full": "Patient education and counseling",
+        "journal_iso": "Patient Educ Couns",
+        "volume": null,
+        "issue": null,
+        "pages": null,
+        "year": "2020",
+        "month": "Jun",
+        "day": "13",
+        "create_date": "2024/02/27",
+        "authors": [
+          {
+            "last": "Beaunoyer",
+            "fore": "Elisabeth",
+            "initials": "E",
+            "affiliations": [
+              "Faculty of Medicine, Université Laval, Quebec City, QC, Canada; Faculty of Nursing, Université Laval, Quebec City, QC, Canada; CERVO Brain Research Center, Quebec City, QC, Canada."
+            ]
+          },
+          {
+            "last": "Hiracheta Torres",
+            "fore": "Lisandro",
+            "initials": "L",
+            "affiliations": [
+              "Faculty of Medicine, Universidad Autonoma de Nuevo Leon, Monterrey, Mexico."
+            ]
+          },
+          {
+            "last": "Maessen",
+            "fore": "Lenn",
+            "initials": "L",
+            "affiliations": [
+              "Faculty of Medicine, Hasselt University, Hasselt, Belgium."
+            ]
+          },
+          {
+            "last": "Guitton",
+            "fore": "Matthieu J",
+            "initials": "MJ",
+            "affiliations": [
+              "Faculty of Medicine, Université Laval, Quebec City, QC, Canada; CERVO Brain Research Center, Quebec City, QC, Canada. Electronic address: matthieu.guitton@fmed.ulaval.ca."
+            ]
+          }
+        ],
+        "doi": "10.1016/j.pec.2020.06.013",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "OBJECTIVE: To describe the landscape of digital resources available for grief and bereavement, and to explore cultural variations through the analysis of patterns in three languages with a multinational repartition (English, French and Spanish).\nMETHODS: For each language, websites were collected through a systematized approach and classified according to their category (governmental, health, educational, social media, conventional media, spiritual), their country of origin, and the type of support they offered (practical support, services, peer support, informational support, resources).\nRESULTS: A total of 2587 websites (English: 1003; French 678; Spanish: 906) were analyzed. Cultural variations were observed both for the websites' categories and the types of support. Half of the websites presented at least one type of support, informational support being the most prevalent, followed by practical support. English websites presented significantly more support than Spanish websites, with French websites in between.\nPRACTICE IMPLICATIONS: By using an extensive survey, our results allow for a general mapping of online websites that is comparable across languages, but also unveil digital dynamics unknown to date. These results further the multicultural understanding of digital support for grief and bereavement, propose an innovative and operational typology for online support and raise awareness of the current support landscape.",
+        "citation": "Patient Educ Couns. 2020 Jun 13."
+      }
+    },
+    {
+      "ref_no": 3,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.2307/41166446\"[AID] OR \"10.2307/41166446\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Service Blueprinting: A Practical Technique for Service Innovation[Title] AND Bitner[Author] AND 2008[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Service Blueprinting: A Practical Technique for Service Innovation",
+          "success": false,
+          "pmid": "41999987",
+          "match_score": 42.553191489361694,
+          "error": "fuzzy 43 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 4,
+      "pmid": "35462943",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.invent.2022.100534\"[AID] OR \"10.1016/j.invent.2022.100534\"[DOI]",
+          "success": true,
+          "pmid": "35462943",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "35462943",
+        "title": "Consulting the Oracle: A Delphi study for determining parameters for a mental health user profile and personalization strategy for an online service to aid grieving older adults.",
+        "journal_full": "Internet interventions",
+        "journal_iso": "Internet Interv",
+        "volume": "28",
+        "issue": null,
+        "pages": "100534",
+        "year": "2022",
+        "month": "Apr",
+        "day": null,
+        "create_date": "2022/07/16",
+        "authors": [
+          {
+            "last": "Brandl",
+            "fore": "Lena",
+            "initials": "L",
+            "affiliations": [
+              "Roessingh Research and Development, P.O. Box 1212, Enschede, the Netherlands.",
+              "University of Twente, Faculty of Electrical Engineering, Mathematics and Computer Science, Department of Human Media Interaction, P.O. Box 217, 7500AE Enschede, the Netherlands."
+            ]
+          },
+          {
+            "last": "Cabrita",
+            "fore": "Miriam",
+            "initials": "M",
+            "affiliations": [
+              "Roessingh Research and Development, P.O. Box 1212, Enschede, the Netherlands.",
+              "University of Twente, Faculty of Electrical Engineering, Mathematics and Computer Science, Department of Biomedical Signals and Systems, P.O. Box 217, 7500AE Enschede, the Netherlands."
+            ]
+          },
+          {
+            "last": "Brodbeck",
+            "fore": "Jeannette",
+            "initials": "J",
+            "affiliations": [
+              "Institute for Consulting, Coaching and Social Management, FHNW School of Social Work, Riggenbachstrasse 16, 4600 Olten, Switzerland.",
+              "Universität Bern, Institut für Psychologie, Fabrikstrasse 8, 3012 Bern, Switzerland."
+            ]
+          },
+          {
+            "last": "Heylen",
+            "fore": "Dirk",
+            "initials": "D",
+            "affiliations": [
+              "University of Twente, Faculty of Electrical Engineering, Mathematics and Computer Science, Department of Human Media Interaction, P.O. Box 217, 7500AE Enschede, the Netherlands."
+            ]
+          },
+          {
+            "last": "van Velsen",
+            "fore": "Lex",
+            "initials": "L",
+            "affiliations": [
+              "Roessingh Research and Development, P.O. Box 1212, Enschede, the Netherlands.",
+              "University of Twente, Faculty of Electrical Engineering, Mathematics and Computer Science, Department of Biomedical Signals and Systems, P.O. Box 217, 7500AE Enschede, the Netherlands."
+            ]
+          }
+        ],
+        "doi": "10.1016/j.invent.2022.100534",
+        "pmcid": "PMC9019256",
+        "nihms_id": null,
+        "abstract": "While much effort has been devoted to the development of mental e-health interventions, the tailoring of these applications to user characteristics and needs is a comparatively novel field of research. The premise of personalizing mental e-health interventions is that personalization increases user motivation and (thereby) mitigates intervention dropout and enhances clinical effectiveness. In this study, we selected user profile parameters for personalizing a mental e-health intervention for older adults who lost their spouse. We conducted a three-round Delphi study involving an international and interdisciplinary expert panel (N = 16) with two objectives. The first aim was to elicit adaptation strategies that can be used to dynamically readjust the intervention to the user's needs. The second aim was to identify a set of meaningful indicators for monitoring the user from within the grief intervention to escalate from self-help to blended care, whenever advisable. This Delphi study used as starting point an evaluated, text-based grief intervention composed of ten modules, including psychoeducation about grief and cognitive-behavioral exercises to support the user in adjusting their lives after bereavement. Every user follows this grief intervention in a linear fashion from beginning to end. The resulting conceptual adaptation model encompasses dynamic adjustments, as well as one-time adjustments performed at the initialization of the service. On the level of the application structure, the adaptations affect when which topic module is presented to the user. The adaptations further provide strategies for adjusting the text-based content of individual intervention modules dependent on user characteristics and for selecting appropriate reactions to user input. Eighteen monitoring parameters were elicited and grouped into four categories: clinical, behavioral/emotional, interactive, and external. Parameters that were perceived as most urgent to attend to for escalation were Suicidality, Self-destructive behavior, Client-initiated escalation, Unresponsiveness and (Complicated) Grief symptoms.",
+        "citation": "Internet Interv. 2022 Apr;28:100534."
+      }
+    },
+    {
+      "ref_no": 5,
+      "pmid": "35522459",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.2196/27707\"[AID] OR \"10.2196/27707\"[DOI]",
+          "success": true,
+          "pmid": "35522459",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "35522459",
+        "title": "The Role of Emotion Regulation and Loss-Related Coping Self-efficacy in an Internet Intervention for Grief: Mediation Analysis.",
+        "journal_full": "JMIR mental health",
+        "journal_iso": "JMIR Ment Health",
+        "volume": "9",
+        "issue": "5",
+        "pages": "e27707",
+        "year": "2022",
+        "month": "May",
+        "day": "06",
+        "create_date": "2022/07/16",
+        "authors": [
+          {
+            "last": "Brodbeck",
+            "fore": "Jeannette",
+            "initials": "J",
+            "affiliations": [
+              "Department of Clinical Psychology and Psychotherapy, University of Bern, Bern, Switzerland.",
+              "School of Social Work, University of Applied Sciences and Arts Northwestern Switzerland, Olten, Switzerland."
+            ]
+          },
+          {
+            "last": "Berger",
+            "fore": "Thomas",
+            "initials": "T",
+            "affiliations": [
+              "Department of Clinical Psychology and Psychotherapy, University of Bern, Bern, Switzerland."
+            ]
+          },
+          {
+            "last": "Biesold",
+            "fore": "Nicola",
+            "initials": "N",
+            "affiliations": [
+              "Department of Clinical Psychology and Psychotherapy, University of Bern, Bern, Switzerland."
+            ]
+          },
+          {
+            "last": "Rockstroh",
+            "fore": "Franziska",
+            "initials": "F",
+            "affiliations": [
+              "Department of Clinical Psychology and Psychotherapy, University of Bern, Bern, Switzerland.",
+              "University Hospital of Child and Adolescent Psychiatry and Psychotherapy, Bern, Switzerland."
+            ]
+          },
+          {
+            "last": "Schmidt",
+            "fore": "Stefanie J",
+            "initials": "SJ",
+            "affiliations": [
+              "Department of Clinical Psychology and Psychotherapy, University of Bern, Bern, Switzerland."
+            ]
+          },
+          {
+            "last": "Znoj",
+            "fore": "Hansjoerg",
+            "initials": "H",
+            "affiliations": [
+              "Department of Health Psychology, University of Bern, Bern, Switzerland."
+            ]
+          }
+        ],
+        "doi": "10.2196/27707",
+        "pmcid": "PMC9123547",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Internet interventions for mental disorders and psychological problems such as prolonged grief have established their efficacy. However, little is known about how internet interventions work and the mechanisms through which they are linked to the outcomes.\nOBJECTIVE: As a first step in identifying mechanisms of change, this study aimed to examine emotion regulation and loss-related coping self-efficacy as putative mediators in a randomized controlled trial of a guided internet intervention for prolonged grief symptoms after spousal bereavement or separation or divorce.\nMETHODS: The sample comprised older adults who reported prolonged grief or adaptation problems after bereavement, separation, or divorce and sought help from a guided internet intervention. They were recruited mainly via newspaper articles. The outcome variables were grief symptoms assessed using the Texas Revised Inventory of Grief and psychopathology symptoms assessed using the Brief Symptom Inventory. A total of 6 module-related items assessed loss-focused emotion regulation and loss-related coping self-efficacy. In the first step, path models were used to examine emotion regulation and loss-related coping self-efficacy as single mediators for improvements in grief and psychopathology symptoms. Subsequently, exploratory path models with the simultaneous inclusion of emotion regulation and self-efficacy were used to investigate the specificity and relative strength of these variables as parallel mediators.\nRESULTS: A total of 100 participants took part in the guided internet intervention. The average age was 51.11 (SD 13.60) years; 80% (80/100) were separated or divorced, 69% (69/100) were female, and 76% (76/100) were of Swiss origin. The internet intervention increased emotion regulation skills (β=.33; P=.001) and loss-related coping self-efficacy (β=.30; P=.002), both of which correlated with improvements in grief and psychopathology symptoms. Path models suggested that emotion regulation and loss-related coping self-efficacy were mediators for improvement in grief. Emotion regulation showed a significant indirect effect (β=.13; P=.009), whereas coping self-efficacy showed a trend (β=.07; P=.06). Both were confirmed as mediators for psychopathology (β=.12, P=.02; β=.10; P=.02, respectively). The path from the intervention to the improvement in grief remained significant when including the mediators (β=.26, P=.004; β=.32, P≤.001, respectively) in contrast to the path from the intervention to improvements in psychopathology (β=.15, P=.13; β=.16, P=.10, respectively).\nCONCLUSIONS: Emotion regulation and loss-related coping self-efficacy are promising therapeutic targets for optimizing internet interventions for grief. Both should be further examined as transdiagnostic or disorder-specific putative mediators in internet interventions for other disorders.\nTRIAL REGISTRATION: ClinicalTrials.gov NCT02900534; https://clinicaltrials.gov/ct2/show/NCT02900534.\nINTERNATIONAL REGISTERED REPORT IDENTIFIER (IRRID): RR2-10.1186/s13063-016-1759-5.",
+        "citation": "JMIR Ment Health. 2022 May 06;9(5):e27707."
+      }
+    },
+    {
+      "ref_no": 6,
+      "pmid": "31003114",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.jad.2019.04.008\"[AID] OR \"10.1016/j.jad.2019.04.008\"[DOI]",
+          "success": true,
+          "pmid": "31003114",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "31003114",
+        "title": "Evaluation of a guided internet-based self-help intervention for older adults after spousal bereavement or separation/divorce: A randomised controlled trial.",
+        "journal_full": "Journal of affective disorders",
+        "journal_iso": "J Affect Disord",
+        "volume": "252",
+        "issue": null,
+        "pages": "440-449",
+        "year": "2019",
+        "month": "Jun",
+        "day": "01",
+        "create_date": "2020/02/03",
+        "authors": [
+          {
+            "last": "Brodbeck",
+            "fore": "Jeannette",
+            "initials": "J",
+            "affiliations": [
+              "University of Bern, Department of Psychology, Fabrikstrasse 8, 3012 Bern, Switzerland. Electronic address: jeannette.brodbeck@psy.unibe.ch."
+            ]
+          },
+          {
+            "last": "Berger",
+            "fore": "Thomas",
+            "initials": "T",
+            "affiliations": [
+              "University of Bern, Department of Psychology, Fabrikstrasse 8, 3012 Bern, Switzerland. Electronic address: thomas.berger@ptp.unibe.ch."
+            ]
+          },
+          {
+            "last": "Biesold",
+            "fore": "Nicola",
+            "initials": "N",
+            "affiliations": [
+              "University of Bern, Department of Psychology, Fabrikstrasse 8, 3012 Bern, Switzerland. Electronic address: nicola@biesold.eu."
+            ]
+          },
+          {
+            "last": "Rockstroh",
+            "fore": "Franziska",
+            "initials": "F",
+            "affiliations": [
+              "University of Bern, Department of Psychology, Fabrikstrasse 8, 3012 Bern, Switzerland. Electronic address: franziska.rockstroh@psy.unibe.ch."
+            ]
+          },
+          {
+            "last": "Znoj",
+            "fore": "Hans Joerg",
+            "initials": "HJ",
+            "affiliations": [
+              "University of Bern, Department of Psychology, Fabrikstrasse 8, 3012 Bern, Switzerland. Electronic address: hansjoerg.znoj@psy.unibe.ch."
+            ]
+          }
+        ],
+        "doi": "10.1016/j.jad.2019.04.008",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "BACKGROUND: While several internet interventions target severe prolonged grief symptoms after bereavement, no randomised controlled trial investigated interventions for prolonged grief after separation/divorce.\nMETHODS: This randomised controlled trial aimed to evaluate the efficacy of a guided internet-based self-help intervention for prolonged grief symptoms after spousal bereavement or separation/divorce compared to a wait-list control group. Furthermore, we analysed whether the intervention was also efficacious for participants with milder grief symptoms.\nRESULTS: A total of 110 participants were mainly recruited by newspaper articles. Average age was 51 years, 77% were separated/divorced, 79% were female. Dropout rate was 11%. Compared to the control group, the intervention resulted in significant reductions in grief (d = 0.81), depression (d = 0.59), psychopathological distress (d = 0.39) (primary outcomes), embitterment (d = 0.37), loneliness (d = 0.37) and an increase in life satisfaction (d = -0.41) (secondary outcomes). These gains were maintained over three months. Improvements were similar among widowed and separated/divorced participants as well as among participants with low, medium or high levels of grief at baseline.\nLIMITATIONS: Limitations include the self-selective sample and a rather small number of widowed participants.\nCONCLUSIONS: Findings indicate that an internet intervention based on models for coping with grief after bereavement was not only beneficial for widowed but also separated or divorced participants. Furthermore, also participants with lower levels of grief at baseline benefitted from the intervention. This corroborates that indicated prevention efforts for grief are efficacious.",
+        "citation": "J Affect Disord. 2019 Jun 01;252:440-449."
+      }
+    },
+    {
+      "ref_no": 7,
+      "pmid": "34225745",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1186/s12913-021-06597-9\"[AID] OR \"10.1186/s12913-021-06597-9\"[DOI]",
+          "success": true,
+          "pmid": "34225745",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "34225745",
+        "title": "Designing a stakeholder-inclusive service model for an eHealth service to support older adults in an active and social life.",
+        "journal_full": "BMC health services research",
+        "journal_iso": "BMC Health Serv Res",
+        "volume": "21",
+        "issue": "1",
+        "pages": "654",
+        "year": "2021",
+        "month": "Jul",
+        "day": "05",
+        "create_date": "2021/07/07",
+        "authors": [
+          {
+            "last": "Broekhuis",
+            "fore": "Marijke",
+            "initials": "M",
+            "affiliations": [
+              "Roessingh Research and Development, eHealth group, Roessinghsbleekweg 33b, 7522AH, Enschede, The Netherlands. m.broekhuis@rrd.nl.",
+              "Biomedical Signals and Systems, Faculty of Electrical Engineering, Mathematics and Computer Science (EEMCS), University of Twente, Enschede, The Netherlands. m.broekhuis@rrd.nl."
+            ]
+          },
+          {
+            "last": "Weering",
+            "fore": "Marit Dekker-van",
+            "initials": "MD",
+            "affiliations": [
+              "TSN Thuiszorg Groningen, Queridolaan 5, 9721SZ, Groningen, The Netherlands."
+            ]
+          },
+          {
+            "last": "Schuit",
+            "fore": "Cheyenne",
+            "initials": "C",
+            "affiliations": [
+              "National Foundation for the Elderly, Smallepad 30e, 3811 MG, Amersfoort, The Netherlands."
+            ]
+          },
+          {
+            "last": "Schürz",
+            "fore": "Stefan",
+            "initials": "S",
+            "affiliations": [
+              "LIFEtool gemeinnützige GmbH, Linz, Austria."
+            ]
+          },
+          {
+            "last": "van Velsen",
+            "fore": "Lex",
+            "initials": "L",
+            "affiliations": [
+              "Roessingh Research and Development, eHealth group, Roessinghsbleekweg 33b, 7522AH, Enschede, The Netherlands.",
+              "Biomedical Signals and Systems, Faculty of Electrical Engineering, Mathematics and Computer Science (EEMCS), University of Twente, Enschede, The Netherlands."
+            ]
+          }
+        ],
+        "doi": "10.1186/s12913-021-06597-9",
+        "pmcid": "PMC8256482",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Service model design is slowly being recognized among eHealth developers as a valuable method for creating durable implementation strategies. Nonetheless, practical guidelines and case-studies that inform the community on how to design a service model for an eHealth innovation are lacking. This study describes the development of a service model for an eHealth service, titled 'SALSA', which intends to support older adults with a physically active and socially inclusive lifestyle.\nMETHODS: The service model for the SALSA service was developed in eight consecutive rounds, using a mixed-methods approach. First, a stakeholder salience analysis was conducted to identify the most relevant stakeholders. In rounds 2-4, in-depth insights about implementation barriers, facilitators and workflow processes of these stakeholders were gathered. Rounds 5 and 6 were set up to optimize the service model and receive feedback from stakeholders. In rounds 7 and 8, we focused on future implementation and integrating the service model with the technical components of the eHealth service.\nRESULTS: While the initial goal was to create one digital platform for the eHealth service, the results of the service modelling showed how the needs of two important stakeholders, physiotherapists and sports trainers, were too different for integrating them in one platform. Therefore, the decision was made to create two platforms, one for preventive (senior sports activities) and one for curative (physical rehabilitation) purposes.\nCONCLUSIONS: A service model shows the interplay between service model design, technical development and business modelling. The process of service modelling helps to align the interests of the different stakeholders to create support for future implementation of an eHealth service. This study provides clear documentation on how to conduct service model design processes which can enable future learning and kickstart new research. Our results show the potential that service model design has for service development and innovation in health care.",
+        "citation": "BMC Health Serv Res. 2021 Jul 05;21(1):654."
+      }
+    },
+    {
+      "ref_no": 8,
+      "pmid": "31628789",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.2196/14166\"[AID] OR \"10.2196/14166\"[DOI]",
+          "success": true,
+          "pmid": "31628789",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "31628789",
+        "title": "Conversational Agents in the Treatment of Mental Health Problems: Mixed-Method Systematic Review.",
+        "journal_full": "JMIR mental health",
+        "journal_iso": "JMIR Ment Health",
+        "volume": "6",
+        "issue": "10",
+        "pages": "e14166",
+        "year": "2019",
+        "month": "Oct",
+        "day": "18",
+        "create_date": "2020/09/28",
+        "authors": [
+          {
+            "last": "Gaffney",
+            "fore": "Hannah",
+            "initials": "H",
+            "affiliations": [
+              "Division of Psychology & Mental Health, School of Health Sciences, Faculty of Biology, Medicine and Health, University of Manchester, Manchester, United Kingdom."
+            ]
+          },
+          {
+            "last": "Mansell",
+            "fore": "Warren",
+            "initials": "W",
+            "affiliations": [
+              "Division of Psychology & Mental Health, School of Health Sciences, Faculty of Biology, Medicine and Health, University of Manchester, Manchester, United Kingdom."
+            ]
+          },
+          {
+            "last": "Tai",
+            "fore": "Sara",
+            "initials": "S",
+            "affiliations": [
+              "Division of Psychology & Mental Health, School of Health Sciences, Faculty of Biology, Medicine and Health, University of Manchester, Manchester, United Kingdom."
+            ]
+          }
+        ],
+        "doi": "10.2196/14166",
+        "pmcid": "PMC6914342",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: The use of conversational agent interventions (including chatbots and robots) in mental health is growing at a fast pace. Recent existing reviews have focused exclusively on a subset of embodied conversational agent interventions despite other modalities aiming to achieve the common goal of improved mental health.\nOBJECTIVE: This study aimed to review the use of conversational agent interventions in the treatment of mental health problems.\nMETHODS: We performed a systematic search using relevant databases (MEDLINE, EMBASE, PsycINFO, Web of Science, and Cochrane library). Studies that reported on an autonomous conversational agent that simulated conversation and reported on a mental health outcome were included.\nRESULTS: A total of 13 studies were included in the review. Among them, 4 full-scale randomized controlled trials (RCTs) were included. The rest were feasibility, pilot RCTs and quasi-experimental studies. Interventions were diverse in design and targeted a range of mental health problems using a wide variety of therapeutic orientations. All included studies reported reductions in psychological distress postintervention. Furthermore, 5 controlled studies demonstrated significant reductions in psychological distress compared with inactive control groups. In addition, 3 controlled studies comparing interventions with active control groups failed to demonstrate superior effects. Broader utility in promoting well-being in nonclinical populations was unclear.\nCONCLUSIONS: The efficacy and acceptability of conversational agent interventions for mental health problems are promising. However, a more robust experimental design is required to demonstrate efficacy and efficiency. A focus on streamlining interventions, demonstrating equivalence to other treatment modalities, and elucidating mechanisms of action has the potential to increase acceptance by users and clinicians and maximize reach.",
+        "citation": "JMIR Ment Health. 2019 Oct 18;6(10):e14166."
+      }
+    },
+    {
+      "ref_no": 9,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.chb.2015.01.062\"[AID] OR \"10.1016/j.chb.2015.01.062\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Older adults' experiences and perceptions of digital technology: Dis empowerment,[Title] AND Hill[Author] AND 2015[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Older adults' experiences and perceptions of digital technology: Dis empowerment, wellbeing, and",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 10,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1007/s10862-008-9113-1\"[AID] OR \"10.1007/s10862-008-9113-1\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "The Underlying Structure of Grief: A Taxometric Investigation of Prolonged[Title] AND Holland[Author] AND 2009[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "The Underlying Structure of Grief: A Taxometric Investigation of Prolonged and Normal",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 11,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1027/1901-2276.61.3.4\"[AID] OR \"10.1027/1901-2276.61.3.4\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "A conceptual analysis of Ageism[Title] AND Iversen[Author] AND 2009[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "A conceptual analysis of Ageism",
+          "success": false,
+          "pmid": "35654544",
+          "match_score": 38.888888888888886,
+          "error": "fuzzy 39 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 12,
+      "pmid": "32022693",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.2196/14058\"[AID] OR \"10.2196/14058\"[DOI]",
+          "success": true,
+          "pmid": "32022693",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "32022693",
+        "title": "Developing Embodied Conversational Agents for Coaching People in a Healthy Lifestyle: Scoping Review.",
+        "journal_full": "Journal of medical Internet research",
+        "journal_iso": "J Med Internet Res",
+        "volume": "22",
+        "issue": "2",
+        "pages": "e14058",
+        "year": "2020",
+        "month": "Feb",
+        "day": "06",
+        "create_date": "2020/09/22",
+        "authors": [
+          {
+            "last": "Kramer",
+            "fore": "Lean L",
+            "initials": "LL",
+            "affiliations": [
+              "Consumption and Healthy Lifestyles, Wageningen University & Research, Wageningen, Netherlands.",
+              "Strategic Communication, Wageningen University & Research, Wageningen, Netherlands."
+            ]
+          },
+          {
+            "last": "Ter Stal",
+            "fore": "Silke",
+            "initials": "S",
+            "affiliations": [
+              "eHealth cluster, Roessingh Research and Development, Enschede, Netherlands.",
+              "Faculty of Electrical Engineering, Mathematics and Computer Science, University of Twente, Enschede, Netherlands."
+            ]
+          },
+          {
+            "last": "Mulder",
+            "fore": "Bob C",
+            "initials": "BC",
+            "affiliations": [
+              "Strategic Communication, Wageningen University & Research, Wageningen, Netherlands."
+            ]
+          },
+          {
+            "last": "de Vet",
+            "fore": "Emely",
+            "initials": "E",
+            "affiliations": [
+              "Consumption and Healthy Lifestyles, Wageningen University & Research, Wageningen, Netherlands."
+            ]
+          },
+          {
+            "last": "van Velsen",
+            "fore": "Lex",
+            "initials": "L",
+            "affiliations": [
+              "eHealth cluster, Roessingh Research and Development, Enschede, Netherlands."
+            ]
+          }
+        ],
+        "doi": "10.2196/14058",
+        "pmcid": "PMC7055763",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Embodied conversational agents (ECAs) are animated computer characters that simulate face-to-face counseling. Owing to their capacity to establish and maintain an empathic relationship, they are deemed to be a promising tool for starting and maintaining a healthy lifestyle.\nOBJECTIVE: This review aimed to identify the current practices in designing and evaluating ECAs for coaching people in a healthy lifestyle and provide an overview of their efficacy (on behavioral, knowledge, and motivational parameters) and use (on usability, usage, and user satisfaction parameters).\nMETHODS: We used the Arksey and O'Malley framework to conduct a scoping review. PsycINFO, Medical Literature Analysis and Retrieval System Online, and Scopus were searched with a combination of terms related to ECA and lifestyle. Initially, 1789 unique studies were identified; 20 studies were included.\nRESULTS: Most often, ECAs targeted physical activity (n=16) and had the appearance of a middle-aged African American woman (n=13). Multiple behavior change techniques (median=3) and theories or principles (median=3) were applied, but their interpretation and application were usually not reported. ECAs seemed to be designed for the end user rather than with the end user. Stakeholders were usually not involved. A total of 7 out of 15 studies reported better efficacy outcomes for the intervention group, and 5 out of 8 studies reported better use-related outcomes, as compared with the control group.\nCONCLUSIONS: ECAs are a promising tool for persuasive communication in the health domain. This review provided valuable insights into the current developmental processes, and it recommends the use of human-centered, stakeholder-inclusive design approaches, along with reporting on the design activities in a systematic and comprehensive manner. The gaps in knowledge were identified on the working mechanisms of intervention components and the right timing and frequency of coaching.",
+        "citation": "J Med Internet Res. 2020 Feb 06;22(2):e14058."
+      }
+    },
+    {
+      "ref_no": 13,
+      "pmid": "21481635",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.ijmedinf.2011.03.006\"[AID] OR \"10.1016/j.ijmedinf.2011.03.006\"[DOI]",
+          "success": true,
+          "pmid": "21481635",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "21481635",
+        "title": "User profiles and personas in the design and development of consumer health technologies.",
+        "journal_full": "International journal of medical informatics",
+        "journal_iso": "Int J Med Inform",
+        "volume": "82",
+        "issue": "11",
+        "pages": "e251-68",
+        "year": "2013",
+        "month": "Nov",
+        "day": null,
+        "create_date": "2014/06/16",
+        "authors": [
+          {
+            "last": "LeRouge",
+            "fore": "Cynthia",
+            "initials": "C",
+            "affiliations": [
+              "Decision Sciences/IT Management Department - John Cook School of Business, Joint Appointment Health Care Management and Policy - School of Public Health, Saint Louis University, 3674 Lindell Avenue, DS 459, Saint Louis, MO 63108, United States. Electronic address: lerougec@slu.edu."
+            ]
+          },
+          {
+            "last": "Ma",
+            "fore": "Jiao",
+            "initials": "J",
+            "affiliations": []
+          },
+          {
+            "last": "Sneha",
+            "fore": "Sweta",
+            "initials": "S",
+            "affiliations": []
+          },
+          {
+            "last": "Tolle",
+            "fore": "Kristin",
+            "initials": "K",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1016/j.ijmedinf.2011.03.006",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "BACKGROUND: \"The graying of the globe\" has resulted in exponential rise in health care expenses, over-worked health care professionals and a growing patient base suffering from multiple chronic diseases, one of which is diabetes. Consumer health technologies (CHT) are considered important catalysts for empowering health care consumers to take a proactive role in managing their health and related costs. Adoption rate and usability of such devices among the aging is far from being satisfactory. Past studies noted the motivation for adoption by the aging is dependent on the suitability/relevance, perceived usability and anticipated benefits associated with usage of technological innovation. Traditional information technology (IT) development adopts a systematic approach without necessarily using a specific user model that personalizes the system to the aging user groups. The aging patient population has unique needs arising from progressive deterioration in both physiological and psychological abilities. These needs are often ignored in the design, development, trial and adoption of consumer health products resulting in low adoption and usage.\nOBJECTIVES: The main objective of this research is to investigate the user-centered design (UCD), specifically user profiles and personas, as methodological tools to inform the design and development of CHT devices for an aging population. The adoption of user profile and persona has not received much attention in health care informatics research and, in particular, research involving CHT. Our work begins to fill this void in three ways. We (1) illuminate the process of developing CHT user profiles and personas for a Chinese elder population with a demanding health care needs, i.e., self-management of chronic diabetes, with the hope that the resulting profiles and personas may be used as foundational material for informing the design, development and evaluation of CHT in other similar contexts; (2) call attention to how to further enhance and complement traditional user profile and persona techniques for CHT design by integrating cognitive structures and present behavior that drive health care thinking, future behavior and demand; (3) show how the profiles and personas can be used to inform requirements, design and implementation decisions for a technology aimed at facilitating CHT adoption and diffusion for the elderly.\nMETHODOLOGY: To exemplify process and application, we use an action-research methodology, where user profiles and personas of an aging patient population were developed. The resultant profiles and personas were leveraged to improve the design, development and implementation plans of a smart phone application to assist chronically ill aging Chinese diabetic population capable of disease self-management.\nRESULTS: The results from the study show that user profile and persona can be a valuable methodological approach in capturing the conceptual model of the aging and informing the design and development decisions of CHT. The demonstration of techniques used in this study can serve as a guideline to CHT developers in bringing conceptual user modeling into the design of software interfaces targeted for users with specific health care needs. Specifically, the study provides guidance on the creation and use of profiles and personas to tap into the conceptual models of the targeted elderly population reflecting their preferences, capabilities and attitudes towards using technology in self-management care in general and the smart phone diabetes management application in particular. Insight into the mental model of the aging group has been shown to inform later stages of UCD development (e.g., the creation of prototypes and usability testing) as well as implementation and adoption strategies. The World Health Organization (WHO) predicts that by 2025, 80% of all new cases of diabetes are expected to appear in the developing countries. In fact, the number of diabetic patients in China is estimated to rise to 42.3 million in 2030 from 20.8 million in 2000. Thus, we investigate the Chinese aging population in order to demonstrate the process of developing and using user profile and persona. We hope that the resultant conceptual model of the Chinese aging diabetic population can be used in future research to guide CHT designers interested in designing health care devices for this vulnerable user group.",
+        "citation": "Int J Med Inform. 2013 Nov;82(11):e251-68."
+      }
+    },
+    {
+      "ref_no": 14,
+      "pmid": "28167398",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.jad.2017.01.030\"[AID] OR \"10.1016/j.jad.2017.01.030\"[DOI]",
+          "success": true,
+          "pmid": "28167398",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "28167398",
+        "title": "Prevalence of prolonged grief disorder in adult bereavement: A systematic review and meta-analysis.",
+        "journal_full": "Journal of affective disorders",
+        "journal_iso": "J Affect Disord",
+        "volume": "212",
+        "issue": null,
+        "pages": "138-149",
+        "year": "2017",
+        "month": "Apr",
+        "day": "01",
+        "create_date": "2017/12/04",
+        "authors": [
+          {
+            "last": "Lundorff",
+            "fore": "Marie",
+            "initials": "M",
+            "affiliations": [
+              "Research Unit for Natural and Complicated Grief, Department of Psychology and Behavioural Sciences, Aarhus University, Aarhus, Denmark. Electronic address: mlund@psy.au.dk."
+            ]
+          },
+          {
+            "last": "Holmgren",
+            "fore": "Helle",
+            "initials": "H",
+            "affiliations": [
+              "Research Unit for Natural and Complicated Grief, Department of Psychology and Behavioural Sciences, Aarhus University, Aarhus, Denmark."
+            ]
+          },
+          {
+            "last": "Zachariae",
+            "fore": "Robert",
+            "initials": "R",
+            "affiliations": [
+              "Unit for Psycho-Oncology and Health Psychology, Department of Oncology, Aarhus University Hospital and Department of Psychology and Behavioural Sciences, Aarhus University, Aarhus, Denmark."
+            ]
+          },
+          {
+            "last": "Farver-Vestergaard",
+            "fore": "Ingeborg",
+            "initials": "I",
+            "affiliations": [
+              "Unit for Psycho-Oncology and Health Psychology, Department of Oncology, Aarhus University Hospital and Department of Psychology and Behavioural Sciences, Aarhus University, Aarhus, Denmark."
+            ]
+          },
+          {
+            "last": "O'Connor",
+            "fore": "Maja",
+            "initials": "M",
+            "affiliations": [
+              "Research Unit for Natural and Complicated Grief, Department of Psychology and Behavioural Sciences, Aarhus University, Aarhus, Denmark."
+            ]
+          }
+        ],
+        "doi": "10.1016/j.jad.2017.01.030",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Prolonged grief disorder (PGD) is a bereavement-specific syndrome expected to be included in the forthcoming ICD-11. Defining the prevalence of PGD will have important nosological, clinical, and therapeutic implications. The present systematic review and meta-analysis aimed to estimate the prevalence rate of PGD in the adult bereaved population, identify possible moderators, and explore methodological quality of studies in this area.\nMETHODS: A systematic literature search was conducted in PubMed, PsycINFO, Embase, Web of Science, and CINAHL. Studies with non-psychiatric, adult populations exposed to non-violent bereavement were included and subjected to meta-analytic evaluation.\nRESULTS: Fourteen eligible studies were identified. Meta-analysis revealed a pooled prevalence of PGD of 9.8% (95% CI 6.8-14.0). Moderation analyses showed higher mean age to be associated with higher prevalence of PGD. Study quality was characterized by low risk of internal validity bias but high risk of external validity bias.\nLIMITATIONS: The available studies are methodologically heterogeneous. Among the limitations are that only half the studies used registry-based probability sampling methods (50.0%) and few studies analyzed non-responders (14.3%).\nCONCLUSIONS: This first systematic review and meta-analysis of the prevalence of PGD suggests that one out of ten bereaved adults is at risk for PGD. To allocate economic and professional resources most effectively, this result underscores the importance of identifying and offer treatment to those bereaved individuals in greatest need. Due to heterogeneity and limited representativeness, the findings should be interpreted cautiously and additional high-quality epidemiological research using population-based designs is needed.",
+        "citation": "J Affect Disord. 2017 Apr 01;212:138-149."
+      }
+    },
+    {
+      "ref_no": 15,
+      "pmid": "29459357",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.2196/jmir.9109\"[AID] OR \"10.2196/jmir.9109\"[DOI]",
+          "success": true,
+          "pmid": "29459357",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "29459357",
+        "title": "Attitudes Toward e-Mental Health Services in a Community Sample of Adults: Online Survey.",
+        "journal_full": "Journal of medical Internet research",
+        "journal_iso": "J Med Internet Res",
+        "volume": "20",
+        "issue": "2",
+        "pages": "e59",
+        "year": "2018",
+        "month": "Feb",
+        "day": "19",
+        "create_date": "2019/05/31",
+        "authors": [
+          {
+            "last": "March",
+            "fore": "Sonja",
+            "initials": "S",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Day",
+            "fore": "Jamin",
+            "initials": "J",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Ritchie",
+            "fore": "Gabrielle",
+            "initials": "G",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Rowe",
+            "fore": "Arlen",
+            "initials": "A",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Gough",
+            "fore": "Jeffrey",
+            "initials": "J",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Hall",
+            "fore": "Tanya",
+            "initials": "T",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Yuen",
+            "fore": "Chin Yan Jackie",
+            "initials": "CYJ",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Donovan",
+            "fore": "Caroline Leanne",
+            "initials": "CL",
+            "affiliations": [
+              "School of Applied Psychology, Griffith University, Queensland, Australia."
+            ]
+          },
+          {
+            "last": "Ireland",
+            "fore": "Michael",
+            "initials": "M",
+            "affiliations": [
+              "Institute for Resilient Regions, School of Psychology and Counselling, University of Southern Queensland, Queensland, Australia."
+            ]
+          }
+        ],
+        "doi": "10.2196/jmir.9109",
+        "pmcid": "PMC5838359",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Despite evidence that e-mental health services are effective, consumer preferences still appear to be in favor of face-to-face services. However, the theory of planned behavior (TPB) suggests that cognitive intentions are more proximal to behavior and thus may have a more direct influence on service use. Investigating individual characteristics that influence both preferences and intentions to use e-mental health services is important for better understanding factors that might impede or facilitate the use of these services.\nOBJECTIVE: This study explores predictors of preferences and intentions to access e-mental health services relative to face-to-face services. Five domains were investigated (demographics, technology factors, personality, psychopathology, and beliefs), identified from previous studies and informed by the Internet interventions model. We expected that more participants would report intentions to use e-mental health services relative to reported preferences for this type of support and that these 5 domains would be significantly associated with both intentions and preferences toward online services.\nMETHODS: A mixed sample of 308 community members and university students was recruited through social media and the host institution in Australia. Ages ranged between 17 and 68 years, and 82.5% (254/308) were female. Respondents completed an online survey. Chi-square analysis and t tests were used to explore group differences, and logistic regression models were employed to explore factors predicting preferences and intentions.\nRESULTS: Most respondents (85.7%, 264/308) preferred face-to-face services over e-mental health services. Relative to preferences, a larger proportion of respondents (39.6%, 122/308) endorsed intentions to use e-mental health services if experiencing mental health difficulties in the future. In terms of the 5 predictor domains, 95% CIs of odds ratios (OR) derived from bootstrapped standard errors suggested that prior experience with online services significantly predicted intentions to use self-help (95% CI 2.08-16.24) and therapist-assisted (95% CI 1.71-11.90) online services in future. Being older predicted increased intentions to use therapist-assisted online services in future (95% CI 1.01-1.06), as did more confidence using computers and the Internet (95% CI 1.06-2.69). Technology confidence was also found to predict greater preference for online services versus face-to-face options (95% CI 1.24-4.82), whereas higher doctor-related locus of control, or LOC (95% CI 0.76-0.95), and extraversion (95% CI 0.88-1.00) were predictive of lower likelihood of preferring online services relative to face-to-face services.\nCONCLUSIONS: Despite generally low reported preferences toward e-mental health services, intentions to access these services are higher, raising the question of how to best encourage translation of intentions into behavior (ie, actual use of programs). Strategies designed to ease people into new Internet-based mental health programs (to enhance confidence and familiarity) may be important for increasing the likelihood that they will return to such programs later.",
+        "citation": "J Med Internet Res. 2018 Feb 19;20(2):e59."
+      }
+    },
+    {
+      "ref_no": 16,
+      "pmid": "31376830",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1186/s12875-019-0992-x\"[AID] OR \"10.1186/s12875-019-0992-x\"[DOI]",
+          "success": true,
+          "pmid": "31376830",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "31376830",
+        "title": "Communication practices for delivering health behaviour change conversations in primary care: a systematic review and thematic synthesis.",
+        "journal_full": "BMC family practice",
+        "journal_iso": "BMC Fam Pract",
+        "volume": "20",
+        "issue": "1",
+        "pages": "111",
+        "year": "2019",
+        "month": "Aug",
+        "day": "03",
+        "create_date": "2020/04/06",
+        "authors": [
+          {
+            "last": "Albury",
+            "fore": "C",
+            "initials": "C",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Woodstock Road, Oxford, OX2 6GG, UK. charlotte.albury@phc.ox.ac.uk."
+            ]
+          },
+          {
+            "last": "Hall",
+            "fore": "A",
+            "initials": "A",
+            "affiliations": [
+              "Primary Healthcare Research Unit, Health Sciences Centre, Memorial University, 300 Prince Philip Drive, St. John's, NL, A1B 3V6, Canada."
+            ]
+          },
+          {
+            "last": "Syed",
+            "fore": "A",
+            "initials": "A",
+            "affiliations": [
+              "Department of English Language, Faculty of Languages and Linguistics, University of Malaya, Kuala Lumpur, Malaysia."
+            ]
+          },
+          {
+            "last": "Ziebland",
+            "fore": "S",
+            "initials": "S",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Woodstock Road, Oxford, OX2 6GG, UK."
+            ]
+          },
+          {
+            "last": "Stokoe",
+            "fore": "E",
+            "initials": "E",
+            "affiliations": [
+              "School of Social Sciences, Brockington Building, Loughborough University, Loughborough, Leicestershire, LE 11 3TU, UK."
+            ]
+          },
+          {
+            "last": "Roberts",
+            "fore": "N",
+            "initials": "N",
+            "affiliations": [
+              "Bodleian Health Care Libraries, Knowledge Centre, ORC Research Building, Old Road Campus, Oxford, OX3 7DQ, UK."
+            ]
+          },
+          {
+            "last": "Webb",
+            "fore": "H",
+            "initials": "H",
+            "affiliations": [
+              "Department of Computer Science, Human Centred Computing (HCC) Group, University of Oxford, 39a St Giles, Oxford, OX1 3LW, UK."
+            ]
+          },
+          {
+            "last": "Aveyard",
+            "fore": "P",
+            "initials": "P",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Woodstock Road, Oxford, OX2 6GG, UK."
+            ]
+          }
+        ],
+        "doi": "10.1186/s12875-019-0992-x",
+        "pmcid": "PMC6679536",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Clinical guidelines exhort clinicians to encourage patients to improve their health behaviours. However, most offer little support on how to have these conversations in practice. Clinicians fear that health behaviour change talk will create interactional difficulties and discomfort for both clinician and patient. This review aims to identify how healthcare professionals can best communicate with patients about health behaviour change (HBC).\nMETHODS: We included studies which used conversation analysis or discourse analysis to study recorded interactions between healthcare professionals and patients. We followed an aggregative thematic synthesis approach. This involved line-by-line coding of the results and discussion sections of included studies, and the inductive development and hierarchical grouping of descriptive themes. Top-level themes were organised to reflect their conversational positioning.\nRESULTS: Of the 17,562 studies identified through systematic searching, ten papers were included. Analysis resulted in 10 top-level descriptive themes grouped into three domains: initiating; carrying out; and closing health behaviour change talk. Of three methods of initiation, two facilitated further discussion, and one was associated with outright resistance. Of two methods of conducting behaviour change talk, one was associated with only minimal patient responses. One way of closing was identified, and patients did not seem to respond to this positively. Results demonstrated a series of specific conversational practices which clinicians use when talking about HBC, and how patients respond to these. Our results largely complemented clinical guidelines, providing further detail on how they can best be delivered in practice. However, one recommended practice - linking a patient's health concerns and their health behaviours - was shown to receive variable responses and to often generate resistance displays.\nCONCLUSIONS: Health behaviour change talk is smoothly initiated, conducted, and terminated by clinicians and this rarely causes interactional difficulty. However, initiating conversations by linking a person's current health concern with their health behaviour can lead to resistance to advice, while other strategies such as capitalising on patient initiated discussions, or collaborating through question-answer sequences, may be well received.",
+        "citation": "BMC Fam Pract. 2019 Aug 03;20(1):111."
+      }
+    },
+    {
+      "ref_no": 17,
+      "pmid": "34489149",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.pec.2021.08.017\"[AID] OR \"10.1016/j.pec.2021.08.017\"[DOI]",
+          "success": true,
+          "pmid": "34489149",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "34489149",
+        "title": "What happens when patients say \"no\" to offers of referral for weight loss? - Results and recommendations from a conversation analysis of primary care interactions.",
+        "journal_full": "Patient education and counseling",
+        "journal_iso": "Patient Educ Couns",
+        "volume": "105",
+        "issue": "3",
+        "pages": "524-533",
+        "year": "2022",
+        "month": "Mar",
+        "day": null,
+        "create_date": "2022/04/07",
+        "authors": [
+          {
+            "last": "Albury",
+            "fore": "Charlotte",
+            "initials": "C",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK. Electronic address: charlotte.albury@phc.ox.ac.uk."
+            ]
+          },
+          {
+            "last": "Webb",
+            "fore": "Helena",
+            "initials": "H",
+            "affiliations": [
+              "Department of Computer Science, Human Centred Computing, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Ziebland",
+            "fore": "Sue",
+            "initials": "S",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Aveyard",
+            "fore": "Paul",
+            "initials": "P",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Stokoe",
+            "fore": "Elizabeth",
+            "initials": "E",
+            "affiliations": [
+              "Discourse and Rhetoric Group, Loughborough University, Loughborough, UK."
+            ]
+          }
+        ],
+        "doi": "10.1016/j.pec.2021.08.017",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "OBJECTIVE: Guidelines recommend that clinicians should offer patients with obesity referrals to weight management services. However, clinicians and patients worry that such conversations will generate friction, and the risk of this is greatest when patients say no. We examined how doctors actually respond to patient refusals, and how patients reacted to clinicians in turn.\nMETHODS: Conversation analysis of 226 GP-patient interactions recorded during a clinical trial of weight management referrals in UK primary care.\nRESULTS: Some clinicians responded to refusals by delivering further information or offering referral again. These actions treated patient refusals as unwelcome, and acted to pursue acceptance instead. However, pursuit did not lead to acceptance. Rather, pursuing acceptance lengthened consultations and led to frustration, offence, or anger. Clinicians who accepted refusals and closed the consultation avoided friction and negative emotional displays.\nCONCLUSION: Patient refusals have the potential to create negative consequences in the consultation and clinician responses were key in avoiding these. When clinicians acknowledged the legitimacy of patient refusals, negative consequences were avoided, and the conversation was briefer and smoother.\nPRACTICE IMPLICATIONS: When patients refuse the offer of a free weight management referral, GPs should accept this refusal, rather than trying to persuade patients to accept.",
+        "citation": "Patient Educ Couns. 2022 Mar;105(3):524-533."
+      }
+    },
+    {
+      "ref_no": 18,
+      "pmid": "33340401",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1093/fampra/cmaa121\"[AID] OR \"10.1093/fampra/cmaa121\"[DOI]",
+          "success": true,
+          "pmid": "33340401",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "33340401",
+        "title": "Discussing weight loss opportunistically and effectively in family practice: a qualitative study of clinical interactions using conversation analysis in UK family practice.",
+        "journal_full": "Family practice",
+        "journal_iso": "Fam Pract",
+        "volume": "38",
+        "issue": "3",
+        "pages": "321-328",
+        "year": "2021",
+        "month": "Jun",
+        "day": "17",
+        "create_date": "2021/10/25",
+        "authors": [
+          {
+            "last": "Albury",
+            "fore": "Charlotte V A",
+            "initials": "CVA",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Ziebland",
+            "fore": "Sue",
+            "initials": "S",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Webb",
+            "fore": "Helena",
+            "initials": "H",
+            "affiliations": [
+              "Department of Computer Science, Human Centred Computing (HCC), University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Stokoe",
+            "fore": "Elizabeth",
+            "initials": "E",
+            "affiliations": [
+              "Discourse and Rhetoric Group, Loughborough University, Loughborough, UK."
+            ]
+          },
+          {
+            "last": "Aveyard",
+            "fore": "Paul",
+            "initials": "P",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          }
+        ],
+        "doi": "10.1093/fampra/cmaa121",
+        "pmcid": "PMC8211147",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: GPs are encouraged to make brief interventions to support weight loss, but they report concern about these conversations, stating that they need more details on what to say. Knowing how engage in these conversations could encourage GPs to deliver brief interventions for weight loss more frequently.\nOBJECTIVE: To examine which specific words and phrases were successful in achieving conversational alignment and minimizing misunderstanding, contributing to effective interventions.\nMETHODS: A conversation analysis of English family practice patients participating in a trial of opportunistic weight-management interventions, which incorporated the offer of referral to community weight-management services (CWMS). Qualitative conversation analysis was applied to 246 consultation recordings to identify communication patterns, which contributed to clear, efficient interventions.\nRESULTS: Analysis showed variation in how GPs delivered interventions. Some ways of talking created misunderstandings or misalignment, while others avoided these. There were five components of clear and efficient opportunistic weight-management referrals. These were (i) exemplifying CWMS with a recognizable brand name (ii) saying weight-management 'programme' or 'service', rather than 'group' or 'club' (iii) stating that the referral is 'free' early on (iv) saying the number CWMS visits available on referral (v) stating that the CWMS programme available was 'local'.\nCONCLUSIONS: When making a brief opportunistic intervention to support weight loss, clinicians can follow these five steps to create a smooth and efficient intervention. Knowing this may allay clinicians' fears about these consultations being awkward and improve adherence to guidelines.",
+        "citation": "Fam Pract. 2021 Jun 17;38(3):321-328."
+      }
+    },
+    {
+      "ref_no": 19,
+      "pmid": "31793217",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1111/cob.12347\"[AID] OR \"10.1111/cob.12347\"[DOI]",
+          "success": true,
+          "pmid": "31793217",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "31793217",
+        "title": "Clinical encounters about obesity: Systematic review of patients' perspectives.",
+        "journal_full": "Clinical obesity",
+        "journal_iso": "Clin Obes",
+        "volume": "10",
+        "issue": "1",
+        "pages": "e12347",
+        "year": "2020",
+        "month": "Feb",
+        "day": null,
+        "create_date": "2020/08/04",
+        "authors": [
+          {
+            "last": "Ananthakumar",
+            "fore": "Thanusha",
+            "initials": "T",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Jones",
+            "fore": "Nicholas R",
+            "initials": "NR",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Hinton",
+            "fore": "Lisa",
+            "initials": "L",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Aveyard",
+            "fore": "Paul",
+            "initials": "P",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Oxford, UK."
+            ]
+          }
+        ],
+        "doi": "10.1111/cob.12347",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "Guidelines recommend clinicians intervene on obesity but it is unclear how people with overweight react. In this systematic review, we searched 20 online databases for qualitative studies interviewing people with overweight or obesity who had consulted a primary care clinician. Framework synthesis was used to analyse 21 studies to produce a new theoretical understanding. Consultations in which patients discussed their weight were more infrequent than patients would have liked, which some perceived was because they were unworthy of medical time; others that it indicated doctors feel being overweight is not a serious risk. Patients reported that doctors offered banal advice assuming that the patient ate unhealthily or was not trying to address their weight. Patients reported doctors assumed that their symptoms were due to overweight without a proper history or examination, creating concern that serious illness may be missed. Patients responded positively to offers of support for weight loss and active monitoring of weight. Patients with overweight internalize weight stigma sensitizing them to clues that clinicians are judging them negatively, even if weight is not discussed. Patients' negative experiences in consultations relate to perceived snap judgements and flippant advice and negative experiences appear more salient than positive ones.",
+        "citation": "Clin Obes. 2020 Feb;10(1):e12347."
+      }
+    },
+    {
+      "ref_no": 20,
+      "pmid": "27789061",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/S0140-6736(16)31893-1\"[AID] OR \"10.1016/S0140-6736(16)31893-1\"[DOI]",
+          "success": true,
+          "pmid": "27789061",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "27789061",
+        "title": "Screening and brief intervention for obesity in primary care: a parallel, two-arm, randomised trial.",
+        "journal_full": "Lancet (London, England)",
+        "journal_iso": "Lancet",
+        "volume": "388",
+        "issue": "10059",
+        "pages": "2492-2500",
+        "year": "2016",
+        "month": "Nov",
+        "day": "19",
+        "create_date": "2017/05/12",
+        "authors": [
+          {
+            "last": "Aveyard",
+            "fore": "Paul",
+            "initials": "P",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK. Electronic address: paul.aveyard@phc.ox.ac.uk."
+            ]
+          },
+          {
+            "last": "Lewis",
+            "fore": "Amanda",
+            "initials": "A",
+            "affiliations": [
+              "School of Social and Community Medicine, University of Bristol, Bristol, UK."
+            ]
+          },
+          {
+            "last": "Tearne",
+            "fore": "Sarah",
+            "initials": "S",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Hood",
+            "fore": "Kathryn",
+            "initials": "K",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Christian-Brown",
+            "fore": "Anna",
+            "initials": "A",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Adab",
+            "fore": "Peymane",
+            "initials": "P",
+            "affiliations": [
+              "Institute of Applied Health Research, University of Birmingham, Birmingham, UK."
+            ]
+          },
+          {
+            "last": "Begh",
+            "fore": "Rachna",
+            "initials": "R",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Jolly",
+            "fore": "Kate",
+            "initials": "K",
+            "affiliations": [
+              "Institute of Applied Health Research, University of Birmingham, Birmingham, UK."
+            ]
+          },
+          {
+            "last": "Daley",
+            "fore": "Amanda",
+            "initials": "A",
+            "affiliations": [
+              "Institute of Applied Health Research, University of Birmingham, Birmingham, UK."
+            ]
+          },
+          {
+            "last": "Farley",
+            "fore": "Amanda",
+            "initials": "A",
+            "affiliations": [
+              "Institute of Applied Health Research, University of Birmingham, Birmingham, UK."
+            ]
+          },
+          {
+            "last": "Lycett",
+            "fore": "Deborah",
+            "initials": "D",
+            "affiliations": [
+              "Faculty of Health and Life Sciences, Coventry University, Coventry, UK."
+            ]
+          },
+          {
+            "last": "Nickless",
+            "fore": "Alecia",
+            "initials": "A",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Yu",
+            "fore": "Ly-Mee",
+            "initials": "LM",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK."
+            ]
+          },
+          {
+            "last": "Retat",
+            "fore": "Lise",
+            "initials": "L",
+            "affiliations": [
+              "UK Health Forum, London, UK."
+            ]
+          },
+          {
+            "last": "Webber",
+            "fore": "Laura",
+            "initials": "L",
+            "affiliations": [
+              "UK Health Forum, London, UK."
+            ]
+          },
+          {
+            "last": "Pimpin",
+            "fore": "Laura",
+            "initials": "L",
+            "affiliations": [
+              "UK Health Forum, London, UK."
+            ]
+          },
+          {
+            "last": "Jebb",
+            "fore": "Susan A",
+            "initials": "SA",
+            "affiliations": [
+              "Nuffield Department of Primary Care Health Sciences, University of Oxford, Radcliffe Observatory Quarter, Oxford, UK."
+            ]
+          }
+        ],
+        "doi": "10.1016/S0140-6736(16)31893-1",
+        "pmcid": "PMC5121130",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Obesity is a common cause of non-communicable disease. Guidelines recommend that physicians screen and offer brief advice to motivate weight loss through referral to behavioural weight loss programmes. However, physicians rarely intervene and no trials have been done on the subject. We did this trial to establish whether physician brief intervention is acceptable and effective for reducing bodyweight in patients with obesity.\nMETHODS: In this parallel, two-arm, randomised trial, patients who consulted 137 primary care physicians in England were screened for obesity. Individuals could be enrolled if they were aged at least 18 years, had a body-mass index of at least 30 kg/m2 (or at least 25 kg/m2 if of Asian ethnicity), and had a raised body fat percentage. At the end of the consultation, the physician randomly assigned participants (1:1) to one of two 30 s interventions. Randomisation was done via preprepared randomisation cards labelled with a code representing the allocation, which were placed in opaque sealed envelopes and given to physicians to open at the time of treatment assignment. In the active intervention, the physician offered referral to a weight management group (12 sessions of 1 h each, once per week) and, if the referral was accepted, the physician ensured the patient made an appointment and offered follow-up. In the control intervention, the physician advised the patient that their health would benefit from weight loss. The primary outcome was weight change at 12 months in the intention-to-treat population, which was assessed blinded to treatment allocation. We also assessed asked patients' about their feelings on discussing their weight when they have visited their general practitioner for other reasons. Given the nature of the intervention, we did not anticipate any adverse events in the usual sense, so safety outcomes were not assessed. This trial is registered with the ISRCTN Registry, number ISRCTN26563137.\nFINDINGS: Between June 4, 2013, and Dec 23, 2014, we screened 8403 patients, of whom 2728 (32%) were obese. Of these obese patients, 2256 (83%) agreed to participate and 1882 were eligible, enrolled, and included in the intention-to-treat analysis, with 940 individuals in the support group and 942 individuals in the advice group. 722 (77%) individuals assigned to the support intervention agreed to attend the weight management group and 379 (40%) of these individuals attended, compared with 82 (9%) participants who were allocated the advice intervention. In the entire study population, mean weight change at 12 months was 2·43 kg with the support intervention and 1·04 kg with the advice intervention, giving an adjusted difference of 1·43 kg (95% CI 0·89-1·97). The reactions of the patients to the general practitioners' brief interventions did not differ significantly between the study groups in terms of appropriateness (adjusted odds ratio 0·89, 95% CI 0·75-1·07, p=0·21) or helpfulness (1·05, 0·89-1·26, p=0·54); overall, four (<1%) patients thought their intervention was inappropriate and unhelpful and 1530 (81%) patients thought it was appropriate and helpful.\nINTERPRETATION: A behaviourally-informed, very brief, physician-delivered opportunistic intervention is acceptable to patients and an effective way to reduce population mean weight.\nFUNDING: The UK National Prevention Research Initiative.",
+        "citation": "Lancet. 2016 Nov 19;388(10059):2492-2500."
+      }
+    },
+    {
+      "ref_no": 21,
+      "pmid": "27420294",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1080/10410236.2016.1172291\"[AID] OR \"10.1080/10410236.2016.1172291\"[DOI]",
+          "success": true,
+          "pmid": "27420294",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "27420294",
+        "title": "Laughter, Humor, and Cancer: Delicate Moments and Poignant Interactional Circumstances.",
+        "journal_full": "Health communication",
+        "journal_iso": "Health Commun",
+        "volume": "32",
+        "issue": "7",
+        "pages": "791-802",
+        "year": "2017",
+        "month": "Jul",
+        "day": null,
+        "create_date": "2018/03/12",
+        "authors": [
+          {
+            "last": "Beach",
+            "fore": "Wayne A",
+            "initials": "WA",
+            "affiliations": [
+              "a School of Communication, San Diego State University, Department of Surgery , Moores Cancer Center, University of California, UCSD/SDSU Joint Doctoral Program in Public Health."
+            ]
+          },
+          {
+            "last": "Prickett",
+            "fore": "Erin",
+            "initials": "E",
+            "affiliations": [
+              "b College of Arts & Sciences , University of San Diego and Department of Communication Studies, University of San Diego."
+            ]
+          }
+        ],
+        "doi": "10.1080/10410236.2016.1172291",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "Conversation analysis is employed to examine transcribed excerpts drawn from a subsample of 75 naturally occurring and video recorded interviews between cancer patients and 30 doctors. Close examination is provided of how cancer patients initiate, and doctors respond, to laughter and humor during oncology interviews. Interactions demonstrate that communication about the disease \"cancer\" shares qualities similar to other medical areas (e.g., primary care): the tendency for patients to initiate laughter or humor to address troubling and challenging circumstances; and that during moments when patients address personal matters, doctors are not invited and do not reciprocate with shared laughter and humor. Prominent in talk about cancer are various precarious circumstances, awkward and delicate moments mirroring the lived experiences of cancer patients (e.g., when patients attempt to minimize fears, justify that they are well when threatened with sickness, claim normality in the midst of chronic conditions, and take stances that weight loss and gain are not problematic). These examples provide a compelling case that routine cancer care involves many poignant situations managed through laughter and humor. Implications are raised for how quality care might be improved through grounded understandings of laughter, humor, and cancer.",
+        "citation": "Health Commun. 2017 Jul;32(7):791-802."
+      }
+    },
+    {
+      "ref_no": 22,
+      "pmid": "32371269",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.socscimed.2020.112985\"[AID] OR \"10.1016/j.socscimed.2020.112985\"[DOI]",
+          "success": true,
+          "pmid": "32371269",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "32371269",
+        "title": "The conditional legitimacy of behavior change advice in primary care.",
+        "journal_full": "Social science & medicine (1982)",
+        "journal_iso": "Soc Sci Med",
+        "volume": "255",
+        "issue": null,
+        "pages": "112985",
+        "year": "2020",
+        "month": "Jun",
+        "day": null,
+        "create_date": "2021/04/27",
+        "authors": [
+          {
+            "last": "Bergen",
+            "fore": "Clara",
+            "initials": "C",
+            "affiliations": [
+              "City University of London, Division of Health Services Research and Management, 1 Myddelton St, Clerkenwell, London, EC1R 1UB, United Kingdom. Electronic address: clara.bergen@city.ac.uk."
+            ]
+          }
+        ],
+        "doi": "10.1016/j.socscimed.2020.112985",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "This study asks whether and when patients treat their doctors as having the right to give behavior change advice. Drawing on 171 primary care consultations video-recorded in the U.S. between 2014 and 2016, this study uses Conversation Analysis to examine physicians' behavior change advice following a patient's disclosure of medically problematic behavior such as physical inactivity. The basis on which the physician provides this advice is associated with clear regularities in patient response. Physicians may produce treatment-implicative advice that is unambiguously framed as a treatment plan for a specific health issue such as rising blood pressure. Alternatively, physicians may produce advice that is not overtly framed as treatment. This plain advice appeals to a model of care based in medical surveillance and prevention - a physician should not need to account for advising a patient to reduce risk factors. Though all advice is clinically relevant for preventing or controlling medical conditions, treatment-implicative advice is interactionally rooted in a physician's authority to treat illness. Patients show a strong social-interactional preference for treatment-implicative advice, even accepting 'behavior change' treatment recommendations at a higher rate than pharmaceutical treatment recommendations. In contrast, patients are highly resistant towards plain behavior change advice. This study explores the implications of advice formats for understanding modern orientations towards surveillance medicine in the age of preventive care.",
+        "citation": "Soc Sci Med. 2020 Jun;255:112985."
+      }
+    },
+    {
+      "ref_no": 23,
+      "pmid": "23737640",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1177/0022146513487379\"[AID] OR \"10.1177/0022146513487379\"[DOI]",
+          "success": true,
+          "pmid": "23737640",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "23737640",
+        "title": "Patient disclosure of medical misdeeds.",
+        "journal_full": "Journal of health and social behavior",
+        "journal_iso": "J Health Soc Behav",
+        "volume": "54",
+        "issue": "2",
+        "pages": "221-40",
+        "year": "2013",
+        "month": "Jun",
+        "day": null,
+        "create_date": "2014/01/24",
+        "authors": [
+          {
+            "last": "Bergen",
+            "fore": "Clara",
+            "initials": "C",
+            "affiliations": [
+              "UCLA, Los Angeles, CA 90095-1551, USA."
+            ]
+          },
+          {
+            "last": "Stivers",
+            "fore": "Tanya",
+            "initials": "T",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1177/0022146513487379",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "Modern patients walk a tightrope between respecting medical authority and acting as knowledgeable advocates regarding health issues, with the agency and responsibilities that come with this. This article uses conversation analysis to explore this balance in relation to patient disclosures of medical misdeeds in video-recorded primary care medical visits (e.g., taking another's prescription medication or failing to adhere to a healthy lifestyle or prescription regimen). We focus on patient-initiated disclosures. We show that disclosures are used (1) where patients are seeking physician assessment of their behavior, (2) where patients are proposing the etiology of a health problem, and (3) where patients are lobbying for a particular treatment outcome. We argue that disclosures of medical misdeeds are an important but understudied domain of conduct in which patients show awareness of their own agency over, and responsibility for, their healthcare and respect for the physician's medical authority.",
+        "citation": "J Health Soc Behav. 2013 Jun;54(2):221-40."
+      }
+    },
+    {
+      "ref_no": 24,
+      "pmid": "31030008",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.socscimed.2019.03.032\"[AID] OR \"10.1016/j.socscimed.2019.03.032\"[DOI]",
+          "success": true,
+          "pmid": "31030008",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "31030008",
+        "title": "Moral discourse in general practitioners' accounts of obesity communication.",
+        "journal_full": "Social science & medicine (1982)",
+        "journal_iso": "Soc Sci Med",
+        "volume": "230",
+        "issue": null,
+        "pages": "166-173",
+        "year": "2019",
+        "month": "Jun",
+        "day": null,
+        "create_date": "2020/07/06",
+        "authors": [
+          {
+            "last": "Blackburn",
+            "fore": "Maxine",
+            "initials": "M",
+            "affiliations": [
+              "University of Bath, Department for Health, Bath, BA2 7AY, UK; University of Edinburgh, Usher Institute of Population Health Sciences and Informatics, Edinburgh, EH8 9AG, UK. Electronic address: Maxineblackburn@gmx.com."
+            ]
+          },
+          {
+            "last": "Stathi",
+            "fore": "Afroditi",
+            "initials": "A",
+            "affiliations": [
+              "University of Bath, Department for Health, Bath, BA2 7AY, UK; University of Birmingham, School of Sport, Exercise and Rehabilitation Sciences, Birmingham, B15 2TT, UK. Electronic address: A.Stathi@bham.ac.uk."
+            ]
+          }
+        ],
+        "doi": "10.1016/j.socscimed.2019.03.032",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "Obesity is not addressed with a large proportion of patients presenting in general practice. An increasing body of evidence suggests that health professionals view body weight as a sensitive topic to include in routine consultations and face barriers in initiating weight loss discussions. This study examined the discursive power relations that shape how general practitioners (GPs) understand and talk about obesity using a novel methodology to elicit responses from GPs about raising the topic of weight. Twenty GPs from the South West of England reflected upon novel trigger films simulating doctor-patient interactions, in which a doctor either acknowledged or ignored their patient's body weight. Underpinned by a discourse analytic approach, our findings suggest that GPs both reproduce and resist moral discourse surrounding body weight. They construct obesity as an individual behavioural problem whilst simultaneously drawing on socio-cultural discourse which positions body weight as central to social identity, situating obesity within a context of stigma and positioning patients as powerless to lose weight. Our findings highlight a need for increased reflexivity about competing discursive frameworks at play during medical consultations about obesity, which we suggest, contribute to increased tension and powerlessness for GPs. Trigger films are an innovative method to elicit information and discuss competing discourses.",
+        "citation": "Soc Sci Med. 2019 Jun;230:166-173."
+      }
+    },
+    {
+      "ref_no": 25,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1177/14614456221110669\"[AID] OR \"10.1177/14614456221110669\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "How professionals deal with clients' explicit objections to their advice[Title] AND Bloch[Author] AND 2022[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "How professionals deal with clients' explicit objections to their advice",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 26,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.pragma.2008.10.004\"[AID] OR \"10.1016/j.pragma.2008.10.004\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Implementing incipient actions: The discourse marker 'so' in English conversation[Title] AND Bolden[Author] AND 2009[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Implementing incipient actions: The discourse marker 'so' in English conversation",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 27,
+      "pmid": "34052990",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1007/s40519-021-01217-1\"[AID] OR \"10.1007/s40519-021-01217-1\"[DOI]",
+          "success": true,
+          "pmid": "34052990",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "34052990",
+        "title": "Obesity management: at the forefront against disease stigma and therapeutic inertia.",
+        "journal_full": "Eating and weight disorders : EWD",
+        "journal_iso": "Eat Weight Disord",
+        "volume": "27",
+        "issue": "2",
+        "pages": "761-768",
+        "year": "2022",
+        "month": "Mar",
+        "day": null,
+        "create_date": "2022/03/22",
+        "authors": [
+          {
+            "last": "Busetto",
+            "fore": "Luca",
+            "initials": "L",
+            "affiliations": [
+              "Department of Medicine, University of Padova, Padua, Italy. luca.busetto@unipd.it.",
+              "Clinica Medica 3, Azienda Ospedale-Università di Padova, Via Giustiniani 2, 35128, Padua, Italy. luca.busetto@unipd.it."
+            ]
+          },
+          {
+            "last": "Sbraccia",
+            "fore": "Paolo",
+            "initials": "P",
+            "affiliations": [
+              "Department of Systems Medicine, University of Rome Tor Vergata, Rome, Italy."
+            ]
+          },
+          {
+            "last": "Vettor",
+            "fore": "Roberto",
+            "initials": "R",
+            "affiliations": [
+              "Department of Medicine, University of Padova, Padua, Italy.",
+              "Clinica Medica 3, Azienda Ospedale-Università di Padova, Via Giustiniani 2, 35128, Padua, Italy."
+            ]
+          }
+        ],
+        "doi": "10.1007/s40519-021-01217-1",
+        "pmcid": "PMC8933346",
+        "nihms_id": null,
+        "abstract": "Obesity is a complex chronic relapsing disease, resulting from the interaction between multiple environmental, genetic and epigenetic causes, and supported by changes in the neuroendocrine mechanisms regulating energy balance and body weight. Adipose tissue dysfunction contributes to obesity-related complications. However, the prevalent narrative about the causes and mechanisms of obesity remains a much more simplistic one, based on the false assumption that individuals can fully control their body weight through appropriate behavioural choices. According to this narrative, obesity is simply reversible \"persuading\" the patient to follow healthier and more virtuous individual behaviours (moral judgement). This persistent narrative forms the deep root of the stigmatisation of people with obesity at the individual level and creates a clear discrepancy on how obesity prevention and cure are designed in comparison with the case of other non-communicable chronic diseases (clinical stigma). The promotion of systemic preventive measures against obesity is not supported at a political and social level by the persistence of a narrative of obesity as the simple consequence of individual failures and lack of willpower. The simplistic narrative of obesity as a self-imposed condition with an easy way-out (\"eat less and move more\") creates a clear discrepancy on how obesity is managed by health care systems in comparison with other NCDs. The over-estimation of the efficacy of therapeutic intervention solely based on patients education and lifestyle modification is responsible of therapeutic inertia in health care professionals and in clinical guidelines, limiting or delaying the adoption of more effective therapeutic strategies, like anti-obesity medications and bariatric surgery. In conclusion, the persistence of a narrative describing obesity as a self-induced easily reversible condition has profound consequences on how obesity prevention and management are build, including the design and implementation of obesity management guidelines and a tendency to therapeutic inertia.Level of evidence: No level of evidence.",
+        "citation": "Eat Weight Disord. 2022 Mar;27(2):761-768."
+      }
+    },
+    {
+      "ref_no": 28,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [],
+      "metadata": null
+    },
+    {
+      "ref_no": 29,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.pragma.2015.10.004\"[AID] OR \"10.1016/j.pragma.2015.10.004\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Clients' resistance to therapists' proposals: Managing epistemic and deontic status[Title] AND Ekberg[Author] AND 2015[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Clients' resistance to therapists' proposals: Managing epistemic and deontic status",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 30,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [],
+      "metadata": null
+    },
+    {
+      "ref_no": 31,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1007/s11205-008-9242-7\"[AID] OR \"10.1007/s11205-008-9242-7\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "The perceptions of women's roles and progress: a study of[Title] AND Abdullah[Author] AND 2008[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "The perceptions of women's roles and progress: a study of Malay women",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 32,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.3390/rel11020057\"[AID] OR \"10.3390/rel11020057\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": ", & Huber, S. 2020a . Validation of the short forms of",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 33,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.3390/rel12010009\"[AID] OR \"10.3390/rel12010009\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Short forms of the centrality of religiosity scale: validation and[Title] AND Ackert[Author] AND 2021[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Short forms of the centrality of religiosity scale: validation and application in",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 34,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.3390/rel11110577\"[AID] OR \"10.3390/rel11110577\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": ", & Zabaev, I. 2020b . Validation of the short forms of",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 35,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.2190/GYPP-VBG3-M3AY-1ML9\"[AID] OR \"10.2190/GYPP-VBG3-M3AY-1ML9\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Belief in afterlife and death anxiety: correlates and comparisons[Title] AND Aday[Author] AND 1985[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Belief in afterlife and death anxiety: correlates and comparisons",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 36,
+      "pmid": "33576129",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1111/psyg.12663\"[AID] OR \"10.1111/psyg.12663\"[DOI]",
+          "success": true,
+          "pmid": "33576129",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "33576129",
+        "title": "Gender difference about death anxiety among older adults: Structural Equation Model.",
+        "journal_full": "Psychogeriatrics : the official journal of the Japanese Psychogeriatric Society",
+        "journal_iso": "Psychogeriatrics",
+        "volume": "21",
+        "issue": "3",
+        "pages": "296-303",
+        "year": "2021",
+        "month": "May",
+        "day": null,
+        "create_date": "2021/05/07",
+        "authors": [
+          {
+            "last": "Adelirad",
+            "fore": "Fatemeh",
+            "initials": "F",
+            "affiliations": [
+              "Department of Health Education and Promotion, Faculty of Health Sciences, Tabriz University of Medical Sciences, Tabriz, Iran."
+            ]
+          },
+          {
+            "last": "Sabahiazar",
+            "fore": "Khadijeh",
+            "initials": "K",
+            "affiliations": [
+              "Department of Health Education & Promotion, Tabriz University of Medical Sciences, Tabriz, Iran."
+            ]
+          },
+          {
+            "last": "Asghari-Jafarabadi",
+            "fore": "Mohammad",
+            "initials": "M",
+            "affiliations": [
+              "Road Traffic Injury Research Centre, Department of Statistics and Epidemiology, Tabriz University of Medical Sciences, Tabriz, Iran."
+            ]
+          },
+          {
+            "last": "Namjoo",
+            "fore": "Shamsedin",
+            "initials": "S",
+            "affiliations": [
+              "Department of Gerontology, University of Social Welfare and Rehabilitation Sciences, Tehran, Iran."
+            ]
+          },
+          {
+            "last": "Chattu",
+            "fore": "Vijay Kumar",
+            "initials": "VK",
+            "affiliations": [
+              "Department of Medicine, Faculty of Medicine, University of Toronto, Toronto, Ontario, Canada."
+            ]
+          },
+          {
+            "last": "Allahverdipour",
+            "fore": "Hamid",
+            "initials": "H",
+            "affiliations": [
+              "Clinical Psychiatry Research Centre & Department of Health Education & Promotion, Tabriz University of Medical Sciences, Tabriz, Iran."
+            ]
+          }
+        ],
+        "doi": "10.1111/psyg.12663",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Older adults may be more prone to death anxiety than their younger counterparts. This study explores factors affecting death anxiety based on gender differences.\nMETHODS: In this correlational study, 450 older adults referred to the health centres in the city of Bukan, Iran were recruited by using a randomised sampling method. Next, data were collected about the demographic questionnaire, anxiety about ageing, death anxiety, mental well-being, perceived social support, and quality of life questionnaire. The Spearman correlation coefficient was used to determine the correlation between variables, and the predictors of death anxiety were evaluated using quintile regression. Relationship between death anxiety and other variables was evaluated by the Structural Equation Model (SEM). The study was approved by the Tabriz University of Medical Sciences Ethics Committee (Ethics Code: IR.TBZMED.REC.1397.304).\nRESULTS: The results showed that death anxiety in men had a significant relationship with the level of literacy (P = 0.047), body self-imaging (P = 0.031), and perceived social activity (P = 0.033). Among women, death anxiety had a significant relationship with physical activity (P = 0.007) and perceived social activity (P = 0.002). Additionally, quintile regression analysis was calculated: among men, anxiety about ageing was related to death anxiety (β = 0.182, P = 0.05), while in women, only perceived social support was associated to death anxiety (β = -0.376, P = 0.05). Finally, according to SEM, a significantly different level of predictability of mental well-being was found for death anxiety among older men and women.\nCONCLUSION: Understanding the gender differences about death anxiety by the healthcare system might be useful in controlling and reducing a variety of concerns among elders who experience high levels of anxiety of death.",
+        "citation": "Psychogeriatrics. 2021 May;21(3):296-303."
+      }
+    },
+    {
+      "ref_no": 37,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [],
+      "metadata": null
+    },
+    {
+      "ref_no": 38,
+      "pmid": "6051769",
+      "final_strategy": "title_author_year",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1037/h0021212\"[AID] OR \"10.1037/h0021212\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Personal religious orientation and prejudice[Title] AND Allport[Author] AND 1967[PDAT]",
+          "success": true,
+          "pmid": "6051769",
+          "match_score": 98.87640449438202,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "6051769",
+        "title": "Personal religious orientation and prejudice.",
+        "journal_full": "Journal of personality and social psychology",
+        "journal_iso": "J Pers Soc Psychol",
+        "volume": "5",
+        "issue": "4",
+        "pages": "432-43",
+        "year": "1967",
+        "month": "Apr",
+        "day": null,
+        "create_date": "1967/12/16",
+        "authors": [
+          {
+            "last": "Allport",
+            "fore": "G W",
+            "initials": "GW",
+            "affiliations": []
+          },
+          {
+            "last": "Ross",
+            "fore": "J M",
+            "initials": "JM",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1037/0022-3514.5.4.432",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": null,
+        "citation": "J Pers Soc Psychol. 1967 Apr;5(4):432-43."
+      }
+    },
+    {
+      "ref_no": 39,
+      "pmid": "26831313",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.11622/smedj.2016008\"[AID] OR \"10.11622/smedj.2016008\"[DOI]",
+          "success": true,
+          "pmid": "26831313",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "26831313",
+        "title": "Differences in attitudes to end-of-life care among patients, relatives and healthcare professionals.",
+        "journal_full": "Singapore medical journal",
+        "journal_iso": "Singapore Med J",
+        "volume": "57",
+        "issue": "1",
+        "pages": "22-8",
+        "year": "2016",
+        "month": "Jan",
+        "day": null,
+        "create_date": "2017/01/24",
+        "authors": [
+          {
+            "last": "Ang",
+            "fore": "Guat Cheng",
+            "initials": "GC",
+            "affiliations": [
+              "Department of Geriatric Medicine, Changi General Hospital, Singapore."
+            ]
+          },
+          {
+            "last": "Zhang",
+            "fore": "Di",
+            "initials": "D",
+            "affiliations": [
+              "Department of Nursing, Changi General Hospital, Singapore."
+            ]
+          },
+          {
+            "last": "Lim",
+            "fore": "Kim Hwa Jim",
+            "initials": "KH",
+            "affiliations": [
+              "Department of Geriatric Medicine, Changi General Hospital, Singapore."
+            ]
+          }
+        ],
+        "doi": "10.11622/smedj.2016008",
+        "pmcid": "PMC4728698",
+        "nihms_id": null,
+        "abstract": "INTRODUCTION: This study explored and compared the differences in attitudes toward end-of-life care among patients, relatives and healthcare professionals, including doctors and nurses.\nMETHODS: We performed a descriptive study on a cross-section of the population of a tertiary hospital in Singapore. Data was collected using a questionnaire survey involving 50 participants from each of the four groups of patients, relatives, doctors and nurses.\nRESULTS: Family members were the most commonly nominated surrogate decision-makers by the patient group (76%) and the majority of the relative group (74%) felt comfortable deciding on end-of-life care for their loved ones. However, the patient and relative groups differed significantly in their preferences on end-of-life care options, including cardiopulmonary resuscitation (CPR) (p = 0.001), intubation (p = 0.003), nasogastric tube feeding (p < 0.001) and the use of antibiotics (p = 0.023). Doctors, nurses and relatives demonstrated differences in preference between end-of-life care for themselves and for their loved ones, especially with regard to the use of nasogastric tube feeding. There was also a difference between patients and doctors in their decisions on CPR (p < 0.001) and intubation (p = 0.008).\nCONCLUSION: This study demonstrated the importance of early planning for end-of-life care. This must be initiated proactively by healthcare professionals to engage patients in a culturally sensitive manner to discuss their preferences, in order to facilitate open communication between the patient and family.",
+        "citation": "Singapore Med J. 2016 Jan;57(1):22-8."
+      }
+    },
+    {
+      "ref_no": 40,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [],
+      "metadata": null
+    },
+    {
+      "ref_no": 41,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1177/009164710403200401\"[AID] OR \"10.1177/009164710403200401\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "The multidimensional nature of quest motivation[Title] AND Beck[Author] AND 2004[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "The multidimensional nature of quest motivation",
+          "success": false,
+          "pmid": "39773693",
+          "match_score": 33.80281690140845,
+          "error": "fuzzy 34 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 42,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1111/jssr.12183\"[AID] OR \"10.1111/jssr.12183\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Does religiousness increase with age? Age changes and generational differences[Title] AND Bengtson[Author] AND 2015[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Does religiousness increase with age? Age changes and generational differences over 35",
+          "success": false,
+          "pmid": "31527013",
+          "match_score": 47.45762711864406,
+          "error": "fuzzy 47 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 43,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1080/03906701.2011.544190\"[AID] OR \"10.1080/03906701.2011.544190\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Defining religion: a practical response[Title] AND Bruce[Author] AND 2011[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Defining religion: a practical response",
+          "success": false,
+          "pmid": "40824396",
+          "match_score": 38.775510204081634,
+          "error": "fuzzy 39 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 44,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1080/09589236.2021.1962702\"[AID] OR \"10.1080/09589236.2021.1962702\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Gender differences in religiosity: a report on Russian data[Title] AND Bryukhanov[Author] AND 2023[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Gender differences in religiosity: a report on Russian data",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 45,
+      "pmid": "20097885",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1177/1088868309352321\"[AID] OR \"10.1177/1088868309352321\"[DOI]",
+          "success": true,
+          "pmid": "20097885",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "20097885",
+        "title": "Two decades of terror management theory: a meta-analysis of mortality salience research.",
+        "journal_full": "Personality and social psychology review : an official journal of the Society for Personality and Social Psychology, Inc",
+        "journal_iso": "Pers Soc Psychol Rev",
+        "volume": "14",
+        "issue": "2",
+        "pages": "155-95",
+        "year": "2010",
+        "month": "May",
+        "day": null,
+        "create_date": "2011/08/16",
+        "authors": [
+          {
+            "last": "Burke",
+            "fore": "Brian L",
+            "initials": "BL",
+            "affiliations": [
+              "Fort Lewis College, Durango, CO, USA. burke_b@fortlewis.edu"
+            ]
+          },
+          {
+            "last": "Martens",
+            "fore": "Andy",
+            "initials": "A",
+            "affiliations": []
+          },
+          {
+            "last": "Faucher",
+            "fore": "Erik H",
+            "initials": "EH",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1177/1088868309352321",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "A meta-analysis was conducted on empirical trials investigating the mortality salience (MS) hypothesis of terror management theory (TMT). TMT postulates that investment in cultural worldviews and self-esteem serves to buffer the potential for death anxiety; the MS hypothesis states that, as a consequence, accessibility of death-related thought (MS) should instigate increased worldview and self-esteem defense and striving. Overall, 164 articles with 277 experiments were included. MS yielded moderate effects (r = .35) on a range of worldview- and self-esteem-related dependent variables (DVs), with effects increased for experiments using (a) American participants, (b) college students, (c) a longer delay between MS and the DV, and (d) people-related attitudes as the DV. Gender and self-esteem may moderate MS effects differently than previously thought. Results are compared to other reviews and examined with regard to alternative explanations of TMT. Finally, suggestions for future research are offered.",
+        "citation": "Pers Soc Psychol Rev. 2010 May;14(2):155-95."
+      }
+    }
+  ],
+  "stage4_elapsed_seconds": 49.7
+}
