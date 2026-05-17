@@ -91,13 +91,24 @@ Day9 Vancouver Veto により APA の `(YYYY)` も `is_mdpi_style()` で即 Fals
    - PMC full-text XML 取得可能
 3. **選定結果**: Phase 0 着手時に候補 3 論文を提示 → ユーザー承認後に確定 → SPEC §3.2 に追記 commit
 
-### 3.2 選定確定論文 (Phase 0 で記入)
+### 3.2 選定確定論文 (Day16 Task 0 で確定、ユーザー承認済)
 
 | 領域 | PMC ID | DOI | Journal | 出版年 | LICENSE |
 |:---|:---|:---|:---|:---:|:---|
-| Psychology | TBD (Phase 0) | TBD | TBD | TBD | CC BY (確認要) |
-| Nursing | TBD (Phase 0) | TBD | TBD | TBD | CC BY (確認要) |
-| Public Health | TBD (Phase 0) | TBD | TBD | TBD | CC BY (確認要) |
+| Psychology / Bereavement | PMC11601046 | 10.1080/07481187.2023.2203680 | Death Studies (Routledge) | 2023 | CC BY 4.0 |
+| Public Health / Communication | PMC11404860 | 10.1080/10410236.2023.2255795 | Health Communication (T&F) | 2023 | CC BY 4.0 |
+| Psychology / Religion & Death anxiety | PMC11165362 | 10.3389/fpsyg.2024.1398620 | Frontiers in Psychology | 2024 | CC BY 4.0 |
+
+選定タイトル:
+- PMC11601046: "Development of an online service for coping with spousal loss by means of human-centered and stakeholder-inclusive design: the case of LEAVES"
+- PMC11404860: "The Basis of Patient Resistance to Opportunistic Discussions About Weight in Primary Care"
+- PMC11165362: "Death anxiety and religiosity in a multicultural sample: a pilot study examining curvilinearity, age and gender in Singapore"
+
+注: 当初目標 (Psychology + Nursing + Public Health 各 1) のうち Nursing は CC BY + APA 7 + PMC OA を同時に満たす論文が確認できず、Psychology 2 + Public Health 1 の構成に変更. parser regression 保護の主目的は維持 (3 papers / 3 journals / 異領域).
+
+XML 構造の差異と build script 要件:
+- Death Studies / Health Communication: `<string-name>` + tail commas → `_collect_text` 単純経路で純 APA 7 出力可能
+- Frontiers in Psychology: `<name>` のみで tail commas 無 → build script 側で **structured fields (`<surname>` + `<given-names>` + `<year>` + 他) からの再組成** が必須 (`_format_authors` パスを mixed-citation でも常用)
 
 ### 3.3 著作権・引用上の取扱い
 

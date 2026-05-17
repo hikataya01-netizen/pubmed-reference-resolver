@@ -13,5 +13,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+# Caches (PMC XML cache for tools/build_apa_fixture.py 等)
+.cache/
+
 # Editor save backups (nano *.save, etc.)
 *.save

@@ -1,0 +1,249 @@
+{
+  "input_file": "tests/fixtures/apa_45refs/input_References.docx",
+  "source_type": "docx",
+  "stage1_raw_length": 10108,
+  "stage2_5_line_number_detection": {
+    "detected": false,
+    "count": 0,
+    "min_val": null,
+    "max_val": null,
+    "values": [],
+    "spans": [],
+    "total_candidates": 0,
+    "rationale": "3桁の孤立整数候補が存在しない"
+  },
+  "stage2_preprocess_trace": {
+    "hyphen_bridged_removed": 0,
+    "standalone_removed": 0,
+    "soft_linebreaks_joined": 0,
+    "ref_blocks_found": 45,
+    "header_stripped": true
+  },
+  "stage3_reference_blocks": [
+    {
+      "ref_no": 1,
+      "raw_text": "Arthanat, S., Vroman, K. G., Lysack, C., & Grizzetti, J. (2019). Multi-stakeholder perspectives on information communication technology training for older adults: implications for teaching and learning. Disability and Rehabilitation Assistive Technology, 453-461. https://doi.org/10.1080/17483107.2018.1493752",
+      "char_length": 309
+    },
+    {
+      "ref_no": 2,
+      "raw_text": "Beaunoyer, E., Hiracheta Torres, L., Maessen, L., & Guitton, M. J. (2020). Grieving in the digital era: Mapping online support for grief and bereavement. Patient Education and Counseling, 2515-2524. https://doi.org/10.1016/j.pec.2020.06.013",
+      "char_length": 240
+    },
+    {
+      "ref_no": 3,
+      "raw_text": "Bitner, M. J., Ostrom, A. L., & Morgan, F. N. (2008). Service Blueprinting: A Practical Technique for Service Innovation. California Management Review, 66-94. https://doi.org/10.2307/41166446",
+      "char_length": 191
+    },
+    {
+      "ref_no": 4,
+      "raw_text": "Brandl, L., Cabrita, M., Brodbeck, J., Heylen, D., & van Velsen, L. (2022). Consulting the Oracle: A Delphi study for determining parameters for a mental health user profile and personalization strategy for an online service to aid grieving older adults. Internet Interventions, 100534. https://doi.org/10.1016/j.invent.2022.100534",
+      "char_length": 331
+    },
+    {
+      "ref_no": 5,
+      "raw_text": "Brodbeck, J., Berger, T., Biesold, N., Rockstroh, F., Schmidt, S. J., & Znoj, H. (2022). The Role of Emotion Regulation and Loss-Related Coping Self-efficacy in an Internet Intervention for Grief: Mediation Analysis. JMIR Mental Health, e27707. https://doi.org/10.2196/27707",
+      "char_length": 274
+    },
+    {
+      "ref_no": 6,
+      "raw_text": "Brodbeck, J., Berger, T., Biesold, N., Rockstroh, F., & Znoj, H. J. (2019). Evaluation of a guided internet-based self-help intervention for older adults after spousal bereavement or separation/divorce: A randomised controlled trial. Journal of Affective Disorders, 440-449. https://doi.org/10.1016/j.jad.2019.04.008",
+      "char_length": 316
+    },
+    {
+      "ref_no": 7,
+      "raw_text": "Broekhuis, M., Dekker-van Weering, M., Schuit, C., Schürz, S., & van Velsen, L. (2021). Designing a stakeholder-inclusive service model for an eHealth service to support older adults in an active and social life. BMC Health Services Research, 1-17. https://doi.org/10.1186/s12913-021-06597-9",
+      "char_length": 291
+    },
+    {
+      "ref_no": 8,
+      "raw_text": "Gaffney, H., Mansell, W., & Tai, S. (2019). Conversational Agents in the Treatment of Mental Health Problems: Mixed-Method Systematic Review. JMIR Mental Health, e14166. https://doi.org/10.2196/14166",
+      "char_length": 199
+    },
+    {
+      "ref_no": 9,
+      "raw_text": "Hill, R., Betts, L. R., & Gardner, S. E. (2015). Older adults’ experiences and perceptions of digital technology: (Dis)empowerment, wellbeing, and inclusion. Computers in Human Behavior, 415-423. https://doi.org/10.1016/j.chb.2015.01.062",
+      "char_length": 237
+    },
+    {
+      "ref_no": 10,
+      "raw_text": "Holland, J. M., Neimeyer, R. A., Boelen, P. A., & Prigerson, H. G. (2009). The Underlying Structure of Grief: A Taxometric Investigation of Prolonged and Normal Reactions to Loss. Journal of Psychopathology and Behavioral Assessment, 190-201. https://doi.org/10.1007/s10862-008-9113-1",
+      "char_length": 284
+    },
+    {
+      "ref_no": 11,
+      "raw_text": "Iversen, T. N., Larsen, L., & Solem, P. E. (2009). A conceptual analysis of Ageism. Nordic Psychology, 4-22. https://doi.org/10.1027/1901-2276.61.3.4",
+      "char_length": 149
+    },
+    {
+      "ref_no": 12,
+      "raw_text": "Kramer, L. L., Ter Stal, S., Mulder, B. C., de Vet, E., & van Velsen, L. (2020). Developing Embodied Conversational Agents for Coaching People in a Healthy Lifestyle: Scoping Review. Journal of Medical Internet Research, e14058. https://doi.org/10.2196/14058",
+      "char_length": 258
+    },
+    {
+      "ref_no": 13,
+      "raw_text": "LeRouge, C., Ma, J., Sneha, S., & Tolle, K. (2013). User profiles and personas in the design and development of consumer health technologies. International Journal of Medical Informatics, e251-e268. https://doi.org/10.1016/j.ijmedinf.2011.03.006",
+      "char_length": 245
+    },
+    {
+      "ref_no": 14,
+      "raw_text": "Lundorff, M., Holmgren, H., Zachariae, R., Farver-Vestergaard, I., & O'Connor, M. (2017). Prevalence of prolonged grief disorder in adult bereavement: A systematic review and meta-analysis. Journal of Affective Disorders, 138-149. https://doi.org/10.1016/j.jad.2017.01.030",
+      "char_length": 272
+    },
+    {
+      "ref_no": 15,
+      "raw_text": "March, S., Day, J., Ritchie, G., Rowe, A., Gough, J., Hall, T., Yuen, C. Y. J., Donovan, C. L., & Ireland, M. (2018). Attitudes Toward e-Mental Health Services in a Community Sample of Adults: Online Survey. Journal of Medical Internet Research, e59. https://doi.org/10.2196/jmir.9109",
+      "char_length": 284
+    },
+    {
+      "ref_no": 16,
+      "raw_text": "Albury, C., Hall, A., Syed, A., Ziebland, S., Stokoe, E., Roberts, N., Webb, H., & Aveyard, P. (2019). Communication practices for delivering health behaviour change conversations in primary care: A systematic review and thematic synthesis. BMC Family Practice, 20(1). https://doi.org/10.1186/s12875-019-0992-x",
+      "char_length": 310
+    },
+    {
+      "ref_no": 17,
+      "raw_text": "Albury, C., Webb, H., Ziebland, S., Aveyard, P., & Stokoe, E. (2022). What happens when patients say “no” to offers of referral for weight loss? - Results and recommendations from a conversation analysis of primary care interactions. Patient Education and Counseling, 105(3), 524-533. https://doi.org/10.1016/j.pec.2021.08.017",
+      "char_length": 326
+    },
+    {
+      "ref_no": 18,
+      "raw_text": "Albury, C., Ziebland, S., Webb, H., Stokoe, E., & Aveyard, P. (2020). Discussing weight loss opportunistically and effectively in family practice: A qualitative study of clinical interactions using conversation analysis in UK family practice. Family Practice, 38(3), 321-328. https://doi.org/10.1093/fampra/cmaa121",
+      "char_length": 314
+    },
+    {
+      "ref_no": 19,
+      "raw_text": "Ananthakumar, T., Jones, N. R., Hinton, L., & Aveyard, P. (2020). Clinical encounters about obesity: Systematic review of patients’ perspectives. Clinical Obesity, 10(1). https://doi.org/10.1111/cob.12347",
+      "char_length": 204
+    },
+    {
+      "ref_no": 20,
+      "raw_text": "Aveyard, P., Lewis, A., Tearne, S., Hood, K., Christian-Brown, A., Adab, P., Begh, R., Jolly, K., Daley, A., Farley, A., Lycett, D., Nickless, A., Yu, L. M., Retat, L., Webber, L., Pimpin, L., & Jebb, S. A. (2016). Screening and brief intervention for obesity in primary care: A parallel, two-arm, randomised trial. Lancet, 388(10059), 2492-2500. https://doi.org/10.1016/S0140-6736(16)31893-1",
+      "char_length": 392
+    },
+    {
+      "ref_no": 21,
+      "raw_text": "Beach, W. A., & Prickett, E. (2017). Laughter, humor, and cancer: Delicate moments and poignant interactional circumstances. Health Communication, 32(7), 791-802. https://doi.org/10.1080/10410236.2016.1172291",
+      "char_length": 208
+    },
+    {
+      "ref_no": 22,
+      "raw_text": "Bergen, C. (2020). The conditional legitimacy of behavior change advice in primary care. Social Science & Medicine, 255. https://doi.org/10.1016/j.socscimed.2020.112985",
+      "char_length": 168
+    },
+    {
+      "ref_no": 23,
+      "raw_text": "Bergen, C., & Stivers, T. (2013). Patient disclosure of medical misdeeds. Journal of Health and Social Behavior, 54(2), 221-240. https://doi.org/10.1177/0022146513487379",
+      "char_length": 169
+    },
+    {
+      "ref_no": 24,
+      "raw_text": "Blackburn, M., & Stathi, A. (2019). Moral discourse in general practitioners’ accounts of obesity communication. Social Science & Medicine, 230, 166-173. https://doi.org/10.1016/j.socscimed.2019.03.032",
+      "char_length": 201
+    },
+    {
+      "ref_no": 25,
+      "raw_text": "Bloch, S., & Antaki, C. (2022). How professionals deal with clients’ explicit objections to their advice. Discourse Studies, 24(4), 385-403. https://doi.org/10.1177/14614456221110669",
+      "char_length": 182
+    },
+    {
+      "ref_no": 26,
+      "raw_text": "Bolden, G. B. (2009). Implementing incipient actions: The discourse marker ‘so’ in English conversation. Journal of Pragmatics, 41(5), 974-998. https://doi.org/10.1016/j.pragma.2008.10.004",
+      "char_length": 188
+    },
+    {
+      "ref_no": 27,
+      "raw_text": "Busetto, L., Sbraccia, P., & Vettor, R. (2022). Obesity management: At the forefront against disease stigma and therapeutic inertia. Eating and Weight Disorders - Studies on Anorexia, Bulimia and Obesity, 27(2), 761-768. https://doi.org/10.1007/s40519-021-01217-1",
+      "char_length": 263
+    },
+    {
+      "ref_no": 28,
+      "raw_text": "Department of Health and Social Care (2020). Tackling Obesity: Empowering Adults and Children to Live Healthy Lives.",
+      "char_length": 116
+    },
+    {
+      "ref_no": 29,
+      "raw_text": "Ekberg, K., & LeCouteur, A. (2015). Clients’ resistance to therapists’ proposals: Managing epistemic and deontic status. Journal of Pragmatics, 90, 12-25. https://doi.org/10.1016/j.pragma.2015.10.004",
+      "char_length": 199
+    },
+    {
+      "ref_no": 30,
+      "raw_text": "Glenn, P. (2003). Laughter in interaction.",
+      "char_length": 42
+    },
+    {
+      "ref_no": 31,
+      "raw_text": "Abdullah, K., Noor, N. M., & Wok, S. (2008). The perceptions of women’s roles and progress: a study of Malay women. Soc. Indic. Res., 89, 439-455. https://doi.org/10.1007/s11205-008-9242-7",
+      "char_length": 188
+    },
+    {
+      "ref_no": 32,
+      "raw_text": "Ackert, M., Maglakelidze, E., Badurashvili, I., & Huber, S. (2020a). Validation of the short forms of the centrality of religiosity scale in Georgia. Religions, 11, 1-22. https://doi.org/10.3390/rel11020057",
+      "char_length": 206
+    },
+    {
+      "ref_no": 33,
+      "raw_text": "Ackert, M., & Plopeanu, A.-P. (2021). Short forms of the centrality of religiosity scale: validation and application in the context of religious individualism of orthodox and Pentecostal Christians in Romania. Religions, 12, 1-29. https://doi.org/10.3390/rel12010009",
+      "char_length": 266
+    },
+    {
+      "ref_no": 34,
+      "raw_text": "Ackert, M., Prutskova, E., & Zabaev, I. (2020b). Validation of the short forms of centrality of religiosity scale in Russia. Religions, 11, 1-35. https://doi.org/10.3390/rel11110577",
+      "char_length": 181
+    },
+    {
+      "ref_no": 35,
+      "raw_text": "Aday, R. H. (1985). Belief in afterlife and death anxiety: correlates and comparisons. OMEGA J. Death Dying, 15, 67-75. https://doi.org/10.2190/GYPP-VBG3-M3AY-1ML9",
+      "char_length": 163
+    },
+    {
+      "ref_no": 36,
+      "raw_text": "Adelirad, F., Sabahiazar, K., Asghari-Jafarabadi, M., Namjoo, S., Chattu, V. K., & Allahverdipour, H. (2021). Gender difference about death anxiety among older adults: structural equation model. Psychogeriatrics, 21, 296-303. https://doi.org/10.1111/psyg.12663",
+      "char_length": 260
+    },
+    {
+      "ref_no": 37,
+      "raw_text": "Agency for Integrated Care (2023).",
+      "char_length": 34
+    },
+    {
+      "ref_no": 38,
+      "raw_text": "Allport, G. W., & Ross, J. M. (1967). Personal religious orientation and prejudice. J. Pers. Soc. Psychol., 5, 432-443. https://doi.org/10.1037/h0021212",
+      "char_length": 152
+    },
+    {
+      "ref_no": 39,
+      "raw_text": "Ang, G., Zhang, D., & Lim, K. (2016). Differences in attitudes to end-of-life care among patients, relatives and healthcare professionals. Singapore Med. J., 57, 22-28. https://doi.org/10.11622/smedj.2016008",
+      "char_length": 207
+    },
+    {
+      "ref_no": 40,
+      "raw_text": "Batson, C. D., Schoenrade, P., Ventis, W. L., & Batson, C. D. (1993). Religion and the individual: A social-psychological perspective.",
+      "char_length": 134
+    },
+    {
+      "ref_no": 41,
+      "raw_text": "Beck, R., & Jessup, R. K. (2004). The multidimensional nature of quest motivation. J. Psychol. Theol., 32, 283-294. https://doi.org/10.1177/009164710403200401",
+      "char_length": 158
+    },
+    {
+      "ref_no": 42,
+      "raw_text": "Bengtson, V. L., Silverstein, M., Putney, N. M., & Harris, S. C. (2015). Does religiousness increase with age? Age changes and generational differences over 35 years. J. Sci. Study Relig., 54, 363-379. https://doi.org/10.1111/jssr.12183",
+      "char_length": 236
+    },
+    {
+      "ref_no": 43,
+      "raw_text": "Bruce, S. (2011). Defining religion: a practical response. Int. Rev. Sociol., 21, 107-120. https://doi.org/10.1080/03906701.2011.544190",
+      "char_length": 135
+    },
+    {
+      "ref_no": 44,
+      "raw_text": "Bryukhanov, M., & Fedotenkov, I. (2023). Gender differences in religiosity: a report on Russian data. J. Gend. Stud., 32, 107-123. https://doi.org/10.1080/09589236.2021.1962702",
+      "char_length": 176
+    },
+    {
+      "ref_no": 45,
+      "raw_text": "Burke, B. L., Martens, A., & Faucher, E. H. (2010). Two decades of terror management theory: a meta-analysis of mortality salience research. Personal. Soc. Psychol. Rev., 14, 155-195. https://doi.org/10.1177/1088868309352321",
+      "char_length": 224
+    }
+  ]
+}
