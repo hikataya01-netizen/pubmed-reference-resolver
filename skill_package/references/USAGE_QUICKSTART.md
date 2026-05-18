@@ -4,7 +4,7 @@
 
 **作成日**: 2026/05/02 (Day7 = Phase ζ で同梱)
 **最終更新**: 2026/05/16 (Day15、§X 変更履歴参照)
-**バージョン**: 1.4
+**バージョン**: 1.5
 **対象**: 本スキルを利用する全ての利用者
 **配置**: `skill_package/references/USAGE_QUICKSTART.md` (symlink 経由で `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md` でも読み出し可能)
 
@@ -331,6 +331,19 @@ journal_audit のデフォルト閾値:
 
 ## X. 変更履歴
 
+### バージョン 1.5 (2026/05/18、Day17 更新)
+
+Day17 で Day7 §9.3 long-term task の 5 件目 (Cell 系 golden fixture) を完了 (commits `c4ac9c8`, `4fcb1a6`, `94478fe`, `9527fc0`, `c9712d9`):
+
+- **regression 保護対象の拡張**: Day9 Vancouver Veto + Day16 拡張 regex の検証対象を **Cell-style** (iScience Cell Press × 3 論文計 45 件) にも拡張. `tests/fixtures/cell_45refs/` 新設、`tests/test_integration_cell_45refs.py` に 8 tests 追加. 既存 89 passed → 97 passed.
+- **Day15 三分類 audit baseline の Cell 適用記録**: `baseline_three_class_classification.json` で {A=14, B=0, C=0, unknown=1} を凍結. Day16 (SSL 問題で大半 unknown) と対照的に、Day17 では Crossref が正常動作し A=14 と多発. ただし AI 工学領域 (PMC12915276) の book/web/proceedings refs を「真の捏造」と誤判定している可能性あり → Day18+ で false positive 抑制改修候補.
+- **新規 tool 追加**: `tools/build_cell_fixture.py` (439 行) で PMC OA Cell Press 論文から JATS XML 経由で Cell-style docx を再現生成可能. `tools/build_apa_fixture.py` を template に複写 + `_normalize_initials(cell_mode)` / `_format_authors(cell_mode)` 拡張 + `format_as_cell` 新規追加.
+- **production code 改修なし**: Day16 で Vancouver Veto regex を `\((?:19|20)\d{2}[a-z]?\)` に拡張済のため、Cell の `(YYYY)` も既に reject. production code 変更ゼロで Cell 系 regression 保護を達成.
+
+解決率比較 (3 fixture): Vancouver 91.7% > Cell 66.7% > APA 55.6%.
+
+参照: `docs/sessions/day17/SPEC_cell_45refs_fixture.md`, `docs/sessions/day17/PLAN_cell_45refs_fixture.md`, `docs/sessions/day17/DAY17_LESSONS_LEARNED.md`.
+
 ### バージョン 1.4 (2026/05/17、Day16 更新)
 
 Day16 で Day7 §9.3 long-term task の 4 件目 (APA / Cell 系 golden fixture) を APA に絞って完了 (commits `c35211f`, `d6e31c3`, `f7d5cb2`, `07eb100`):
@@ -377,10 +390,10 @@ Day9 で発見・実装された Vancouver Veto と (Z) 実機検証データを
 
 ---
 
-**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (1.1 更新)、2026/05/13 (1.2 更新)、2026/05/16 (1.3 更新)、2026/05/17 (1.4 更新)
-**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1, 1.2, 1.3, 1.4)
+**作成日**: 2026/05/02 (バージョン 1.0)、2026/05/11 (1.1 更新)、2026/05/13 (1.2 更新)、2026/05/16 (1.3 更新)、2026/05/17 (1.4 更新)、2026/05/18 (1.5 更新)
+**作成者**: Claude Opus 4.7 (1.0)、Claude Code Sonnet 4.6 (1.1, 1.2, 1.3, 1.4, 1.5)
 **ファイル名**: `USAGE_QUICKSTART.md`
 **配置**: `skill_package/references/USAGE_QUICKSTART.md`
 **symlink 経由パス**: `~/.claude/skills/pubmed-reference-resolver/references/USAGE_QUICKSTART.md`
 **メンテナ**: 片山英樹 (Hideki Katayama)
-**バージョン**: **1.4** (Day16 更新、APA 7 regression 保護 + Vancouver Veto regex 拡張)
+**バージョン**: **1.5** (Day17 更新、Cell 系 regression 保護追加、production code 改修ゼロ)
