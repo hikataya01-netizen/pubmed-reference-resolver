@@ -1,6 +1,6 @@
 # pubmed-reference-resolver
 
-[![tests](https://github.com/hikataya01/pubmed-reference-resolver/actions/workflows/tests.yml/badge.svg)](https://github.com/hikataya01/pubmed-reference-resolver/actions/workflows/tests.yml)
+[![tests](https://github.com/hikataya01-netizen/pubmed-reference-resolver/actions/workflows/tests.yml/badge.svg)](https://github.com/hikataya01-netizen/pubmed-reference-resolver/actions/workflows/tests.yml)
 
 査読対象論文の References セクション (PDF / DOCX / TXT) から各文献を PubMed で逆引き検索し、
 PubMed 純正互換 CSV + 番号付き abstract text + 統合監査レポートの 3 ファイルを自動生成する
@@ -20,7 +20,7 @@ PubMed 純正互換 CSV + 番号付き abstract text + 統合監査レポート�
 ## インストール
 
 ```bash
-git clone git@github.com:hikataya01/pubmed-reference-resolver.git
+git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 cd pubmed-reference-resolver
 pip install -r requirements.txt
 ```

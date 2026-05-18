@@ -39,7 +39,7 @@ Day18 では scope を **Private push に絞り** (公開切替は Day19+)、sec
 | Q1 | 公開 vs プライベート | **(段階) まず Private で push、後で公開切替** |
 | Q2 | Day18 scope | **(充実) remote+push + secret scan + .gitignore + README 更新** |
 | Q3 | Repository 名 | **`pubmed-reference-resolver` (同一)** |
-| Q4 | GitHub owner | **`hikataya01` (個人アカウント)** |
+| Q4 | GitHub owner | **`hikataya01-netizen` (個人アカウント、Phase 3 で `gh auth status` により判明、`hikataya01` から修正)** |
 | Approach | 全体戦略 | **(A) gitleaks + gh CLI + 実質的 README 更新** |
 
 ---
@@ -73,7 +73,7 @@ Day18 では scope を **Private push に絞り** (公開切替は Day19+)、sec
 
 ### 外部システム変更
 
-- GitHub 上に `hikataya01/pubmed-reference-resolver` (**Private**) を新規作成
+- GitHub 上に `hikataya01-netizen/pubmed-reference-resolver` (**Private**) を新規作成
 - local repo に `origin` remote (SSH URL) を設定
 - 全 68 commits + Day18 で追加される 4-6 commits を `git push -u origin main`
 
@@ -187,7 +187,7 @@ __pycache__/ / *.pyc / .pytest_cache/  # Python
   # pubmed-reference-resolver
 
 - [![tests](https://github.com/<owner>/pubmed-reference-resolver/actions/workflows/tests.yml/badge.svg)](https://github.com/<owner>/pubmed-reference-resolver/actions/workflows/tests.yml)
-+ [![tests](https://github.com/hikataya01/pubmed-reference-resolver/actions/workflows/tests.yml/badge.svg)](https://github.com/hikataya01/pubmed-reference-resolver/actions/workflows/tests.yml)
++ [![tests](https://github.com/hikataya01-netizen/pubmed-reference-resolver/actions/workflows/tests.yml/badge.svg)](https://github.com/hikataya01-netizen/pubmed-reference-resolver/actions/workflows/tests.yml)
 ```
 
 #### (b) Line 27-32: git clone URL 明示
@@ -195,7 +195,7 @@ __pycache__/ / *.pyc / .pytest_cache/  # Python
 ```diff
   ```bash
 - git clone <repository-url>
-+ git clone git@github.com:hikataya01/pubmed-reference-resolver.git
++ git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
   cd pubmed-reference-resolver
   pip install -r requirements.txt
   ```
@@ -277,7 +277,7 @@ gh auth status
 
 #### Step 2: Private repository 作成
 ```bash
-gh repo create hikataya01/pubmed-reference-resolver \
+gh repo create hikataya01-netizen/pubmed-reference-resolver \
   --private \
   --source=. \
   --description "PubMed reference resolver / 査読支援スキル (References → PubMed 逆引き + 統合監査レポート)" \
@@ -287,12 +287,12 @@ gh repo create hikataya01/pubmed-reference-resolver \
 #### Step 3: Remote URL 確認 + SSH 設定
 ```bash
 git remote -v
-# 期待: origin  git@github.com:hikataya01/pubmed-reference-resolver.git
+# 期待: origin  git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 ```
 
 HTTPS で設定された場合:
 ```bash
-git remote set-url origin git@github.com:hikataya01/pubmed-reference-resolver.git
+git remote set-url origin git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 ```
 
 #### Step 4: Push main branch
@@ -355,8 +355,8 @@ gh repo view --web
 | 5 | README badge owner 置換済 | `! grep '<owner>' README.md` (空) |
 | 6 | README test count 97 反映 | `grep '97 passed' README.md` |
 | 7 | README fixture table 4 行 | `grep -c 'mdpi_149refs\|vancouver_24refs\|apa_45refs\|cell_45refs' README.md` ≥ 4 |
-| 8 | GitHub repo 作成済 (Private) | `gh repo view hikataya01/pubmed-reference-resolver --json visibility \| jq '.visibility'` = "PRIVATE" |
-| 9 | local origin remote 設定済 (SSH) | `git remote -v` で `git@github.com:hikataya01/...` |
+| 8 | GitHub repo 作成済 (Private) | `gh repo view hikataya01-netizen/pubmed-reference-resolver --json visibility \| jq '.visibility'` = "PRIVATE" |
+| 9 | local origin remote 設定済 (SSH) | `git remote -v` で `git@github.com:hikataya01-netizen/...` |
 | 10 | main branch push 成功 | `git push -u origin main` 終了 + `git status` clean |
 | 11 | GitHub Actions 1 回以上成功 | `gh run list --limit 1 \| grep success` |
 | 12 | Day18 archive (5 files) commit + push | `ls docs/sessions/day18/`, all 5 files exist + pushed |

@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** ローカルの 68 commits を GitHub Private repository `hikataya01/pubmed-reference-resolver` に push し、secret scan で安全性を確認、`.gitignore` を最終化、README を Day17 末状態 (97 tests、4 fixture) に更新、CI 動作を確認することで、Day7 §9.3 残タスクの 6/7 を完了する.
+**Goal:** ローカルの 68 commits を GitHub Private repository `hikataya01-netizen/pubmed-reference-resolver` に push し、secret scan で安全性を確認、`.gitignore` を最終化、README を Day17 末状態 (97 tests、4 fixture) に更新、CI 動作を確認することで、Day7 §9.3 残タスクの 6/7 を完了する.
 
 **Architecture:** ローカル → GitHub の片方向 push. production code / test / fixture には一切手を付けず、docs 更新 (README + Day18 archive 4 ファイル) と meta 設定 (.gitignore 修正 + remote 配線) のみ. secret scan は gitleaks (industry standard) で full git history を scan し、結果を `docs/sessions/day18/SECRET_SCAN_REPORT.md` に evidence として永続記録.
 
@@ -40,7 +40,7 @@
 
 ### 外部システム変更 (Git 履歴に commit を残さない操作)
 
-- GitHub 上に `hikataya01/pubmed-reference-resolver` (Private) を新規作成
+- GitHub 上に `hikataya01-netizen/pubmed-reference-resolver` (Private) を新規作成
 - local repo に `origin` remote (SSH URL) を設定
 - 全 commits を `git push -u origin main`
 
@@ -305,7 +305,7 @@ Edit `README.md`, line 1-9 を以下に置換:
 ```markdown
 # pubmed-reference-resolver
 
-[![tests](https://github.com/hikataya01/pubmed-reference-resolver/actions/workflows/tests.yml/badge.svg)](https://github.com/hikataya01/pubmed-reference-resolver/actions/workflows/tests.yml)
+[![tests](https://github.com/hikataya01-netizen/pubmed-reference-resolver/actions/workflows/tests.yml/badge.svg)](https://github.com/hikataya01-netizen/pubmed-reference-resolver/actions/workflows/tests.yml)
 ```
 
 - [ ] **Step 3: 修正 (b) — git clone URL 明示**
@@ -321,7 +321,7 @@ pip install -r requirements.txt
 
 新:
 ```bash
-git clone git@github.com:hikataya01/pubmed-reference-resolver.git
+git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 cd pubmed-reference-resolver
 pip install -r requirements.txt
 ```
@@ -466,7 +466,7 @@ echo "[e] tools/ in project structure:" && grep "tools/" README.md | head -2
 
 Expected:
 - [a] `0` (空)
-- [b] `git clone git@github.com:hikataya01/pubmed-reference-resolver.git`
+- [b] `git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git`
 - [c] 1 行存在
 - [d] >= 4 (fixture table + プロジェクト構成 で計 8 出現)
 - [e] `├── tools/` と `│   ├── build_apa_fixture.py` 等
@@ -481,10 +481,10 @@ docs(readme): update README to Day17 末 state (Day18 Phase 2)
 README.md を Day17 末状態 (97 tests / 4 fixture / Day9-17 で追加された
 全ファイル) に更新. 5 箇所修正:
 
-(a) CI badge owner placeholder <owner> を hikataya01 に置換、案内コメント
+(a) CI badge owner placeholder <owner> を hikataya01-netizen に置換、案内コメント
     削除.
 (b) git clone <repository-url> を実 SSH URL
-    (git@github.com:hikataya01/pubmed-reference-resolver.git) に置換.
+    (git@github.com:hikataya01-netizen/pubmed-reference-resolver.git) に置換.
 (c) テスト数を 52 → 97 に更新、Day17 末状態と注記.
 (d) 「149 件ゴールドスタンダード」section を「ゴールドスタンダード
     fixture (4 系統)」に拡張. mdpi_149refs / vancouver_24refs /
@@ -519,7 +519,7 @@ gh --version
 gh auth status
 ```
 
-Expected: `gh version 2.x.x` + `Logged in to github.com as hikataya01`.
+Expected: `gh version 2.x.x` + `Logged in to github.com as hikataya01-netizen`.
 
 ⚠️ 未インストール: `brew install gh`
 ⚠️ 未認証: `gh auth login` (ブラウザ経由 OAuth)
@@ -538,7 +538,7 @@ git remote remove origin  # (もし存在すれば)
 - [ ] **Step 3: GitHub Private repository 作成**
 
 ```bash
-gh repo create hikataya01/pubmed-reference-resolver \
+gh repo create hikataya01-netizen/pubmed-reference-resolver \
   --private \
   --source=. \
   --description "PubMed reference resolver / 査読支援スキル (References → PubMed 逆引き + 統合監査レポート)" \
@@ -547,11 +547,11 @@ gh repo create hikataya01/pubmed-reference-resolver \
 
 Expected: 
 ```
-✓ Created repository hikataya01/pubmed-reference-resolver on GitHub
-✓ Added remote git@github.com:hikataya01/pubmed-reference-resolver.git
+✓ Created repository hikataya01-netizen/pubmed-reference-resolver on GitHub
+✓ Added remote git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 ```
 
-⚠️ 既存同名 repo 検出 (`Error: GraphQL: Name already exists`): `gh repo view hikataya01/pubmed-reference-resolver` で既存 repo を確認、別名検討 (ユーザー再承認 gate).
+⚠️ 既存同名 repo 検出 (`Error: GraphQL: Name already exists`): `gh repo view hikataya01-netizen/pubmed-reference-resolver` で既存 repo を確認、別名検討 (ユーザー再承認 gate).
 
 - [ ] **Step 4: Remote URL を SSH に確認 + 必要なら変更**
 
@@ -561,13 +561,13 @@ git remote -v
 
 Expected:
 ```
-origin  git@github.com:hikataya01/pubmed-reference-resolver.git (fetch)
-origin  git@github.com:hikataya01/pubmed-reference-resolver.git (push)
+origin  git@github.com:hikataya01-netizen/pubmed-reference-resolver.git (fetch)
+origin  git@github.com:hikataya01-netizen/pubmed-reference-resolver.git (push)
 ```
 
 ⚠️ HTTPS で設定された場合 (`https://github.com/...`): SSH に変更:
 ```bash
-git remote set-url origin git@github.com:hikataya01/pubmed-reference-resolver.git
+git remote set-url origin git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 ```
 
 - [ ] **Step 5: Push main branch**
@@ -580,7 +580,7 @@ Expected: 全 commits + Day18 の commits が push される. 出力例:
 ```
 Enumerating objects: ..., done.
 ...
-To github.com:hikataya01/pubmed-reference-resolver.git
+To github.com:hikataya01-netizen/pubmed-reference-resolver.git
  * [new branch]      main -> main
 branch 'main' set up to track 'origin/main' from 'origin'.
 ```
@@ -592,14 +592,14 @@ branch 'main' set up to track 'origin/main' from 'origin'.
 - [ ] **Step 6: GitHub repository visibility 確認 (Private であることの再確認)**
 
 ```bash
-gh repo view hikataya01/pubmed-reference-resolver --json visibility,url,defaultBranchRef | jq
+gh repo view hikataya01-netizen/pubmed-reference-resolver --json visibility,url,defaultBranchRef | jq
 ```
 
 Expected:
 ```json
 {
   "visibility": "PRIVATE",
-  "url": "https://github.com/hikataya01/pubmed-reference-resolver",
+  "url": "https://github.com/hikataya01-netizen/pubmed-reference-resolver",
   "defaultBranchRef": { "name": "main" }
 }
 ```
@@ -723,7 +723,7 @@ Day18 終了時点で repo は GitHub **Private** に配置されている. Publ
 1. LICENSE 追加 (MIT 推奨、Day19+ で議論)
 2. CHANGELOG.md 更新 (Day8-18 を整理)
 3. README full restructure (badges, TOC, 図解等)
-4. `gh repo edit hikataya01/pubmed-reference-resolver --visibility public`
+4. `gh repo edit hikataya01-netizen/pubmed-reference-resolver --visibility public`
 5. 公開直後の追加 secret scan + 手動目視確認
 
 ## ディレクトリ命名規約
@@ -797,7 +797,7 @@ Day17 末時点で Day7 §9.3 long-term task の残 2 件 (GitHub push、MCP/hoo
 ### Phase 3: GitHub repo 作成 + push + CI 確認 (commit なし)
 
 - Task 4 (controller 直接実行、外部操作):
-  - `gh repo create hikataya01/pubmed-reference-resolver --private --source=.` で 1 コマンド作成
+  - `gh repo create hikataya01-netizen/pubmed-reference-resolver --private --source=.` で 1 コマンド作成
   - SSH URL で remote 配線
   - `git push -u origin main` で全 commits push
   - GitHub Actions が trigger され、Python 3.11/3.12 で 97 tests 全 pass を確認
@@ -855,7 +855,7 @@ Phase 3 (GitHub repo 作成 + push) は外部 system 操作で git commit を生
 | Visibility | **PRIVATE** |
 | Default branch | main |
 | Pushed commits | <N> (Day18 含) |
-| Remote URL | git@github.com:hikataya01/pubmed-reference-resolver.git (SSH) |
+| Remote URL | git@github.com:hikataya01-netizen/pubmed-reference-resolver.git (SSH) |
 
 ### 4.3 CI 動作確認
 
@@ -978,7 +978,7 @@ Day18 セッション完了に伴う archive:
 - PLAN_github_private_push.md: writing-plans 出力の実装計画
 
 主成果:
-- GitHub Private repository (hikataya01/pubmed-reference-resolver) 作成
+- GitHub Private repository (hikataya01-netizen/pubmed-reference-resolver) 作成
 - 全 commits push 完了、GitHub Actions で 97 tests 全 pass 確認
 - secret scan (gitleaks + 手動 grep 5 patterns) で clean evidence 確立
 - README を Day17 末状態 (97 tests / 4 fixture / Day8-17 構成) に更新
@@ -1028,7 +1028,7 @@ echo "[4] .DS_Store gitignored:" && grep ".DS_Store" .gitignore && \
 echo "[5] README badge owner clean:" && (grep -q "<owner>" README.md && echo "FAIL: <owner> still present" || echo "OK") && \
 echo "[6] README 97 passed:" && grep "97 passed" README.md && \
 echo "[7] README 4 fixture mentions:" && grep -c 'mdpi_149refs\|vancouver_24refs\|apa_45refs\|cell_45refs' README.md && \
-echo "[8] GitHub repo PRIVATE:" && gh repo view hikataya01/pubmed-reference-resolver --json visibility --jq '.visibility' && \
+echo "[8] GitHub repo PRIVATE:" && gh repo view hikataya01-netizen/pubmed-reference-resolver --json visibility --jq '.visibility' && \
 echo "[9] origin remote SSH:" && git remote -v | head -1 && \
 echo "[10] push success + clean tree:" && git status --short && \
 echo "[11] CI success:" && gh run list --limit 1 --json conclusion --jq '.[0].conclusion' && \
