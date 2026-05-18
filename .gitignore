@@ -18,3 +18,7 @@ __pycache__/
 
 # Editor save backups (nano *.save, etc.)
 *.save
+
+# macOS Finder metadata
+.DS_Store
+**/.DS_Store
