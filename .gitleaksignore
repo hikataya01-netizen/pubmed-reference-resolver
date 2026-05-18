@@ -1,0 +1,14 @@
+# gitleaks suppression list
+#
+# Each line is a fingerprint of the form:
+#   <commit-sha>:<file>:<rule-id>:<line>
+#
+# All suppressions below are documented false positives where the
+# matched string is a synthetic test fixture (literal "test" in the
+# value), not a real secret. See docs/sessions/day18/SECRET_SCAN_REPORT.md
+# for the full rationale.
+
+# tests/test_env_loader.py:40 — synthetic NCBI test fixture ("ncbi-test-67890")
+# used in @pytest.fixture env_file_in_cwd to verify .env loader logic.
+# Day8 で導入された env loader regression test (Day8 PHASE_BETA で確認済).
+d49dc58e0ea89a1d5f0eabbf546824859718e48d:tests/test_env_loader.py:generic-api-key:40
