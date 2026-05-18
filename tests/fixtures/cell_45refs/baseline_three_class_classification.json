@@ -1,0 +1,166 @@
+[
+  {
+    "ref_no": 16,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1016/J.JPRA.2017.04.001"
+    }
+  },
+  {
+    "ref_no": 17,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null
+    }
+  },
+  {
+    "ref_no": 31,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null
+    }
+  },
+  {
+    "ref_no": 32,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null
+    }
+  },
+  {
+    "ref_no": 33,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Eng"
+    }
+  },
+  {
+    "ref_no": 34,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "International Conference on Trends in Electronics and Health Informatics"
+    }
+  },
+  {
+    "ref_no": 36,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "J. Int. Coop. Dev."
+    }
+  },
+  {
+    "ref_no": 37,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null
+    }
+  },
+  {
+    "ref_no": 38,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Journal of Engineered Fibers and Fabrics"
+    }
+  },
+  {
+    "ref_no": 40,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Smart Agricultural Technology"
+    }
+  },
+  {
+    "ref_no": 41,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Processes"
+    }
+  },
+  {
+    "ref_no": 42,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "International Conference on Advancements in Smart Computing and Information Security"
+    }
+  },
+  {
+    "ref_no": 43,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "2022 12th International Conference on Electrical and Computer Engineering (ICECE)"
+    }
+  },
+  {
+    "ref_no": 44,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Multimed. Tools Appl."
+    }
+  },
+  {
+    "ref_no": 45,
+    "class": "A",
+    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Computers"
+    }
+  }
+]
