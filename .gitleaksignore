@@ -12,3 +12,11 @@
 # used in @pytest.fixture env_file_in_cwd to verify .env loader logic.
 # Day8 で導入された env loader regression test (Day8 PHASE_BETA で確認済).
 d49dc58e0ea89a1d5f0eabbf546824859718e48d:tests/test_env_loader.py:generic-api-key:40
+
+# Day18 SECRET_SCAN_REPORT.md と Day18 LESSONS が、上記の synthetic fixture
+# を documented false positive の説明として quote している箇所. Day19 の
+# 公開直前再 scan で再検出 (3 件). 同 fixture を documentation で quote
+# する性質上避けられない再帰的検出のため、ここで suppression.
+c9dce0b0087445478a093eccba25f73b2933c2e1:docs/sessions/day18/DAY18_LESSONS_LEARNED.md:generic-api-key:39
+8d8c7e31e6a61237ad58da75470c59b058807c2a:docs/sessions/day18/SECRET_SCAN_REPORT.md:generic-api-key:38
+8d8c7e31e6a61237ad58da75470c59b058807c2a:docs/sessions/day18/SECRET_SCAN_REPORT.md:generic-api-key:63
