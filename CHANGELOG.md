@@ -6,6 +6,51 @@
 このプロジェクトは [セマンティックバージョニング](https://semver.org/lang/ja/) の採用を予定しています
 (v0.1.0 タグ付けは別タスクで実施予定)。
 
+## [Unreleased] - 2026-05-18
+
+### Day8-18 統合: Vancouver Veto + 4 fixture + 3 分類 audit + GitHub 公開準備
+
+Day8-18 で実装された主要機能を 6 カテゴリで集約.
+
+### Added (新規追加)
+
+- **Vancouver Veto** (`mdpi_parser.py` regex 強化, Day9 + Day16): `(YYYY)` および `(YYYYa)` を検出して MDPI fast-path から LLM path に強制 routing. APA 7 disambiguation suffix にも対応.
+- **golden fixture 3 系統**: vancouver_24refs (Day11, OneDrive 24 件)、apa_45refs (Day16, PMC OA 3 論文計 45 件)、cell_45refs (Day17, iScience 3 論文計 45 件). Day11 で確立された `expected_*` / `baseline_*` ハイブリッド命名規約準拠.
+- **3 分類 audit logic** (Day15, 新 3 module): `crossref_check.py` (Crossref DOI 実在確認)、`nlm_catalog_check.py` (NLM Catalog journal indexing 確認)、`three_class_classifier.py` (A=真の捏造 / B=MEDLINE 非収録 / C=収録誌 indexing 漏れ / unknown=fail-soft 分類). `main.py` Phase 4 で sidecar JSON 出力.
+- **build script 群** (Day16-17): `tools/build_apa_fixture.py` / `tools/build_cell_fixture.py` (PMC OA JATS XML → APA/Cell plain text → docx 自動組成).
+- **session archive 群** (Day8-18): `docs/sessions/day{8,...,18}/` に SPEC / PLAN / LESSONS / 補助 docs を継続蓄積. 全 11 セッション分.
+- **API key setup docs** (Day12): `docs/operations/SETUP_API_KEYS.md`.
+- **USAGE_QUICKSTART** 1.0 → 1.5 (Day10/14/15/17 各 bump): `skill_package/references/USAGE_QUICKSTART.md` に 3 分類 audit / 4 fixture 情報を追記.
+- **GitHub Private push** (Day18): `hikataya01-netizen/pubmed-reference-resolver`、CI 動作確認、gitleaks-based secret scan protocol 確立.
+
+### Changed (変更)
+
+- **env loader** (`main.py:load_env_files`, Day8): 空値環境変数を上書き対応 (harness サブプロセス継承時の空値問題に対処).
+- **SKILL.md / USAGE_QUICKSTART** (Day14-17): 「捏造引用 = PubMed 未ヒット」の単純化記述を 3 分類体系に書換.
+- **`.gitignore`** (Day16/18): `.cache/`, `.DS_Store` 追加.
+
+### Fixed (修正)
+
+- **MDPI parser `<collab>` 対応** (Day16, `tools/build_apa_fixture.py`): 組織著者 `<collab>` 要素から author を抽出可能に. PMC OA refs 28/37 の空抽出問題を解決.
+
+### Documentation
+
+- README.md を Day17 末状態に更新 (Day18 Phase 2): 97 tests / 4 fixture / Day8-17 構成反映.
+
+### Test 健全性推移
+
+| Day | passed | 主な追加 |
+|:---:|---:|:---|
+| Day7 末 | 52 | (baseline) |
+| Day8 末 | 56 | env loader test |
+| Day11 末 | 60 | vancouver_24refs test |
+| Day15 末 | 71 | 3 module test |
+| Day16 末 | 81 | apa_45refs test |
+| Day17 末 | 89 | cell_45refs test |
+| Day19 末 (見込) | 89 | (公開化のみ、test 改変なし) |
+
+詳細な経緯は `docs/sessions/day{8,...,18}/DAY*_LESSONS_LEARNED.md` を参照.
+
 ## [Unreleased] - 2026-04-23
 
 ### プロジェクト完結の節目
