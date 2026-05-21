@@ -159,9 +159,9 @@ Day8-18 で実装された主要機能を 6 カテゴリで集約.
 
 ## 4. README.md 拡充詳細
 
-### 4.1 修正範囲 (134 → 約 164 行、+30 行)
+### 4.1 修正範囲 (134 → 約 169 行、+35 行)
 
-3 箇所追加 + 1 箇所修正:
+4 箇所追加 + 1 箇所修正:
 
 #### (a) ファイル冒頭: badges 拡充 + TOC 追加
 
@@ -208,6 +208,31 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 Copyright (c) 2026 Hideki Katayama
 ```
 
+#### (c-pre) インストール section: .env setup 手順を追記
+
+Day18 末で `git clone ... → pip install` のみだった install 手順を、API key setup ステップで補強. 公開化に向けて onboarding 時間を短縮.
+
+旧 (Day18 末、install section):
+```bash
+git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
+cd pubmed-reference-resolver
+pip install -r requirements.txt
+```
+
+新:
+```bash
+git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
+cd pubmed-reference-resolver
+pip install -r requirements.txt
+
+# API key 設定 (Anthropic + NCBI)
+cp .env.example .env
+# .env を編集して REPLACE-WITH-YOUR-KEY を実 key に置換
+# 詳細: docs/operations/SETUP_API_KEYS.md
+```
+
+注: `.env.example` は repo root にトラック済 (Q1 brainstorming で確認、Day18 SECRET_SCAN_REPORT で clean). 実 `.env` は `.gitignore` で除外され git history に含まれない.
+
 #### (c) ファイル末尾: Acknowledgments section 追加 (License の次)
 
 ```markdown
@@ -234,9 +259,25 @@ Copyright (c) 2026 Hideki Katayama
 |:---|---:|
 | 既存 (Day18 末) | 134 |
 | (a) badges 2 個 + TOC + 空行 | +14 |
+| (c-pre) インストール section の env setup 手順 | +5 |
 | (b) License section | +5 |
 | (c) Acknowledgments section | +11 |
-| **合計** | **~164** |
+| **合計** | **~169** |
+
+### 4.4 env file 取扱いの安全性 (Day19 brainstorming 中追加確認)
+
+公開化に対する env-side リスクは確認済 (Day19 brainstorming Q4 後の追加確認):
+
+| 確認項目 | 結果 |
+|:---|:---|
+| 実 `.env` 所在 | `skill_package/.env` (1 ファイルのみ) |
+| `.gitignore` ignore | ✅ `git check-ignore` で確認 |
+| `.env` git tracked? | ✅ No |
+| `.env` git history 含有? | ✅ No |
+| Day18 gitleaks scan | ✅ 0 leaks |
+| `.env.example` tracked + placeholder safe? | ✅ Tracked、`REPLACE-WITH-YOUR-KEY` 使用 |
+
+→ Public 化に対する env-side リスクは**ゼロ**. (c-pre) で `.env.example` 利用を README に明示することで、公開後の onboarding を更に滑らかにする.
 
 ---
 
