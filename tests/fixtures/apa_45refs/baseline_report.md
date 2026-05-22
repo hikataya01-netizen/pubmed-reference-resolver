@@ -1,6 +1,6 @@
 # pubmed-reference-resolver 監査レポート
 
-**入力**: `tests/fixtures/apa_45refs/input_References.docx`  |  **実行**: 2026-05-17 20:39:08
+**入力**: `tests/fixtures/apa_45refs/input_References.docx`  |  **実行**: 2026-05-22 20:20:51
 
 ---
 
@@ -59,10 +59,10 @@ _(該当なし)_
 | 29 | Clients' resistance to therapists' proposals: Managing epis… | Journal of Pragmatics | 2015 | `10.1016/j.pragma.2015.10.004` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
 | 30 | Laughter in interaction | Cambridge University Press | 2003 | `-` | en | 書籍 (PubMed対象外) |
 | 31 | The perceptions of women's roles and progress: a study of M… | Soc. Indic. Res. | 2008 | `10.1007/s11205-008-9242-7` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
-| 32 | , & Huber, S. (2020a). Validation of the short forms of the… |  | - | `10.3390/rel11020057` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
+| 32 | Validation of the short forms of the centrality of religios… | Religions | 2020 | `10.3390/rel11020057` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
 | 33 | Short forms of the centrality of religiosity scale: validat… | Religions | 2021 | `10.3390/rel12010009` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
-| 34 | , & Zabaev, I. (2020b). Validation of the short forms of ce… |  | - | `10.3390/rel11110577` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
-| 35 | Belief in afterlife and death anxiety: correlates and compa… | OMEGA - Journal of Death and … | 1985 | `10.2190/GYPP-VBG3-M3AY-1ML9` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
+| 34 | Validation of the short forms of centrality of religiosity … | Religions | 2020 | `10.3390/rel11110577` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
+| 35 | Belief in afterlife and death anxiety: correlates and compa… | OMEGA Journal of Death and Dy… | 1985 | `10.2190/GYPP-VBG3-M3AY-1ML9` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
 | 37 |  | Agency for Integrated Care | 2023 | `-` | en | 構造化不十分（確認要） |
 | 40 | Religion and the individual: A social-psychological perspec… |  | 1993 | `-` | en | 書籍 (PubMed対象外) |
 | 41 | The multidimensional nature of quest motivation | J. Psychol. Theol. | 2004 | `10.1177/009164710403200401` | en | DOI有るが PubMed 未ヒット → 非MEDLINE収録誌/捏造DOIの可能性 |
@@ -82,22 +82,22 @@ _(該当なし)_
 | #11 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #25 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #26 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
-| #28 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
+| #28 | B | book chapter (DOI 欠落だが MEDLINE 対象外) |
 | #29 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
-| #30 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
+| #30 | B | book chapter (DOI 欠落だが MEDLINE 対象外) |
 | #31 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #32 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #33 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #34 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #35 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
-| #37 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #40 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
+| #37 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
+| #40 | B | book chapter (DOI 欠落だが MEDLINE 対象外) |
 | #41 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #42 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #43 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 | #44 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
 
-**集計**: A (真の捏造) 4 件 / B (MEDLINE 非収録誌) 0 件 / C (収録誌 indexing 漏れ) 0 件 / unknown (判定不可) 16 件
+**集計**: A (真の捏造) 0 件 / B (MEDLINE 非収録誌) 3 件 / C (収録誌 indexing 漏れ) 0 件 / unknown (判定不可) 17 件
 
 ### 参照ごとの試行詳細
 
@@ -188,9 +188,10 @@ _(該当なし)_
 #### Ref #32
 
 - **元引用**: `Ackert, M., Maglakelidze, E., Badurashvili, I., & Huber, S. (2020a). Validation of the short forms of the centrality of religiosity scale in Georgia. Religions, 11, 1-22. https://doi.org/10.3390/rel11020057`
-- **構造化結果**: , & Huber, S. (2020a). Validation of the short forms of the centrality of religiosity scale in Georgia. Religions, 11, 1-22 / - / - / DOI=10.3390/rel11020057
+- **構造化結果**: Validation of the short forms of the centrality of religiosity scale in Georgia / Religions / 2020 / DOI=10.3390/rel11020057
 - **試行経路**:
   - `[doi]` NG — no hits
+  - `[title_author_year]` NG — no hits
   - `[title_fuzzy]` NG — no hits
 
 #### Ref #33
@@ -205,15 +206,16 @@ _(該当なし)_
 #### Ref #34
 
 - **元引用**: `Ackert, M., Prutskova, E., & Zabaev, I. (2020b). Validation of the short forms of centrality of religiosity scale in Russia. Religions, 11, 1-35. https://doi.org/10.3390/rel11110577`
-- **構造化結果**: , & Zabaev, I. (2020b). Validation of the short forms of centrality of religiosity scale in Russia. Religions, 11, 1-35 / - / - / DOI=10.3390/rel11110577
+- **構造化結果**: Validation of the short forms of centrality of religiosity scale in Russia / Religions / 2020 / DOI=10.3390/rel11110577
 - **試行経路**:
   - `[doi]` NG — no hits
+  - `[title_author_year]` NG — no hits
   - `[title_fuzzy]` NG — no hits
 
 #### Ref #35
 
 - **元引用**: `Aday, R. H. (1985). Belief in afterlife and death anxiety: correlates and comparisons. OMEGA J. Death Dying, 15, 67-75. https://doi.org/10.2190/GYPP-VBG3-M3AY-1ML9`
-- **構造化結果**: Belief in afterlife and death anxiety: correlates and comparisons / OMEGA - Journal of Death and Dying / 1985 / DOI=10.2190/GYPP-VBG3-M3AY-1ML9
+- **構造化結果**: Belief in afterlife and death anxiety: correlates and comparisons / OMEGA Journal of Death and Dying / 1985 / DOI=10.2190/GYPP-VBG3-M3AY-1ML9
 - **試行経路**:
   - `[doi]` NG — no hits
   - `[title_author_year]` NG — no hits
@@ -275,20 +277,18 @@ _(該当なし)_
 
 | # | 確度 | タイトル | 備考 |
 |--:|:----:|---------|------|
-| 1 | medium | Multi-stakeholder perspectives on information communication… | Volume and issue not present in raw citation. Journal name appears truncated in… |
-| 2 | medium | Grieving in the digital era: Mapping online support for gri… | Volume and issue not present in the raw citation; pages extracted directly. DOI… |
-| 3 | medium | Service Blueprinting: A Practical Technique for Service Inn… | Volume and issue not provided in the raw citation; only page range given. |
-| 6 | medium | Evaluation of a guided internet-based self-help interventio… | Volume number is absent from the raw citation; only page range provided. DOI pr… |
-| 9 | medium | Older adults' experiences and perceptions of digital techno… | Volume number not present in the raw citation; pages extracted as given. DOI ap… |
-| 10 | medium | The Underlying Structure of Grief: A Taxometric Investigati… | Volume and issue not present in the raw citation. Pages extracted directly. DOI… |
-| 13 | medium | User profiles and personas in the design and development of… | Volume and issue not present in the raw citation. Pages given as e251-e268 (ele… |
-| 14 | medium | Prevalence of prolonged grief disorder in adult bereavement… | Volume number is missing from the raw citation; only page range provided. DOI a… |
-| 28 | low | Tackling Obesity: Empowering Adults and Children to Live He… | This is a government policy document/report, not a journal article or tradition… |
-| 30 | low | Laughter in interaction | This appears to be a book reference (no journal, volume, or pages present). Pub… |
-| 32 | low | , & Huber, S. (2020a). Validation of the short forms of the… | missing: journal,year |
-| 34 | low | , & Zabaev, I. (2020b). Validation of the short forms of ce… | missing: journal,year |
-| 37 | low |  | Incomplete reference. Only the organization name 'Agency for Integrated Care' a… |
-| 40 | low | Religion and the individual: A social-psychological perspec… | This is a book reference with no publisher information provided. The duplicate … |
+| 1 | medium | Multi-stakeholder perspectives on information communication… | Volume and issue not provided in the raw citation. Journal name inferred as 'Di… |
+| 2 | medium | Grieving in the digital era: Mapping online support for gri… | Volume and issue not provided in the raw citation; pages extracted directly. DO… |
+| 3 | medium | Service Blueprinting: A Practical Technique for Service Inn… | Volume and issue not provided in the raw citation; only page range available. |
+| 6 | medium | Evaluation of a guided internet-based self-help interventio… | Volume number is absent from the raw citation; only page range provided. DOI ap… |
+| 9 | medium | Older adults' experiences and perceptions of digital techno… | Volume number not present in the raw citation string; only page range provided.… |
+| 10 | medium | The Underlying Structure of Grief: A Taxometric Investigati… | Volume and issue not provided in the raw citation. Pages extracted directly. DO… |
+| 13 | medium | User profiles and personas in the design and development of… | Volume and issue not provided in the citation. Pages given as e251-e268 (electr… |
+| 14 | medium | Prevalence of prolonged grief disorder in adult bereavement… | Volume number is missing from the raw citation; only page range provided. DOI i… |
+| 28 | low | Tackling Obesity: Empowering Adults and Children to Live He… | This is a government policy document/report, not a journal article. Author is a… |
+| 30 | low | Laughter in interaction | This appears to be a book (monograph) with no journal, volume, or DOI informati… |
+| 37 | low |  | Incomplete reference — only the organization name (Agency for Integrated Care) … |
+| 40 | low | Religion and the individual: A social-psychological perspec… | This is a book reference with no publisher information present. The duplicate '… |
 
 ---
 
@@ -341,10 +341,10 @@ _(該当なし)_
 | 29 | — | unresolved | Journal of Pragmatics | 2015 |
 | 30 | — | unresolved | Cambridge University Pre… | 2003 |
 | 31 | — | unresolved | Soc. Indic. Res. | 2008 |
-| 32 | — | unresolved | — | — |
+| 32 | — | unresolved | Religions | 2020 |
 | 33 | — | unresolved | Religions | 2021 |
-| 34 | — | unresolved | — | — |
-| 35 | — | unresolved | OMEGA - Journal of Death… | 1985 |
+| 34 | — | unresolved | Religions | 2020 |
+| 35 | — | unresolved | OMEGA Journal of Death a… | 1985 |
 | 36 | 33576129 | doi | Psychogeriatrics | 2021 |
 | 37 | — | unresolved | Agency for Integrated Ca… | 2023 |
 | 38 | 6051769 | title_author_year | J Pers Soc Psychol | 1967 |

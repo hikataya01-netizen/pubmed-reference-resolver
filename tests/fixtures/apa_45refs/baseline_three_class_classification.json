@@ -61,13 +61,14 @@
   },
   {
     "ref_no": 28,
-    "class": "A",
-    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
     "doi_resolved": null,
     "journal_indexing": null,
     "details": {
       "doi": null,
-      "journal": "Department of Health and Social Care"
+      "journal": "Department of Health and Social Care",
+      "is_book": true
     }
   },
   {
@@ -82,13 +83,14 @@
   },
   {
     "ref_no": 30,
-    "class": "A",
-    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
     "doi_resolved": null,
     "journal_indexing": null,
     "details": {
       "doi": null,
-      "journal": "Cambridge University Press"
+      "journal": "Cambridge University Press",
+      "is_book": true
     }
   },
   {
@@ -143,24 +145,27 @@
   },
   {
     "ref_no": 37,
-    "class": "A",
-    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
     "doi_resolved": null,
     "journal_indexing": null,
     "details": {
       "doi": null,
-      "journal": "Agency for Integrated Care"
-    }
+      "crossref_journal": "Agency for Integrated Care",
+      "nlm_id": null,
+      "nlm_medlineta": null
+    },
+    "class": "unknown",
+    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
   },
   {
     "ref_no": 40,
-    "class": "A",
-    "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
     "doi_resolved": null,
     "journal_indexing": null,
     "details": {
       "doi": null,
-      "journal": null
+      "journal": null,
+      "is_book": true
     }
   },
   {

@@ -42,7 +42,7 @@
 - main.py version: post-Day15 (commit `f2b497f`)
 - pipeline 実測値:
   - **Phase 3 解決件数**: 25/45 (55.6%)
-  - **三分類分布**: A=4, B=0, C=0, unknown=16 (合計 20 件 = 未解決 ref の audit)
+  - **三分類分布**: A=0, B=3, C=0, unknown=17 (Day20 改修後実測、Day16 baseline A=4 から完全消失)
   - **report.md 重大件数**: 0
 
 ### Vancouver fixture (24refs) との対比
@@ -70,7 +70,7 @@ APA 解決率が Vancouver より低い理由 (推定):
 | 5 | `test_baseline_report_documents_audit_summary` | document-of-record | report.md 重大件数 = `0` 一致 |
 | 6 | `test_apa_paren_year_pattern_detected_in_all_refs` | parser-only | 全 45 件に `(YYYY)` 含む |
 | 7 | `test_apa_ampersand_author_separator_present` | structural | ≥20 件が `, & ` を含む |
-| 8 | `test_baseline_three_class_classification_distribution` | document-of-record | 三分類分布 = `{A=4, B=0, C=0, unknown=16}` 一致 |
+| 8 | `test_baseline_three_class_classification_distribution` | document-of-record | 三分類分布 = `{A=0, B=3, C=0, unknown=17}` 一致 (Day20 改修後) |
 
 **API key 不要**: 全 8 test は parser-only もしくは fixture 直読のため、`ANTHROPIC_API_KEY` / `NCBI_API_KEY` なしで CI 実行可能.
 

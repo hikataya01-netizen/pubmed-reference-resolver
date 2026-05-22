@@ -282,11 +282,11 @@ def test_apa_ampersand_author_separator_present():
 # -----------------------------------------------------------------------------
 
 EXPECTED_THREE_CLASS_DISTRIBUTION = {
-    "A": 4,
-    "B": 0,
+    "A": 0,
+    "B": 3,
     "C": 0,
-    "unknown": 16,
-}  # Day16 Phase 0b 実測 (README.md 参照)
+    "unknown": 17,
+}  # Day20 改修後実測 (README.md 参照、Day16 baseline A=4 から完全消失)
 
 
 def test_baseline_three_class_classification_distribution():
