@@ -1789,6 +1789,9 @@ def synthesize_outputs(
             "ref_no": ref_no,
             "doi": s.get("doi") or s.get("doi_alt"),
             "journal": s.get("journal"),
+            "is_book": s.get("is_book", False),
+            "raw_text": s.get("raw_text", ""),
+            "publisher": s.get("publisher", ""),
         })
     classifications = three_class_classifier.classify_unresolved_refs(
         unresolved_refs,
