@@ -81,11 +81,16 @@ def _fake_nlm_factory(
 
 
 def test_classify_returns_A_when_doi_missing():
-    """DOI 欠落 ref → A 分類 (LLM ハルシネーション候補)."""
+    """DOI 欠落 + journal も is_book も無い純粋 case → A 分類 (Rule 4 fallback).
+
+    Day20 改修: 旧仕様 (DOI 欠落 = 無条件 A) から、4 rule 順次評価の
+    最終 fallback (book/conference/journal 全て失敗時のみ A) に厳格化.
+    本 test は Rule 4 fallback が動作することを保証する.
+    """
     import three_class_classifier  # noqa: E402
 
     unresolved = [
-        {"ref_no": 99, "doi": None, "journal": "Some Journal"},
+        {"ref_no": 99, "doi": None, "journal": None, "is_book": False},
     ]
     result = three_class_classifier.classify_unresolved_refs(
         unresolved,
@@ -94,9 +99,125 @@ def test_classify_returns_A_when_doi_missing():
     )
     assert len(result) == 1
     assert result[0]["class"] == "A", (
-        f"DOI 欠落 → A 期待、got class={result[0].get('class')!r}"
+        f"DOI 欠落 + journal/is_book なし → A 期待 (Rule 4)、"
+        f"got class={result[0].get('class')!r}"
     )
     assert result[0]["ref_no"] == 99
+    assert (
+        "journal 不明" in result[0]["reason"]
+        or "ハルシネーション候補" in result[0]["reason"]
+    )
+
+
+def test_classify_returns_B_when_is_book_true():
+    """is_book=True ref は DOI 欠落でも B 分類される (book は MEDLINE 対象外、Rule 1).
+
+    Day20 改修: 旧仕様だと A 分類になっていたが、book は本質的に MEDLINE
+    indexing 対象外であり「真の捏造」ではない. Day17 cell_45refs #31/#32/#37
+    が該当.
+    """
+    import three_class_classifier  # noqa: E402
+
+    unresolved = [
+        {"ref_no": 31, "doi": None, "journal": "", "is_book": True},
+    ]
+
+    def fake_crossref(doi):
+        raise AssertionError("Crossref should not be called for book")
+
+    def fake_nlm(**kwargs):
+        raise AssertionError("NLM should not be called for book")
+
+    result = three_class_classifier.classify_unresolved_refs(
+        unresolved,
+        crossref_fn=fake_crossref,
+        nlm_fn=fake_nlm,
+    )
+    assert len(result) == 1
+    assert result[0]["class"] == "B", (
+        f"is_book=True → B 期待 (Rule 1)、got class={result[0].get('class')!r}"
+    )
+    assert "book" in result[0]["reason"].lower()
+    assert result[0]["ref_no"] == 31
+
+
+def test_classify_returns_B_when_conference_proceedings():
+    """journal 名に 'Conference' / 'Proceedings' / 'Workshop' 等を含む ref は B 分類 (Rule 2).
+
+    Day20 改修: conference proceedings は MEDLINE 非収録が標準的.
+    Day17 cell_45refs #34/#42/#43 が該当.
+    """
+    import three_class_classifier  # noqa: E402
+
+    unresolved = [
+        {"ref_no": 34, "doi": None,
+         "journal": "International Conference on Trends in Electronics",
+         "is_book": False},
+        {"ref_no": 42, "doi": None,
+         "journal": "Proceedings of the IEEE Workshop on ML",
+         "is_book": False},
+    ]
+
+    def fake_crossref(doi):
+        raise AssertionError("Crossref should not be called for conference")
+
+    def fake_nlm(**kwargs):
+        raise AssertionError("NLM should not be called for conference")
+
+    result = three_class_classifier.classify_unresolved_refs(
+        unresolved,
+        crossref_fn=fake_crossref,
+        nlm_fn=fake_nlm,
+    )
+    assert len(result) == 2
+    assert all(r["class"] == "B" for r in result), (
+        f"conference/proceedings → B 期待 (Rule 2)、"
+        f"got classes={[r.get('class') for r in result]!r}"
+    )
+    reasons_lower = [r["reason"].lower() for r in result]
+    assert any("conference" in r or "proceedings" in r for r in reasons_lower)
+
+
+def test_classify_calls_nlm_when_doi_missing_with_journal():
+    """DOI 欠落 + journal 名あり + 非 book + 非 conference → NLM 直接検索 (Rule 3).
+
+    Day20 改修: 旧仕様だと A 分類になっていたが、journal 名が判明していれば
+    NLM Catalog を直接検索して B/C 判定可能. Day17 cell_45refs
+    #33/#36/#38/#40/#41/#44/#45 が該当.
+    """
+    import three_class_classifier  # noqa: E402
+
+    unresolved = [
+        {"ref_no": 33, "doi": None, "journal": "Eng", "is_book": False},
+        {"ref_no": 38, "doi": None, "journal": "Journal of Engineered Fibers",
+         "is_book": False},
+    ]
+
+    nlm_calls = []
+
+    def fake_crossref(doi):
+        raise AssertionError("Crossref should not be called when DOI is missing")
+
+    def fake_nlm(**kwargs):
+        nlm_calls.append(kwargs)
+        if "Engineered" in (kwargs.get("journal_name") or ""):
+            return {"status": "Y", "nlm_id": "12345", "medlineta": "JEF"}
+        return {"status": "N", "nlm_id": None, "medlineta": None}
+
+    result = three_class_classifier.classify_unresolved_refs(
+        unresolved,
+        crossref_fn=fake_crossref,
+        nlm_fn=fake_nlm,
+    )
+    assert len(nlm_calls) == 2, (
+        f"NLM should be called for each ref, got {len(nlm_calls)} calls"
+    )
+    assert result[0]["class"] == "B", (
+        f"'Eng' (status=N) → B 期待、got {result[0]['class']!r}"
+    )
+    assert result[1]["class"] == "C", (
+        f"'Engineered Fibers' (status=Y) → C 期待、got {result[1]['class']!r}"
+    )
 
 
 def test_classify_returns_A_when_crossref_404():

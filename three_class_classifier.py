@@ -49,10 +49,92 @@ Returns:
 """
 from __future__ import annotations
 
+import re
 from typing import Any, Callable
 
 import crossref_check
 import nlm_catalog_check
+
+
+_CONFERENCE_PATTERNS = re.compile(
+    r"\b(?:conference|conf\.|proceedings|proc\.|workshop|symposium|"
+    r"symp\.|congress|meeting)\b",
+    re.IGNORECASE,
+)
+
+
+def _detect_book(ref: dict[str, Any]) -> bool:
+    """ref が book chapter か判定 (Day20 Rule 1).
+
+    is_book=True なら book と確定. フォールバック: raw_text に 'isbn'
+    含む or publisher field 在り.
+    """
+    if ref.get("is_book") is True:
+        return True
+    raw = (ref.get("raw_text") or "").lower()
+    if "isbn" in raw:
+        return True
+    if "publisher" in raw and ref.get("publisher"):
+        return True
+    return False
+
+
+def _detect_conference(journal: str | None) -> bool:
+    """journal 名に conference/proceedings/workshop 等を含むか判定 (Day20 Rule 2).
+
+    \\b 単語境界で false positive 抑制 (例: 'Annals' の 'ann' は誤検出しない).
+    """
+    if not journal:
+        return False
+    return bool(_CONFERENCE_PATTERNS.search(journal))
+
+
+def _classify_via_nlm_only(
+    ref_no: int,
+    journal: str,
+    nlm_fn: Callable[..., dict[str, Any]],
+) -> dict[str, Any]:
+    """DOI 欠落だが journal 名は判明している case の NLM 直接検索 (Day20 Rule 3).
+
+    Crossref skip して NLM Catalog で journal indexing 確認.
+    status=N → B / status=Y → C / status=None → unknown.
+    """
+    nlm = nlm_fn(journal_name=journal)
+    status = nlm.get("status")
+    base = {
+        "ref_no": ref_no,
+        "doi_resolved": None,
+        "journal_indexing": status,
+        "details": {
+            "doi": None,
+            "crossref_journal": journal,
+            "nlm_id": nlm.get("nlm_id"),
+            "nlm_medlineta": nlm.get("medlineta"),
+        },
+    }
+    if status == "N":
+        return {
+            **base,
+            "class": "B",
+            "reason": (
+                f"DOI 欠落だが journal '{journal}' は MEDLINE 非収録 "
+                "(NLM 直接検索)"
+            ),
+        }
+    if status == "Y":
+        return {
+            **base,
+            "class": "C",
+            "reason": (
+                f"DOI 欠落、journal '{journal}' は MEDLINE 収録だが "
+                "本論文単体は indexing なし"
+            ),
+        }
+    return {
+        **base,
+        "class": "unknown",
+        "reason": f"DOI 欠落 + NLM 検索でも判定不可: {nlm.get('error')}",
+    }
 
 
 def classify_unresolved_refs(
@@ -93,12 +175,47 @@ def _classify_single(
     doi = ref.get("doi")
     journal = ref.get("journal")
 
-    # DOI 欠落 or 不正形式 → A
+    # Day20 改修: DOI 欠落 case を 4 rule 順次評価に拡張
     if not doi or not str(doi).startswith("10."):
+        # Rule 1: is_book → B (book は MEDLINE 対象外)
+        if _detect_book(ref):
+            return {
+                "ref_no": ref_no,
+                "class": "B",
+                "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
+                "doi_resolved": None,
+                "journal_indexing": None,
+                "details": {"doi": doi, "journal": journal, "is_book": True},
+            }
+
+        # Rule 2: conference proceedings → B (MEDLINE 非収録が標準)
+        if _detect_conference(journal):
+            return {
+                "ref_no": ref_no,
+                "class": "B",
+                "reason": (
+                    f"conference/proceedings '{journal}' "
+                    "(MEDLINE 非収録が標準)"
+                ),
+                "doi_resolved": None,
+                "journal_indexing": None,
+                "details": {
+                    "doi": doi, "journal": journal, "conference": True,
+                },
+            }
+
+        # Rule 3: journal 名あり → NLM 直接検索 (B/C/unknown)
+        if journal:
+            return _classify_via_nlm_only(ref_no, journal, nlm_fn)
+
+        # Rule 4: 全て該当せず → A (真の判定不可)
         return {
             "ref_no": ref_no,
             "class": "A",
-            "reason": "DOI 欠落 or 不正形式 (LLM ハルシネーション候補)",
+            "reason": (
+                "DOI 欠落 + journal 不明 (真の判定不可、"
+                "LLM ハルシネーション候補)"
+            ),
             "doi_resolved": None,
             "journal_indexing": None,
             "details": {"doi": doi, "journal": journal},
