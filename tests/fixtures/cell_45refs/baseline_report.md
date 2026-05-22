@@ -1,6 +1,6 @@
 # pubmed-reference-resolver 監査レポート
 
-**入力**: `tests/fixtures/cell_45refs/input_References.docx`  |  **実行**: 2026-05-18 08:36:13
+**入力**: `tests/fixtures/cell_45refs/input_References.docx`  |  **実行**: 2026-05-22 20:13:47
 
 ---
 
@@ -64,7 +64,7 @@ _(該当なし)_
 | 36 | Gio-nigeria economic relations on the development of the ni… | J. Int. Coop. Dev. | 2024 | `-` | en | DOI無し・タイトル検索失敗 → 非MEDLINE収録誌の可能性 |
 | 37 | Knitting Food: Food and Eco-textiles: New Perspectives for … |  | 2024 | `-` | en | 書籍 (PubMed対象外) |
 | 38 | Development of a standardized data collection and intellige… | Journal of Engineered Fibers … | 2025 | `-` | en | DOI無し・タイトル検索失敗 → 非MEDLINE収録誌の可能性 |
-| 40 | A survey on using deep learning techniques for plant diseas… | Smart Agricultural Technology | 2023 | `-` | en | DOI無し・タイトル検索失敗 → 非MEDLINE収録誌の可能性 |
+| 40 | A survey on using deep learning techniques for plant diseas… | Smart Agric. Technol. | 2023 | `-` | en | DOI無し・タイトル検索失敗 → 非MEDLINE収録誌の可能性 |
 | 41 | A smart manufacturing process for textile industry automati… | Processes | 2024 | `-` | en | DOI無し・タイトル検索失敗 → 非MEDLINE収録誌の可能性 |
 | 42 |  | International Conference on A… | 2022 | `-` | en | 構造化不十分（確認要） |
 | 43 |  | 2022 12th International Confe… | 2022 | `-` | en | 構造化不十分（確認要） |
@@ -78,22 +78,22 @@ _(該当なし)_
 | ref | 分類 | 理由 |
 |:---:|:---:|:---|
 | #16 | unknown | Crossref network error (graceful unknown): network failed (after 1 retry) |
-| #17 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #31 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #32 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #33 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #34 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #36 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #37 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #38 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #40 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #41 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #42 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #43 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #44 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
-| #45 | A | DOI 欠落 or 不正形式 (LLM ハルシネーション候補) |
+| #17 | A | DOI 欠落 + journal 不明 (真の判定不可、LLM ハルシネーション候補) |
+| #31 | B | book chapter (DOI 欠落だが MEDLINE 対象外) |
+| #32 | B | book chapter (DOI 欠落だが MEDLINE 対象外) |
+| #33 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
+| #34 | B | conference/proceedings 'International Conference on Trends in Electronics and Health Informatics' (… |
+| #36 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
+| #37 | B | book chapter (DOI 欠落だが MEDLINE 対象外) |
+| #38 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
+| #40 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
+| #41 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
+| #42 | B | conference/proceedings 'International Conference on Advancements in Smart Computing and Information… |
+| #43 | B | conference/proceedings '2022 12th International Conference on Electrical and Computer Engineering (… |
+| #44 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
+| #45 | unknown | DOI 欠落 + NLM 検索でも判定不可: esearch network failed |
 
-**集計**: A (真の捏造) 14 件 / B (MEDLINE 非収録誌) 0 件 / C (収録誌 indexing 漏れ) 0 件 / unknown (判定不可) 1 件
+**集計**: A (真の捏造) 1 件 / B (MEDLINE 非収録誌) 6 件 / C (収録誌 indexing 漏れ) 0 件 / unknown (判定不可) 8 件
 
 ### 参照ごとの試行詳細
 
@@ -163,7 +163,7 @@ _(該当なし)_
 #### Ref #40
 
 - **元引用**: `Ahmad, A., Saraswat, D., and El Gamal, A. (2023). A survey on using deep learning techniques for plant disease diagnosis and recommendations for development of appropriate tools. Smart Agric. Technol. 3.`
-- **構造化結果**: A survey on using deep learning techniques for plant disease diagnosis and recommendations for development of appropriate tools / Smart Agricultural Technology / 2023 / DOI=-
+- **構造化結果**: A survey on using deep learning techniques for plant disease diagnosis and recommendations for development of appropriate tools / Smart Agric. Technol. / 2023 / DOI=-
 - **試行経路**:
   - `[title_author_year]` NG — no hits
   - `[title_fuzzy]` NG — fuzzy 48 < 90
@@ -212,21 +212,21 @@ _(該当なし)_
 
 | # | 確度 | タイトル | 備考 |
 |--:|:----:|---------|------|
-| 17 | low |  | Raw citation appears to be truncated — only author names and year are present. … |
-| 18 | medium | Wound healing in patients with cancer | No page numbers, issue, or DOI provided. Volume 8 inferred from the number foll… |
-| 31 | low | Cotton Sector Development in Ethiopia: Challenges and Oppor… | No journal or publisher information present. Pages 441-463 suggest a book chapt… |
-| 32 | low | Sustainable fibres for fashion and textile manufacturing | Appears to be a book chapter (pages 51-74) with no journal, publisher, or ISBN … |
-| 33 | medium | Economic, societal, and environmental impacts of available … | No DOI present. Journal abbreviated as 'Eng', likely MDPI journal 'Eng' (ISSN 2… |
-| 34 | low |  | Title is missing from the raw citation; only conference name and page range are… |
-| 36 | medium | Gio-nigeria economic relations on the development of the ni… | No DOI present. Title contains 'Gio-nigeria' — the hyphen may be a line-break a… |
-| 37 | low | Knitting Food: Food and Eco-textiles: New Perspectives for … | Appears to be a book chapter (pages 259-270) but no publisher, editor, or book … |
-| 38 | medium | Development of a standardized data collection and intellige… | No DOI or page numbers provided. Volume 20 noted. Journal abbreviated as 'J. En… |
-| 40 | medium | A survey on using deep learning techniques for plant diseas… | No DOI or page numbers provided in the raw citation. Volume 3 extracted. Journa… |
-| 41 | medium | A smart manufacturing process for textile industry automati… | No DOI provided in the raw citation. Page field appears to be an article number… |
-| 42 | low |  | Title is missing from the raw citation; only authors, conference name, year, an… |
-| 43 | low |  | No article title found in the raw citation; the publication appears to be confe… |
-| 44 | medium | Classification of diseased cotton leaves and plants using i… | No DOI present in the raw citation. All other major fields cleanly extracted. |
-| 45 | medium | Meta deep learn leaf disease identification model for cotto… | No DOI present in raw citation. Page number '102' likely an article number rath… |
+| 17 | low |  | Raw citation appears to be truncated — only authors and year are present; title… |
+| 18 | medium | Wound healing in patients with cancer | No DOI, pages, or issue number provided in the raw citation. Volume 8 inferred … |
+| 31 | low | Cotton Sector Development in Ethiopia: Challenges and Oppor… | No journal, publisher, or DOI present. The pages 441-463 suggest this may be a … |
+| 32 | low | Sustainable fibres for fashion and textile manufacturing | Appears to be a book chapter (pages 51-74) with no publisher, book title, or DO… |
+| 33 | medium | Economic, societal, and environmental impacts of available … | No DOI provided. Journal abbreviated as 'Eng', likely MDPI's journal 'Eng' (ISS… |
+| 34 | low |  | No article title is present in the raw citation; only authors, conference name,… |
+| 36 | medium | Gio-nigeria economic relations on the development of the ni… | No DOI present. Title begins with 'Gio-nigeria' — the hyphen may be a line-brea… |
+| 37 | low | Knitting Food: Food and Eco-textiles: New Perspectives for … | No publisher, journal, or DOI present. Pages 259-270 suggest this may be a book… |
+| 38 | medium | Development of a standardized data collection and intellige… | No DOI or page numbers provided. Volume 20 extracted; issue and pages absent fr… |
+| 40 | medium | A survey on using deep learning techniques for plant diseas… | No DOI or page range provided in the raw citation. Volume 3 inferred from the t… |
+| 41 | medium | A smart manufacturing process for textile industry automati… | No DOI provided in the raw citation. Page number '778' appears to be an article… |
+| 42 | low |  | Title appears to be missing from the raw citation; the conference name 'Interna… |
+| 43 | low |  | No article title present in the raw citation; journal field interpreted as conf… |
+| 44 | medium | Classification of diseased cotton leaves and plants using i… | No DOI present. All other major fields extracted cleanly. |
+| 45 | medium | Meta deep learn leaf disease identification model for cotto… | No DOI present in the raw citation. Article number 102 used as pages field. Jou… |
 
 ---
 
@@ -287,7 +287,7 @@ _(該当なし)_
 | 37 | — | unresolved | — | 2024 |
 | 38 | — | unresolved | Journal of Engineered Fi… | 2025 |
 | 39 | 39841622 | doi | Mol Plant Pathol | 2025 |
-| 40 | — | unresolved | Smart Agricultural Techn… | 2023 |
+| 40 | — | unresolved | Smart Agric. Technol. | 2023 |
 | 41 | — | unresolved | Processes | 2024 |
 | 42 | — | unresolved | International Conference… | 2022 |
 | 43 | — | unresolved | 2022 12th International … | 2022 |

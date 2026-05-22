@@ -284,11 +284,11 @@ def test_cell_and_author_separator_present():
 # -----------------------------------------------------------------------------
 
 EXPECTED_THREE_CLASS_DISTRIBUTION = {
-    "A": 14,
-    "B": 0,
+    "A": 1,
+    "B": 6,
     "C": 0,
-    "unknown": 1,
-}  # Day17 Phase 0b 実測 (README.md 参照)
+    "unknown": 8,
+}  # Day20 改修後実測 (README.md 参照、Day17 baseline A=14 から大幅減少)
 
 
 def test_baseline_three_class_classification_distribution():
