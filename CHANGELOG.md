@@ -2,11 +2,15 @@
 
 このプロジェクトの特筆すべき変更はこのファイルに記録されます。
 
-形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠しており、
-このプロジェクトは [セマンティックバージョニング](https://semver.org/lang/ja/) の採用を予定しています
-(v0.1.0 タグ付けは別タスクで実施予定)。
+形式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠し、
+[セマンティックバージョニング](https://semver.org/lang/ja/) を採用する
+(v0.1.0 は Day21 = 2026-05-22 でタグ付与済)。
 
-## [Unreleased] - 2026-05-18
+## [Unreleased]
+
+(Day21 以降の変更がここに記録される予定)
+
+## [0.1.0] - 2026-05-22
 
 ### Day8-18 統合: Vancouver Veto + 4 fixture + 3 分類 audit + GitHub 公開準備
 
@@ -36,6 +40,23 @@ Day8-18 で実装された主要機能を 6 カテゴリで集約.
 ### Documentation
 
 - README.md を Day17 末状態に更新 (Day18 Phase 2): 97 tests / 4 fixture / Day8-17 構成反映.
+
+### Day20 追加 (2026-05-22)
+
+**Day7 §9.3 long-term task 完全クローズ (7/7)** — Day20 で残最後 1 件 (Stage 3) を達成認証.
+
+### Added (Day20)
+
+- **3 helper 関数 in `three_class_classifier.py`** (Day20): `_detect_book()` / `_detect_conference()` / `_classify_via_nlm_only()`. DOI 欠落 case を 4 rule 順次評価に拡張.
+- **`STAGE3_COMPLETION_NOTE.md`** (Day20): Day7 §9.3 残最後の 1 件 (MCP/hook 経由 Stage 3 配線) を SKILL.md 経由達成として認証.
+- **3 unit tests** (Day20、`tests/test_three_class_classifier.py`): book / conference / NLM-only 各 rule の動作検証.
+
+### Changed (Day20)
+
+- **`three_class_classifier._classify_single`** (Day20): DOI 欠落 case を「即 A」から 4 rule 順次評価 (book → conference → NLM 検索 → A fallback) に変更. cell_45refs A 分類 14 → 1 (93% 減)、apa_45refs A 分類 4 → 0 (完全消失).
+- **`main.py:synthesize_outputs`** (Day20): `unresolved_refs` に `is_book` / `raw_text` / `publisher` 3 fields を追加 (Phase 2 LLM 出力由来、Day20 改修の Rule 1 で利用).
+- **`tests/fixtures/{cell,apa}_45refs/baseline_*`** (Day20): 三分類 baseline 再生成、`baseline_report.md` も自動更新.
+- **`tests/fixtures/mdpi_149refs/expected_report.md`** (Day20): deterministic golden の三分類 sub-section も Day20 改修反映で再生成 (#4 A→unknown、#9/#19 A→B).
 
 ### Test 健全性推移
 
