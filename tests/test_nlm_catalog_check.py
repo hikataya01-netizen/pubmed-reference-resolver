@@ -75,3 +75,48 @@ def test_get_journal_indexing_status_returns_N_for_unindexed_journal():
         f"Expected medlineta='Clin Mother Child Health', got {result.get('medlineta')!r}"
     )
     assert result["error"] is None
+
+
+def test_fetch_json_uses_certifi_ssl_context(monkeypatch):
+    """_fetch_json は certifi 由来の SSL context を urlopen に渡すこと.
+
+    Day22 Rule 3 NLM SSL fix の regression guard. certifi.where() の
+    cafile を持つ ssl.SSLContext が urlopen の context kwarg に渡る
+    ことを mock で検証.
+    """
+    import io
+    import ssl
+
+    import nlm_catalog_check  # noqa: E402
+
+    captured: dict = {}
+
+    class FakeResp(io.BytesIO):
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *exc):
+            return False
+
+    def fake_urlopen(url, timeout=None, context=None):
+        captured["url"] = url
+        captured["timeout"] = timeout
+        captured["context"] = context
+        return FakeResp(b'{"esearchresult": {"idlist": ["12345"]}}')
+
+    monkeypatch.setattr(
+        nlm_catalog_check.urllib.request, "urlopen", fake_urlopen
+    )
+
+    result = nlm_catalog_check._fetch_json(
+        "https://eutils.ncbi.nlm.nih.gov/test", label="test"
+    )
+
+    assert result == {"esearchresult": {"idlist": ["12345"]}}
+    assert isinstance(captured["context"], ssl.SSLContext), (
+        f"Expected SSLContext, got {type(captured['context']).__name__}"
+    )
+    assert captured["context"] is nlm_catalog_check._SSL_CONTEXT, (
+        "Expected the module-level _SSL_CONTEXT singleton (certifi-based)"
+    )
+    assert captured["timeout"] == nlm_catalog_check.TIMEOUT_SECONDS
