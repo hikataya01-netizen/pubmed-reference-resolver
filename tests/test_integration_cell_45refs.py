@@ -301,8 +301,14 @@ def test_baseline_three_class_classification_distribution():
 
     Day17 baseline では A=14 と多発 (Day16 は SSL 問題で unknown 大半に
     倒れた事象と対照的). AI 工学領域 (PMC12915276) の book/web/proceedings
-    refs が Crossref で 404 を返した結果と推定. 将来 false positive 抑制
-    改修が入れば baseline 更新を要する.
+    refs が Crossref で 404 を返した結果と推定されていた.
+
+    Day20 で three_class_classifier に 3 helper (_detect_book /
+    _detect_conference / _classify_via_nlm_only) を追加し (commit 0351d35)、
+    A=14 → A=1 / B=6 / unknown=8 まで改善. Day22 で nlm_catalog_check に
+    certifi 経由の SSL context を注入し (fix(nlm) commit 685a600)、Rule 3
+    NLM Catalog 検索が success するようになり A=1 / B=12 / C=0 / unknown=2
+    まで unknown を更に削減 (6 件が B に再分類).
     """
     classifications = json.loads(BASELINE_THREE_CLASS.read_text(encoding="utf-8"))
     actual = {"A": 0, "B": 0, "C": 0, "unknown": 0}

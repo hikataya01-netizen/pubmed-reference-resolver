@@ -299,9 +299,15 @@ def test_baseline_three_class_classification_distribution():
 
     Day16 baseline では B=0, C=0 (全て unknown に倒れた) は Crossref/NLM
     実行時の SSL 証明書問題によるネットワークエラー → graceful unknown
-    fail-soft (Day15 設計通り) が機能した結果. 将来 SSL 問題が解消されて
-    再生成された場合は B/C 分布が出現するため、baseline 更新 + 本
-    EXPECTED_THREE_CLASS_DISTRIBUTION 更新が必要になる.
+    fail-soft (Day15 設計通り) が機能した結果だった.
+
+    Day22 で nlm_catalog_check に certifi 経由の SSL context を注入し
+    (fix(nlm) commit 685a600) NLM Catalog 検索 SSL 問題は解消したが、
+    apa 分布は数値上 B=3, unknown=17 のまま. 残る 17 件の unknown 内訳:
+    1 件が「NLM Catalog に該当 journal なし」(SSL fix で error 理由が
+    明確化)、16 件が Crossref graceful failure (DOI 解決 timeout、本
+    fixture の対象 journal が非 MEDLINE 中心のため). Crossref 側 graceful
+    unknown は Day23+ で別途検討対象.
     """
     classifications = json.loads(BASELINE_THREE_CLASS.read_text(encoding="utf-8"))
     actual = {"A": 0, "B": 0, "C": 0, "unknown": 0}
