@@ -20,3 +20,12 @@ d49dc58e0ea89a1d5f0eabbf546824859718e48d:tests/test_env_loader.py:generic-api-ke
 c9dce0b0087445478a093eccba25f73b2933c2e1:docs/sessions/day18/DAY18_LESSONS_LEARNED.md:generic-api-key:39
 8d8c7e31e6a61237ad58da75470c59b058807c2a:docs/sessions/day18/SECRET_SCAN_REPORT.md:generic-api-key:38
 8d8c7e31e6a61237ad58da75470c59b058807c2a:docs/sessions/day18/SECRET_SCAN_REPORT.md:generic-api-key:63
+
+# Day19 SECRET_SCAN_REPORT.md (Public 切替直前 scan の evidence 記録) が、
+# 上記 Day18 報告書を更に quote している箇所. Day20+ で gitleaks を再実行
+# すると Day19 報告書から 4 件再検出されるため、ここで suppression.
+# Day19 D19-3 lesson と同種の再帰的検出.
+52320b6d8ad166c4d1ef31ce5c0e608076aad527:docs/sessions/day19/SECRET_SCAN_REPORT.md:generic-api-key:40
+52320b6d8ad166c4d1ef31ce5c0e608076aad527:docs/sessions/day19/SECRET_SCAN_REPORT.md:generic-api-key:41
+52320b6d8ad166c4d1ef31ce5c0e608076aad527:docs/sessions/day19/SECRET_SCAN_REPORT.md:generic-api-key:42
+52320b6d8ad166c4d1ef31ce5c0e608076aad527:docs/sessions/day19/SECRET_SCAN_REPORT.md:generic-api-key:44
