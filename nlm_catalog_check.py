@@ -42,6 +42,7 @@ from __future__ import annotations
 
 import json
 import os
+import ssl
 import sys
 import urllib.error
 import urllib.parse
@@ -49,8 +50,18 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
+import certifi
+
 NLM_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
 TIMEOUT_SECONDS = 10
+
+# Module-level SSL context with certifi-provided Mozilla CA bundle.
+# Day22 fix: Python.org installer (Mac) ships an empty cert.pem at
+# /Library/Frameworks/Python.framework/Versions/3.X/etc/openssl/,
+# causing urllib default verification to fail with SSLCertVerificationError
+# against https://eutils.ncbi.nlm.nih.gov/. Using certifi.where() works on
+# all OSes (Linux/Mac/Windows) deterministically.
+_SSL_CONTEXT = ssl.create_default_context(cafile=certifi.where())
 
 
 def _result(
@@ -176,7 +187,9 @@ def _fetch_json(url: str, *, label: str = "") -> dict | None:
     """Generic JSON fetch with 1 retry (graceful on network error)."""
     for attempt in (1, 2):
         try:
-            with urllib.request.urlopen(url, timeout=TIMEOUT_SECONDS) as resp:
+            with urllib.request.urlopen(
+                url, timeout=TIMEOUT_SECONDS, context=_SSL_CONTEXT,
+            ) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except (urllib.error.HTTPError, urllib.error.URLError,
                 TimeoutError, OSError) as e:

@@ -10,4 +10,7 @@
 python-docx>=1.2,<2.0   # extract_text() — DOCX ingestion
 rapidfuzz>=3.14,<4.0    # journal/title similarity in structure_all_references & synthesize_outputs
 PyYAML>=6.0,<7.0        # _load_overrides_yaml() — --overrides CLI flag
+certifi>=2024.0,<2027.0 # Mac Python.org installer の空 cert.pem 対策。nlm_catalog_check
+                        # の SSL context (Mozilla CA bundle) を deterministic に供給.
+                        # Day22 Rule 3 NLM SSL fix で導入.
 pytest>=9.0,<10.0       # test runner
