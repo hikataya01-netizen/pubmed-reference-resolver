@@ -9,7 +9,7 @@ NLM Catalog API は 2-step:
   1. esearch: ISSN または journal name から NLM ID 取得
   2. esummary: NLM ID から currentindexingstatus 取得
 
-依存: 標準ライブラリのみ (urllib, json) — 追加依存なし.
+依存: certifi (CA bundle for SSL verification) — requirements.txt 参照.
 NCBI API key は任意 (環境変数 NCBI_API_KEY が設定されていれば自動利用,
 rate limit 3 → 10 req/s).
 
