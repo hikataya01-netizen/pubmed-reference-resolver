@@ -39,7 +39,7 @@ apa の数値が変化しない理由: SSL fix は NLM Catalog scope だが、ap
 | 6 | `f512562` | docs(nlm) | fixup: module docstring (certifi dep) |
 | 7 | `c6e951c` | test(fixtures) | cell + apa baseline 再生成 |
 | 8 | `87d054f` | docs(tests) | fixup: integration test docstring (Day22 fulfillment) |
-| 9 | (TBD) | docs(sessions) | Day22 archive (本 commit) |
+| 9 | `7d05830` | docs(sessions) | Day22 archive |
 
 Phase B は当初 5 commit 計画だったが、Task 2 と Task 3 のコードレビュー指摘 (#6, #8) を atomic な fix-up commit として分離したため 7 commit に増加。
 
