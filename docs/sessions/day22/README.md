@@ -5,7 +5,7 @@
 Day22 セッションは 2 段構成:
 
 - **Phase A (security)**: Day21 末セキュリティ監査で検出した 🔴 高優先 2 件を解消
-  - A1: `.gitleaksignore` に Day19 報告書 4 fingerprint 追加 (commit `c0993f0`)
+  - A1: `.gitleaksignore` に Day19 報告書 4 fingerprint 追加 (commit `dbbac4a`)
   - A2: GitHub Secret Scanning + Push Protection 有効化 (gh api PATCH)
 - **Phase B (main)**: Rule 3 NLM 検索の SSL 問題を解消 (Day20 改修の真価発揮)
 
@@ -31,15 +31,15 @@ apa の数値が変化しない理由: SSL fix は NLM Catalog scope だが、ap
 
 | # | SHA | type | summary |
 |:---:|:---|:---|:---|
-| 1 | `c0993f0` | chore(security) | Phase A1: Day19 報告書 4 fingerprint suppression |
-| 2 | `af9e55a` | docs(spec) | Phase B brainstorming spec |
-| 3 | `d797307` | docs(plan) | Phase B implementation plan |
-| 4 | `301eb9e` | test(nlm) | TDD RED: certifi context unit test |
-| 5 | `685a600` | fix(nlm) | TDD GREEN: certifi SSL context 注入 |
-| 6 | `f512562` | docs(nlm) | fixup: module docstring (certifi dep) |
-| 7 | `c6e951c` | test(fixtures) | cell + apa baseline 再生成 |
-| 8 | `87d054f` | docs(tests) | fixup: integration test docstring (Day22 fulfillment) |
-| 9 | `7d05830` | docs(sessions) | Day22 archive |
+| 1 | `dbbac4a` | chore(security) | Phase A1: Day19 報告書 4 fingerprint suppression |
+| 2 | `aaa1eb9` | docs(spec) | Phase B brainstorming spec |
+| 3 | `272a34f` | docs(plan) | Phase B implementation plan |
+| 4 | `851cf2a` | test(nlm) | TDD RED: certifi context unit test |
+| 5 | `81b1b9e` | fix(nlm) | TDD GREEN: certifi SSL context 注入 |
+| 6 | `0f0e028` | docs(nlm) | fixup: module docstring (certifi dep) |
+| 7 | `4ba48ba` | test(fixtures) | cell + apa baseline 再生成 |
+| 8 | `9c299c0` | docs(tests) | fixup: integration test docstring (Day22 fulfillment) |
+| 9 | `7af632c` | docs(sessions) | Day22 archive |
 
 Phase B は当初 5 commit 計画だったが、Task 2 と Task 3 のコードレビュー指摘 (#6, #8) を atomic な fix-up commit として分離したため 7 commit に増加。
 
