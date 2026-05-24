@@ -36,6 +36,12 @@ from pathlib import Path
 
 import pytest
 
+pytestmark = pytest.mark.skip(
+    reason="awaiting Day23 Phase 5 new MDPI fixture "
+    "(tracked by docs/superpowers/plans/2026-05-24-day23-fixture-remediation.md). "
+    "Original mdpi_149refs/ removed in this commit due to peer-review-derived "
+    "confidentiality concern."
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures" / "mdpi_149refs"
