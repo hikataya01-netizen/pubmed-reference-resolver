@@ -1,34 +1,29 @@
 """
-test_pre_integration_baseline.py — 統合前本体の挙動を保護する回帰テスト
+test_pre_integration_baseline.py — Day8 pre-integration baseline characterization
+(Day24 historical archive 化版)
 
-目的:
-    統合パッチ適用の前に、現状の main.py の挙動を pytest assertion として
-    固定する。これにより:
+旧目的:
+    Day8 (commit ab25630) 当時、統合パッチ適用の前に main.py の挙動を
+    pytest assertion として固定し、整合前後の差分を可視化する設計だった.
+    `tests/fixtures/mdpi_149refs/` の 149-ref corpus に対する Phase 1 出力を
+    byte-level snapshot として保存し、Bray globocan #1 / De Boeck #149 /
+    line numbers 567-910 等の corpus-specific 値を assert していた.
 
-    1. 現状のバグも含めた挙動が「既知の現状」として明示される
-    2. 意図せず挙動が変わった場合に即座に検出できる
-    3. 統合パッチ適用後にこのテストが FAIL したら、それは "期待通りの改善"
-       を意味する → baseline 値を更新して新しい正常状態に移行
+Day24 historical archive 化の経緯:
+    Day23 (commit 3c676ec) で旧 mdpi_149refs corpus 削除 + 新 mdpi_173refs
+    (PMC13164670, 173 refs, LLM path 経由) に置換. 新 corpus には Bray
+    globocan も De Boeck もなく、Phase 1 出力も大きく異なる. 「integration
+    前後の差分を可視化」という本 file の本来意義は完全喪失.
 
-運用フロー:
-    [ 統合前 ]
-    pytest tests/test_pre_integration_baseline.py -v
-    → 全 PASS (現状の挙動が確認された)
+    Day24 では historical archive として残置し、新 fixture (mdpi_173refs) の
+    主要 baseline file が読み込めることのみを sanity check として確認する形式に
+    弱体化. TestPhase1DetailedSnapshot は削除 (corpus 完全置換のため意味なし).
 
-    [ integration/patches/01 適用後 ]
-    pytest tests/test_pre_integration_baseline.py -v
-    → test_phase1_currently_loses_2_refs が FAIL
-       "期待 147 件 != 実際 149 件"
-    → これは改善の証。test 側の expected を 149 に更新してコミット
-
-前提:
-    tests/fixtures/mdpi_149refs/ に以下のファイルが配置されている:
-     - input_References.docx
-     - expected_phase2_structured.json
-     - expected_phase3_resolved.json
-     - expected_report.md
+参照:
+    spec: docs/superpowers/specs/2026-05-24-day24-mdpi-test-restoration-design.md
+    Day8 origin: docs/sessions/day8/ (パッチ適用前 baseline 設計)
+    Day23 corpus 置換: docs/sessions/day23/ + DAY23_LESSONS_LEARNED.md
 """
-
 from __future__ import annotations
 
 import sys
@@ -36,103 +31,41 @@ from pathlib import Path
 
 import pytest
 
-pytestmark = pytest.mark.skip(
-    reason="awaiting Day23 Phase 5 new MDPI fixture "
-    "(tracked by docs/superpowers/plans/2026-05-24-day23-fixture-remediation.md). "
-    "Original mdpi_149refs/ removed in this commit due to peer-review-derived "
-    "confidentiality concern."
-)
-
 REPO_ROOT = Path(__file__).resolve().parents[1]
-FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures" / "mdpi_149refs"
+FIXTURE_DIR = REPO_ROOT / "tests" / "fixtures" / "mdpi_173refs"
 
 
-@pytest.fixture(scope="module")
-def main_module():
-    """main.py を一度だけ import する。"""
-    sys.path.insert(0, str(REPO_ROOT))
-    import main
-    return main
-
-
-@pytest.fixture(scope="module")
-def phase1_blocks(main_module):
-    """149 ref docx を Phase 1 に通した結果のブロックリストを共有する。"""
-    docx = FIXTURE_DIR / "input_References.docx"
-    assert docx.exists(), f"テストデータが見つかりません: {docx}"
-    raw, _ = main_module.extract_text(docx)
-    ln_report = main_module.detect_line_numbers(raw)
-    cleaned, _trace = main_module.preprocess(raw, ln_report)
-    return main_module.split_references(cleaned)
-
-
-# ============================================================================
-# Phase 1 post-integration behavior is now tested in
-# tests/test_split_references_doi_boundary.py (149/149 blocks detected,
-# #40 van der Biessen / #140 van Zyl correctly isolated).
-# The pre-integration characterization tests that previously lived here
-# (TestPhase1CurrentBehavior) have been removed after commit applying
-# integration/patches/01_split_references_fix.patch.
-# ============================================================================
-
-
-# ============================================================================
-# 入力データ自体の完全性テスト (golden 側の健全性保証)
-# ============================================================================
-
-class TestFixtureIntegrity:
-    """tests/fixtures/mdpi_149refs/ の中身自体が破損していないことを確認。"""
+class TestNewFixtureIntegrity:
+    """tests/fixtures/mdpi_173refs/ の主要 file が存在し読み込めることを sanity check."""
 
     def test_input_docx_exists(self):
+        """input docx (Phase 1 入力) が存在し、サイズが妥当."""
         docx = FIXTURE_DIR / "input_References.docx"
-        assert docx.exists(), f"入力 .docx が見つかりません: {docx}"
-        assert docx.stat().st_size > 30_000, "入力サイズが異常に小さい"
-
-    def test_expected_phase2_exists_and_has_149_refs(self):
-        import json
-        path = FIXTURE_DIR / "expected_phase2_structured.json"
-        assert path.exists()
-        data = json.loads(path.read_text(encoding="utf-8"))
-        structured = data.get("stage3_structured", data)
-        assert len(structured) == 149, (
-            f"ゴールド phase2 が 149 件でない: {len(structured)}"
+        assert docx.exists(), f"input_References.docx not found: {docx}"
+        assert docx.stat().st_size > 30_000, (
+            f"input docx size unexpectedly small: {docx.stat().st_size} bytes "
+            f"(expected > 30 KB for 171-ref corpus)"
         )
 
-    def test_expected_phase3_exists(self):
-        path = FIXTURE_DIR / "expected_phase3_resolved.json"
-        assert path.exists()
+    def test_expected_phase1_intermediate_exists(self):
+        """expected_phase1_intermediate.json (deterministic golden) が読み込める."""
+        import json
+        path = FIXTURE_DIR / "expected_phase1_intermediate.json"
+        assert path.exists(), f"expected_phase1_intermediate.json not found: {path}"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert isinstance(data, (dict, list)), "phase1 JSON should be dict or list"
 
-    def test_expected_report_exists(self):
-        path = FIXTURE_DIR / "expected_report.md"
-        assert path.exists()
+    def test_baseline_phase3_resolved_exists(self):
+        """baseline_phase3_resolved.json (LLM 経由、variability あり) が読み込める."""
+        import json
+        path = FIXTURE_DIR / "baseline_phase3_resolved.json"
+        assert path.exists(), f"baseline_phase3_resolved.json not found: {path}"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        assert isinstance(data, (dict, list)), "phase3 JSON should be dict or list"
+
+    def test_baseline_report_exists(self):
+        """baseline_report.md (Phase 4 出力 narrative) が存在."""
+        path = FIXTURE_DIR / "baseline_report.md"
+        assert path.exists(), f"baseline_report.md not found: {path}"
         content = path.read_text(encoding="utf-8")
-        assert "ダッシュボード" in content
-        assert "149" in content  # 総参照数
-
-
-# ============================================================================
-# スナップショット的な特徴付けテスト (Optional, 詳細な挙動固定用)
-# ============================================================================
-
-class TestPhase1DetailedSnapshot:
-    """Phase 1 の細部の挙動を固定する (統合後に 1 件ずつ見直す用)。"""
-
-    def test_ref1_is_bray_globocan(self, phase1_blocks):
-        b = next((b for b in phase1_blocks if b.ref_no == 1), None)
-        assert b is not None
-        assert b.raw_text.startswith("Bray, F.")
-        assert "Global cancer statistics" in b.raw_text
-
-    def test_ref149_is_de_boeck(self, phase1_blocks):
-        b = next((b for b in phase1_blocks if b.ref_no == 149), None)
-        assert b is not None
-        assert "De Boeck" in b.raw_text or "Boeck" in b.raw_text
-
-    def test_line_numbers_removed(self, main_module):
-        """"567-910 の行番号が正しく除去されていること。"""
-        docx = FIXTURE_DIR / "input_References.docx"
-        raw, _ = main_module.extract_text(docx)
-        ln_report = main_module.detect_line_numbers(raw)
-        assert ln_report.detected, "行番号が検出されていない"
-        assert ln_report.min_val == 567
-        assert ln_report.max_val == 910
+        assert len(content) > 1000, "baseline_report.md size unexpectedly small"

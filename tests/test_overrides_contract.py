@@ -1,10 +1,9 @@
 """
 Contract test for _apply_overrides().
 
-Verifies that applying the manual_overrides.yaml entry for Ref #141 to the
-captured pre-override parser snapshot (ref141_parser_snapshot.json) produces
-the expected post-override values. This serves as a regression test for the
-override mechanism itself, independent of the full 149-ref pipeline.
+Verifies the override mechanism contract via structural assertions.
+Day24: re-pointed from deleted mdpi_149refs to mdpi_173refs; the
+byte-level Ref #141 snapshot test was removed (see NOTE below).
 """
 from __future__ import annotations
 
@@ -14,18 +13,12 @@ from pathlib import Path
 
 import pytest
 
-pytestmark = pytest.mark.skip(
-    reason="awaiting Day23 Phase 5 new MDPI fixture "
-    "(tracked by docs/superpowers/plans/2026-05-24-day23-fixture-remediation.md). "
-    "Original mdpi_149refs/ removed in this commit due to peer-review-derived "
-    "confidentiality concern."
-)
-
 REPO_ROOT = Path(__file__).parent.parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-FIXTURES = Path(__file__).parent / "fixtures" / "mdpi_149refs"
+# Day24: updated from mdpi_149refs (deleted Day23) to mdpi_173refs
+FIXTURES = Path(__file__).parent / "fixtures" / "mdpi_173refs"
 OVERRIDES_YAML = REPO_ROOT / "integration" / "src" / "manual_overrides.yaml"
 
 
@@ -68,37 +61,13 @@ def test_apply_overrides_empty_passes_through():
     assert result == sample
 
 
-def test_apply_overrides_ref141_matches_expected():
-    """Ref #141 snapshot + overrides yaml should produce expected values."""
-    from main import _apply_overrides, _load_overrides_yaml
-
-    snapshot = json.loads(
-        (FIXTURES / "ref141_parser_snapshot.json").read_text(encoding="utf-8")
-    )
-    assert snapshot["ref_no"] == 141
-    assert snapshot["is_book"] is False
-    assert snapshot["year"] is None
-
-    overrides = _load_overrides_yaml(OVERRIDES_YAML)
-    assert 141 in overrides
-
-    result = _apply_overrides([snapshot], overrides)
-    assert len(result) == 1
-    post = result[0]
-
-    assert post["ref_no"] == 141
-    assert post["is_book"] is True
-    assert post["year"] == 2004
-    assert "Handbook and Classification" in post["title"]
-    assert post["journal"] == "Oxford University Press"
-
-    assert post["parsing_confidence"] == snapshot["parsing_confidence"]
-
-    assert "override applied for:" in post["notes"]
-    assert "is_book" in post["notes"]
-    assert "year" in post["notes"]
-    assert "title" in post["notes"]
-    assert "journal" in post["notes"]
+# NOTE: test_apply_overrides_ref141_matches_expected (previously here) was
+# deleted in Day24 because it asserted Ref #141 specific override values from
+# the old mdpi_149refs corpus (ref141_parser_snapshot.json), which no longer
+# exists. The YAML contract is now verified structurally via
+# test_load_overrides_yaml_returns_expected_refs above (which checks the YAML
+# has entries for ref_no 66, 137, 141, 148 — unchanged YAML content from old corpus,
+# preserved for historical reasons; see Day25+ for potential re-design).
 
 
 def test_apply_overrides_preserves_non_override_refs():
