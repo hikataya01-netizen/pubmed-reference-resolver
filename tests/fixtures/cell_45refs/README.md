@@ -40,8 +40,26 @@
 - main.py version: post-Day16 (commit `705b141`)
 - pipeline 実測値:
   - **Phase 3 解決件数**: 30/45 (66.7%)
-  - **三分類分布**: A=1, B=6, C=0, unknown=8 (Day20 改修後実測、Day17 baseline A=14 から大幅減少) (合計 15 件 = 未解決 ref の audit)
+  - **三分類分布**: A=1, B=12, C=0, unknown=2 (Day22 SSL fix 後実測、Day20 baseline unknown=8 から減少) (合計 15 件 = 未解決 ref の audit)
   - **report.md 重大件数**: 0
+
+### Day22 SSL fix 後の更新 (2026-05-24)
+
+Day22 で `nlm_catalog_check` に certifi 経由の SSL context を注入し
+(commit `fix(nlm): inject certifi SSL context into _fetch_json`, SHA `685a600`)、
+Rule 3 NLM Catalog 検索が正常に動作するようになった結果、
+Day20 では unknown に倒れていた 8 件 (Rule 3 NLM 検索 SSL エラー) の大部分が
+B (PubMed 収録誌) に正しく分類された。
+
+| 三分類 | Day20 (SSL 不良) | Day22 (SSL fix 後) |
+|:---:|:---:|:---:|
+| A | 1 | 1 |
+| B | 6 | 12 |
+| C | 0 | 0 |
+| unknown | 8 | 2 |
+
+unknown が 8 → 2 に減少。残る 2 件は NLM Catalog に ID が存在しない
+(非 MEDLINE 誌) と判定されたため、合法的な unknown として扱う。
 
 ### Vancouver / APA fixture との対比
 
@@ -68,7 +86,7 @@ Day16 (apa_45refs) では SSL 問題で大半が unknown (16/20) に倒れたが
 | 5 | `test_baseline_report_documents_audit_summary` | document-of-record | report.md 重大件数 = `0` 一致 |
 | 6 | `test_cell_paren_year_pattern_detected_in_all_refs` | parser-only | 全 45 件に `(YYYY[a-z]?)` 含む |
 | 7 | `test_cell_and_author_separator_present` | structural | ≥20 件が `, and ` を含む |
-| 8 | `test_baseline_three_class_classification_distribution` | document-of-record | 三分類分布 = `{A=1, B=6, C=0, unknown=8}` 一致 (Day20 改修後) |
+| 8 | `test_baseline_three_class_classification_distribution` | document-of-record | 三分類分布 = `{A=1, B=12, C=0, unknown=2}` 一致 (Day22 SSL fix 後) |
 
 **API key 不要**: 全 8 test は parser-only もしくは fixture 直読のため、`ANTHROPIC_API_KEY` / `NCBI_API_KEY` なしで CI 実行可能.
 

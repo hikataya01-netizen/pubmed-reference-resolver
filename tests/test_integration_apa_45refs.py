@@ -286,7 +286,7 @@ EXPECTED_THREE_CLASS_DISTRIBUTION = {
     "B": 3,
     "C": 0,
     "unknown": 17,
-}  # Day20 改修後実測 (README.md 参照、Day16 baseline A=4 から完全消失)
+}  # Day22 SSL fix 後実測 (README.md 参照、Day20 baseline unknown=17 から変化なし: apa refs の unknown は非MEDLINE誌のため NLM SSL fix 対象外)
 
 
 def test_baseline_three_class_classification_distribution():

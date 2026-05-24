@@ -42,8 +42,32 @@
 - main.py version: post-Day15 (commit `f2b497f`)
 - pipeline 実測値:
   - **Phase 3 解決件数**: 25/45 (55.6%)
-  - **三分類分布**: A=0, B=3, C=0, unknown=17 (Day20 改修後実測、Day16 baseline A=4 から完全消失)
+  - **三分類分布**: A=0, B=3, C=0, unknown=17 (Day22 SSL fix 後実測、Day20 baseline と同一: apa refs の unknown は非 MEDLINE 誌のため NLM SSL fix 対象外)
   - **report.md 重大件数**: 0
+
+### Day22 SSL fix 後の更新 (2026-05-24)
+
+Day22 で `nlm_catalog_check` に certifi 経由の SSL context を注入し
+(commit `fix(nlm): inject certifi SSL context into _fetch_json`, SHA `685a600`)、
+Rule 3 NLM Catalog 検索が正常に動作するようになった。
+
+**apa_45refs では三分類分布の変化なし** (A=0, B=3, C=0, unknown=17 で Day20 と同一)。
+
+理由: apa fixture の unknown 17 件は Psychology/Religion 系の非 MEDLINE 誌
+(Religions, Death Studies etc.) への収録誌であり、NLM Catalog に ID そのものが
+存在しないため、SSL fix 後も "esearch returned no NLM ID" で unknown に分類される。
+(Day20 では "esearch network failed" で unknown に倒れていたが、原因区別が異なる
+だけで最終分類は変わらない。)
+
+report.md の軽微な差分 (ref #37 の reason 文言、ref #32/#34 の journal 名表示) は
+Day22 実行時の Crossref API レスポンス変化によるもので、三分類分布への影響はない。
+
+| 三分類 | Day20 (SSL 不良) | Day22 (SSL fix 後) |
+|:---:|:---:|:---:|
+| A | 0 | 0 |
+| B | 3 | 3 |
+| C | 0 | 0 |
+| unknown | 17 | 17 |
 
 ### Vancouver fixture (24refs) との対比
 
@@ -70,7 +94,7 @@ APA 解決率が Vancouver より低い理由 (推定):
 | 5 | `test_baseline_report_documents_audit_summary` | document-of-record | report.md 重大件数 = `0` 一致 |
 | 6 | `test_apa_paren_year_pattern_detected_in_all_refs` | parser-only | 全 45 件に `(YYYY)` 含む |
 | 7 | `test_apa_ampersand_author_separator_present` | structural | ≥20 件が `, & ` を含む |
-| 8 | `test_baseline_three_class_classification_distribution` | document-of-record | 三分類分布 = `{A=0, B=3, C=0, unknown=17}` 一致 (Day20 改修後) |
+| 8 | `test_baseline_three_class_classification_distribution` | document-of-record | 三分類分布 = `{A=0, B=3, C=0, unknown=17}` 一致 (Day22 SSL fix 後も同一) |
 
 **API key 不要**: 全 8 test は parser-only もしくは fixture 直読のため、`ANTHROPIC_API_KEY` / `NCBI_API_KEY` なしで CI 実行可能.
 

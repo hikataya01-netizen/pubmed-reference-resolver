@@ -285,10 +285,10 @@ def test_cell_and_author_separator_present():
 
 EXPECTED_THREE_CLASS_DISTRIBUTION = {
     "A": 1,
-    "B": 6,
+    "B": 12,
     "C": 0,
-    "unknown": 8,
-}  # Day20 改修後実測 (README.md 参照、Day17 baseline A=14 から大幅減少)
+    "unknown": 2,
+}  # Day22 SSL fix 後実測 (README.md 参照、Day20 baseline unknown=8 から減少)
 
 
 def test_baseline_three_class_classification_distribution():

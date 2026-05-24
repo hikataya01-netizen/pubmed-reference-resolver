@@ -47,15 +47,15 @@
   {
     "ref_no": 33,
     "doi_resolved": null,
-    "journal_indexing": null,
+    "journal_indexing": "N",
     "details": {
       "doi": null,
       "crossref_journal": "Eng",
-      "nlm_id": null,
-      "nlm_medlineta": null
+      "nlm_id": "525865",
+      "nlm_medlineta": "J Trop Sci Eng"
     },
-    "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "class": "B",
+    "reason": "DOI 欠落だが journal 'Eng' は MEDLINE 非収録 (NLM 直接検索)"
   },
   {
     "ref_no": 34,
@@ -80,7 +80,7 @@
       "nlm_medlineta": null
     },
     "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch returned no NLM ID"
   },
   {
     "ref_no": 37,
@@ -97,41 +97,41 @@
   {
     "ref_no": 38,
     "doi_resolved": null,
-    "journal_indexing": null,
+    "journal_indexing": "N",
     "details": {
       "doi": null,
       "crossref_journal": "Journal of Engineered Fibers and Fabrics",
-      "nlm_id": null,
-      "nlm_medlineta": null
+      "nlm_id": "101563165",
+      "nlm_medlineta": "J Eng Fiber Fabr"
     },
-    "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "class": "B",
+    "reason": "DOI 欠落だが journal 'Journal of Engineered Fibers and Fabrics' は MEDLINE 非収録 (NLM 直接検索)"
   },
   {
     "ref_no": 40,
     "doi_resolved": null,
-    "journal_indexing": null,
+    "journal_indexing": "N",
     "details": {
       "doi": null,
-      "crossref_journal": "Smart Agric. Technol.",
-      "nlm_id": null,
-      "nlm_medlineta": null
+      "crossref_journal": "Smart Agricultural Technology",
+      "nlm_id": "129323",
+      "nlm_medlineta": "Smart Agric Technol"
     },
-    "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "class": "B",
+    "reason": "DOI 欠落だが journal 'Smart Agricultural Technology' は MEDLINE 非収録 (NLM 直接検索)"
   },
   {
     "ref_no": 41,
     "doi_resolved": null,
-    "journal_indexing": null,
+    "journal_indexing": "N",
     "details": {
       "doi": null,
       "crossref_journal": "Processes",
-      "nlm_id": null,
-      "nlm_medlineta": null
+      "nlm_id": "101753559",
+      "nlm_medlineta": "Depos Rec"
     },
-    "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "class": "B",
+    "reason": "DOI 欠落だが journal 'Processes' は MEDLINE 非収録 (NLM 直接検索)"
   },
   {
     "ref_no": 42,
@@ -160,27 +160,27 @@
   {
     "ref_no": 44,
     "doi_resolved": null,
-    "journal_indexing": null,
+    "journal_indexing": "N",
     "details": {
       "doi": null,
       "crossref_journal": "Multimed. Tools Appl.",
-      "nlm_id": null,
-      "nlm_medlineta": null
+      "nlm_id": "101555932",
+      "nlm_medlineta": "Multimed Tools Appl"
     },
-    "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "class": "B",
+    "reason": "DOI 欠落だが journal 'Multimed. Tools Appl.' は MEDLINE 非収録 (NLM 直接検索)"
   },
   {
     "ref_no": 45,
     "doi_resolved": null,
-    "journal_indexing": null,
+    "journal_indexing": "N",
     "details": {
       "doi": null,
       "crossref_journal": "Computers",
-      "nlm_id": null,
-      "nlm_medlineta": null
+      "nlm_id": "528393",
+      "nlm_medlineta": "Comput Hum Behav Artif Hum"
     },
-    "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "class": "B",
+    "reason": "DOI 欠落だが journal 'Computers' は MEDLINE 非収録 (NLM 直接検索)"
   }
 ]

@@ -154,7 +154,7 @@
       "nlm_medlineta": null
     },
     "class": "unknown",
-    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch network failed"
+    "reason": "DOI 欠落 + NLM 検索でも判定不可: esearch returned no NLM ID"
   },
   {
     "ref_no": 40,
