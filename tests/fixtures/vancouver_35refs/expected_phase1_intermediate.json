@@ -1,0 +1,179 @@
+{
+  "input_file": "tests/fixtures/vancouver_35refs/input_References.docx",
+  "source_type": "docx",
+  "stage1_raw_length": 5767,
+  "stage2_5_line_number_detection": {
+    "detected": false,
+    "count": 0,
+    "min_val": null,
+    "max_val": null,
+    "values": [],
+    "spans": [],
+    "total_candidates": 0,
+    "rationale": "3桁の孤立整数候補が存在しない"
+  },
+  "stage2_preprocess_trace": {
+    "hyphen_bridged_removed": 0,
+    "standalone_removed": 0,
+    "soft_linebreaks_joined": 0,
+    "ref_blocks_found": 32,
+    "header_stripped": true
+  },
+  "stage3_reference_blocks": [
+    {
+      "ref_no": 1,
+      "raw_text": "Horr C, Buechler SA. Breast cancer consensus subtypes: A system for subtyping breast cancer tumors based on gene expression. NPJ Breast Cancer. 2021;7:136. doi:10.1038/s41523-021-00345-2",
+      "char_length": 186
+    },
+    {
+      "ref_no": 2,
+      "raw_text": "Wolff AC, Hammond MEH, Hicks DG. Recommendations for human epidermal growth factor receptor 2 testing in breast cancer: ASCO/CAP clinical practice guideline update. J Clin Oncol. 2018;36:2105-2122. doi:10.1200/JCO.2018.77.8738",
+      "char_length": 226
+    },
+    {
+      "ref_no": 3,
+      "raw_text": "Snoek HM, Dijkstra A, van der Sluis F. Psychological impact of metastasized cancer: a systematic review of qualitative studies. BMJ Open. 2021;11:e040298. doi:10.1136/bmjopen-2020-040298",
+      "char_length": 186
+    },
+    {
+      "ref_no": 4,
+      "raw_text": "Lo C, Zimmermann C, Rydall A. Longitudinal study of depressive symptoms in patients with metastatic gastrointestinal and lung cancer. J Clin Oncol. 2014;32:3557-3564. doi:10.1200/JCO.2013.54.9095",
+      "char_length": 195
+    },
+    {
+      "ref_no": 5,
+      "raw_text": "Roche KN, Cooper D, Armstrong TS, King AL. The link between psychological distress and survival in solid tumor patients: A systematic review. Cancer Med. 2023;12:3343-3364. doi:10.1002/cam4.5200",
+      "char_length": 194
+    },
+    {
+      "ref_no": 6,
+      "raw_text": "Fang CY, Schnoll RA. Impact of psychological distress on outcomes in cancer patients. Expert Rev Pharmacoecon Outcomes Res. 2002;2:495-506. doi:10.1586/14737167.2.5.495",
+      "char_length": 168
+    },
+    {
+      "ref_no": 7,
+      "raw_text": "Faller H, Schuler M, Richard M. Effects of psycho-oncologic interventions on emotional distress and quality of life in adult patients with cancer: Systematic review and meta-analysis. J Clin Oncol. 2013;31:782-793. doi:10.1200/JCO.2011.40.8922",
+      "char_length": 243
+    },
+    {
+      "ref_no": 8,
+      "raw_text": "Greer JA, Park ER, Prigerson HG, Safren SA. Tailoring psychosocial interventions to the needs of advanced cancer patients. J Psychosoc Oncol. 2010;28:276-295. doi:10.1080/07347331003676105",
+      "char_length": 188
+    },
+    {
+      "ref_no": 9,
+      "raw_text": "Siwik CJ, Phillips K, Zimmaro L, Salmon P, Sephton SE. Depressive symptoms among patients with lung cancer: elucidating the roles of shame, guilt, and self-compassion. J Health Psychol. 2022;27:1039-1047. doi:10.1177/13591053211009416",
+      "char_length": 234
+    },
+    {
+      "ref_no": 10,
+      "raw_text": "Zhu J, Fang F, Sjölander A, Fall K, Adami HO, Valdimarsdóttir U. First-onset mental disorders after cancer diagnosis and cancer-specific mortality: a nationwide cohort study. Ann Oncol. 2017;28(8):1964-1969. doi:10.1093/annonc/mdx265",
+      "char_length": 233
+    },
+    {
+      "ref_no": 11,
+      "raw_text": "Abdelhadi O. The impact of psychological distress on quality of care and access to mental health services in cancer survivors. Front Health Serv. 2023;3:1111677. doi:10.3389/frhs.2023.1111677",
+      "char_length": 191
+    },
+    {
+      "ref_no": 12,
+      "raw_text": "Harish J, Syed A. The role of psychosocial support in enhancing quality of life for cancer patients: challenges and solutions. J Neonatal Surg. 2025;14:384-387. doi:10.52783/jns.v14.1552",
+      "char_length": 186
+    },
+    {
+      "ref_no": 13,
+      "raw_text": "Vizin G, Farkas K. A kognitív viselkedésterápia lehetőségei az onkológiai ellátásban. Magy Onkol. 2020;64:62-69.",
+      "char_length": 112
+    },
+    {
+      "ref_no": 14,
+      "raw_text": "Vizin G. Nem vagy egyedül!. 2023.",
+      "char_length": 33
+    },
+    {
+      "ref_no": 15,
+      "raw_text": "Hinz A, Mitchell AJ, Degi CL, Mehnert-Theuerkauf A. Normative values for the distress thermometer and the emotion thermometers derived from a German general population sample. Qual Life Res. 2019;28:277-282. doi:10.1007/s11136-018-2014-1",
+      "char_length": 237
+    },
+    {
+      "ref_no": 16,
+      "raw_text": "Kroenke K, Spitzer RL, Williams JB, Löwe B. An ultra-brief screening scale for anxiety and depression: the PHQ-4. Psychosomatics. 2009;50:613-621. doi:10.1176/appi.psy.50.6.613",
+      "char_length": 176
+    },
+    {
+      "ref_no": 17,
+      "raw_text": "Molina Y, Choi SW, Cella D, Rao D. The Stigma Scale for Chronic Illnesses 8-item version (SSCI-8): development, validation and use across neurological conditions. Int J Behav Med. 2013;20:450-460. doi:10.1007/s12529-012-9243-4",
+      "char_length": 226
+    },
+    {
+      "ref_no": 18,
+      "raw_text": "Szőcs H, Horváth Z, Vizin G. Shame mediates the relationship between stigma and quality of life among patients with coeliac disease: a magyar adaptációs vizsgálat eredményei. Orv Hetil. 2021;162:1968-1976. doi:10.1556/650.2021.32258",
+      "char_length": 232
+    },
+    {
+      "ref_no": 19,
+      "raw_text": "Daryaafzoon M, Amini-Tehrani M, Zohrevandi Z, Hamzehlouiyan M, Ghotbi A, Zarrabi-Ajami S, et al. Translation and factor analysis of the Stigma Scale for Chronic Illnesses 8-item version among Iranian women with breast cancer. Asian Pac J Cancer Prev. 2020;21(2):449-455. doi:10.31557/APJCP.2020.21.2.449",
+      "char_length": 303
+    },
+    {
+      "ref_no": 20,
+      "raw_text": "Wallston KA, Wallston BS, DeVellis R. Development of the Multidimensional Health Locus of Control (MHLC) scales. Health Educ Monogr. 1978;6:160-170. doi:10.1177/109019817800600107",
+      "char_length": 179
+    },
+    {
+      "ref_no": 21,
+      "raw_text": "Wallston KA, Stein MJ, Smith CA. Form C of the MHLC scales: a condition-specific measure of locus of control. J Pers Assess. 1994;63:534-553. doi:10.1207/s15327752jpa6303_10",
+      "char_length": 173
+    },
+    {
+      "ref_no": 22,
+      "raw_text": "Konkoly Thege B, Rafael B, Rohánszky M. Psychometric properties of the Multidimensional Health Locus of Control Scale form C in a non-Western culture. PLoS One. 2014;9:e107108. doi:10.1371/journal.pone.0107108",
+      "char_length": 209
+    },
+    {
+      "ref_no": 23,
+      "raw_text": "Neff KD, Germer CK. A pilot study and randomized controlled trial of the Mindful Self-Compassion Program. J Clin Psychol. 2013;69:28-44. doi:10.1002/jclp.21923",
+      "char_length": 159
+    },
+    {
+      "ref_no": 24,
+      "raw_text": "Tóth-Király I, Bőthe B, Orosz G. Exploratory structural equation modeling analysis of the Self-Compassion Scale. Mindfulness. 2017;8:881-892. doi:10.1007/s12671-016-0662-1",
+      "char_length": 171
+    },
+    {
+      "ref_no": 25,
+      "raw_text": "Cohen J. Statistical power analysis for the behavioral sciences. 1988.",
+      "char_length": 70
+    },
+    {
+      "ref_no": 26,
+      "raw_text": "Hedges LV, Olkin I. Statistical methods for meta-analysis. 2014.",
+      "char_length": 64
+    },
+    {
+      "ref_no": 27,
+      "raw_text": "Moorey S, Holland J, Breitbart W, Jacobsen P. Cognitive therapy. Psycho-oncology. 2010:402-407.",
+      "char_length": 95
+    },
+    {
+      "ref_no": 28,
+      "raw_text": "Uitterhoeve RJ, Vernooy M, Litjens M. Psychosocial interventions for patients with advanced cancer: a systematic review of the literature. Br J Cancer. 2004;91:1050-1062. doi:10.1038/sj.bjc.6602051",
+      "char_length": 197
+    },
+    {
+      "ref_no": 29,
+      "raw_text": "Else-Quest NM, LoConte NK, Schiller JH, Hyde JS. Perceived stigma, self-blame, and adjustment among lung, breast and prostate cancer patients. Psychol Health. 2009;24:949-964. doi:10.1080/08870440802074664",
+      "char_length": 205
+    },
+    {
+      "ref_no": 30,
+      "raw_text": "Pinquart M, Duberstein PR. Associations of social networks with cancer mortality: a meta-analysis. Crit Rev Oncol Hematol. 2010;75:122-137. doi:10.1016/j.critrevonc.2009.06.003",
+      "char_length": 176
+    },
+    {
+      "ref_no": 31,
+      "raw_text": "Deshields TL, Heiland MF, Kracen AC, Dua P. Resilience in adults with cancer: development of a conceptual model. Psychooncology. 2016;25:11-18. doi:10.1002/pon.3800",
+      "char_length": 164
+    }
+  ]
+}

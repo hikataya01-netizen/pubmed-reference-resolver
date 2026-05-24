@@ -1,0 +1,104 @@
+[
+  {
+    "ref_no": 3,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1136/bmjopen-2020-040298"
+    }
+  },
+  {
+    "ref_no": 8,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1080/07347331003676105"
+    }
+  },
+  {
+    "ref_no": 12,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.52783/jns.v14.1552"
+    }
+  },
+  {
+    "ref_no": 13,
+    "doi_resolved": null,
+    "journal_indexing": "Y",
+    "details": {
+      "doi": null,
+      "crossref_journal": "Magy Onkol",
+      "nlm_id": "9313833",
+      "nlm_medlineta": "Magy Onkol"
+    },
+    "class": "C",
+    "reason": "DOI 欠落、journal 'Magy Onkol' は MEDLINE 収録だが 本論文単体は indexing なし"
+  },
+  {
+    "ref_no": 14,
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null,
+      "is_book": true
+    }
+  },
+  {
+    "ref_no": 24,
+    "class": "unknown",
+    "reason": "Crossref network error (graceful unknown): network failed (after 1 retry)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1007/s12671-016-0662-1"
+    }
+  },
+  {
+    "ref_no": 25,
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null,
+      "is_book": true
+    }
+  },
+  {
+    "ref_no": 26,
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null,
+      "is_book": true
+    }
+  },
+  {
+    "ref_no": 27,
+    "doi_resolved": null,
+    "journal_indexing": "Y",
+    "details": {
+      "doi": null,
+      "crossref_journal": "Psycho-oncology",
+      "nlm_id": "9214524",
+      "nlm_medlineta": "Psychooncology"
+    },
+    "class": "C",
+    "reason": "DOI 欠落、journal 'Psycho-oncology' は MEDLINE 収録だが 本論文単体は indexing なし"
+  }
+]

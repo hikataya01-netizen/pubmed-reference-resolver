@@ -1,0 +1,879 @@
+{
+  "input_file": "tests/fixtures/mdpi_173refs/input_References.docx",
+  "source_type": "docx",
+  "stage1_raw_length": 42590,
+  "stage2_5_line_number_detection": {
+    "detected": false,
+    "count": 0,
+    "min_val": null,
+    "max_val": null,
+    "values": [],
+    "spans": [],
+    "total_candidates": 1,
+    "rationale": "LIS長=1 < 閾値10"
+  },
+  "stage2_preprocess_trace": {
+    "hyphen_bridged_removed": 0,
+    "standalone_removed": 0,
+    "soft_linebreaks_joined": 0,
+    "ref_blocks_found": 173,
+    "header_stripped": true
+  },
+  "stage3_reference_blocks": [
+    {
+      "ref_no": 1,
+      "raw_text": "Ekanayake P; Edelman S. Identifying patients with type 2 diabetes who might benefit from insulin pump therapy: Literature review, clinical opportunities, potential benefits and challenges. Diabetes Obes. Metab. 2023, 25, 3–20. https://doi.org/10.1111/dom.15059",
+      "char_length": 260
+    },
+    {
+      "ref_no": 2,
+      "raw_text": "Dündar I; Akinci A. Prevalence of type 2 diabetes mellitus, metabolic syndrome, and related morbidities in overweight and obese children. J. Pediatr. Endocrinol. Metab. 2022, 35, 435–441. https://doi.org/10.1515/jpem-2021-0271",
+      "char_length": 226
+    },
+    {
+      "ref_no": 3,
+      "raw_text": "Musilanga N; Nasib H; Jackson G; Shayo F; Nhanga C; Girukwigomba S; Mwakibolwa A; Henry S; Kijusya K; Msonge E. Exploring the Prevalence and Components of Metabolic Syndrome in Sub-Saharan African Type 2 Diabetes Mellitus Patients: A Systematic Review and Meta-Analysis. J. Obes. 2024, 2024, 1240457. https://doi.org/10.1155/2024/1240457",
+      "char_length": 337
+    },
+    {
+      "ref_no": 4,
+      "raw_text": "Davies M; Lim S; Slater T; Goldney J; Philis-Tsimikas A; Franco D; Lamptey R; Yates T; Tankova T; Lingvay I. Type 2 diabetes mellitus. Nat. Rev. Dis. Primers 2026, 12, 13. https://doi.org/10.1038/s41572-026-00687-w",
+      "char_length": 214
+    },
+    {
+      "ref_no": 5,
+      "raw_text": "Franz MJ; Boucher JL; Rutten-Ramos S; VanWormer JJ. Lifestyle Weight-Loss Intervention Outcomes in Overweight and Obese Adults with Type 2 Diabetes: A Systematic Review and Meta-Analysis of Randomized Clinical Trials. J. Acad. Nutr. Diet. 2015, 115, 1447–1463. https://doi.org/10.1016/j.jand.2015.02.031",
+      "char_length": 303
+    },
+    {
+      "ref_no": 6,
+      "raw_text": "Wolos-Klosowicz K; Bandurska-Stankiewicz E. Effects of common weight loss plans on diabetes mellitus and cardiovascular risk factors. Prim. Care Diabetes 2022, 16, 252–256. https://doi.org/10.1016/j.pcd.2021.11.003",
+      "char_length": 214
+    },
+    {
+      "ref_no": 7,
+      "raw_text": "Fonseca V; Capehorn M; Garg S; Gimeno E; Hansen O; Holst A; Nayak G; Seufert J. Reductions in Insulin Resistance are Mediated Primarily via Weight Loss in Subjects with Type 2 Diabetes on Semaglutide. J. Clin. Endocrinol. Metab. 2019, 104, 4078–4086. https://doi.org/10.1210/jc.2018-02685",
+      "char_length": 288
+    },
+    {
+      "ref_no": 8,
+      "raw_text": "Reppo I; Jakobson M; Volke V. Effects of Semaglutide and Empagliflozin on Inflammatory Markers in Patients with Type 2 Diabetes. Int. J. Mol. Sci. 2023, 24. https://doi.org/10.3390/ijms24065714",
+      "char_length": 193
+    },
+    {
+      "ref_no": 9,
+      "raw_text": "Ricci C; Gaeta M; Rausa E; Asti E; Bandera F; Bonavina L. Long-Term Effects of Bariatric Surgery on Type II Diabetes, Hypertension and Hyperlipidemia: A Meta-Analysis and Meta-Regression Study with 5-Year Follow-Up. Obes. Surg. 2015, 25, 397–405. https://doi.org/10.1007/s11695-014-1442-4",
+      "char_length": 288
+    },
+    {
+      "ref_no": 10,
+      "raw_text": "Tahrani A; Morton J. Benefits of weight loss of 10% or more in patients with overweight or obesity: A review. Obesity 2022, 30, 802–840. https://doi.org/10.1002/oby.23371",
+      "char_length": 170
+    },
+    {
+      "ref_no": 11,
+      "raw_text": "Kashyap A; Mackay A; Carter B; Fyfe C; Johnstone A; Myint P. Investigating the Effectiveness of Very Low-Calorie Diets and Low-Fat Vegan Diets on Weight and Glycemic Markers in Type 2 Diabetes Mellitus: A Systematic Review and Meta-Analysis. Nutrients 2022, 14. https://doi.org/10.3390/nu14224870",
+      "char_length": 296
+    },
+    {
+      "ref_no": 12,
+      "raw_text": "Horn DB; Almandoz JP; Look M. What is clinically relevant weight loss for your patients and how can it be achieved? A narrative review. Postgrad. Med. 2022, 134, 359–375. https://doi.org/10.1080/00325481.2022.2051366",
+      "char_length": 216
+    },
+    {
+      "ref_no": 13,
+      "raw_text": "Babak A; Rouzbahani S; Safaeian A; Poonaki F. Diabetes Mellitus Type 2 and Popular Misconceptions: A Cross-Sectional Study. Health Sci. Rep. 2025, 8, e71308. https://doi.org/10.1002/hsr2.71308",
+      "char_length": 192
+    },
+    {
+      "ref_no": 14,
+      "raw_text": "Gieroba B; Kryska A; Sroka-Bartnicka A. Type 2 diabetes mellitus—Conventional therapies and future perspectives in innovative treatment. Biochem. Biophys. Rep. 2025, 42, 102037. https://doi.org/10.1016/j.bbrep.2025.102037",
+      "char_length": 221
+    },
+    {
+      "ref_no": 15,
+      "raw_text": "Zhao X; An X; Yang C; Sun W; Ji H; Lian F. The crucial role and mechanism of insulin resistance in metabolic disease. Front. Endocrinol. 2023, 14. https://doi.org/10.3389/fendo.2023.1149239",
+      "char_length": 189
+    },
+    {
+      "ref_no": 16,
+      "raw_text": "American Diabetes Association. 6. Glycemic Goals and Hypoglycemia: Standards of Care in Diabetes-2024. Diabetes Care 2024, 47, S111–S125. https://doi.org/10.2337/dc24-S006",
+      "char_length": 171
+    },
+    {
+      "ref_no": 17,
+      "raw_text": "Lingvay I; Capehorn MS; Catarig AM; Johansen P; Lawson J; Sandberg A; Shaw R; Paine A. Efficacy of Once-Weekly Semaglutide vs Empagliflozin Added to Metformin in Type 2 Diabetes: Patient-Level Meta-analysis. J. Clin. Endocrinol. Metab. 2020, 105, e4593–e4604. https://doi.org/10.1210/clinem/dgaa577",
+      "char_length": 298
+    },
+    {
+      "ref_no": 18,
+      "raw_text": "Greenway F; Loveridge B; Grimes R; Tucker T; Alexander M; Hepford S; Fontenot J; Nobles-James C; Wilson C; Starr A. Physiologic Insulin Resensitization as a Treatment Modality for Insulin Resistance Pathophysiology. Int. J. Mol. Sci. 2022, 23. https://doi.org/10.3390/ijms23031884",
+      "char_length": 280
+    },
+    {
+      "ref_no": 19,
+      "raw_text": "DeFronzo RA. From the Triumvirate to the Ominous Octet: A New Paradigm for the Treatment of Type 2 Diabetes Mellitus. Diabetes 2009, 58, 773–795. https://doi.org/10.2337/db09-9028",
+      "char_length": 179
+    },
+    {
+      "ref_no": 20,
+      "raw_text": "Lean M; Leslie W; Barnes A; Brosnahan N; Thom G; McCombie L; Peters C; Zhyzhneuskaya S; Al-Mrabeh A; Hollingsworth K. Durability of a primary care-led weight-management intervention for remission of type 2 diabetes: 2-year results of the DiRECT open-label, cluster-randomised trial. Lancet Diabetes Endocrinol. 2019, 7, 344–355. https://doi.org/10.1016/S2213-8587(19)30068-3",
+      "char_length": 374
+    },
+    {
+      "ref_no": 21,
+      "raw_text": "Goni L; Qi L; Cuervo M; Milagro F; Saris W; MacDonald I; Langin D; Astrup A; Arner P; Oppert J. Effect of the interaction between diet composition and the PPM1K genetic variant on insulin resistance and β cell function markers during weight loss: Results from the Nutrient Gene Interactions in Human Obesity: Implications for dietary guidelines (NUGENOB) randomized trial. Am. J. Clin. Nutr. 2017, 106, 902–908. https://doi.org/10.3945/ajcn.117.156281",
+      "char_length": 451
+    },
+    {
+      "ref_no": 22,
+      "raw_text": "Ludwig B; Barthel A; Reichel A; Block N; Ludwig S; Schally A; Bornstein S. Modulation of the Pancreatic Islet-Stress Axis as a Novel Potential Therapeutic Target in Diabetes Mellitus. Vitam. Horm. 2014, 95, 195–222. https://doi.org/10.1016/B978-0-12-800174-5.00008-9",
+      "char_length": 266
+    },
+    {
+      "ref_no": 23,
+      "raw_text": "Tuomilehto J; Lindström J; Eriksson J; Valle T; Hamalainen H; Ilanne-Parikka P; Keinanen-Kiukaanniemi S; Laakso M; Louheranta A; Rastas M. Prevention of type 2 diabetes mellitus by changes in lifestyle among subjects with impaired glucose tolerance. N. Engl. J. Med. 2001, 344, 1343–1350. https://doi.org/10.1056/NEJM200105033441801",
+      "char_length": 332
+    },
+    {
+      "ref_no": 24,
+      "raw_text": "Ohishi M. Hypertension with diabetes mellitus: Physiology and pathology. Hypertens. Res. 2018, 41, 389–393. https://doi.org/10.1038/s41440-018-0034-4",
+      "char_length": 149
+    },
+    {
+      "ref_no": 25,
+      "raw_text": "Di Daniele N; Marrone G; Di Lauro M; Di Daniele F; Palazzetti D; Guerriero C; Noce A. Effects of Caloric Restriction Diet on Arterial Hypertension and Endothelial Dysfunction. Nutrients 2021, 13. https://doi.org/10.3390/nu13010274",
+      "char_length": 230
+    },
+    {
+      "ref_no": 26,
+      "raw_text": "Soumaya K. Molecular Mechanisms of Insulin Resistance in Diabetes. Diabetes: An Old Disease, A New Insight 2013, Volume 771, 240–251. https://doi.org/10.1007/978-1-4614-5441-0_19",
+      "char_length": 178
+    },
+    {
+      "ref_no": 27,
+      "raw_text": "Villagrán-Silva F; Loren P; Sandoval C; Lanas F; Salazar L. Circulating microRNAs as Potential Biomarkers of Overweight and Obesity in Adults: A Narrative Review. Genes 2025, 16. https://doi.org/10.3390/genes16030349",
+      "char_length": 216
+    },
+    {
+      "ref_no": 28,
+      "raw_text": "Fang L; Guo F; Zhou L; Stahl R; Grams J. The cell size and distribution of adipocytes from subcutaneous and visceral fat is associated with type 2 diabetes mellitus in humans. Adipocyte 2015, 4, 273–279. https://doi.org/10.1080/21623945.2015.1034920",
+      "char_length": 249
+    },
+    {
+      "ref_no": 29,
+      "raw_text": "Papaetis G; Sacharidou A; Michaelides I; Mikellidis K; Karvounaris S. Insulin Resistance, Hyperinsulinemia and Atherosclerosis: Insights into Pathophysiological Aspects and Future Therapeutic Prospects. Curr. Cardiol. Rev. 2025, 21, e241006185109. https://doi.org/10.2174/011573403X314035241006185109",
+      "char_length": 300
+    },
+    {
+      "ref_no": 30,
+      "raw_text": "Verkest K; Fleeman L; Morton J; Ishioka K; Rand J. Compensation for obesity-induced insulin resistance in dogs: Assessment of the effects of leptin, adiponectin, and glucagon-like peptide-1 using path analysis. Domest. Anim. Endocrinol. 2011, 41, 24–34. https://doi.org/10.1016/j.domaniend.2011.02.001",
+      "char_length": 301
+    },
+    {
+      "ref_no": 31,
+      "raw_text": "Hu F; Chen C; Wang B; Stampfer M; Xu X. Leptin concentrations in relation to overall adiposity, fat distribution, and blood pressure in a rural Chinese population. Int. J. Obes. 2001, 25, 121–125. https://doi.org/10.1038/sj.ijo.0801480",
+      "char_length": 235
+    },
+    {
+      "ref_no": 32,
+      "raw_text": "Díaz-Soto G; de Luis D; Conde-Vicente R; Izaola-Jauregui O; Ramos C; Romero E. Beneficial effects of liraglutide on adipocytokines, insulin sensitivity parameters and cardiovascular risk biomarkers in patients with Type 2 diabetes: A prospective study. Diabetes Res. Clin. Pract. 2014, 104, 92–96. https://doi.org/10.1016/j.diabres.2014.01.019",
+      "char_length": 343
+    },
+    {
+      "ref_no": 33,
+      "raw_text": "Klöting N; Blüher M. Adipocyte dysfunction, inflammation and metabolic syndrome. Rev. Endocr. Metab. Disord. 2014, 15, 277–287. https://doi.org/10.1007/s11154-014-9301-0",
+      "char_length": 169
+    },
+    {
+      "ref_no": 34,
+      "raw_text": "Pasarica M; Xie H; Hymel D; Bray G; Greenway F; Ravussin E; Smith S. Lower Total Adipocyte Number but No Evidence for Small Adipocyte Depletion in Patients with Type 2 Diabetes. Diabetes Care 2009, 32, 900–902. https://doi.org/10.2337/dc08-2240",
+      "char_length": 244
+    },
+    {
+      "ref_no": 35,
+      "raw_text": "Hagberg C; Spalding K. White adipocyte dysfunction and obesity-associated pathologies in humans. Nat. Rev. Mol. Cell Biol. 2024, 25, 270–289. https://doi.org/10.1038/s41580-023-00680-1",
+      "char_length": 184
+    },
+    {
+      "ref_no": 36,
+      "raw_text": "Cotillard A; Poitou C; Torcivia A; Bouillot J; Dietrich A; Klöting N; Grégoire C; Lolmede K; Blüher M; Clément K. Adipocyte Size Threshold Matters: Link with Risk of Type 2 Diabetes and Improved Insulin Resistance After Gastric Bypass. J. Clin. Endocrinol. Metab. 2014, 99, E1466–E1470. https://doi.org/10.1210/jc.2014-1074",
+      "char_length": 323
+    },
+    {
+      "ref_no": 37,
+      "raw_text": "Monickaraj F; Gokulakrishnan K; Prabu P; Sathishkumar C; Anjana R; Rajkumar J; Mohan V; Balasubramanyam M. Convergence of adipocyte hypertrophy, telomere shortening and hypoadiponectinemia in obese subjects and in patients with type 2 diabetes. Clin. Biochem. 2012, 45, 1432–1438. https://doi.org/10.1016/j.clinbiochem.2012.07.097",
+      "char_length": 330
+    },
+    {
+      "ref_no": 38,
+      "raw_text": "Sandireddy R; Sakthivel S; Gupta P; Behari J; Tripathi M; Singh B. Systemic impacts of metabolic dysfunction-associated steatotic liver disease (MASLD) and metabolic dysfunction-associated steatohepatitis (MASH) on heart, muscle, and kidney related diseases. Front. Cell. Dev. Biol. 2024, 12. https://doi.org/10.3389/fcell.2024.1433857",
+      "char_length": 335
+    },
+    {
+      "ref_no": 39,
+      "raw_text": "Theodorakis N; Nikolaou M. From Cardiovascular-Kidney-Metabolic Syndrome to Cardiovascular-Renal-Hepatic-Metabolic Syndrome: Proposing an Expanded Framework. Biomolecules 2025, 15. https://doi.org/10.3390/biom15020213",
+      "char_length": 217
+    },
+    {
+      "ref_no": 40,
+      "raw_text": "Lonardo A; Mantovani A; Targher G; Baffy G. Nonalcoholic Fatty Liver Disease and Chronic Kidney Disease: Epidemiology, Pathogenesis, and Clinical and Research Implications. Int. J. Mol. Sci. 2022, 23. https://doi.org/10.3390/ijms232113320",
+      "char_length": 238
+    },
+    {
+      "ref_no": 41,
+      "raw_text": "Demirbuga A; Poyrazoglu S; Bundak R. Metabolic Syndrome and Type 2 Diabetes Mellitus in Overweight and Obese Children: A Single Centre Experience. J. Child 2024, 24, 154–161. https://doi.org/10.26650/jchild.2024.1527424",
+      "char_length": 219
+    },
+    {
+      "ref_no": 42,
+      "raw_text": "Lechi A. The obesity paradox: Is it really a paradox? Hypertension. Eat. Weight Disord. 2017, 22, 43–48. https://doi.org/10.1007/s40519-016-0330-4",
+      "char_length": 146
+    },
+    {
+      "ref_no": 43,
+      "raw_text": "Carbone S; Canada JM; Billingsley HE; Siddiqui MS; Elagizi A; Lavie CJ. Obesity paradox in cardiovascular disease: Where do we stand? Vasc. Health Risk Manag. 2019, 15, 89–100. https://doi.org/10.2147/VHRM.S168946",
+      "char_length": 213
+    },
+    {
+      "ref_no": 44,
+      "raw_text": "Salvestrini V; Sell C; Lorenzini A. Obesity May Accelerate the Aging Process. Front. Endocrinol. 2019, 10. https://doi.org/10.3389/fendo.2019.00266",
+      "char_length": 147
+    },
+    {
+      "ref_no": 45,
+      "raw_text": "Buse JB; Wexler DJ; Tsapas A; Rossing P; Mingrone G; Mathieu C; D’Alessio DA; Davies MJ. 2019 Update to: Management of Hyperglycemia in Type 2 Diabetes, 2018. A Consensus Report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care 2020, 43, 487–493. https://doi.org/10.2337/dci19-0066",
+      "char_length": 351
+    },
+    {
+      "ref_no": 46,
+      "raw_text": "Oshakbayev K; Dukenbayeva B; Otarbayev N; Togizbayeva G; Tabynbayev N; Gazaliyeva M; Idrisov A; Oshakbayev P. Weight loss therapy for clinical management of patients with some atherosclerotic diseases: A randomized clinical trial. Nutr. J. 2015, 14, 9. https://doi.org/10.1186/s12937-015-0108-y",
+      "char_length": 294
+    },
+    {
+      "ref_no": 47,
+      "raw_text": "Oshakbayev K; Dukenbayeva B; Togizbayeva G; Durmanova A; Gazaliyeva M; Sabir A; Issa A; Idrisov A. Weight loss technology for people with treated type 2 diabetes: A randomized controlled trial. Nutr. Metab. 2017, 14, 11. https://doi.org/10.1186/s12986-017-0163-9",
+      "char_length": 262
+    },
+    {
+      "ref_no": 48,
+      "raw_text": "Oshakbayev K; Bimbetov B; Manekenova K; Bedelbayeva G; Mustafin K; Dukenbayeva B. Severe nonalcoholic steatohepatitis and type 2 diabetes: Liver histology after weight loss therapy in a randomized clinical trial. Curr. Med. Res. Opin. 2019, 35, 157–165. https://doi.org/10.1080/03007995.2018.1547696",
+      "char_length": 299
+    },
+    {
+      "ref_no": 49,
+      "raw_text": "Page M; McKenzie J; Bossuyt P; Boutron I; Hoffmann T; Mulrow C; Shamseer L; Tetzlaff J; Akl E; Brennan S. The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. J. Clin. Epidemiol. 2021, 134, 178–189. https://doi.org/10.1016/j.jclinepi.2021.03.001",
+      "char_length": 274
+    },
+    {
+      "ref_no": 50,
+      "raw_text": "Christ TW. Scientific-Based Research and Randomized Controlled Trials, the “Gold” Standard? Alternative Paradigms and Mixed Methodologies. Qual. Inq. 2014, 20, 72–80. https://doi.org/10.1177/1077800413508523",
+      "char_length": 207
+    },
+    {
+      "ref_no": 51,
+      "raw_text": "Grossman J; Mackenzie FJ. The randomized controlled trial—Gold standard, or merely standard? Perspect. Biol. Med. 2005, 48, 516–534. https://doi.org/10.1353/pbm.2005.0092",
+      "char_length": 170
+    },
+    {
+      "ref_no": 52,
+      "raw_text": "Han Y; Liu J; Li W; Zhang F; Mao Y. Association Between Percent Body Fat Reduction and Changes of the Metabolic Score for Insulin Resistance in Overweight/Obese People with Metabolic Dysfunction-Associated Steatotic Liver Disease. Diabetes Metab. Syndr. Obes. 2024, 17, 4735–4747. https://doi.org/10.2147/DMSO.S486841",
+      "char_length": 317
+    },
+    {
+      "ref_no": 53,
+      "raw_text": "Pujia A; Gazzaruso C; Ferro Y; Mazza E; Maurotti S; Russo C; Lazzaro V; Romeo S; Montalcini T. Individuals with Metabolically Healthy Overweight/Obesity Have Higher Fat Utilization than Metabolically Unhealthy Individuals. Nutrients 2016, 8. https://doi.org/10.3390/nu8010002",
+      "char_length": 275
+    },
+    {
+      "ref_no": 54,
+      "raw_text": "Longo M; Zatterale F; Naderi J; Parrillo L; Formisano P; Raciti G; Beguinot F; Miele C. Adipose Tissue Dysfunction as Determinant of Obesity-Associated Metabolic Complications. Int. J. Mol. Sci. 2019, 20. https://doi.org/10.3390/ijms20092358\n55. Åkra S; Aksnes T; Laa A; Eggesbo H; Pstad T; Jerve I; Seljeflot I. Markers of remodeling in subcutaneous adipose tissue are strongly associated with overweight and insulin sensitivity in healthy non-obese men. Sci. Rep. 2020, 10, 8023. https://doi.org/10.1038/s41598-020-71109-4",
+      "char_length": 524
+    },
+    {
+      "ref_no": 56,
+      "raw_text": "Fernandez-Verdejo R; Malo-Vintimilla L; Gutierrez-Pino J; Lopez-Fuenzalida A; Olmos P; Irarrazaval P; Galgani J. Similar Metabolic Health in Overweight/Obese Individuals with Contrasting Metabolic Flexibility to an Oral Glucose Tolerance Test. Front. Nutr. 2021, 8. https://doi.org/10.3389/fnut.2021.745907",
+      "char_length": 306
+    },
+    {
+      "ref_no": 57,
+      "raw_text": "Sarkar J; Maity S; Sen A; Nargis T; Ray D; Chakrabarti P. Impaired compensatory hyperinsulinemia among nonobese type 2 diabetes patients: A cross-sectional study. Ther. Adv. Endocrinol. Metab. 2019, 10, 2042018819889024. https://doi.org/10.1177/2042018819889024",
+      "char_length": 261
+    },
+    {
+      "ref_no": 58,
+      "raw_text": "Berglund S; García-Valdés L; Torres-Espinola F; Segura M; Martínez-Zaldívar C; Aguilar M; Agil A; Lorente J; Florido J; Padilla C. Maternal, fetal and perinatal alterations associated with obesity, overweight and gestational diabetes: An observational cohort study (PREOBE). BMC Public Health 2016, 16. https://doi.org/10.1186/s12889-016-2809-3",
+      "char_length": 344
+    },
+    {
+      "ref_no": 59,
+      "raw_text": "Vertemati M; Goffredi M; Moscheni C; Callegari S; Vizzotto L. Human visceral fat in different anthropometric patterns and in diabetes—A morphometric study. Anal. Quant. Cytol. Histol. 2008, 30, 39–46.",
+      "char_length": 200
+    },
+    {
+      "ref_no": 60,
+      "raw_text": "McLaughlin T; Lamendola C; Coghlan N; Liu T; Lerner K; Sherman A; Cushman S. Subcutaneous Adipose Cell Size and Distribution: Relationship to Insulin Resistance and Body Fat. Obesity 2014, 22, 673–680. https://doi.org/10.1002/oby.20209",
+      "char_length": 235
+    },
+    {
+      "ref_no": 61,
+      "raw_text": "Ye R; Richard G; Gévry N; Tchernof A; Carpentier A. Fat Cell Size: Measurement Methods, Pathophysiological Origins, and Relationships with Metabolic Dysregulations. Endocr. Rev. 2022, 43, 35–60. https://doi.org/10.1210/endrev/bnab018",
+      "char_length": 233
+    },
+    {
+      "ref_no": 62,
+      "raw_text": "Nakamura M; Sadoshima J. Cardiomyopathy in obesity, insulin resistance and diabetes. J. Physiol. 2020, 598, 2977–2993. https://doi.org/10.1113/JP276747",
+      "char_length": 151
+    },
+    {
+      "ref_no": 63,
+      "raw_text": "Nakamura M. Lipotoxicity as a therapeutic target in obesity and diabetic cardiomyopathy. J. Pharm. Pharm. Sci. 2024, 27. https://doi.org/10.3389/jpps.2024.12568",
+      "char_length": 160
+    },
+    {
+      "ref_no": 64,
+      "raw_text": "Szablewski L. Changes in Cells Associated with Insulin Resistance. Int. J. Mol. Sci. 2024, 25. https://doi.org/10.3390/ijms25042397",
+      "char_length": 131
+    },
+    {
+      "ref_no": 65,
+      "raw_text": "Ferrannini E; Camastra S; Gastaldelli A; Sironi A; Natali A; Muscelli E; Mingrone G; Mari A. β-cell function in obesity: Effects of weight loss. Diabetes 2004, 53, S26–S33. https://doi.org/10.2337/diabetes.53.suppl_3.S26",
+      "char_length": 220
+    },
+    {
+      "ref_no": 66,
+      "raw_text": "Szukiewicz D. Molecular Mechanisms for the Vicious Cycle between Insulin Resistance and the Inflammatory Response in Obesity. Int. J. Mol. Sci. 2023, 24. https://doi.org/10.3390/ijms24129818",
+      "char_length": 190
+    },
+    {
+      "ref_no": 67,
+      "raw_text": "Castillo I; Argilés J; Rueda R; Ramírez M; Pedrosa J. Skeletal muscle atrophy and dysfunction in obesity and type-2 diabetes mellitus: Myocellular mechanisms involved. Rev. Endocr. Metab. Disord. 2025, 26, 815–836. https://doi.org/10.1007/s11154-025-09954-9",
+      "char_length": 257
+    },
+    {
+      "ref_no": 68,
+      "raw_text": "Guria S; Hoory A; Das S; Chattopadhyay D; Mukherjee S. Adipose tissue macrophages and their role in obesity-associated insulin resistance: An overview of the complex dynamics at play. Biosci. Rep. 2023, 43, BSR20220200. https://doi.org/10.1042/BSR20220200",
+      "char_length": 255
+    },
+    {
+      "ref_no": 69,
+      "raw_text": "van Vliet S; Koh H; Patterson B; Yoshino M; LaForest R; Gropler R; Klein S; Mittendorfer B. Obesity Is Associated with Increased Basal and Postprandial β-Cell Insulin Secretion Even in the Absence of Insulin Resistance. Diabetes 2020, 69, 2112–2119. https://doi.org/10.2337/db20-0377",
+      "char_length": 283
+    },
+    {
+      "ref_no": 70,
+      "raw_text": "Lipke K; Kubis-Kubiak A; Piwowar A. Molecular Mechanism of Lipotoxicity as an Interesting Aspect in the Development of Pathological States-Current View of Knowledge. Cells 2022, 11. https://doi.org/10.3390/cells11050844",
+      "char_length": 219
+    },
+    {
+      "ref_no": 71,
+      "raw_text": "Mota M; Banini B; Cazanave S; Sanyal A. Molecular mechanisms of lipotoxicity and glucotoxicity in nonalcoholic fatty liver disease. Metab. Clin. Exp. 2016, 65, 1049–1061. https://doi.org/10.1016/j.metabol.2016.02.014",
+      "char_length": 216
+    },
+    {
+      "ref_no": 72,
+      "raw_text": "Ahmed B; Sultana R; Greene M. Adipose tissue and insulin resistance in obese. Biomed. Pharmacother. 2021, 137, 111315. https://doi.org/10.1016/j.biopha.2021.111315",
+      "char_length": 163
+    },
+    {
+      "ref_no": 73,
+      "raw_text": "Dahik V; Frisdal E; Le Goff W. Rewiring of Lipid Metabolism in Adipose Tissue Macrophages in Obesity: Impact on Insulin Resistance and Type 2 Diabetes. Int. J. Mol. Sci. 2020, 21. https://doi.org/10.3390/ijms21155505",
+      "char_length": 216
+    },
+    {
+      "ref_no": 74,
+      "raw_text": "Armato J; Defronzo R; Abdul-Ghani M; Ruby R. Pre-Prediabetes: Insulin Resistance Is Associated with Cardiometabolic Risk in Nonobese Patients (STOP DIABETES). J. Clin. Endocrinol. Metab. 2025, 110, e1481–e1487. https://doi.org/10.1210/clinem/dgae540",
+      "char_length": 249
+    },
+    {
+      "ref_no": 75,
+      "raw_text": "Setayesh T; Misík M; Langie S; Godschalk R; Waldherr M; Bauer T; Leitner S; Bichler C; Prager G; Krupitza G. Impact of Weight Loss Strategies on Obesity-Induced DNA Damage. Mol. Nutr. Food Res. 2019, 63, e1900045. https://doi.org/10.1002/mnfr.201900045",
+      "char_length": 252
+    },
+    {
+      "ref_no": 76,
+      "raw_text": "Peyot M; Pepin E; Lamontagne J; Latour M; Zarrouki B; Lussier R; Pineda M; Jetton T; Madiraju S; Joly E. β-Cell Failure in Diet-Induced Obese Mice Stratified According to Body Weight Gain: Secretory Dysfunction and Altered Islet Lipid Metabolism Without Steatosis or Reduced β-Cell Mass. Diabetes 2010, 59, 2178–2187. https://doi.org/10.2337/db09-1452",
+      "char_length": 351
+    },
+    {
+      "ref_no": 77,
+      "raw_text": "Bozec A; Hannemann N. Mechanism of Regulation of Adipocyte Numbers in Adult Organisms Through Differentiation and Apoptosis Homeostasis. J. Vis. Exp. 2016, 112, e53822. https://doi.org/10.3791/53822",
+      "char_length": 198
+    },
+    {
+      "ref_no": 78,
+      "raw_text": "Sakaguchi M; Fujisaka S; Cai W; Winnay J; Konishi M; O’Neill B; Li M; García-Martín R; Takahashi H; Hu J. Adipocyte Dynamics and Reversible Metabolic Syndrome in Mice with an Inducible Adipocyte-Specific Deletion of the Insulin Receptor. Cell Metab. 2017, 25, 448–462. https://doi.org/10.1016/j.cmet.2016.12.008\n79. Özcan U; Cao Q; Yilmaz E; Lee A; Iwakoshi N; Özdelen E; Tuncman G; Görgün C; Glimcher L; Hotamisligil G. Endoplasmic reticulum stress links obesity, insulin action, and type 2 diabetes. Science 2004, 306, 457–461. https://doi.org/10.1126/science.1103160",
+      "char_length": 569
+    },
+    {
+      "ref_no": 80,
+      "raw_text": "Lee H; Wei Y. Mitochondrial role in life and death of the cell. J. Biomed. Sci. 2000, 7, 2–15. https://doi.org/10.1007/BF02255913",
+      "char_length": 129
+    },
+    {
+      "ref_no": 81,
+      "raw_text": "Mendes AD; Freitas AR; Vicente R; Vitorino M; Batista MV; Silva M; Braga S. Adipocyte Microenvironment in Ovarian Cancer: A Critical Contributor? Int. J. Mol. Sci. 2023, 24. https://doi.org/10.3390/ijms242316589",
+      "char_length": 211
+    },
+    {
+      "ref_no": 82,
+      "raw_text": "Taniguchi C; Emanuelli B; Kahn C. Critical nodes in signalling pathways: Insights into insulin action. Nat. Rev. Mol. Cell Biol. 2006, 7, 85–96. https://doi.org/10.1038/nrm1837",
+      "char_length": 176
+    },
+    {
+      "ref_no": 83,
+      "raw_text": "Kilanowska A; Ziólkowska A. Apoptosis in Type 2 Diabetes: Can It Be Prevented? Hippo Pathway Prospects. Int. J. Mol. Sci. 2022, 23. https://doi.org/10.3390/ijms23020636",
+      "char_length": 168
+    },
+    {
+      "ref_no": 84,
+      "raw_text": "Yang J; Wang Y; Xu Y; Jia X; Lu F. Mechanisms of skeletal muscle atrophy in type 2 diabetes mellitus. Front. Physiol. 2025, 16. https://doi.org/10.3389/fphys.2025.1607873",
+      "char_length": 170
+    },
+    {
+      "ref_no": 85,
+      "raw_text": "Blondel O; Simon J; Chevalier B; Portha B. Impaired Insulin Action But Normal Insulin-Receptor Activity In Diabetic Rat-Liver—Effect of Vanadate. Am. J. Physiol. 1990, 258, E459–E467. https://doi.org/10.1152/ajpendo.1990.258.3.E459",
+      "char_length": 231
+    },
+    {
+      "ref_no": 86,
+      "raw_text": "Oshakbayev K; Durmanova A; Nabiyev A; Sarria-Santamera A; Idrissov A; Bedelbayeva G; Gaipov A; Mitra A; Gazaliyeva M; Dukenbayeva B. Overweight effects on metabolic rate, time perception, diseases, aging, and lifespan: A systematic review with meta-regression analysis. Transl. Med. Aging 2025, 9, 15–24. https://doi.org/10.1016/j.tma.2024.12.001",
+      "char_length": 346
+    },
+    {
+      "ref_no": 87,
+      "raw_text": "Albai O; Braha A; Timar R; Lazar S; Popescu S; Timar B. The Impact of Antidiabetic Therapy on Liver Injury, Steatosis, and Fibrosis in Patients with Type 2 Diabetes and Metabolic Dysfunction-Associated Steatotic Liver Disease. Medicina 2025, 61. https://doi.org/10.3390/medicina61101850",
+      "char_length": 286
+    },
+    {
+      "ref_no": 88,
+      "raw_text": "Banji D; Alshahrani S; Alfarhan M; Banji O. Revolutionizing type 2 diabetes management: The role of the pharmacist in unlocking the potential of tirzepatide. Saudi Pharm. J. 2025, 33, 102345. https://doi.org/10.1007/s44446-025-00050-2",
+      "char_length": 234
+    },
+    {
+      "ref_no": 89,
+      "raw_text": "Davies MJ; Aroda VR; Collins BS; Gabbay RA; Green J; Maruthur NM; Rosas SE; Del Prato S; Mathieu C; Mingrone G. Management of Hyperglycemia in Type 2 Diabetes, 2022. A Consensus Report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care 2022, 45, 2753–2786. https://doi.org/10.2337/dci22-0034",
+      "char_length": 360
+    },
+    {
+      "ref_no": 90,
+      "raw_text": "Murphy J; Moullec G; Santosa S. Factors associated with adipocyte size reduction after weight loss interventions for overweight and obesity: A systematic review and meta-regression. Metab. Clin. Exp. 2017, 67, 31–40. https://doi.org/10.1016/j.metabol.2016.09.009",
+      "char_length": 262
+    },
+    {
+      "ref_no": 91,
+      "raw_text": "Jooste B; Kolivas D; Brukner P; Moschonis G. Effectiveness of Technology-Enabled, Low Carbohydrate Dietary Interventions, in the Prevention or Treatment of Type 2 Diabetes Mellitus in Adults: A Systematic Literature Review of Randomised Controlled and Non-Randomised Trials. Nutrients 2023, 15. https://doi.org/10.3390/nu15204362",
+      "char_length": 329
+    },
+    {
+      "ref_no": 92,
+      "raw_text": "van den Burg E; van Peet P; Schoonakker M; van de Haar D; Numans M; Pijl H. Metabolic impact of intermittent energy restriction and periodic fasting in patients with type 2 diabetes: A systematic review. Nutr. Rev. 2023, 81, 1329–1350. https://doi.org/10.1093/nutrit/nuad015",
+      "char_length": 274
+    },
+    {
+      "ref_no": 93,
+      "raw_text": "Schauer P; Kashyap S; Wolski K; Brethauer S; Kirwan J; Pothier C; Thomas S; Abood B; Nissen S; Bhatt D. Bariatric Surgery versus Intensive Medical Therapy in Obese Patients with Diabetes. N. Engl. J. Med. 2012, 366, 1567–1576. https://doi.org/10.1056/NEJMoa1200225",
+      "char_length": 264
+    },
+    {
+      "ref_no": 94,
+      "raw_text": "Reinehr T; Andler W. Cortisol and its relation to insulin resistance before and after weight loss in obese children. Horm. Res. 2004, 62, 107–112. https://doi.org/10.1159/000079841",
+      "char_length": 180
+    },
+    {
+      "ref_no": 95,
+      "raw_text": "Zhang N; Cao M; Liu H; Xie G; Li Y. Autophagy regulates insulin resistance following endoplasmic reticulum stress in diabetes. J. Physiol. Biochem. 2015, 71, 319–327. https://doi.org/10.1007/s13105-015-0384-1",
+      "char_length": 208
+    },
+    {
+      "ref_no": 96,
+      "raw_text": "Oshakbayev K; Durmanova A; Kuttymuratov G; Bikhanov N; Nabiyev A; Suleimenov T; Idrissov A; Shakhmarova T; Mirmanova Z; Rakhimova S. Changes in Insulin Resistance with Different Weight Loss Methods in Patients with Type Two Diabetes Mellitus and Hypertension: A Comparative Clinical Trial. J. Clin. Med. 2026, 15. https://doi.org/10.3390/jcm15020546",
+      "char_length": 349
+    },
+    {
+      "ref_no": 97,
+      "raw_text": "Delrue C; Speeckaert R; Speeckaert M. The role of intermittent fasting and ketogenic diet in metabolic syndrome and type 2 diabetes. Acta Clin. Belg. 2025, 80, 100–114. https://doi.org/10.1080/17843286.2025.2540287",
+      "char_length": 214
+    },
+    {
+      "ref_no": 98,
+      "raw_text": "Wei X; Yuan H; Wang D; Zhao J; Fang F. Effect of bariatric surgery on glycemic and metabolic outcomes in people with obesity and type 2 diabetes mellitus: A systematic review, meta-analysis, and meta-evidence of 39 studies. Front. Nutr. 2025, 12. https://doi.org/10.3389/fnut.2025.1603670",
+      "char_length": 288
+    },
+    {
+      "ref_no": 99,
+      "raw_text": "Murray RK; Granner DK; Mayes PA; Rodwell VW. Illustrated Biochemistry 2003.",
+      "char_length": 75
+    },
+    {
+      "ref_no": 100,
+      "raw_text": "Kim D; Do M. BAFF knockout improves systemic inflammation via regulating adipose tissue distribution in high-fat diet-induced obesity. Exp. Mol. Med. 2015, 47, e129. https://doi.org/10.1038/emm.2014.98",
+      "char_length": 201
+    },
+    {
+      "ref_no": 101,
+      "raw_text": "Ozkaya I; Gurbuz M. Malnourishment in the overweight and obese elderly. Nutr. Hosp. 2019, 36, 39–42. https://doi.org/10.20960/nh.02062",
+      "char_length": 134
+    },
+    {
+      "ref_no": 102,
+      "raw_text": "Piaggi P; Thearle MS; Krakoff J; Votruba SB. Higher Daily Energy Expenditure and Respiratory Quotient, Rather Than Fat-Free Mass, Independently Determine Greater ad Libitum Overeating. J. Clin. Endocrinol. Metab. 2015, 100, 3011–3020. https://doi.org/10.1210/jc.2015-2164",
+      "char_length": 271
+    },
+    {
+      "ref_no": 103,
+      "raw_text": "Ye Z; Xu Y; Liu Y. Influences of dietary oils and fats, and the accompanied minor content of components on the gut microbiota and gut inflammation: A review. Trends Food Sci. Technol. 2021, 113, 255–276. https://doi.org/10.1016/j.tifs.2021.05.001",
+      "char_length": 246
+    },
+    {
+      "ref_no": 104,
+      "raw_text": "Kulkarni V; Shaw C. Surfactants, Lipids, and Surface Chemistry. Essential Chemistry for Formulators of Semisolid and Liquid Dosages 2016, 5–19.",
+      "char_length": 143
+    },
+    {
+      "ref_no": 105,
+      "raw_text": "Shibib L; Al-Qaisi M; Guess N; Miras A; Greenwald S; Pelling M; Ahmed A. Manipulation of Post-Prandial Hyperglycaemia in Type 2 Diabetes: An Update for Practitioners. Diabetes Metab. Syndr. Obes. 2024, 17, 3111–3130. https://doi.org/10.2147/DMSO.S458894",
+      "char_length": 253
+    },
+    {
+      "ref_no": 106,
+      "raw_text": "Obeagu E. Red blood cells as biomarkers and mediators in complications of diabetes mellitus: A review. Medicine 2024, 103, e37265. https://doi.org/10.1097/MD.0000000000037265",
+      "char_length": 174
+    },
+    {
+      "ref_no": 107,
+      "raw_text": "Tong M; Saito T; Zhai P; Oka S; Mizushima W; Nakamura M; Ikeda S; Shirakabe A; Sadoshima J. Mitophagy Is Essential for Maintaining Cardiac Function During High Fat Diet-Induced Diabetic Cardiomyopathy. Circ. Res. 2019, 124, 1360–1371. https://doi.org/10.1161/CIRCRESAHA.118.314607",
+      "char_length": 280
+    },
+    {
+      "ref_no": 108,
+      "raw_text": "Ye J. Mechanism of insulin resistance in obesity: A role of ATP. Front. Med. 2021, 15, 372–382. https://doi.org/10.1007/s11684-021-0862-5",
+      "char_length": 137
+    },
+    {
+      "ref_no": 109,
+      "raw_text": "Saroussi S; Sanz-Luque E; Kim R; Grossman A. Nutrient scavenging and energy management: Acclimation responses in nitrogen and sulfur deprived Chlamydomonas. Curr. Opin. Plant Biol. 2017, 39, 114–122. https://doi.org/10.1016/j.pbi.2017.06.002",
+      "char_length": 241
+    },
+    {
+      "ref_no": 110,
+      "raw_text": "Bhutada G; Kavscek M; Ledesma-Amaro R; Thomas S; Rechberger G; Nicaud J; Natter K. Sugar versus fat: Elimination of glycogen storage improves lipid accumulation in Yarrowia lipolytica. FEMS Yeast Res. 2017, 17, fox020. https://doi.org/10.1093/femsyr/fox020",
+      "char_length": 256
+    },
+    {
+      "ref_no": 111,
+      "raw_text": "Darvey I. How does the ratio of ATP yield from the complete oxidation of palmitic acid to that of glucose compare with the relative energy contents of fat and carbohydrate? Biochem. Educ. 1998, 26, 22–23. https://doi.org/10.1016/S0307-4412(97)00046-0",
+      "char_length": 250
+    },
+    {
+      "ref_no": 112,
+      "raw_text": "Su C; Lu Y; Wang Z; Guo J; Hou Y; Wang X; Qin Z; Gao J; Sun Z; Dai Y. Atherosclerosis: The Involvement of Immunity, Cytokines and Cells in Pathogenesis, and Potential Novel Therapeutics. Aging Dis. 2023, 14, 1214–1242. https://doi.org/10.14336/AD.2022.1208",
+      "char_length": 256
+    },
+    {
+      "ref_no": 113,
+      "raw_text": "Morais J; Cruz K; de Oliveira A; Cardoso B; Dias T; Melo S; dos Santos L; Severo J; de Freitas S; Henriques G. Association Between Parameters of Cortisol Metabolism, Biomarkers of Minerals (Zinc, Selenium, and Magnesium), and Insulin Resistance and Oxidative Stress in Women with Obesity. Biol. Trace Elem. Res. 2023, 201, 5677–5691. https://doi.org/10.1007/s12011-023-03639-7",
+      "char_length": 376
+    },
+    {
+      "ref_no": 114,
+      "raw_text": "Yan K. Recent advances in the effect of adipose tissue inflammation on insulin resistance. Cell. Signal. 2024, 120, 111229. https://doi.org/10.1016/j.cellsig.2024.111229",
+      "char_length": 169
+    },
+    {
+      "ref_no": 115,
+      "raw_text": "Blagov AV; Churov AV; Golovyuk AL; Lee AA; Kashtalap VV; Sukhorukov VN; Orekhov AN. The role of metabolic disorders in the development of atherosclerosis. Cell. Mol. Biol. 2024, 70, 148–155. https://doi.org/10.14715/cmb/2024.70.9.21",
+      "char_length": 232
+    },
+    {
+      "ref_no": 116,
+      "raw_text": "Yu X; Fu Y; Zhang D; Yin K; Tang C. Foam cells in atherosclerosis. Clin. Chim. Acta 2013, 424, 245–252. https://doi.org/10.1016/j.cca.2013.06.006",
+      "char_length": 145
+    },
+    {
+      "ref_no": 117,
+      "raw_text": "Warkentin L; Majumdar S; Johnson J; Agborsangaya C; Rueda-Clausen C; Sharma A; Klarenbach S; Karmali S; Birch D; Padwal R. Weight loss required by the severely obese to achieve clinically important differences in health-related quality of life: Two-year prospective cohort study. BMC Med. 2014, 12. https://doi.org/10.1186/s12916-014-0175-5",
+      "char_length": 340
+    },
+    {
+      "ref_no": 118,
+      "raw_text": "Stunkard A. Nutrition, aging and obesity—A critical-review of a complex relationship. Int. J. Obes. 1983, 7, 201–220.",
+      "char_length": 117
+    },
+    {
+      "ref_no": 119,
+      "raw_text": "Wajchenberg B. Subcutaneous and visceral adipose tissue: Their relation to the metabolic syndrome. Endocr. Rev. 2000, 21, 697–738. https://doi.org/10.1210/edrv.21.6.0415",
+      "char_length": 169
+    },
+    {
+      "ref_no": 120,
+      "raw_text": "Williams K; Wu X. Imbalanced insulin action in chronic over nutrition: Clinical harm, molecular mechanisms, and a way forward. Atherosclerosis 2016, 247, 225–282. https://doi.org/10.1016/j.atherosclerosis.2016.02.004",
+      "char_length": 216
+    },
+    {
+      "ref_no": 121,
+      "raw_text": "Gómez-Hernández A; Perdomo L; de las Heras N; Beneit N; Escribano O; Otero Y; Guillén C; Díaz-Castroverde S; Gozalbo-López B; Cachofeiro V. Antagonistic effect of TNF-alpha and insulin on uncoupling protein 2 (UCP-2) expression and vascular damage. Cardiovasc. Diabetol. 2014, 13, 108. https://doi.org/10.1186/s12933-014-0108-9",
+      "char_length": 327
+    },
+    {
+      "ref_no": 122,
+      "raw_text": "Szosland K; Lewinski A. Insulin resistance—“The good or the bad and ugly”. Neuroendocrinol. Lett. 2018, 39, 355–362.",
+      "char_length": 116
+    },
+    {
+      "ref_no": 123,
+      "raw_text": "Kalra S; Vermaz S; Kapoor N. Obesity and the Spleen. J. Pak. Med. Assoc. 2025, 75, 1298–1300. https://doi.org/10.47391/JPMA.25-63",
+      "char_length": 129
+    },
+    {
+      "ref_no": 124,
+      "raw_text": "Heymsfield SB; Thomas DM; Bosy-Westphal A; Mueller MJ. The anatomy of resting energy expenditure: Body composition mechanisms. Eur. J. Clin. Nutr. 2019, 73, 166–171. https://doi.org/10.1038/s41430-018-0319-3",
+      "char_length": 207
+    },
+    {
+      "ref_no": 125,
+      "raw_text": "Atawia R; Bunch K; Toque H; Caldwell R; Caldwell R. Mechanisms of obesity-induced metabolic and vascular dysfunctions. Front. Biosci.-Landmark 2019, 24, 890–934. https://doi.org/10.2741/4758",
+      "char_length": 190
+    },
+    {
+      "ref_no": 126,
+      "raw_text": "Kraus W; McCrory M; Bhapkar M; Weiss E; Martin C; DeLany J; Roberts S; Das S; Racette S. Free-living Total Energy Expenditure Assessed using Three Accelerometer Models Validated against Doubly-Labelled Water. Med. Sci. Sports Exerc. 2017, 49, 529. https://doi.org/10.1249/01.mss.0000518362.85418.f8",
+      "char_length": 298
+    },
+    {
+      "ref_no": 127,
+      "raw_text": "Broskey NT; Marlatt KL; Most J; Erickson ML; Irving BA; Redman LM. The Panacea of Human Aging: Calorie Restriction Versus Exercise. Exerc. Sport Sci. Rev. 2019, 47, 169–175. https://doi.org/10.1249/JES.0000000000000193",
+      "char_length": 218
+    },
+    {
+      "ref_no": 128,
+      "raw_text": "Sabounchi NS; Rahmandad H; Ammerman A. Best-fitting prediction equations for basal metabolic rate: Informing obesity interventions in diverse populations. Int. J. Obes. 2013, 37, 1364–1370. https://doi.org/10.1038/ijo.2012.218",
+      "char_length": 226
+    },
+    {
+      "ref_no": 129,
+      "raw_text": "Ravussin E; Redman LM; Rochon J; Das SK; Fontana L; Kraus WE; Romashkan S; Williamson DA; Meydani SN; Villareal DT. A 2-Year Randomized Controlled Trial of Human Caloric Restriction: Feasibility and Effects on Predictors of Health Span and Longevity. J. Gerontol. Ser. A-Biol. Sci. Med. Sci. 2015, 70, 1097–1104. https://doi.org/10.1093/gerona/glv057",
+      "char_length": 350
+    },
+    {
+      "ref_no": 130,
+      "raw_text": "Martin A; Fox D; Murphy CA; Hofmann H; Koehler K. Tissue losses and metabolic adaptations both contribute to the reduction in resting metabolic rate following weight loss. Int. J. Obes. 2022, 46, 1168–1175. https://doi.org/10.1038/s41366-022-01090-7",
+      "char_length": 249
+    },
+    {
+      "ref_no": 131,
+      "raw_text": "Jesus P; Achamrah N; Grigioni S; Charles J; Rimbert A; Folope V; Petit A; Dechelotte P; Coeffier M. Validity of predictive equations for resting energy expenditure according to the body mass index in a population of 1726 patients followed in a Nutrition Unit. Clin. Nutr. 2015, 34, 529–535. https://doi.org/10.1016/j.clnu.2014.06.009",
+      "char_length": 333
+    },
+    {
+      "ref_no": 132,
+      "raw_text": "Popp CJ; Zhou BY; Manigrasso MB; Li HL; Curran M; Hu L; St-Jules DE; Aleman JO; Vanegas SM; Jay M. Soluble Receptor for Advanced Glycation End Products (sRAGE) Isoforms Predict Changes in Resting Energy Expenditure in Adults with Obesity during Weight Loss. Curr. Dev. Nutr. 2022, 6, 1234. https://doi.org/10.1093/cdn/nzac046",
+      "char_length": 325
+    },
+    {
+      "ref_no": 133,
+      "raw_text": "Müller MJ; Enderle J; Bosy-Westphal A. Changes in Energy Expenditure with Weight Gain and Weight Loss in Humans. Curr. Obes. Rep. 2016, 5, 413–423. https://doi.org/10.1007/s13679-016-0237-4",
+      "char_length": 189
+    },
+    {
+      "ref_no": 134,
+      "raw_text": "Welle S; Forbes GB; Statt M; Barnard RR; Amatruda JM. Energy-expenditure under free-living conditions in normal-weight and overweight women. Am. J. Clin. Nutr. 1992, 55, 14–21. https://doi.org/10.1093/ajcn/55.1.14",
+      "char_length": 213
+    },
+    {
+      "ref_no": 135,
+      "raw_text": "Hintze LJ; Goldfield G; Seguin R; Damphousse A; Riopel A; Doucet E. The rate of weight loss does not affect resting energy expenditure and appetite sensations differently in women living with overweight and obesity. Physiol. Behav. 2019, 199, 314–321. https://doi.org/10.1016/j.physbeh.2018.11.032",
+      "char_length": 297
+    },
+    {
+      "ref_no": 136,
+      "raw_text": "DeLany J. Energy Requirement Methodology 2017, 85–102.",
+      "char_length": 54
+    },
+    {
+      "ref_no": 137,
+      "raw_text": "Munro D; Pamenter ME. Comparative studies of mitochondrial reactive oxygen species in animal longevity: Technical pitfalls and possibilities. Aging Cell 2019, 18, e13009. https://doi.org/10.1111/acel.13009",
+      "char_length": 205
+    },
+    {
+      "ref_no": 138,
+      "raw_text": "Zampino M; Semba RD; Adelnia F; Spencer RG; Fishbein KW; Schrack JA; Simonsick EM; Ferrucci L. Greater skeletal muscle oxidative capacity is associated with higher resting metabolic rate: Results from the Baltimore Longitudinal Study of Aging. J. Gerontol. Ser. A-Biol. Sci. Med. Sci. 2020, 75, 2262–2268. https://doi.org/10.1093/gerona/glaa071",
+      "char_length": 344
+    },
+    {
+      "ref_no": 139,
+      "raw_text": "Liu J; Wang Y; Lin L. Small molecules for fat combustion: Targeting obesity. Acta Pharm. Sin. B 2019, 9, 220–236. https://doi.org/10.1016/j.apsb.2018.09.007",
+      "char_length": 156
+    },
+    {
+      "ref_no": 140,
+      "raw_text": "Piaggi P; Thearle MS; Bogardus C; Krakoff J. Fasting Hyperglycemia Predicts Lower Rates of Weight Gain by Increased Energy Expenditure and Fat Oxidation Rate. J. Clin. Endocrinol. Metab. 2015, 100, 1078–1087. https://doi.org/10.1210/jc.2014-3582",
+      "char_length": 245
+    },
+    {
+      "ref_no": 141,
+      "raw_text": "Bordone L; Guarente L. Calorie restriction, SIRT1 and metabolism: Understanding longevity. Nat. Rev. Mol. Cell Biol. 2005, 6, 298–305. https://doi.org/10.1038/nrm1616",
+      "char_length": 166
+    },
+    {
+      "ref_no": 142,
+      "raw_text": "Mitchell SE; Tang Z; Kerbois C; Delville C; Derous D; Green CL; Wang Y; Han JJD; Chen L; Douglas A. The effects of graded levels of calorie restriction: VIII. Impact of short term calorie and protein restriction on basal metabolic rate in the C57BL/6 mouse. Oncotarget 2017, 8, 17453–17474. https://doi.org/10.18632/oncotarget.15294",
+      "char_length": 332
+    },
+    {
+      "ref_no": 143,
+      "raw_text": "Lopes LL; Bressan J; Peluzio M; Hermsdorff HHM. LINE-1 in Obesity and Cardiometabolic Diseases: A Systematic Review. J. Am. Coll. Nutr. 2019, 38, 478–484. https://doi.org/10.1080/07315724.2018.1553116",
+      "char_length": 200
+    },
+    {
+      "ref_no": 144,
+      "raw_text": "NCD Risk Factor Collaboration (NCD-RisC). Worldwide trends in diabetes since 1980: A pooled analysis of 751 population-based studies with 4.4 million participants. Lancet 2016, 387, 1513–1530. https://doi.org/10.1016/S0140-6736(16)00618-8",
+      "char_length": 238
+    },
+    {
+      "ref_no": 145,
+      "raw_text": "Gribsholt SB; Cronin-Fenton D; Veres K; Thomsen RW; Ording AG; Richelsen B; Sorensen HT. Hospital-diagnosed overweight and obesity related to cancer risk: A 40-year Danish cohort study. J. Intern. Med. 2020, 287, 435–447. https://doi.org/10.1111/joim.13013",
+      "char_length": 256
+    },
+    {
+      "ref_no": 146,
+      "raw_text": "Gielen M; Hageman GJ; Antoniou EE; Nordfjall K; Mangino M; Balasubramanyam M; de Meyer T; Hendricks AE; Giltay EJ; Hunt SC. Body mass index is negatively associated with telomere length: A collaborative cross-sectional meta-analysis of 87 observational studies. Am. J. Clin. Nutr. 2018, 108, 453–475. https://doi.org/10.1093/ajcn/nqy107",
+      "char_length": 336
+    },
+    {
+      "ref_no": 147,
+      "raw_text": "Redman LM; Ravussin E. Caloric Restriction in Humans: Impact on Physiological, Psychological, and Behavioral Outcomes. Antioxid. Redox Signal. 2011, 14, 275–287. https://doi.org/10.1089/ars.2010.3253",
+      "char_length": 199
+    },
+    {
+      "ref_no": 148,
+      "raw_text": "Mueller MJ; Geisler C. From the past to future: From energy expenditure to energy intake to energy expenditure. Eur. J. Clin. Nutr. 2017, 71, 358–364. https://doi.org/10.1038/ejcn.2016.231",
+      "char_length": 188
+    },
+    {
+      "ref_no": 149,
+      "raw_text": "Haywood CJ; Prendergast LA; Lim R; Lappas M; Lim WK; Proietto J. Obesity in older adults: Effect of degree of weight loss on cardiovascular markers and medications. Clin. Obes. 2019, 9, e12316. https://doi.org/10.1111/cob.12316",
+      "char_length": 227
+    },
+    {
+      "ref_no": 150,
+      "raw_text": "Oshakbayev KP; Alibek K; Ponomarev IO; Uderbayev NN; Dukenbayeva BA. Weight change therapy as a potential treatment for end-stage ovarian carcinoma. Am. J. Case Rep. 2014, 15, 203–211. https://doi.org/10.12659/ajcr.890229",
+      "char_length": 221
+    },
+    {
+      "ref_no": 151,
+      "raw_text": "Most J; Redman LM. Impact of calorie restriction on energy metabolism in humans. Exp. Gerontol. 2020, 133, 110875. https://doi.org/10.1016/j.exger.2020.110875",
+      "char_length": 158
+    },
+    {
+      "ref_no": 152,
+      "raw_text": "Koster-Rasmussen R; Simonsen M; Siersma V; Henriksen J; Heitmann B; Olivarius N. Intentional Weight Loss and Longevity in Overweight Patients with Type 2 Diabetes: A Population-Based Cohort Study. PLoS ONE 2016, 11. https://doi.org/10.1371/journal.pone.0146889",
+      "char_length": 260
+    },
+    {
+      "ref_no": 153,
+      "raw_text": "ElSayed NA; Aleppo G; Aroda VR; Bannuru RR; Brown FM; Bruemmer D; Collins BS; Hilliard ME; Isaacs D; Johnson EL. Diabetes Technology: Standards of Care in Diabetes-2023. Diabetes Care 2023, 46, S111–S127. https://doi.org/10.2337/dc23-S007",
+      "char_length": 238
+    },
+    {
+      "ref_no": 154,
+      "raw_text": "Faris M; Abdelrahim D; Herrag S; Khaled M; Abu Shihab K; Alkurd R; Madkour M. Cardiometabolic and obesity risk outcomes of dawn-to-dusk, dry intermittent fasting: Insights from an umbrella review. Clin. Nutr. ESPEN 2025, 67, 127–145. https://doi.org/10.1016/j.clnesp.2025.03.006",
+      "char_length": 278
+    },
+    {
+      "ref_no": 155,
+      "raw_text": "Clayton D; Varley I; Papageorgiou M. Intermittent fasting and bone health: A bone of contention? Br. J. Nutr. 2023, 130, 1487–1499. https://doi.org/10.1017/S0007114523000545",
+      "char_length": 173
+    },
+    {
+      "ref_no": 156,
+      "raw_text": "Dutzmann J; Kefalianakis Z; Kahles F; Daniel J; Gufler H; Wohlgemuth W; Knöpp K; Sedding D. Intermittent Fasting After ST-Segment-Elevation Myocardial Infarction Improves Left Ventricular Function: The Randomized Controlled INTERFAST-MI Trial. Circ.-Heart Fail. 2024, 17, e010936. https://doi.org/10.1161/CIRCHEARTFAILURE.123.010936",
+      "char_length": 332
+    },
+    {
+      "ref_no": 157,
+      "raw_text": "Rodopaios N; Manolarakis G; Koulouri A; Vasara E; Papadopoulou S; Skepastianos P; Dermitzakis E; Hassapidou M; Linardakis M; Kafatos A. The significant effect on musculoskeletal metabolism and bone density of the Eastern Mediterranean Christian Orthodox Church fasting. Eur. J. Clin. Nutr. 2020, 74, 1736–1742. https://doi.org/10.1038/s41430-020-0667-7",
+      "char_length": 352
+    },
+    {
+      "ref_no": 158,
+      "raw_text": "Peng Y; Zhong Z; Huang C; Wang W. The effects of popular diets on bone health in the past decade: A narrative review. Front. Endocrinol. 2024, 14. https://doi.org/10.3389/fendo.2023.1287140",
+      "char_length": 189
+    },
+    {
+      "ref_no": 159,
+      "raw_text": "Lorenzo PM; Sajoux I; Izquierdo AG; Gomez-Arbelaez D; Zulet MA; Abete I; Castro AI; Baltar J; Portillo MP; Tinahones FJ. Immunomodulatory effect of a very-low-calorie ketogenic diet compared with bariatric surgery and a low-calorie diet in patients with excessive body weight. Clin. Nutr. 2022, 41, 1566–1577. https://doi.org/10.1016/j.clnu.2022.05.007",
+      "char_length": 352
+    },
+    {
+      "ref_no": 160,
+      "raw_text": "Schiavon C; Cavalcanti A; Oliveira J; Machado R; Santucci E; Santos R; Oliveira J; Damiani L; Junqueira D; Halpern H. Randomized Trial of Effect of Bariatric Surgery on Blood Pressure After 5 Years. J. Am. Coll. Cardiol. 2023, 83, 637–648. https://doi.org/10.1016/j.jacc.2023.11.032",
+      "char_length": 282
+    },
+    {
+      "ref_no": 161,
+      "raw_text": "Artham SM; Lavie CJ; Milani RV; Ventura HO. The obesity paradox: Impact of obesity on the prevalence and prognosis of cardiovascular diseases. Postgrad. Med. 2008, 120, 34–41. https://doi.org/10.3810/pgm.2008.07.1788",
+      "char_length": 216
+    },
+    {
+      "ref_no": 162,
+      "raw_text": "Gaddam KK; Ventura HO; Lavie CJ. Metabolic Syndrome and Heart Failure-The Risk, Paradox, and Treatment. Curr. Hypertens. Rep. 2011, 13, 142–148. https://doi.org/10.1007/s11906-011-0179-x",
+      "char_length": 186
+    },
+    {
+      "ref_no": 163,
+      "raw_text": "Sonnefeld L; Rohmann N; Geisler C; Laudes M. Is human obesity an inflammatory disease of the hypothalamus? Eur. J. Endocrinol. 2023, 188, R37–R45. https://doi.org/10.1093/ejendo/lvad030",
+      "char_length": 185
+    },
+    {
+      "ref_no": 164,
+      "raw_text": "Pineda R; Torres E; Tena-Sempere M. Extrahypothalamic Control of Energy Balance and Its Connection with Reproduction: Roles of the Amygdala. Metabolites 2021, 11. https://doi.org/10.3390/metabo11120837",
+      "char_length": 201
+    },
+    {
+      "ref_no": 165,
+      "raw_text": "Redman LM; Smith SR; Burton JH; Martin CK; Il’yasova D; Ravussin E. Metabolic Slowing and Reduced Oxidative Damage with Sustained Caloric Restriction Support the Rate of Living and Oxidative Damage Theories of Aging. Cell Metab. 2018, 27, 805–815. https://doi.org/10.1016/j.cmet.2018.02.019",
+      "char_length": 290
+    },
+    {
+      "ref_no": 166,
+      "raw_text": "Kelemen EP; Cao N; Cao T; Davidowitz G; Dornhaus A. Metabolic rate predicts the lifespan of workers in the bumble bee Bombus impatiens. Apidologie 2019, 50, 195–203. https://doi.org/10.1007/s13592-018-0630-y",
+      "char_length": 207
+    },
+    {
+      "ref_no": 167,
+      "raw_text": "Chetboun M; Raverdy V; Labreuche J; Simonnet A; Wallet F; Caussy C; Antonelli M; Artigas A; Goma G; Meziani F. BMI and pneumonia outcomes in critically ill COVID-19 patients: An international multicenter study. Obesity 2021, 29, 1477–1486. https://doi.org/10.1002/oby.23223",
+      "char_length": 273
+    },
+    {
+      "ref_no": 168,
+      "raw_text": "Soeters M; Soeters P; Schooneman M; Houten S; Romijn J. Adaptive reciprocity of lipid and glucose metabolism in human short-term starvation. Am. J. Physiol.-Endocrinol. Metab. 2012, 303, E1397–E1407. https://doi.org/10.1152/ajpendo.00397.2012",
+      "char_length": 242
+    },
+    {
+      "ref_no": 169,
+      "raw_text": "Matias-Perez D; Hernandez-Bautista E; Garcia-Montalvo IA. Intermittent fasting may optimize intestinal microbiota, adipocyte status and metabolic health. Asia Pac. J. Clin. Nutr. 2022, 31, 16–23. https://doi.org/10.6133/apjcn.202203_31(1).0002",
+      "char_length": 243
+    },
+    {
+      "ref_no": 170,
+      "raw_text": "Caron N; Peyrot N; Caderby T; Verkindt C; Dalleau G. Energy Expenditure in People with Diabetes Mellitus: A Review. Front. Nutr. 2016, 3. https://doi.org/10.3389/fnut.2016.00056",
+      "char_length": 177
+    },
+    {
+      "ref_no": 171,
+      "raw_text": "Purdel C; Margina D; Adam-Dima I; Ungurianu A. The Beneficial Effects of Dietary Interventions on Gut Microbiota-An Up-to-Date Critical Review and Future Perspectives. Nutrients 2023, 15. https://doi.org/10.3390/nu15235005",
+      "char_length": 222
+    },
+    {
+      "ref_no": 172,
+      "raw_text": "Seyfried F; Phetcharaburanin J; Glymenaki M; Nordbeck A; Hankir M; Nicholson JK; Holmes E; Marchesi JR; Li JV. Roux-en-Y gastric bypass surgery in Zucker rats induces bacterial and systemic metabolic changes independent of caloric restriction-induced weight loss. Gut Microbes 2021, 13, 1875108. https://doi.org/10.1080/19490976.2021.1875108",
+      "char_length": 341
+    },
+    {
+      "ref_no": 173,
+      "raw_text": "de Menezes MC; Duarte CK; Costa DVD; Lopes MS; de Freitas PP; Campos SF; Lopes ACS. A systematic review of effects, potentialities, and limitations of nutritional interventions aimed at managing obesity in primary and secondary health care. Nutrition 2020, 75–76, 110784. https://doi.org/10.1016/j.nut.2020.110784",
+      "char_length": 313
+    }
+  ]
+}

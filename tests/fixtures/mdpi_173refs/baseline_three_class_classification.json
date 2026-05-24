@@ -1,0 +1,163 @@
+[
+  {
+    "ref_no": 26,
+    "class": "C",
+    "reason": "journal 'Advances in Experimental Medicine and Biology' は MEDLINE 収録 (currentindexingstatus=Y) だが本論文単体は indexing なし",
+    "doi_resolved": true,
+    "journal_indexing": "Y",
+    "details": {
+      "doi": "10.1007/978-1-4614-5441-0_19",
+      "crossref_journal": "Advances in Experimental Medicine and Biology",
+      "crossref_publisher": "Springer New York",
+      "nlm_id": "121103",
+      "nlm_medlineta": "Adv Exp Med Biol"
+    }
+  },
+  {
+    "ref_no": 41,
+    "class": "unknown",
+    "reason": "NLM Catalog status 不明: esearch returned no NLM ID",
+    "doi_resolved": true,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.26650/jchild.2024.1527424",
+      "crossref_journal": "Çocuk Dergisi / Journal of Child",
+      "crossref_publisher": "Istanbul University",
+      "nlm_id": null,
+      "nlm_medlineta": null
+    }
+  },
+  {
+    "ref_no": 50,
+    "class": "B",
+    "reason": "journal 'Qualitative Inquiry' は MEDLINE 非収録 (currentindexingstatus=N, publisher=SAGE Publications)",
+    "doi_resolved": true,
+    "journal_indexing": "N",
+    "details": {
+      "doi": "10.1177/1077800413508523",
+      "crossref_journal": "Qualitative Inquiry",
+      "crossref_publisher": "SAGE Publications",
+      "nlm_id": "9888853",
+      "nlm_medlineta": "Qual Inq"
+    }
+  },
+  {
+    "ref_no": 86,
+    "class": "B",
+    "reason": "journal 'Translational Medicine of Aging' は MEDLINE 非収録 (currentindexingstatus=N, publisher=Elsevier BV)",
+    "doi_resolved": true,
+    "journal_indexing": "N",
+    "details": {
+      "doi": "10.1016/j.tma.2024.12.001",
+      "crossref_journal": "Translational Medicine of Aging",
+      "crossref_publisher": "Elsevier BV",
+      "nlm_id": "101752932",
+      "nlm_medlineta": "Transl Med Aging"
+    }
+  },
+  {
+    "ref_no": 99,
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null,
+      "is_book": true
+    }
+  },
+  {
+    "ref_no": 103,
+    "class": "unknown",
+    "reason": "NLM Catalog status 不明: unexpected currentindexingstatus=''",
+    "doi_resolved": true,
+    "journal_indexing": null,
+    "details": {
+      "doi": "10.1016/j.tifs.2021.05.001",
+      "crossref_journal": "Trends in Food Science &amp; Technology",
+      "crossref_publisher": "Elsevier BV",
+      "nlm_id": "101097129",
+      "nlm_medlineta": ""
+    }
+  },
+  {
+    "ref_no": 104,
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": "Essential Chemistry for Formulators of Semisolid and Liquid Dosages",
+      "is_book": true
+    }
+  },
+  {
+    "ref_no": 111,
+    "class": "B",
+    "reason": "journal 'Biochemical Education' は MEDLINE 非収録 (currentindexingstatus=N, publisher=Elsevier BV)",
+    "doi_resolved": true,
+    "journal_indexing": "N",
+    "details": {
+      "doi": "10.1016/S0307-4412(97)00046-0",
+      "crossref_journal": "Biochemical Education",
+      "crossref_publisher": "Elsevier BV",
+      "nlm_id": "7507917",
+      "nlm_medlineta": "Biochem Educ"
+    }
+  },
+  {
+    "ref_no": 122,
+    "doi_resolved": null,
+    "journal_indexing": "Y",
+    "details": {
+      "doi": null,
+      "crossref_journal": "Neuroendocrinol. Lett.",
+      "nlm_id": "8008373",
+      "nlm_medlineta": "Neuro Endocrinol Lett"
+    },
+    "class": "C",
+    "reason": "DOI 欠落、journal 'Neuroendocrinol. Lett.' は MEDLINE 収録だが 本論文単体は indexing なし"
+  },
+  {
+    "ref_no": 126,
+    "class": "C",
+    "reason": "journal 'Medicine &amp; Science in Sports &amp; Exercise' は MEDLINE 収録 (currentindexingstatus=Y) だが本論文単体は indexing なし",
+    "doi_resolved": true,
+    "journal_indexing": "Y",
+    "details": {
+      "doi": "10.1249/01.mss.0000518362.85418.f8",
+      "crossref_journal": "Medicine &amp; Science in Sports &amp; Exercise",
+      "crossref_publisher": "Ovid Technologies (Wolters Kluwer Health)",
+      "nlm_id": "8005433",
+      "nlm_medlineta": "Med Sci Sports Exerc"
+    }
+  },
+  {
+    "ref_no": 136,
+    "class": "B",
+    "reason": "book chapter (DOI 欠落だが MEDLINE 対象外)",
+    "doi_resolved": null,
+    "journal_indexing": null,
+    "details": {
+      "doi": null,
+      "journal": null,
+      "is_book": true
+    }
+  },
+  {
+    "ref_no": 166,
+    "class": "B",
+    "reason": "journal 'Apidologie' は MEDLINE 非収録 (currentindexingstatus=N, publisher=Springer Science and Business Media LLC)",
+    "doi_resolved": true,
+    "journal_indexing": "N",
+    "details": {
+      "doi": "10.1007/s13592-018-0630-y",
+      "crossref_journal": "Apidologie",
+      "crossref_publisher": "Springer Science and Business Media LLC",
+      "nlm_id": "100955724",
+      "nlm_medlineta": "Apidologie"
+    }
+  }
+]

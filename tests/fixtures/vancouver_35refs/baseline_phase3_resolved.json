@@ -1,0 +1,3152 @@
+{
+  "input_file": "tests/fixtures/vancouver_35refs/input_References.docx",
+  "source_type": "docx",
+  "stage1_raw_length": 5767,
+  "stage2_5_line_number_detection": {
+    "detected": false,
+    "count": 0,
+    "min_val": null,
+    "max_val": null,
+    "values": [],
+    "spans": [],
+    "total_candidates": 0,
+    "rationale": "3桁の孤立整数候補が存在しない"
+  },
+  "stage2_preprocess_trace": {
+    "hyphen_bridged_removed": 0,
+    "standalone_removed": 0,
+    "soft_linebreaks_joined": 0,
+    "ref_blocks_found": 32,
+    "header_stripped": true
+  },
+  "stage3_reference_blocks": [
+    {
+      "ref_no": 1,
+      "raw_text": "Horr C, Buechler SA. Breast cancer consensus subtypes: A system for subtyping breast cancer tumors based on gene expression. NPJ Breast Cancer. 2021;7:136. doi:10.1038/s41523-021-00345-2",
+      "char_length": 186
+    },
+    {
+      "ref_no": 2,
+      "raw_text": "Wolff AC, Hammond MEH, Hicks DG. Recommendations for human epidermal growth factor receptor 2 testing in breast cancer: ASCO/CAP clinical practice guideline update. J Clin Oncol. 2018;36:2105-2122. doi:10.1200/JCO.2018.77.8738",
+      "char_length": 226
+    },
+    {
+      "ref_no": 3,
+      "raw_text": "Snoek HM, Dijkstra A, van der Sluis F. Psychological impact of metastasized cancer: a systematic review of qualitative studies. BMJ Open. 2021;11:e040298. doi:10.1136/bmjopen-2020-040298",
+      "char_length": 186
+    },
+    {
+      "ref_no": 4,
+      "raw_text": "Lo C, Zimmermann C, Rydall A. Longitudinal study of depressive symptoms in patients with metastatic gastrointestinal and lung cancer. J Clin Oncol. 2014;32:3557-3564. doi:10.1200/JCO.2013.54.9095",
+      "char_length": 195
+    },
+    {
+      "ref_no": 5,
+      "raw_text": "Roche KN, Cooper D, Armstrong TS, King AL. The link between psychological distress and survival in solid tumor patients: A systematic review. Cancer Med. 2023;12:3343-3364. doi:10.1002/cam4.5200",
+      "char_length": 194
+    },
+    {
+      "ref_no": 6,
+      "raw_text": "Fang CY, Schnoll RA. Impact of psychological distress on outcomes in cancer patients. Expert Rev Pharmacoecon Outcomes Res. 2002;2:495-506. doi:10.1586/14737167.2.5.495",
+      "char_length": 168
+    },
+    {
+      "ref_no": 7,
+      "raw_text": "Faller H, Schuler M, Richard M. Effects of psycho-oncologic interventions on emotional distress and quality of life in adult patients with cancer: Systematic review and meta-analysis. J Clin Oncol. 2013;31:782-793. doi:10.1200/JCO.2011.40.8922",
+      "char_length": 243
+    },
+    {
+      "ref_no": 8,
+      "raw_text": "Greer JA, Park ER, Prigerson HG, Safren SA. Tailoring psychosocial interventions to the needs of advanced cancer patients. J Psychosoc Oncol. 2010;28:276-295. doi:10.1080/07347331003676105",
+      "char_length": 188
+    },
+    {
+      "ref_no": 9,
+      "raw_text": "Siwik CJ, Phillips K, Zimmaro L, Salmon P, Sephton SE. Depressive symptoms among patients with lung cancer: elucidating the roles of shame, guilt, and self-compassion. J Health Psychol. 2022;27:1039-1047. doi:10.1177/13591053211009416",
+      "char_length": 234
+    },
+    {
+      "ref_no": 10,
+      "raw_text": "Zhu J, Fang F, Sjölander A, Fall K, Adami HO, Valdimarsdóttir U. First-onset mental disorders after cancer diagnosis and cancer-specific mortality: a nationwide cohort study. Ann Oncol. 2017;28(8):1964-1969. doi:10.1093/annonc/mdx265",
+      "char_length": 233
+    },
+    {
+      "ref_no": 11,
+      "raw_text": "Abdelhadi O. The impact of psychological distress on quality of care and access to mental health services in cancer survivors. Front Health Serv. 2023;3:1111677. doi:10.3389/frhs.2023.1111677",
+      "char_length": 191
+    },
+    {
+      "ref_no": 12,
+      "raw_text": "Harish J, Syed A. The role of psychosocial support in enhancing quality of life for cancer patients: challenges and solutions. J Neonatal Surg. 2025;14:384-387. doi:10.52783/jns.v14.1552",
+      "char_length": 186
+    },
+    {
+      "ref_no": 13,
+      "raw_text": "Vizin G, Farkas K. A kognitív viselkedésterápia lehetőségei az onkológiai ellátásban. Magy Onkol. 2020;64:62-69.",
+      "char_length": 112
+    },
+    {
+      "ref_no": 14,
+      "raw_text": "Vizin G. Nem vagy egyedül!. 2023.",
+      "char_length": 33
+    },
+    {
+      "ref_no": 15,
+      "raw_text": "Hinz A, Mitchell AJ, Degi CL, Mehnert-Theuerkauf A. Normative values for the distress thermometer and the emotion thermometers derived from a German general population sample. Qual Life Res. 2019;28:277-282. doi:10.1007/s11136-018-2014-1",
+      "char_length": 237
+    },
+    {
+      "ref_no": 16,
+      "raw_text": "Kroenke K, Spitzer RL, Williams JB, Löwe B. An ultra-brief screening scale for anxiety and depression: the PHQ-4. Psychosomatics. 2009;50:613-621. doi:10.1176/appi.psy.50.6.613",
+      "char_length": 176
+    },
+    {
+      "ref_no": 17,
+      "raw_text": "Molina Y, Choi SW, Cella D, Rao D. The Stigma Scale for Chronic Illnesses 8-item version (SSCI-8): development, validation and use across neurological conditions. Int J Behav Med. 2013;20:450-460. doi:10.1007/s12529-012-9243-4",
+      "char_length": 226
+    },
+    {
+      "ref_no": 18,
+      "raw_text": "Szőcs H, Horváth Z, Vizin G. Shame mediates the relationship between stigma and quality of life among patients with coeliac disease: a magyar adaptációs vizsgálat eredményei. Orv Hetil. 2021;162:1968-1976. doi:10.1556/650.2021.32258",
+      "char_length": 232
+    },
+    {
+      "ref_no": 19,
+      "raw_text": "Daryaafzoon M, Amini-Tehrani M, Zohrevandi Z, Hamzehlouiyan M, Ghotbi A, Zarrabi-Ajami S, et al. Translation and factor analysis of the Stigma Scale for Chronic Illnesses 8-item version among Iranian women with breast cancer. Asian Pac J Cancer Prev. 2020;21(2):449-455. doi:10.31557/APJCP.2020.21.2.449",
+      "char_length": 303
+    },
+    {
+      "ref_no": 20,
+      "raw_text": "Wallston KA, Wallston BS, DeVellis R. Development of the Multidimensional Health Locus of Control (MHLC) scales. Health Educ Monogr. 1978;6:160-170. doi:10.1177/109019817800600107",
+      "char_length": 179
+    },
+    {
+      "ref_no": 21,
+      "raw_text": "Wallston KA, Stein MJ, Smith CA. Form C of the MHLC scales: a condition-specific measure of locus of control. J Pers Assess. 1994;63:534-553. doi:10.1207/s15327752jpa6303_10",
+      "char_length": 173
+    },
+    {
+      "ref_no": 22,
+      "raw_text": "Konkoly Thege B, Rafael B, Rohánszky M. Psychometric properties of the Multidimensional Health Locus of Control Scale form C in a non-Western culture. PLoS One. 2014;9:e107108. doi:10.1371/journal.pone.0107108",
+      "char_length": 209
+    },
+    {
+      "ref_no": 23,
+      "raw_text": "Neff KD, Germer CK. A pilot study and randomized controlled trial of the Mindful Self-Compassion Program. J Clin Psychol. 2013;69:28-44. doi:10.1002/jclp.21923",
+      "char_length": 159
+    },
+    {
+      "ref_no": 24,
+      "raw_text": "Tóth-Király I, Bőthe B, Orosz G. Exploratory structural equation modeling analysis of the Self-Compassion Scale. Mindfulness. 2017;8:881-892. doi:10.1007/s12671-016-0662-1",
+      "char_length": 171
+    },
+    {
+      "ref_no": 25,
+      "raw_text": "Cohen J. Statistical power analysis for the behavioral sciences. 1988.",
+      "char_length": 70
+    },
+    {
+      "ref_no": 26,
+      "raw_text": "Hedges LV, Olkin I. Statistical methods for meta-analysis. 2014.",
+      "char_length": 64
+    },
+    {
+      "ref_no": 27,
+      "raw_text": "Moorey S, Holland J, Breitbart W, Jacobsen P. Cognitive therapy. Psycho-oncology. 2010:402-407.",
+      "char_length": 95
+    },
+    {
+      "ref_no": 28,
+      "raw_text": "Uitterhoeve RJ, Vernooy M, Litjens M. Psychosocial interventions for patients with advanced cancer: a systematic review of the literature. Br J Cancer. 2004;91:1050-1062. doi:10.1038/sj.bjc.6602051",
+      "char_length": 197
+    },
+    {
+      "ref_no": 29,
+      "raw_text": "Else-Quest NM, LoConte NK, Schiller JH, Hyde JS. Perceived stigma, self-blame, and adjustment among lung, breast and prostate cancer patients. Psychol Health. 2009;24:949-964. doi:10.1080/08870440802074664",
+      "char_length": 205
+    },
+    {
+      "ref_no": 30,
+      "raw_text": "Pinquart M, Duberstein PR. Associations of social networks with cancer mortality: a meta-analysis. Crit Rev Oncol Hematol. 2010;75:122-137. doi:10.1016/j.critrevonc.2009.06.003",
+      "char_length": 176
+    },
+    {
+      "ref_no": 31,
+      "raw_text": "Deshields TL, Heiland MF, Kracen AC, Dua P. Resilience in adults with cancer: development of a conceptual model. Psychooncology. 2016;25:11-18. doi:10.1002/pon.3800",
+      "char_length": 164
+    }
+  ],
+  "stage3_structured": [
+    {
+      "ref_no": 1,
+      "authors": [
+        {
+          "surname": "Horr",
+          "given": "C.",
+          "raw": "Horr C"
+        },
+        {
+          "surname": "Buechler",
+          "given": "S.A.",
+          "raw": "Buechler SA"
+        }
+      ],
+      "title": "Breast cancer consensus subtypes: A system for subtyping breast cancer tumors based on gene expression",
+      "journal": "NPJ Breast Cancer",
+      "year": 2021,
+      "volume": "7",
+      "issue": null,
+      "pages": "136",
+      "doi": "10.1038/s41523-021-00345-2",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 2,
+        "output_tokens": 228,
+        "cache_creation_input_tokens": 106,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 2,
+      "authors": [
+        {
+          "surname": "Wolff",
+          "given": "AC",
+          "raw": "Wolff AC"
+        },
+        {
+          "surname": "Hammond",
+          "given": "MEH",
+          "raw": "Hammond MEH"
+        },
+        {
+          "surname": "Hicks",
+          "given": "DG",
+          "raw": "Hicks DG"
+        }
+      ],
+      "title": "Recommendations for human epidermal growth factor receptor 2 testing in breast cancer: ASCO/CAP clinical practice guideline update",
+      "journal": "J Clin Oncol",
+      "year": 2018,
+      "volume": "36",
+      "issue": null,
+      "pages": "2105-2122",
+      "doi": "10.1200/JCO.2018.77.8738",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 2,
+        "output_tokens": 264,
+        "cache_creation_input_tokens": 125,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 3,
+      "authors": [
+        {
+          "surname": "Snoek",
+          "given": "H.M.",
+          "raw": "Snoek HM"
+        },
+        {
+          "surname": "Dijkstra",
+          "given": "A.",
+          "raw": "Dijkstra A"
+        },
+        {
+          "surname": "van der Sluis",
+          "given": "F.",
+          "raw": "van der Sluis F"
+        }
+      ],
+      "title": "Psychological impact of metastasized cancer: a systematic review of qualitative studies",
+      "journal": "BMJ Open",
+      "year": 2021,
+      "volume": "11",
+      "issue": null,
+      "pages": "e040298",
+      "doi": "10.1136/bmjopen-2020-040298",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 2,
+        "output_tokens": 255,
+        "cache_creation_input_tokens": 110,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 4,
+      "authors": [
+        {
+          "surname": "Lo",
+          "given": "C",
+          "raw": "Lo C"
+        },
+        {
+          "surname": "Zimmermann",
+          "given": "C",
+          "raw": "Zimmermann C"
+        },
+        {
+          "surname": "Rydall",
+          "given": "A",
+          "raw": "Rydall A"
+        }
+      ],
+      "title": "Longitudinal study of depressive symptoms in patients with metastatic gastrointestinal and lung cancer",
+      "journal": "J Clin Oncol",
+      "year": 2014,
+      "volume": "32",
+      "issue": null,
+      "pages": "3557-3564",
+      "doi": "10.1200/JCO.2013.54.9095",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 2,
+        "output_tokens": 255,
+        "cache_creation_input_tokens": 117,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 5,
+      "authors": [
+        {
+          "surname": "Roche",
+          "given": "K.N.",
+          "raw": "Roche KN"
+        },
+        {
+          "surname": "Cooper",
+          "given": "D.",
+          "raw": "Cooper D"
+        },
+        {
+          "surname": "Armstrong",
+          "given": "T.S.",
+          "raw": "Armstrong TS"
+        },
+        {
+          "surname": "King",
+          "given": "A.L.",
+          "raw": "King AL"
+        }
+      ],
+      "title": "The link between psychological distress and survival in solid tumor patients: A systematic review",
+      "journal": "Cancer Med",
+      "year": 2023,
+      "volume": "12",
+      "issue": null,
+      "pages": "3343-3364",
+      "doi": "10.1002/cam4.5200",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 2,
+        "output_tokens": 261,
+        "cache_creation_input_tokens": 102,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 6,
+      "authors": [
+        {
+          "surname": "Fang",
+          "given": "C.Y.",
+          "raw": "Fang CY"
+        },
+        {
+          "surname": "Schnoll",
+          "given": "R.A.",
+          "raw": "Schnoll RA"
+        }
+      ],
+      "title": "Impact of psychological distress on outcomes in cancer patients",
+      "journal": "Expert Rev Pharmacoecon Outcomes Res",
+      "year": 2002,
+      "volume": "2",
+      "issue": "5",
+      "pages": "495-506",
+      "doi": "10.1586/14737167.2.5.495",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 2,
+        "output_tokens": 226,
+        "cache_creation_input_tokens": 102,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 7,
+      "authors": [
+        {
+          "surname": "Faller",
+          "given": "H.",
+          "raw": "Faller H"
+        },
+        {
+          "surname": "Schuler",
+          "given": "M.",
+          "raw": "Schuler M"
+        },
+        {
+          "surname": "Richard",
+          "given": "M.",
+          "raw": "Richard M"
+        }
+      ],
+      "title": "Effects of psycho-oncologic interventions on emotional distress and quality of life in adult patients with cancer: Systematic review and meta-analysis",
+      "journal": "J Clin Oncol",
+      "year": 2013,
+      "volume": "31",
+      "issue": null,
+      "pages": "782-793",
+      "doi": "10.1200/JCO.2011.40.8922",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 124,
+        "output_tokens": 259,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 8,
+      "authors": [
+        {
+          "surname": "Greer",
+          "given": "J.A.",
+          "raw": "Greer JA"
+        },
+        {
+          "surname": "Park",
+          "given": "E.R.",
+          "raw": "Park ER"
+        },
+        {
+          "surname": "Prigerson",
+          "given": "H.G.",
+          "raw": "Prigerson HG"
+        },
+        {
+          "surname": "Safren",
+          "given": "S.A.",
+          "raw": "Safren SA"
+        }
+      ],
+      "title": "Tailoring psychosocial interventions to the needs of advanced cancer patients",
+      "journal": "J Psychosoc Oncol",
+      "year": 2010,
+      "volume": "28",
+      "issue": null,
+      "pages": "276-295",
+      "doi": "10.1080/07347331003676105",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 115,
+        "output_tokens": 279,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 9,
+      "authors": [
+        {
+          "surname": "Siwik",
+          "given": "CJ",
+          "raw": "Siwik CJ"
+        },
+        {
+          "surname": "Phillips",
+          "given": "K",
+          "raw": "Phillips K"
+        },
+        {
+          "surname": "Zimmaro",
+          "given": "L",
+          "raw": "Zimmaro L"
+        },
+        {
+          "surname": "Salmon",
+          "given": "P",
+          "raw": "Salmon P"
+        },
+        {
+          "surname": "Sephton",
+          "given": "SE",
+          "raw": "Sephton SE"
+        }
+      ],
+      "title": "Depressive symptoms among patients with lung cancer: elucidating the roles of shame, guilt, and self-compassion",
+      "journal": "J Health Psychol",
+      "year": 2022,
+      "volume": "27",
+      "issue": null,
+      "pages": "1039-1047",
+      "doi": "10.1177/13591053211009416",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 127,
+        "output_tokens": 304,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 10,
+      "authors": [
+        {
+          "surname": "Zhu",
+          "given": "J.",
+          "raw": "Zhu J"
+        },
+        {
+          "surname": "Fang",
+          "given": "F.",
+          "raw": "Fang F"
+        },
+        {
+          "surname": "Sjölander",
+          "given": "A.",
+          "raw": "Sjölander A"
+        },
+        {
+          "surname": "Fall",
+          "given": "K.",
+          "raw": "Fall K"
+        },
+        {
+          "surname": "Adami",
+          "given": "H.O.",
+          "raw": "Adami HO"
+        },
+        {
+          "surname": "Valdimarsdóttir",
+          "given": "U.",
+          "raw": "Valdimarsdóttir U"
+        }
+      ],
+      "title": "First-onset mental disorders after cancer diagnosis and cancer-specific mortality: a nationwide cohort study",
+      "journal": "Ann Oncol",
+      "year": 2017,
+      "volume": "28",
+      "issue": "8",
+      "pages": "1964-1969",
+      "doi": "10.1093/annonc/mdx265",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 132,
+        "output_tokens": 334,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 11,
+      "authors": [
+        {
+          "surname": "Abdelhadi",
+          "given": "O.",
+          "raw": "Abdelhadi O."
+        }
+      ],
+      "title": "The impact of psychological distress on quality of care and access to mental health services in cancer survivors",
+      "journal": "Front Health Serv",
+      "year": 2023,
+      "volume": "3",
+      "issue": null,
+      "pages": "1111677",
+      "doi": "10.3389/frhs.2023.1111677",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 102,
+        "output_tokens": 201,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 12,
+      "authors": [
+        {
+          "surname": "Harish",
+          "given": "J.",
+          "raw": "Harish J"
+        },
+        {
+          "surname": "Syed",
+          "given": "A.",
+          "raw": "Syed A"
+        }
+      ],
+      "title": "The role of psychosocial support in enhancing quality of life for cancer patients: challenges and solutions",
+      "journal": "J Neonatal Surg",
+      "year": 2025,
+      "volume": "14",
+      "issue": null,
+      "pages": "384-387",
+      "doi": "10.52783/jns.v14.1552",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 110,
+        "output_tokens": 227,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 13,
+      "authors": [
+        {
+          "surname": "Vizin",
+          "given": "G.",
+          "raw": "Vizin G"
+        },
+        {
+          "surname": "Farkas",
+          "given": "K.",
+          "raw": "Farkas K"
+        }
+      ],
+      "title": "A kognitív viselkedésterápia lehetőségei az onkológiai ellátásban",
+      "journal": "Magy Onkol",
+      "year": 2020,
+      "volume": "64",
+      "issue": null,
+      "pages": "62-69",
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "other",
+      "parsing_confidence": "medium",
+      "notes": "Hungarian language article. Title translates roughly to 'Possibilities of cognitive behavioral therapy in oncological care'. No DOI present.",
+      "_usage": {
+        "input_tokens": 98,
+        "output_tokens": 244,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 14,
+      "authors": [
+        {
+          "surname": "Vizin",
+          "given": "G.",
+          "raw": "Vizin G."
+        }
+      ],
+      "title": "Nem vagy egyedül!",
+      "journal": null,
+      "year": 2023,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": true,
+      "language": "other",
+      "parsing_confidence": "low",
+      "notes": "Hungarian-language reference. No journal or publisher information provided; likely a book or standalone publication. Title means 'You are not alone!' in Hungarian. No DOI or other identifiers present.",
+      "_usage": {
+        "input_tokens": 61,
+        "output_tokens": 204,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 15,
+      "authors": [
+        {
+          "surname": "Hinz",
+          "given": "A.",
+          "raw": "Hinz A"
+        },
+        {
+          "surname": "Mitchell",
+          "given": "A.J.",
+          "raw": "Mitchell AJ"
+        },
+        {
+          "surname": "Degi",
+          "given": "C.L.",
+          "raw": "Degi CL"
+        },
+        {
+          "surname": "Mehnert-Theuerkauf",
+          "given": "A.",
+          "raw": "Mehnert-Theuerkauf A"
+        }
+      ],
+      "title": "Normative values for the distress thermometer and the emotion thermometers derived from a German general population sample",
+      "journal": "Qual Life Res",
+      "year": 2019,
+      "volume": "28",
+      "issue": null,
+      "pages": "277-282",
+      "doi": "10.1007/s11136-018-2014-1",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Mehnert-Theuerkauf is a genuine hyphenated surname, not a line-break artifact.",
+      "_usage": {
+        "input_tokens": 128,
+        "output_tokens": 319,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 16,
+      "authors": [
+        {
+          "surname": "Kroenke",
+          "given": "K",
+          "raw": "Kroenke K"
+        },
+        {
+          "surname": "Spitzer",
+          "given": "RL",
+          "raw": "Spitzer RL"
+        },
+        {
+          "surname": "Williams",
+          "given": "JB",
+          "raw": "Williams JB"
+        },
+        {
+          "surname": "Löwe",
+          "given": "B",
+          "raw": "Löwe B"
+        }
+      ],
+      "title": "An ultra-brief screening scale for anxiety and depression: the PHQ-4",
+      "journal": "Psychosomatics",
+      "year": 2009,
+      "volume": "50",
+      "issue": "6",
+      "pages": "613-621",
+      "doi": "10.1176/appi.psy.50.6.613",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Issue number inferred from DOI path segment '50.6.613'.",
+      "_usage": {
+        "input_tokens": 116,
+        "output_tokens": 292,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 17,
+      "authors": [
+        {
+          "surname": "Molina",
+          "given": "Y",
+          "raw": "Molina Y"
+        },
+        {
+          "surname": "Choi",
+          "given": "SW",
+          "raw": "Choi SW"
+        },
+        {
+          "surname": "Cella",
+          "given": "D",
+          "raw": "Cella D"
+        },
+        {
+          "surname": "Rao",
+          "given": "D",
+          "raw": "Rao D"
+        }
+      ],
+      "title": "The Stigma Scale for Chronic Illnesses 8-item version (SSCI-8): development, validation and use across neurological conditions",
+      "journal": "Int J Behav Med",
+      "year": 2013,
+      "volume": "20",
+      "issue": null,
+      "pages": "450-460",
+      "doi": "10.1007/s12529-012-9243-4",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 131,
+        "output_tokens": 288,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 18,
+      "authors": [
+        {
+          "surname": "Szőcs",
+          "given": "H.",
+          "raw": "Szőcs H"
+        },
+        {
+          "surname": "Horváth",
+          "given": "Z.",
+          "raw": "Horváth Z"
+        },
+        {
+          "surname": "Vizin",
+          "given": "G.",
+          "raw": "Vizin G"
+        }
+      ],
+      "title": "Shame mediates the relationship between stigma and quality of life among patients with coeliac disease: a magyar adaptációs vizsgálat eredményei",
+      "journal": "Orv Hetil",
+      "year": 2021,
+      "volume": "162",
+      "issue": null,
+      "pages": "1968-1976",
+      "doi": "10.1556/650.2021.32258",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "other",
+      "parsing_confidence": "high",
+      "notes": "Title contains a Hungarian subtitle ('a magyar adaptációs vizsgálat eredményei'), indicating a mixed-language article published in the Hungarian journal Orvosi Hetilap.",
+      "_usage": {
+        "input_tokens": 128,
+        "output_tokens": 306,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 19,
+      "authors": [
+        {
+          "surname": "Daryaafzoon",
+          "given": "M.",
+          "raw": "Daryaafzoon M"
+        },
+        {
+          "surname": "Amini-Tehrani",
+          "given": "M.",
+          "raw": "Amini-Tehrani M"
+        },
+        {
+          "surname": "Zohrevandi",
+          "given": "Z.",
+          "raw": "Zohrevandi Z"
+        },
+        {
+          "surname": "Hamzehlouiyan",
+          "given": "M.",
+          "raw": "Hamzehlouiyan M"
+        },
+        {
+          "surname": "Ghotbi",
+          "given": "A.",
+          "raw": "Ghotbi A"
+        },
+        {
+          "surname": "Zarrabi-Ajami",
+          "given": "S.",
+          "raw": "Zarrabi-Ajami S"
+        }
+      ],
+      "title": "Translation and factor analysis of the Stigma Scale for Chronic Illnesses 8-item version among Iranian women with breast cancer",
+      "journal": "Asian Pac J Cancer Prev",
+      "year": 2020,
+      "volume": "21",
+      "issue": "2",
+      "pages": "449-455",
+      "doi": "10.31557/APJCP.2020.21.2.449",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Amini-Tehrani and Zarrabi-Ajami are hyphenated surnames, not line-break artifacts. et al. indicates additional authors beyond those listed.",
+      "_usage": {
+        "input_tokens": 165,
+        "output_tokens": 416,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 20,
+      "authors": [
+        {
+          "surname": "Wallston",
+          "given": "KA",
+          "raw": "Wallston KA"
+        },
+        {
+          "surname": "Wallston",
+          "given": "BS",
+          "raw": "Wallston BS"
+        },
+        {
+          "surname": "DeVellis",
+          "given": "R",
+          "raw": "DeVellis R"
+        }
+      ],
+      "title": "Development of the Multidimensional Health Locus of Control (MHLC) scales",
+      "journal": "Health Educ Monogr",
+      "year": 1978,
+      "volume": "6",
+      "issue": null,
+      "pages": "160-170",
+      "doi": "10.1177/109019817800600107",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 115,
+        "output_tokens": 254,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 21,
+      "authors": [
+        {
+          "surname": "Wallston",
+          "given": "KA",
+          "raw": "Wallston KA"
+        },
+        {
+          "surname": "Stein",
+          "given": "MJ",
+          "raw": "Stein MJ"
+        },
+        {
+          "surname": "Smith",
+          "given": "CA",
+          "raw": "Smith CA"
+        }
+      ],
+      "title": "Form C of the MHLC scales: a condition-specific measure of locus of control",
+      "journal": "J Pers Assess",
+      "year": 1994,
+      "volume": "63",
+      "issue": null,
+      "pages": "534-553",
+      "doi": "10.1207/s15327752jpa6303_10",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 114,
+        "output_tokens": 251,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 22,
+      "authors": [
+        {
+          "surname": "Konkoly Thege",
+          "given": "B.",
+          "raw": "Konkoly Thege B"
+        },
+        {
+          "surname": "Rafael",
+          "given": "B.",
+          "raw": "Rafael B"
+        },
+        {
+          "surname": "Rohánszky",
+          "given": "M.",
+          "raw": "Rohánszky M"
+        }
+      ],
+      "title": "Psychometric properties of the Multidimensional Health Locus of Control Scale form C in a non-Western culture",
+      "journal": "PLoS One",
+      "year": 2014,
+      "volume": "9",
+      "issue": null,
+      "pages": "e107108",
+      "doi": "10.1371/journal.pone.0107108",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 119,
+        "output_tokens": 259,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 23,
+      "authors": [
+        {
+          "surname": "Neff",
+          "given": "K.D.",
+          "raw": "Neff KD"
+        },
+        {
+          "surname": "Germer",
+          "given": "C.K.",
+          "raw": "Germer CK"
+        }
+      ],
+      "title": "A pilot study and randomized controlled trial of the Mindful Self-Compassion Program",
+      "journal": "J Clin Psychol",
+      "year": 2013,
+      "volume": "69",
+      "issue": null,
+      "pages": "28-44",
+      "doi": "10.1002/jclp.21923",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 107,
+        "output_tokens": 228,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 24,
+      "authors": [
+        {
+          "surname": "Tóth-Király",
+          "given": "I.",
+          "raw": "Tóth-Király I"
+        },
+        {
+          "surname": "Bőthe",
+          "given": "B.",
+          "raw": "Bőthe B"
+        },
+        {
+          "surname": "Orosz",
+          "given": "G.",
+          "raw": "Orosz G"
+        }
+      ],
+      "title": "Exploratory structural equation modeling analysis of the Self-Compassion Scale",
+      "journal": "Mindfulness",
+      "year": 2017,
+      "volume": "8",
+      "issue": null,
+      "pages": "881-892",
+      "doi": "10.1007/s12671-016-0662-1",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Hyphen in author surname 'Tóth-Király' is a legitimate compound surname, not a line-break artifact.",
+      "_usage": {
+        "input_tokens": 111,
+        "output_tokens": 282,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 25,
+      "authors": [
+        {
+          "surname": "Cohen",
+          "given": "J.",
+          "raw": "Cohen J."
+        }
+      ],
+      "title": "Statistical power analysis for the behavioral sciences",
+      "journal": null,
+      "year": 1988,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": true,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "Book reference; no publisher information provided. No DOI or PMID available. PubMed lookup unlikely to succeed.",
+      "_usage": {
+        "input_tokens": 59,
+        "output_tokens": 186,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 26,
+      "authors": [
+        {
+          "surname": "Hedges",
+          "given": "L.V.",
+          "raw": "Hedges LV"
+        },
+        {
+          "surname": "Olkin",
+          "given": "I.",
+          "raw": "Olkin I"
+        }
+      ],
+      "title": "Statistical methods for meta-analysis",
+      "journal": null,
+      "year": 2014,
+      "volume": null,
+      "issue": null,
+      "pages": null,
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": true,
+      "language": "en",
+      "parsing_confidence": "low",
+      "notes": "Book reference with no publisher information. Year 2014 may refer to a reprint/edition of the original 1985 publication by Academic Press.",
+      "_usage": {
+        "input_tokens": 66,
+        "output_tokens": 222,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 27,
+      "authors": [
+        {
+          "surname": "Moorey",
+          "given": "S.",
+          "raw": "Moorey S"
+        },
+        {
+          "surname": "Holland",
+          "given": "J.",
+          "raw": "Holland J"
+        },
+        {
+          "surname": "Breitbart",
+          "given": "W.",
+          "raw": "Breitbart W"
+        },
+        {
+          "surname": "Jacobsen",
+          "given": "P.",
+          "raw": "Jacobsen P"
+        }
+      ],
+      "title": "Cognitive therapy",
+      "journal": "Psycho-oncology",
+      "year": 2010,
+      "volume": null,
+      "issue": null,
+      "pages": "402-407",
+      "doi": null,
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "medium",
+      "notes": "Hyphen in 'Psycho-oncology' preserved as it is a compound journal name. No volume or issue number present; pages only. This may be a book chapter rather than a journal article — 'Psycho-oncology' is also a well-known textbook edited by Holland et al. If so, is_book may need to be set to true and publisher information added.",
+      "_usage": {
+        "input_tokens": 82,
+        "output_tokens": 326,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 28,
+      "authors": [
+        {
+          "surname": "Uitterhoeve",
+          "given": "R.J.",
+          "raw": "Uitterhoeve RJ"
+        },
+        {
+          "surname": "Vernooy",
+          "given": "M.",
+          "raw": "Vernooy M"
+        },
+        {
+          "surname": "Litjens",
+          "given": "M.",
+          "raw": "Litjens M"
+        }
+      ],
+      "title": "Psychosocial interventions for patients with advanced cancer: a systematic review of the literature",
+      "journal": "Br J Cancer",
+      "year": 2004,
+      "volume": "91",
+      "issue": null,
+      "pages": "1050-1062",
+      "doi": "10.1038/sj.bjc.6602051",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 117,
+        "output_tokens": 260,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 29,
+      "authors": [
+        {
+          "surname": "Else-Quest",
+          "given": "N.M.",
+          "raw": "Else-Quest NM"
+        },
+        {
+          "surname": "LoConte",
+          "given": "N.K.",
+          "raw": "LoConte NK"
+        },
+        {
+          "surname": "Schiller",
+          "given": "J.H.",
+          "raw": "Schiller JH"
+        },
+        {
+          "surname": "Hyde",
+          "given": "J.S.",
+          "raw": "Hyde JS"
+        }
+      ],
+      "title": "Perceived stigma, self-blame, and adjustment among lung, breast and prostate cancer patients",
+      "journal": "Psychol Health",
+      "year": 2009,
+      "volume": "24",
+      "issue": null,
+      "pages": "949-964",
+      "doi": "10.1080/08870440802074664",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": "Else-Quest is a legitimate hyphenated surname, not a line-wrap artifact.",
+      "_usage": {
+        "input_tokens": 114,
+        "output_tokens": 297,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 30,
+      "authors": [
+        {
+          "surname": "Pinquart",
+          "given": "M",
+          "raw": "Pinquart M"
+        },
+        {
+          "surname": "Duberstein",
+          "given": "PR",
+          "raw": "Duberstein PR"
+        }
+      ],
+      "title": "Associations of social networks with cancer mortality: a meta-analysis",
+      "journal": "Crit Rev Oncol Hematol",
+      "year": 2010,
+      "volume": "75",
+      "issue": null,
+      "pages": "122-137",
+      "doi": "10.1016/j.critrevonc.2009.06.003",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 112,
+        "output_tokens": 231,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    },
+    {
+      "ref_no": 31,
+      "authors": [
+        {
+          "surname": "Deshields",
+          "given": "TL",
+          "raw": "Deshields TL"
+        },
+        {
+          "surname": "Heiland",
+          "given": "MF",
+          "raw": "Heiland MF"
+        },
+        {
+          "surname": "Kracen",
+          "given": "AC",
+          "raw": "Kracen AC"
+        },
+        {
+          "surname": "Dua",
+          "given": "P",
+          "raw": "Dua P"
+        }
+      ],
+      "title": "Resilience in adults with cancer: development of a conceptual model",
+      "journal": "Psychooncology",
+      "year": 2016,
+      "volume": "25",
+      "issue": null,
+      "pages": "11-18",
+      "doi": "10.1002/pon.3800",
+      "doi_alt": null,
+      "pmid": null,
+      "is_book": false,
+      "language": "en",
+      "parsing_confidence": "high",
+      "notes": null,
+      "_usage": {
+        "input_tokens": 111,
+        "output_tokens": 272,
+        "cache_creation_input_tokens": 0,
+        "cache_read_input_tokens": 1375
+      }
+    }
+  ],
+  "stage3_elapsed_seconds": 115.29,
+  "stage4_pubmed_resolutions": [
+    {
+      "ref_no": 1,
+      "pmid": "34642313",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1038/s41523-021-00345-2\"[AID] OR \"10.1038/s41523-021-00345-2\"[DOI]",
+          "success": true,
+          "pmid": "34642313",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "34642313",
+        "title": "Breast Cancer Consensus Subtypes: A system for subtyping breast cancer tumors based on gene expression.",
+        "journal_full": "NPJ breast cancer",
+        "journal_iso": "NPJ Breast Cancer",
+        "volume": "7",
+        "issue": "1",
+        "pages": "136",
+        "year": "2021",
+        "month": "Oct",
+        "day": "12",
+        "create_date": "2021/10/28",
+        "authors": [
+          {
+            "last": "Horr",
+            "fore": "Christina",
+            "initials": "C",
+            "affiliations": [
+              "Department of Applied and Computational Mathematics and Statistics, University of Notre Dame, Notre Dame, IN, USA."
+            ]
+          },
+          {
+            "last": "Buechler",
+            "fore": "Steven A",
+            "initials": "SA",
+            "affiliations": [
+              "Department of Applied and Computational Mathematics and Statistics, University of Notre Dame, Notre Dame, IN, USA. steve@nd.edu.",
+              "Harper Cancer Research Institute, University of Notre Dame, Notre Dame, IN, USA. steve@nd.edu."
+            ]
+          }
+        ],
+        "doi": "10.1038/s41523-021-00345-2",
+        "pmcid": "PMC8511026",
+        "nihms_id": null,
+        "abstract": "Breast cancer is heterogeneous in prognoses and drug responses. To organize breast cancers by gene expression independent of statistical methodology, we identified the Breast Cancer Consensus Subtypes (BCCS) as the consensus groupings of six different subtyping methods. Our classification software identified seven BCCS subtypes in a study cohort of publicly available data (n = 5950) including METABRIC, TCGA-BRCA, and data assayed by Affymetrix arrays. All samples were fresh-frozen from primary tumors. The estrogen receptor-positive (ER+) BCCS subtypes were: PCS1 (18%) good prognosis, stromal infiltration; PCS2 (15%) poor prognosis, highly proliferative; PCS3 (13%) poor prognosis, highly proliferative, activated IFN-gamma signaling, cytotoxic lymphocyte infiltration, high tumor mutation burden; PCS4 (18%) good prognosis, hormone response genes highly expressed. The ER- BCCS subtypes were: NCS1 (11%) basal; NCS2 (10%) elevated androgen response; NCS3 (5%) cytotoxic lymphocyte infiltration; unclassified tumors (9%). HER2+ tumors were heterogeneous with respect to BCCS.",
+        "citation": "NPJ Breast Cancer. 2021 Oct 12;7(1):136."
+      }
+    },
+    {
+      "ref_no": 2,
+      "pmid": "29846122",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1200/JCO.2018.77.8738\"[AID] OR \"10.1200/JCO.2018.77.8738\"[DOI]",
+          "success": true,
+          "pmid": "29846122",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "29846122",
+        "title": "Human Epidermal Growth Factor Receptor 2 Testing in Breast Cancer: American Society of Clinical Oncology/College of American Pathologists Clinical Practice Guideline Focused Update.",
+        "journal_full": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology",
+        "journal_iso": "J Clin Oncol",
+        "volume": "36",
+        "issue": "20",
+        "pages": "2105-2122",
+        "year": "2018",
+        "month": "Jul",
+        "day": "10",
+        "create_date": "2019/10/08",
+        "authors": [
+          {
+            "last": "Wolff",
+            "fore": "Antonio C",
+            "initials": "AC",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Hammond",
+            "fore": "M Elizabeth Hale",
+            "initials": "MEH",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Allison",
+            "fore": "Kimberly H",
+            "initials": "KH",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Harvey",
+            "fore": "Brittany E",
+            "initials": "BE",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Mangu",
+            "fore": "Pamela B",
+            "initials": "PB",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Bartlett",
+            "fore": "John M S",
+            "initials": "JMS",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Bilous",
+            "fore": "Michael",
+            "initials": "M",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Ellis",
+            "fore": "Ian O",
+            "initials": "IO",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Fitzgibbons",
+            "fore": "Patrick",
+            "initials": "P",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Hanna",
+            "fore": "Wedad",
+            "initials": "W",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Jenkins",
+            "fore": "Robert B",
+            "initials": "RB",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Press",
+            "fore": "Michael F",
+            "initials": "MF",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Spears",
+            "fore": "Patricia A",
+            "initials": "PA",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Vance",
+            "fore": "Gail H",
+            "initials": "GH",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Viale",
+            "fore": "Giuseppe",
+            "initials": "G",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "McShane",
+            "fore": "Lisa M",
+            "initials": "LM",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          },
+          {
+            "last": "Dowsett",
+            "fore": "Mitchell",
+            "initials": "M",
+            "affiliations": [
+              "Antonio C. Wolff, Johns Hopkins Sidney Kimmel Comprehensive Cancer Center, Baltimore; Lisa M. McShane, National Cancer Institute, Bethesda, MD; M. Elizabeth Hale Hammond, Intermountain Healthcare and University of Utah School of Medicine, Salt Lake City, UT; Kimberly H. Allison, Stanford University School of Medicine, Stanford; Patrick Fitzgibbons, St Jude Medical Center, Fullerton; Michael F. Press, University of Southern California, Los Angeles, CA; Brittany E. Harvey and Pamela B. Mangu, American Society of Clinical Oncology, Alexandria, VA; John M.S. Bartlett, Ontario Institute for Cancer Research; Wedad Hanna, Sunnybrook Health Sciences Centre and Women's College Hospital, Toronto, Ontario, Canada; Michael Bilous, Western Sydney University and Australian Clinical Laboratories, Sydney, New South Wales, Australia; Ian O. Ellis, The University of Nottingham, Nottingham; Mitchell Dowsett, The Royal Marsden NHS Foundation Trust, London, United Kingdom; Robert B. Jenkins, Mayo Clinic, Rochester, MN; Patricia A. Spears, Cancer Information and Support Network, Raleigh, NC; Gail H. Vance, Indiana University School of Medicine, Indianapolis, IN; and Giuseppe Viale, University of Milan and Istituto Europeo di Oncologia, Milan, Italy."
+            ]
+          }
+        ],
+        "doi": "10.1200/JCO.2018.77.8738",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "Purpose To update key recommendations of the American Society of Clinical Oncology/College of American Pathologists human epidermal growth factor receptor 2 (HER2) testing in breast cancer guideline. Methods Based on the signals approach, an Expert Panel reviewed published literature and research survey results on the observed frequency of less common in situ hybridization (ISH) patterns to update the recommendations. Recommendations Two recommendations addressed via correspondence in 2015 are included. First, immunohistochemistry (IHC) 2+ is defined as invasive breast cancer with weak to moderate complete membrane staining observed in > 10% of tumor cells. Second, if the initial HER2 test result in a core needle biopsy specimen of a primary breast cancer is negative, a new HER2 test may (not \"must\") be ordered on the excision specimen based on specific clinical criteria. The HER2 testing algorithm for breast cancer is updated to address the recommended work-up for less common clinical scenarios (approximately 5% of cases) observed when using a dual-probe ISH assay. These scenarios are described as ISH group 2 ( HER2/chromosome enumeration probe 17 [CEP17] ratio ≥ 2.0; average HER2 copy number < 4.0 signals per cell), ISH group 3 ( HER2/CEP17 ratio < 2.0; average HER2 copy number ≥ 6.0 signals per cell), and ISH group 4 ( HER2/CEP17 ratio < 2.0; average HER2 copy number ≥ 4.0 and < 6.0 signals per cell). The diagnostic approach includes more rigorous interpretation criteria for ISH and requires concomitant IHC review for dual-probe ISH groups 2 to 4 to arrive at the most accurate HER2 status designation (positive or negative) based on combined interpretation of the ISH and IHC assays. The Expert Panel recommends that laboratories using single-probe ISH assays include concomitant IHC review as part of the interpretation of all single-probe ISH assay results. Find additional information at www.asco.org/breast-cancer-guidelines .",
+        "citation": "J Clin Oncol. 2018 Jul 10;36(20):2105-2122."
+      }
+    },
+    {
+      "ref_no": 3,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1136/bmjopen-2020-040298\"[AID] OR \"10.1136/bmjopen-2020-040298\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Psychological impact of metastasized cancer: a systematic review of qualitative[Title] AND Snoek[Author] AND 2021[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Psychological impact of metastasized cancer: a systematic review of qualitative studies",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 4,
+      "pmid": "20479397",
+      "final_strategy": "title_fuzzy",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1200/JCO.2013.54.9095\"[AID] OR \"10.1200/JCO.2013.54.9095\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Longitudinal study of depressive symptoms in patients with metastatic gastrointestinal[Title] AND Lo[Author] AND 2014[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Longitudinal study of depressive symptoms in patients with metastatic gastrointestinal and lung",
+          "success": true,
+          "pmid": "20479397",
+          "match_score": 99.51219512195122,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "20479397",
+        "title": "Longitudinal study of depressive symptoms in patients with metastatic gastrointestinal and lung cancer.",
+        "journal_full": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology",
+        "journal_iso": "J Clin Oncol",
+        "volume": "28",
+        "issue": "18",
+        "pages": "3084-9",
+        "year": "2010",
+        "month": "Jun",
+        "day": "20",
+        "create_date": "2010/07/06",
+        "authors": [
+          {
+            "last": "Lo",
+            "fore": "Christopher",
+            "initials": "C",
+            "affiliations": [
+              "Princess Margaret Hospital, University Health Network, Toronto, Ontario, Canada."
+            ]
+          },
+          {
+            "last": "Zimmermann",
+            "fore": "Camilla",
+            "initials": "C",
+            "affiliations": []
+          },
+          {
+            "last": "Rydall",
+            "fore": "Anne",
+            "initials": "A",
+            "affiliations": []
+          },
+          {
+            "last": "Walsh",
+            "fore": "Andrew",
+            "initials": "A",
+            "affiliations": []
+          },
+          {
+            "last": "Jones",
+            "fore": "Jennifer M",
+            "initials": "JM",
+            "affiliations": []
+          },
+          {
+            "last": "Moore",
+            "fore": "Malcolm J",
+            "initials": "MJ",
+            "affiliations": []
+          },
+          {
+            "last": "Shepherd",
+            "fore": "Frances A",
+            "initials": "FA",
+            "affiliations": []
+          },
+          {
+            "last": "Gagliese",
+            "fore": "Lucia",
+            "initials": "L",
+            "affiliations": []
+          },
+          {
+            "last": "Rodin",
+            "fore": "Gary",
+            "initials": "G",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1200/JCO.2009.26.9712",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "PURPOSE: Although early intervention is increasingly advocated to prevent and relieve distress in patients with metastatic cancer, the risk factors for such symptoms and their trajectory are not well established. We therefore conducted a longitudinal study to determine the course and predictors of depressive symptoms.\nPATIENTS AND METHODS: Patients (N = 365) with metastatic gastrointestinal or lung cancer completed measures of physical distress, self-esteem, attachment security, spiritual well-being, social support, hopelessness, and depression at baseline; physical distress, social support, hopelessness, and depression were subsequently assessed at 2-month intervals.\nRESULTS: Of the sample, 35% reported at least mild depressive symptoms, with 16% reporting moderate to severe depressive symptoms that persisted in at least one third of such individuals. Moderate to severe depressive symptoms were almost three times more common in the final 3 months of life than > or = 1 year before death. Predictors of depressive symptoms included younger age, antidepressant use at baseline, lower self-esteem and spiritual well-being, and greater attachment anxiety, hopelessness, physical burden of illness, and proximity to death. The combination of greater physical suffering and psychosocial vulnerability put individuals at greatest risk for depression.\nCONCLUSION: Depressive symptoms in advanced cancer patients are relatively common and may arise as a final common pathway of distress in response to psychosocial vulnerabilities, physical suffering, and proximity to death. These findings support the need for an integrated approach to address emotional and physical distress in this population and to determine whether early intervention may prevent depression at the end of life.",
+        "citation": "J Clin Oncol. 2010 Jun 20;28(18):3084-9."
+      }
+    },
+    {
+      "ref_no": 5,
+      "pmid": "36602400",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1002/cam4.5200\"[AID] OR \"10.1002/cam4.5200\"[DOI]",
+          "success": true,
+          "pmid": "36602400",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "36602400",
+        "title": "The link between psychological distress and survival in solid tumor patients: A systematic review.",
+        "journal_full": "Cancer medicine",
+        "journal_iso": "Cancer Med",
+        "volume": "12",
+        "issue": "3",
+        "pages": "3343-3364",
+        "year": "2023",
+        "month": "Feb",
+        "day": null,
+        "create_date": "2023/02/24",
+        "authors": [
+          {
+            "last": "Roche",
+            "fore": "Kayla N",
+            "initials": "KN",
+            "affiliations": [
+              "Neuro-Oncology Branch, National Cancer Institute, National Institutes of Health, Bethesda, Maryland, USA."
+            ]
+          },
+          {
+            "last": "Cooper",
+            "fore": "Diane",
+            "initials": "D",
+            "affiliations": [
+              "National Institutes of Health Library, Bethesda, Maryland, USA."
+            ]
+          },
+          {
+            "last": "Armstrong",
+            "fore": "Terri S",
+            "initials": "TS",
+            "affiliations": [
+              "Neuro-Oncology Branch, National Cancer Institute, National Institutes of Health, Bethesda, Maryland, USA."
+            ]
+          },
+          {
+            "last": "King",
+            "fore": "Amanda L",
+            "initials": "AL",
+            "affiliations": [
+              "Neuro-Oncology Branch, National Cancer Institute, National Institutes of Health, Bethesda, Maryland, USA."
+            ]
+          }
+        ],
+        "doi": "10.1002/cam4.5200",
+        "pmcid": "PMC9939126",
+        "nihms_id": null,
+        "abstract": "PURPOSE: Research has demonstrated that solid tumor patients experience high levels of psychological distress at the time of diagnosis. While distress has been associated with many adverse clinical outcomes, little is known about how this symptom may influence the disease trajectory for cancer patients, affecting outcomes such as progression, recurrence, and survival. The purpose of this systematic review was to explore the literature linking distress with survival in solid tumor patients, which may guide future work exploring clinical outcomes as a function of distress.\nMETHODS: A systematic search of PubMed, Embase, and Web of Science was performed using PRISMA (Preferred Reporting Items for Systematic Reviews and Meta-Analyses) guidelines with predefined eligibility criteria. Thirteen studies met the inclusion criteria and were selected for review.\nRESULTS: Findings from this review demonstrated a weak-to-moderate relationship between cancer patients' experience of distress and overall survival, with most included studies (11/13) finding at least one predictive analysis to be significant when controlling for confounders. However, significant heterogeneity in the literature, particularly with study sample characteristics and varying methodologies, made direct comparisons across studies challenging.\nCONCLUSION: Findings from this review suggest that psychological distress may have an impact on disease-related outcomes, including (but not limited to) survival. Future work should consider performing disease-specific analyses controlling for key prognostic factors to better understand the nuanced relationship between distress and clinical outcomes, which may allow further understanding of the biological underpinnings of this relationship and enable the development of targeted interventions for improving distress.",
+        "citation": "Cancer Med. 2023 Feb;12(3):3343-3364."
+      }
+    },
+    {
+      "ref_no": 6,
+      "pmid": "19807473",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1586/14737167.2.5.495\"[AID] OR \"10.1586/14737167.2.5.495\"[DOI]",
+          "success": true,
+          "pmid": "19807473",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "19807473",
+        "title": "Impact of psychological distress on outcomes in cancer patients.",
+        "journal_full": "Expert review of pharmacoeconomics & outcomes research",
+        "journal_iso": "Expert Rev Pharmacoecon Outcomes Res",
+        "volume": "2",
+        "issue": "5",
+        "pages": "495-506",
+        "year": "2002",
+        "month": "Oct",
+        "day": null,
+        "create_date": "2010/06/30",
+        "authors": [
+          {
+            "last": "Fang",
+            "fore": "Carolyn Y",
+            "initials": "CY",
+            "affiliations": [
+              "Division of Population Science, Fox Chase Cancer Center, 510 Township Line Road, Cheltenham, PA 19012, USA. cy_fang@fccc.edu"
+            ]
+          },
+          {
+            "last": "Schnoll",
+            "fore": "Robert A",
+            "initials": "RA",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1586/14737167.2.5.495",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "Cancer is a major health problem and is the second leading cause of death in the USA. A diagnosis of cancer and cancer treatments are stressful events that can cause moderate-to-severe levels of emotional distress among some patients. This article provides an overview of the effects of psychological distress on various facets of patients' lives, including quality of life, health behaviors and biological health outcomes. Studies investigating the effectiveness of psychosocial interventions designed to reduce distress and improve psychological adjustment are also reviewed. We discuss methodological and conceptual weaknesses in study designs that may limit interpretation of study findings. Finally, we highlight key questions that remain to be addressed and propose several directions for future research efforts.",
+        "citation": "Expert Rev Pharmacoecon Outcomes Res. 2002 Oct;2(5):495-506."
+      }
+    },
+    {
+      "ref_no": 7,
+      "pmid": "23319686",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1200/JCO.2011.40.8922\"[AID] OR \"10.1200/JCO.2011.40.8922\"[DOI]",
+          "success": true,
+          "pmid": "23319686",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "23319686",
+        "title": "Effects of psycho-oncologic interventions on emotional distress and quality of life in adult patients with cancer: systematic review and meta-analysis.",
+        "journal_full": "Journal of clinical oncology : official journal of the American Society of Clinical Oncology",
+        "journal_iso": "J Clin Oncol",
+        "volume": "31",
+        "issue": "6",
+        "pages": "782-93",
+        "year": "2013",
+        "month": "Feb",
+        "day": "20",
+        "create_date": "2013/04/15",
+        "authors": [
+          {
+            "last": "Faller",
+            "fore": "Hermann",
+            "initials": "H",
+            "affiliations": [
+              "Department of Medical Psychology, Medical Sociology and Rehabilitation Sciences, and Comprehensive Cancer Center Mainfranken, University of Würzburg, Würzburg, Germany. h.faller@uni-wuerzburg.de"
+            ]
+          },
+          {
+            "last": "Schuler",
+            "fore": "Michael",
+            "initials": "M",
+            "affiliations": []
+          },
+          {
+            "last": "Richard",
+            "fore": "Matthias",
+            "initials": "M",
+            "affiliations": []
+          },
+          {
+            "last": "Heckl",
+            "fore": "Ulrike",
+            "initials": "U",
+            "affiliations": []
+          },
+          {
+            "last": "Weis",
+            "fore": "Joachim",
+            "initials": "J",
+            "affiliations": []
+          },
+          {
+            "last": "Küffner",
+            "fore": "Roland",
+            "initials": "R",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1200/JCO.2011.40.8922",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "PURPOSE: This study aimed to evaluate the effects of psycho-oncologic interventions on emotional distress and quality of life in adult patients with cancer.\nMETHODS: Literature databases were searched to identify randomized controlled trials that compared a psycho-oncologic intervention delivered face-to face with a control condition. The main outcome measures were emotional distress, anxiety, depression, and quality of life. Outcomes were evaluated for three time periods: post-treatment, ≤ 6 months, and more than 6 months. We applied standard meta-analytic techniques to analyze both published and unpublished data from the retrieved studies. Sensitivity analyses and meta-regression were used to explore reasons for heterogeneity.\nRESULTS: We retrieved 198 studies (covering 22,238 patients) that report 218 treatment-control comparisons. Significant small-to-medium effects were observed for individual and group psychotherapy and psychoeducation. These effects were sustained, in part, in the medium term (≤ 6 months) and long term (> 6 months). Short-term effects were evident for relaxation training. Studies that preselected participants according to increased distress produced large effects at post-treatment. A moderator effect was found for the moderator variable \"duration of the intervention,\" with longer interventions producing more sustained effects. Indicators of study quality were often not reported. Small-sample bias indicative of possible publication bias was found for some effects, particularly with individual psychotherapy and relaxation training.\nCONCLUSION: Various types of psycho-oncologic interventions are associated with significant, small-to-medium effects on emotional distress and quality of life. These results should be interpreted with caution, however, because of the low quality of reporting in many of the trials.",
+        "citation": "J Clin Oncol. 2013 Feb 20;31(6):782-93."
+      }
+    },
+    {
+      "ref_no": 8,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1080/07347331003676105\"[AID] OR \"10.1080/07347331003676105\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Tailoring psychosocial interventions to the needs of advanced cancer patients[Title] AND Greer[Author] AND 2010[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Tailoring psychosocial interventions to the needs of advanced cancer patients",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 9,
+      "pmid": "33478252",
+      "final_strategy": "title_author_year",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1177/13591053211009416\"[AID] OR \"10.1177/13591053211009416\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Depressive symptoms among patients with lung cancer: elucidating the roles[Title] AND Siwik[Author] AND 2022[PDAT]",
+          "success": true,
+          "pmid": "33478252",
+          "match_score": 99.55156950672645,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "33478252",
+        "title": "Depressive symptoms among patients with lung cancer: Elucidating the roles of shame, guilt, and self-compassion.",
+        "journal_full": "Journal of health psychology",
+        "journal_iso": "J Health Psychol",
+        "volume": "27",
+        "issue": "5",
+        "pages": "1039-1047",
+        "year": "2022",
+        "month": "Apr",
+        "day": null,
+        "create_date": "2022/04/05",
+        "authors": [
+          {
+            "last": "Siwik",
+            "fore": "Chelsea J",
+            "initials": "CJ",
+            "affiliations": [
+              "University of Louisville, USA.",
+              "University of California, USA."
+            ]
+          },
+          {
+            "last": "Phillips",
+            "fore": "Kala",
+            "initials": "K",
+            "affiliations": [
+              "University of Louisville, USA.",
+              "University of Washington, USA."
+            ]
+          },
+          {
+            "last": "Zimmaro",
+            "fore": "Lauren",
+            "initials": "L",
+            "affiliations": [
+              "University of Louisville, USA.",
+              "Fox Chase Cancer Center, USA."
+            ]
+          },
+          {
+            "last": "Salmon",
+            "fore": "Paul",
+            "initials": "P",
+            "affiliations": [
+              "University of Louisville, USA."
+            ]
+          },
+          {
+            "last": "Sephton",
+            "fore": "Sandra E",
+            "initials": "SE",
+            "affiliations": [
+              "University of Louisville, USA.",
+              "James Graham Brown Cancer Center, USA."
+            ]
+          }
+        ],
+        "doi": "10.1177/1359105320988331",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "The link between smoking and lung cancer predisposes patients to feeling shame and guilt, which increases risk for depression. To test the hypothesis shame would have a stronger association with depressive symptoms than guilt, a hierarchical regression was conducted. Three regressions were run to examine the associations of self-compassion with shame, guilt, and depressive symptoms. The best model to explain depressive symptoms included shame, but not guilt. Greater self-compassion was associated with less shame and fewer depressive symptoms, but not guilt. Results point to interventions targeting shame via enhancing self-compassion among patients with lung cancer and histories of smoking.",
+        "citation": "J Health Psychol. 2022 Apr;27(5):1039-1047."
+      }
+    },
+    {
+      "ref_no": 10,
+      "pmid": "28525559",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1093/annonc/mdx265\"[AID] OR \"10.1093/annonc/mdx265\"[DOI]",
+          "success": true,
+          "pmid": "28525559",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "28525559",
+        "title": "First-onset mental disorders after cancer diagnosis and cancer-specific mortality: a nationwide cohort study.",
+        "journal_full": "Annals of oncology : official journal of the European Society for Medical Oncology",
+        "journal_iso": "Ann Oncol",
+        "volume": "28",
+        "issue": "8",
+        "pages": "1964-1969",
+        "year": "2017",
+        "month": "Aug",
+        "day": "01",
+        "create_date": "2018/05/07",
+        "authors": [
+          {
+            "last": "Zhu",
+            "fore": "J",
+            "initials": "J",
+            "affiliations": [
+              "Department of Medical Epidemiology and Biostatistics, Karolinska Institutet, Stockholm."
+            ]
+          },
+          {
+            "last": "Fang",
+            "fore": "F",
+            "initials": "F",
+            "affiliations": [
+              "Department of Medical Epidemiology and Biostatistics, Karolinska Institutet, Stockholm."
+            ]
+          },
+          {
+            "last": "Sjölander",
+            "fore": "A",
+            "initials": "A",
+            "affiliations": [
+              "Department of Medical Epidemiology and Biostatistics, Karolinska Institutet, Stockholm."
+            ]
+          },
+          {
+            "last": "Fall",
+            "fore": "K",
+            "initials": "K",
+            "affiliations": [
+              "Department of Medical Epidemiology and Biostatistics, Karolinska Institutet, Stockholm.",
+              "Department of Clinical Epidemiology and Biostatistics, School of Medical Sciences, Örebro University, Örebro, Sweden."
+            ]
+          },
+          {
+            "last": "Adami",
+            "fore": "H O",
+            "initials": "HO",
+            "affiliations": [
+              "Department of Medical Epidemiology and Biostatistics, Karolinska Institutet, Stockholm.",
+              "Department of Epidemiology, Harvard T.H. Chan School of Public Health, Boston, USA.",
+              "Clinical Effectiveness Research Group, Institute of Health and Society, University of Oslo, Oslo, Norway."
+            ]
+          },
+          {
+            "last": "Valdimarsdóttir",
+            "fore": "U",
+            "initials": "U",
+            "affiliations": [
+              "Department of Medical Epidemiology and Biostatistics, Karolinska Institutet, Stockholm.",
+              "Department of Epidemiology, Harvard T.H. Chan School of Public Health, Boston, USA.",
+              "Center of Public Health Sciences, School of Health Sciences, Faculty of Medicine, University of Iceland, Reykjavík, Iceland."
+            ]
+          }
+        ],
+        "doi": "10.1093/annonc/mdx265",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "BACKGROUND: The diagnosis of cancer is strongly associated with the risk of mental disorders even in patients with no previous history of mental disorders. Accumulating data suggest that mental distress may accelerate tumor progression. We hypothesized therefore that mental disorders after a cancer diagnosis may increase the risk of cancer-specific mortality.\nPATIENTS AND METHODS: We conducted a nationwide cohort study including 244 261 cancer patients diagnosed in Sweden during 2004-2009 and followed them through 2010. Through the Swedish Patient Register, we obtained clinical diagnoses of all mental disorders and focused on mood-, anxiety-, and substance abuse disorders (ICD10: F10-F16, F18-F19, F32-F33, F40-F41, and F43-45) that are commonly diagnosed among patients with cancer. We further classified the studied mental disorders into first-onset or recurrent mental disorders. We used Cox regression to estimate multivariable hazard ratios (HRs) with 95% confidence intervals (CIs) as a measure of the association between mental disorders after cancer diagnosis and cancer-specific mortality, adjusting for age, sex, calendar period, educational level, cancer stage, and cancer type at diagnosis.\nRESULTS: After cancer diagnosis, 11 457 patients were diagnosed with mood-, anxiety-, and substance abuse disorders; of which 7236 were first-onset mental disorders. Patients with a first-onset mental disorder were at increased risk of cancer-specific mortality (HR: 1.82, 95% CI: 1.71-1.92) while patients with a recurrent mental disorder had much lower risk elevation (HR: 1.14, 95% CI: 1.05-1.24). The increased cancer-specific mortality by first-onset mental disorders was observed for almost all cancer sites/groups and the association was stronger for localized cancers (HR: 2.00, 95% CI: 1.73-2.31) than for advanced cancers (HR: 1.49, 95% CI: 1.32-1.69).\nCONCLUSIONS: Patients with a first-onset common mood-, anxiety-, or substance abuse disorder after cancer diagnosis may be at increased risk of cancer-specific death.",
+        "citation": "Ann Oncol. 2017 Aug 01;28(8):1964-1969."
+      }
+    },
+    {
+      "ref_no": 11,
+      "pmid": "37405330",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.3389/frhs.2023.1111677\"[AID] OR \"10.3389/frhs.2023.1111677\"[DOI]",
+          "success": true,
+          "pmid": "37405330",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "37405330",
+        "title": "The impact of psychological distress on quality of care and access to mental health services in cancer survivors.",
+        "journal_full": "Frontiers in health services",
+        "journal_iso": "Front Health Serv",
+        "volume": "3",
+        "issue": null,
+        "pages": "1111677",
+        "year": "2023",
+        "month": null,
+        "day": null,
+        "create_date": "2023/07/18",
+        "authors": [
+          {
+            "last": "Abdelhadi",
+            "fore": "Ola",
+            "initials": "O",
+            "affiliations": [
+              "Division of Health Policy and Management, School of Public Health, University of California, Berkeley, CA, United States."
+            ]
+          }
+        ],
+        "doi": "10.3389/frhs.2023.1111677",
+        "pmcid": "PMC10316283",
+        "nihms_id": null,
+        "abstract": "INTRODUCTION: Psychological distress is highly prevalent among cancer survivors and significantly impacts their health outcomes. Our study aim is to examine the impact of psychological distress on the quality of care in cancer survivors.\nMETHODS: We utilized longitudinal panels from the Medical Expenditure Panel Survey data spanning from 2016 to 2019 to estimate the impact of psychological distress on quality of care. We compared a sample of cancer survivors with psychological distress (N = 176) to a matched sample of cancer survivors without psychological distress (N = 2,814). We employed multivariable logistic regression models and Poisson regression models. In all models, we adjusted for age at the survey, sex, race/ethnicity, education, income, insurance, exercise, chronic conditions, body mass index, and smoking status. Descriptive statistics and regression models were performed using STATA software.\nRESULTS: Our findings revealed a higher prevalence of psychological distress among younger survivors, females, individuals with lower incomes, and those with public insurance. Cancer survivors with psychological distress reported more adverse patient experiences compared to those without distress. Specifically, survivors with distress had lower odds of receiving clear explanations of their care (OR: 0.40; 95% CI: 0.17-0.99) and lower odds of feeling respected in expressing their concerns (OR: 0.42; 95% CI: 0.18-0.99) by their healthcare providers. Furthermore, psychological distress was associated with increased healthcare utilization, as evidenced by a higher number of visits (p = 0.02). It also correlated with a decrease in healthcare service ratings (p = 0.01) and the affordability of mental health services (p < 0.01) for cancer survivors.\nDISCUSSION: These findings indicate that psychological distress can significantly impact the delivery of healthcare and the patient experience among cancer survivors. Our study underscores the importance of recognizing and addressing the mental health needs of cancer survivors. It provides insights for healthcare professionals and policymakers to better understand and cater to the mental health needs of this population.",
+        "citation": "Front Health Serv. 2023;3:1111677."
+      }
+    },
+    {
+      "ref_no": 12,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.52783/jns.v14.1552\"[AID] OR \"10.52783/jns.v14.1552\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "The role of psychosocial support in enhancing quality of life[Title] AND Harish[Author] AND 2025[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "The role of psychosocial support in enhancing quality of life for cancer",
+          "success": false,
+          "pmid": "35852487",
+          "match_score": 50.64377682403433,
+          "error": "fuzzy 51 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 13,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "title_author_year",
+          "query": "A kognitív viselkedésterápia lehetőségei az onkológiai ellátásban[Title] AND Vizin[Author] AND 2020[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "A kognitív viselkedésterápia lehetőségei az onkológiai ellátásban",
+          "success": false,
+          "pmid": "32181764",
+          "match_score": 40.87591240875912,
+          "error": "fuzzy 41 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 14,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [],
+      "metadata": null
+    },
+    {
+      "ref_no": 15,
+      "pmid": "30284181",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1007/s11136-018-2014-1\"[AID] OR \"10.1007/s11136-018-2014-1\"[DOI]",
+          "success": true,
+          "pmid": "30284181",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "30284181",
+        "title": "Normative values for the distress thermometer (DT) and the emotion thermometers (ET), derived from a German general population sample.",
+        "journal_full": "Quality of life research : an international journal of quality of life aspects of treatment, care and rehabilitation",
+        "journal_iso": "Qual Life Res",
+        "volume": "28",
+        "issue": "1",
+        "pages": "277-282",
+        "year": "2019",
+        "month": "Jan",
+        "day": null,
+        "create_date": "2019/02/20",
+        "authors": [
+          {
+            "last": "Hinz",
+            "fore": "Andreas",
+            "initials": "A",
+            "affiliations": [
+              "Department of Medical Psychology and Medical Sociology, University of Leipzig, Philipp-Rosenthal-Str. 55, 04103, Leipzig, Germany. andreas.hinz@medizin.uni-leipzig.de."
+            ]
+          },
+          {
+            "last": "Mitchell",
+            "fore": "Alex J",
+            "initials": "AJ",
+            "affiliations": [
+              "Department of Cancer and Molecular Medicine, University of Leicester, Leicester, UK."
+            ]
+          },
+          {
+            "last": "Dégi",
+            "fore": "Csaba L",
+            "initials": "CL",
+            "affiliations": [
+              "Faculty of Sociology and Social Work, Babes-Bolyai University, Cluj-Napoca, Romania."
+            ]
+          },
+          {
+            "last": "Mehnert-Theuerkauf",
+            "fore": "Anja",
+            "initials": "A",
+            "affiliations": [
+              "Department of Medical Psychology and Medical Sociology, University of Leipzig, Philipp-Rosenthal-Str. 55, 04103, Leipzig, Germany."
+            ]
+          }
+        ],
+        "doi": "10.1007/s11136-018-2014-1",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "PURPOSE: The distress thermometer (DT) and the emotion thermometers (ET) are short screening instruments for use in oncological practice. The aim of this study was to provide normative values and to analyze the correlational structure of the ET.\nMETHODS: A representative sample of the adult German general population (N = 2437) completed the ET, the PHQ-4, the FACIT-fatigue scale, and the demoralization scale.\nRESULTS: The percentages of people above the cutoff (≥ 4) and the mean scores of the five ET scales were as follows: distress: 39.0%, M = 3.15 ± 2.62, anxiety: 12.3%, M = 1.36 ± 1.93, depression: 16.1%, M = 1.65 ± 2.11, anger: 24.5%, M = 2.33 ± 2.16, and need for help: 10.7%, M = 1.18 ± 1.90. Women reported significantly higher levels of burden than men, with effect sizes between 0.07 (anger) and 0.36 (anxiety). All ET dimensions were interrelated (r between 0.44 and 0.69) and significantly correlated with the other scales (r between 0.36 and 0.68).\nCONCLUSIONS: The normative scores can help qualify assessments of groups of patients. The new four dimensions of the ET provide relevant additional information that is not already covered by the DT.",
+        "citation": "Qual Life Res. 2019 Jan;28(1):277-282."
+      }
+    },
+    {
+      "ref_no": 16,
+      "pmid": "19996233",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1176/appi.psy.50.6.613\"[AID] OR \"10.1176/appi.psy.50.6.613\"[DOI]",
+          "success": true,
+          "pmid": "19996233",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "19996233",
+        "title": "An ultra-brief screening scale for anxiety and depression: the PHQ-4.",
+        "journal_full": "Psychosomatics",
+        "journal_iso": "Psychosomatics",
+        "volume": "50",
+        "issue": "6",
+        "pages": "613-21",
+        "year": "2009",
+        "month": null,
+        "day": null,
+        "create_date": "2010/03/17",
+        "authors": [
+          {
+            "last": "Kroenke",
+            "fore": "Kurt",
+            "initials": "K",
+            "affiliations": [
+              "Regenstrief Institute, Indianapolis, IN 46202, USA. kkroenke@regenstrief.org"
+            ]
+          },
+          {
+            "last": "Spitzer",
+            "fore": "Robert L",
+            "initials": "RL",
+            "affiliations": []
+          },
+          {
+            "last": "Williams",
+            "fore": "Janet B W",
+            "initials": "JB",
+            "affiliations": []
+          },
+          {
+            "last": "Löwe",
+            "fore": "Bernd",
+            "initials": "B",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1176/appi.psy.50.6.613",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "BACKGROUND: The most common mental disorders in both outpatient settings and the general population are depression and anxiety, which frequently coexist. Both of these disorders are associated with considerable disability.\nOBJECTIVE: When the disorders co-occur, the disability is even greater. Authors sought to test an ultra-brief screening tool for both.\nMETHOD: Validated two-item ultra-brief screeners for depression and anxiety were combined to constitute the Patient Health Questionnaire for Depression and Anxiety (the PHQ-4). Data were analyzed from 2,149 patients drawn from 15 primary-care clinics in the United States.\nRESULTS: Factor analysis confirmed two discrete factors (Depression and Anxiety) that explained 84% of the total variance. Increasing PHQ-4 scores were strongly associated with functional impairment, disability days, and healthcare use. Anxiety had a substantial effect on functional status that was independent of depression.\nCONCLUSION: The PHQ-4 is a valid ultra-brief tool for detecting both anxiety and depressive disorders.",
+        "citation": "Psychosomatics. 2009;50(6):613-21."
+      }
+    },
+    {
+      "ref_no": 17,
+      "pmid": "22639392",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1007/s12529-012-9243-4\"[AID] OR \"10.1007/s12529-012-9243-4\"[DOI]",
+          "success": true,
+          "pmid": "22639392",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "22639392",
+        "title": "The stigma scale for chronic illnesses 8-item version (SSCI-8): development, validation and use across neurological conditions.",
+        "journal_full": "International journal of behavioral medicine",
+        "journal_iso": "Int J Behav Med",
+        "volume": "20",
+        "issue": "3",
+        "pages": "450-60",
+        "year": "2013",
+        "month": "Sep",
+        "day": null,
+        "create_date": "2014/06/15",
+        "authors": [
+          {
+            "last": "Molina",
+            "fore": "Yamile",
+            "initials": "Y",
+            "affiliations": [
+              "Fred Hutchinson Cancer Research Center, 1100 Fairview Avenue N. M3-B232, Seattle, WA, 98109, USA, ymolina@fhcrc.org."
+            ]
+          },
+          {
+            "last": "Choi",
+            "fore": "Seung W",
+            "initials": "SW",
+            "affiliations": []
+          },
+          {
+            "last": "Cella",
+            "fore": "David",
+            "initials": "D",
+            "affiliations": []
+          },
+          {
+            "last": "Rao",
+            "fore": "Deepa",
+            "initials": "D",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1007/s12529-012-9243-4",
+        "pmcid": "PMC3758464",
+        "nihms_id": "NIHMS363920",
+        "abstract": "BACKGROUND: Although the impact of stigma has been highlighted for epileptic populations, the experiences of people living with other neurological conditions have been less studied.\nPURPOSE: In order to promote research on stigma among people with neurological conditions, we sought to develop and psychometrically validate an eight-item questionnaire measuring internalised and enacted stigma experienced by people with epilepsy, multiple sclerosis (MS), Parkinson's disease (PD), stroke and amyotrophic lateral sclerosis (ALS).\nMETHOD: We used item response theory methodologies to select items and field tested our items with 587 participants from eight academic medical centres across the USA.\nRESULTS: We conducted exploratory and confirmatory factor analysis as well as examined the scale's reliability and validity. In addition, we conducted an analysis of variance test to examine mean total score differences across the five neurological conditions. Data from people across conditions revealed that the shortened instrument conformed to an essentially unidimensional model of multifaceted stigma as a one-factor questionnaire with correlated residuals on a pair of items that distinctly measured internalised stigma.\nCONCLUSION: Preliminary evidence suggests that the Stigma Scale for Chronic Illness 8-item version fits a unidimensional model, which assesses enacted and internalised stigma, and has adequate internal consistency/reliability and validity in relation to psychological distress and patient performance. Our results suggest fairly low stigma for neurological populations. In addition, our results suggest that stigma may be more severe for patients with ALS relative to those with MS and PD. In the future, the SSCI-8 scale could be used practically in clinic settings to examine stigma without the patient burden associated with lengthier scales.",
+        "citation": "Int J Behav Med. 2013 Sep;20(3):450-60."
+      }
+    },
+    {
+      "ref_no": 18,
+      "pmid": "34864639",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1556/650.2021.32258\"[AID] OR \"10.1556/650.2021.32258\"[DOI]",
+          "success": true,
+          "pmid": "34864639",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "34864639",
+        "title": "[Shame mediates the relationship between stigma and quality of life among patients with coeliac disease. A 8 tételes Stigmatizáció Krónikus Betegségekben Kérdőív magyar adaptálása].",
+        "journal_full": "Orvosi hetilap",
+        "journal_iso": "Orv Hetil",
+        "volume": "162",
+        "issue": "49",
+        "pages": "1968-1976",
+        "year": "2021",
+        "month": "Dec",
+        "day": "05",
+        "create_date": "2021/12/07",
+        "authors": [
+          {
+            "last": "Szőcs",
+            "fore": "Henrietta",
+            "initials": "H",
+            "affiliations": [
+              "1 Eötvös Loránd Tudományegyetem, Pedagógiai és Pszichológiai Kar, Pszichológiai Doktori Iskola, Budapest.",
+              "2 Eötvös Loránd Tudományegyetem, Pedagógiai és Pszichológiai Kar, Pszichológiai Intézet, Budapest, Izabella u. 46., 1064."
+            ]
+          },
+          {
+            "last": "Horváth",
+            "fore": "Zsolt",
+            "initials": "Z",
+            "affiliations": [
+              "1 Eötvös Loránd Tudományegyetem, Pedagógiai és Pszichológiai Kar, Pszichológiai Doktori Iskola, Budapest.",
+              "2 Eötvös Loránd Tudományegyetem, Pedagógiai és Pszichológiai Kar, Pszichológiai Intézet, Budapest, Izabella u. 46., 1064."
+            ]
+          },
+          {
+            "last": "Vizin",
+            "fore": "Gabriella",
+            "initials": "G",
+            "affiliations": [
+              "2 Eötvös Loránd Tudományegyetem, Pedagógiai és Pszichológiai Kar, Pszichológiai Intézet, Budapest, Izabella u. 46., 1064.",
+              "3 Semmelweis Egyetem, Általános Orvostudományi Kar, Klinikai Pszichológia Tanszék, Budapest."
+            ]
+          }
+        ],
+        "doi": "10.1556/650.2021.32258",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "UNLABELLED: Összefoglaló. Bevezetés: A coeliakia és a kapcsolódó terhek befolyásolják az érintettek életminőségét. A krónikus betegségekkel járó stigmatizáció hozzájárul a fizikai tünetek és a lelki panaszok fokozódásához, valamint az egészségmagatartás csökkenéséhez. Mindez szükségessé teszi a krónikus megbetegedések kapcsán a stigmatizáció felismerését, felmérését és kezelését. Célkitűzések: Fő célunk a 8 tételes Stigmatizáció Krónikus Betegségekben Kérdőív (SSCI-8) magyar adaptációja és pszichometriai vizsgálata volt coeliakiások körében. További célunk volt megvizsgálni a szégyen közvetítő szerepét a stigmatizáció és a jóllét között. Módszerek: A kutatás önbeszámolós, online kérdőíves, keresztmetszeti vizsgálatként zajlott (n = 85, átlagéletkor: 37,64, 91,8% nő). Az SSCI-8 mellett felvételre kerültek a szégyenélményt, a coeliakiás életminőséget, a jóllétet mérő kérdőívek. A kutatási célok tesztelése megerősítő faktorelemzéssel, korrelációs és mediációs elemzésekkel történt. Eredmények: Az SSCI-8 faktorelemzése során az egydimenziós modell megfelelő illeszkedést mutatott magas belső konzisztenciaértékek mellett. A mediációs modellek szerint a magasabb stigmatizáció a magasabb szégyenélményen keresztül járulhat hozzá a pszichés jóllét (coeliakiás életminőség, jóllét) csökkenéséhez. Megbeszélés: Az SSCI-8 rövid, átfogó kérdőívként megbízhatóan és érvényesen mérte a krónikus betegségben tapasztalt stigmatizációt a jelen coeliakiás mintán. Eredményeink alátámasztják, hogy a stigmatizáció és a szégyen fontos szerepet tölt be a jóllét csökkenésében. Következtetés: A nemzetközileg széles körben alkalmazott SSCI-8 adaptálására került sor, mely hazai kutatásokban és az egészségügyi ellátásban is hasznos mérőeszköz lehet. Az eredmények rávilágítanak, hogy a stigmatizáció és a szégyenélmény további kutatása szükséges, különösen a hatékony pszichoszociális intervenciók kifejlesztését megcélozva. Hatékony pszichológiai segítség révén a szégyen és a stigmatizáltság mérséklésével javulhat a coeliakiával élők fizikai és lelki állapota, ami a gluténmentes diéta betartása révén hozzájárulhat a betegség okozta tünetek és szövődmények mérsékléséhez. Orv Hetil. 2021; 162(49): 1968-1976.\nINTRODUCTION: Coeliac disease can detrimentally affect well-being. Stigmatization related to a chronic disease can enhance physical and psychological symptoms and negatively influence health behaviour, hence, stigma in chronic diseases needs to be addressed.\nOBJECTIVES: Our main goal was to psychometrically evaluate the Hungarian adaptation of the Stigma Scale for Chronic Illness-8 (SSCI-8). Further aim was to examine the mediating role of shame on the relationship between stigmatization and well-being aspects among individuals with coeliac disease.\nMETHODS: This cross-sectional study collected data using online questionnaires based on self-reports (n = 85, mean age: 37.64 years, 91.8% women). Instruments assessed levels of stigmatization, shame experience, quality of life in coeliac disease and well-being. Confirmatory factor, correlation and mediation analyses were used.\nRESULTS: Factor analysis showed adequate fit for a unidimensional model with high internal consistency. Mediation models showed that higher levels of stigmatization can contribute to decreased levels of quality of life in coeliac disease and well-being via increased levels of shame.\nDISCUSSION: The SSCI-8 is a short, valid, reliable instrument measuring stigmatization in the current sample of people with coeliac disease. The results highlight the role of stigma and shame in the decrease of well-being.\nCONCLUSION: The adapted version of the SSCI-8 can be a useful tool in Hungarian research and healthcare. The results suggest that stigmatization and shame need further attention to develop effective intervention which can reduce their effect and enhance adherence to gluten-free diet and improve physical and psychological well-being. Orv Hetil. 2021; 162(49): 1968-1976.",
+        "citation": "Orv Hetil. 2021 Dec 05;162(49):1968-1976."
+      }
+    },
+    {
+      "ref_no": 19,
+      "pmid": "32102523",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.31557/APJCP.2020.21.2.449\"[AID] OR \"10.31557/APJCP.2020.21.2.449\"[DOI]",
+          "success": true,
+          "pmid": "32102523",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "32102523",
+        "title": "Translation and Factor Analysis of the Stigma Scale for Chronic Illnesses 8-Item Version Among Iranian Women With Breast Cancer.",
+        "journal_full": "Asian Pacific journal of cancer prevention : APJCP",
+        "journal_iso": "Asian Pac J Cancer Prev",
+        "volume": "21",
+        "issue": "2",
+        "pages": "449-455",
+        "year": "2020",
+        "month": "Feb",
+        "day": "01",
+        "create_date": "2020/12/04",
+        "authors": [
+          {
+            "last": "Daryaafzoon",
+            "fore": "Mona",
+            "initials": "M",
+            "affiliations": [
+              "Faculty of Psychology, Islamic Azad University, Karaj Branch, Karaj, Alborz, Iran."
+            ]
+          },
+          {
+            "last": "Amini-Tehrani",
+            "fore": "Mohammadali",
+            "initials": "M",
+            "affiliations": [
+              "Department of Psychology, Faculty of Psychology and Education, University of Tehran, Tehran, Iran.",
+              "Health Psychology and Behavior Medicine Research Group, Student Scientific Research Center, Tehran University of Medical Sciences, Tehran, Iran."
+            ]
+          },
+          {
+            "last": "Zohrevandi",
+            "fore": "Zahra",
+            "initials": "Z",
+            "affiliations": [
+              "Islamic Azad University, Roudehen Branch, Roudehen, Tehran, Iran."
+            ]
+          },
+          {
+            "last": "Hamzehlouiyan",
+            "fore": "Mehrnoush",
+            "initials": "M",
+            "affiliations": [
+              "Department of Psychology, Faculty of Psychology and Education, University of Tehran, Tehran, Iran."
+            ]
+          },
+          {
+            "last": "Ghotbi",
+            "fore": "Amene",
+            "initials": "A",
+            "affiliations": [
+              "Health Psychology and Behavior Medicine Research Group, Student Scientific Research Center, Tehran University of Medical Sciences, Tehran, Iran."
+            ]
+          },
+          {
+            "last": "Zarrabi-Ajami",
+            "fore": "Samira",
+            "initials": "S",
+            "affiliations": [
+              "Faculty of Psychology, Islamic Azad University, Karaj Branch, Karaj, Alborz, Iran."
+            ]
+          },
+          {
+            "last": "Zamanian",
+            "fore": "Hadi",
+            "initials": "H",
+            "affiliations": [
+              "School of Health, Qom University of Medical Sciences, Qom, Iran."
+            ]
+          }
+        ],
+        "doi": "10.31557/APJCP.2020.21.2.449",
+        "pmcid": "PMC7332131",
+        "nihms_id": null,
+        "abstract": "BACKGROUND: Cancer stigma is rarely addressed among Iranian population and patients. The current study aimed at translating and examining the construct validity of the stigma scale for chronic illnesses 8-item (SSCI-8) among Iranian women with breast cancer.\nMETHODS: In the current study, a total of 223 patients aged 19-75 years were recruited from three cancer centers in Tehran, Iran, from 2014 to 2015. Forward-backward translation method was used. The item-total correlation was evaluated. Exploratory factor analysis employing maximum likelihood method and direct Oblimin rotation was conducted. Reliability was assessed using composite reliability (CR). Average variance explained (AVE) was used for convergent/divergent validity.\nRESULTS: The items mean was 1.47 (0.19), the scale mean 11.75 (5.57); the inter-item correlations were positive and significant (P <0.0001). A two-factor solution with seven eligible items (five for enacted and two for internalized stigma) showed the model fitness. The CR for the total scale, as well as enacted and internalized facets was 0.78, 0.89, and 0.79, respectively; the AVE was 0.66 for each latent variable.\nCONCLUSION: The Persian version of SSCI-7 was found as a reliable and valid abbreviated instrument to assess experiences of enacted and internalized stigma among Iranian women with breast cancer.<br />.",
+        "citation": "Asian Pac J Cancer Prev. 2020 Feb 01;21(2):449-455."
+      }
+    },
+    {
+      "ref_no": 20,
+      "pmid": "689890",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1177/109019817800600107\"[AID] OR \"10.1177/109019817800600107\"[DOI]",
+          "success": true,
+          "pmid": "689890",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "689890",
+        "title": "Development of the Multidimensional Health Locus of Control (MHLC) Scales.",
+        "journal_full": "Health education monographs",
+        "journal_iso": "Health Educ Monogr",
+        "volume": "6",
+        "issue": "2",
+        "pages": "160-70",
+        "year": "1978",
+        "month": null,
+        "day": null,
+        "create_date": "1978/11/29",
+        "authors": [
+          {
+            "last": "Wallston",
+            "fore": "K A",
+            "initials": "KA",
+            "affiliations": []
+          },
+          {
+            "last": "Wallston",
+            "fore": "B S",
+            "initials": "BS",
+            "affiliations": []
+          },
+          {
+            "last": "DeVellis",
+            "fore": "R",
+            "initials": "R",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1177/109019817800600107",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "The development of the Multidimensional Health Locus of Control scales is described. Scales have been developed to tap beliefs that the source of reinforcements for health-related behaviors is primarily internal, a matter of chance, or under the control of powerful others. These scales are based on earlier work with a general Health Locus of Control Scale, which, in turn, was developed from Rotter's social learning theory. Equivalent forms of the scales are presented along with initial internal consistency and validity data. Possible means of utilizing these scales are provided.",
+        "citation": "Health Educ Monogr. 1978;6(2):160-70."
+      }
+    },
+    {
+      "ref_no": 21,
+      "pmid": "7844739",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1207/s15327752jpa6303_10\"[AID] OR \"10.1207/s15327752jpa6303_10\"[DOI]",
+          "success": true,
+          "pmid": "7844739",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "7844739",
+        "title": "Form C of the MHLC scales: a condition-specific measure of locus of control.",
+        "journal_full": "Journal of personality assessment",
+        "journal_iso": "J Pers Assess",
+        "volume": "63",
+        "issue": "3",
+        "pages": "534-53",
+        "year": "1994",
+        "month": "Dec",
+        "day": null,
+        "create_date": "1995/03/08",
+        "authors": [
+          {
+            "last": "Wallston",
+            "fore": "K A",
+            "initials": "KA",
+            "affiliations": [
+              "School of Nursing, Vanderbilt University, Nashville, TN 37240."
+            ]
+          },
+          {
+            "last": "Stein",
+            "fore": "M J",
+            "initials": "MJ",
+            "affiliations": []
+          },
+          {
+            "last": "Smith",
+            "fore": "C A",
+            "initials": "CA",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1207/s15327752jpa6303_10",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "Form C of the Multidimensional Health Locus of Control (MHLC) scales is an 18 item, general purpose, condition-specific locus of control scale that could easily be adapted for use with any medical or health-related condition. Data from 588 patients with one of four conditions--rheumatoid arthritis, chronic pain, diabetes, or cancer--were utilized to establish the factor structure of Form C and to establish the reliability and validity of the resultant four subscales: Internality; Chance; Doctors; and Other (powerful) People. The alpha reliabilities of the subscales are adequate for research purposes. Data from the arthritis and chronic pain subjects established that the Form C subscales were moderately stable over time and possessed considerable concurrent and construct validity. Some discriminant validity of Form C with Form B of the MHLC was also demonstrated.",
+        "citation": "J Pers Assess. 1994 Dec;63(3):534-53."
+      }
+    },
+    {
+      "ref_no": 22,
+      "pmid": "25202967",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1371/journal.pone.0107108\"[AID] OR \"10.1371/journal.pone.0107108\"[DOI]",
+          "success": true,
+          "pmid": "25202967",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "25202967",
+        "title": "Psychometric properties of the multidimensional health locus of control scale form C in a non-Western culture.",
+        "journal_full": "PloS one",
+        "journal_iso": "PLoS One",
+        "volume": "9",
+        "issue": "9",
+        "pages": "e107108",
+        "year": "2014",
+        "month": null,
+        "day": null,
+        "create_date": "2015/05/28",
+        "authors": [
+          {
+            "last": "Konkolÿ Thege",
+            "fore": "Barna",
+            "initials": "B",
+            "affiliations": [
+              "Department of Psychology, University of Calgary, Calgary, Canada; Firebird Foundation, Budapest, Hungary; Institute of Behavioral Sciences, Semmelweis University, Budapest, Hungary."
+            ]
+          },
+          {
+            "last": "Rafael",
+            "fore": "Beatrix",
+            "initials": "B",
+            "affiliations": [
+              "Psychiatric Clinic, University of Szeged, Szeged, Hungary; Special Hospital of Chest Illnesses, Deszk, Hungary."
+            ]
+          },
+          {
+            "last": "Rohánszky",
+            "fore": "Magda",
+            "initials": "M",
+            "affiliations": [
+              "Firebird Foundation, Budapest, Hungary; Department of Oncology, Szent László Hospital, Budapest, Hungary."
+            ]
+          }
+        ],
+        "doi": "10.1371/journal.pone.0107108",
+        "pmcid": "PMC4159290",
+        "nihms_id": null,
+        "abstract": "Form C of the Multidimensional Health Locus of Control Scales (MHLC-C) was designed to investigate health-related control beliefs of persons with an existing medical condition. The aim of the present study was to examine the psychometric properties of this instrument in a culture characterized by external control beliefs and learned helplessness-contrary to the societal context of original test development. Altogether, 374 Hungarian patients with cancer, irritable bowel syndrome, diabetes, and cardiovascular and musculoskeletal disorders were enrolled in the study. Besides the MHLC-C, instruments measuring general control beliefs, anxiety, depression, self-efficacy, and health behaviors were also administered to evaluate the validity of the scale. Both exploratory and confirmatory factor analytic techniques were used to investigate the factor structure of the scale. Our results showed that the Hungarian adaptation of the instrument had a slightly different structure than the one originally hypothesized: in the present sample, a three-factor structure emerged where the items of the Doctors and the Others subscales loaded onto a single common component. Internal reliability of all three subscales was adequate (alphas between .71 and .79). Data concerning the instrument's validity were comparable with previous results from Western countries. These findings may suggest that health locus of control can be construed very similarly to Western countries even in a post-communist society-regardless of the potential differences in general control beliefs.",
+        "citation": "PLoS One. 2014;9(9):e107108."
+      }
+    },
+    {
+      "ref_no": 23,
+      "pmid": "23070875",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1002/jclp.21923\"[AID] OR \"10.1002/jclp.21923\"[DOI]",
+          "success": true,
+          "pmid": "23070875",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "23070875",
+        "title": "A pilot study and randomized controlled trial of the mindful self-compassion program.",
+        "journal_full": "Journal of clinical psychology",
+        "journal_iso": "J Clin Psychol",
+        "volume": "69",
+        "issue": "1",
+        "pages": "28-44",
+        "year": "2013",
+        "month": "Jan",
+        "day": null,
+        "create_date": "2013/06/07",
+        "authors": [
+          {
+            "last": "Neff",
+            "fore": "Kristin D",
+            "initials": "KD",
+            "affiliations": [
+              "University of Texas at Austin, Austin, TX 78712, USA. kristin.neff@mail.utexas.edu"
+            ]
+          },
+          {
+            "last": "Germer",
+            "fore": "Christopher K",
+            "initials": "CK",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1002/jclp.21923",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "OBJECTIVES: The aim of these two studies was to evaluate the effectiveness of the Mindful Self-Compassion (MSC) program, an 8-week workshop designed to train people to be more self-compassionate.\nMETHODS: Study 1 was a pilot study that examined change scores in self-compassion, mindfulness, and various wellbeing outcomes among community adults (N = 21; mean [M] age = 51.26, 95% female). Study 2 was a randomized controlled trial that compared a treatment group (N = 25; M age = 51.21; 78% female) with a waitlist control group (N = 27; M age = 49.11; 82% female).\nRESULTS: Study 1 found significant pre/post gains in self-compassion, mindfulness, and various wellbeing outcomes. Study 2 found that compared with the control group, intervention participants reported significantly larger increases in self-compassion, mindfulness, and wellbeing. Gains were maintained at 6-month and 1-year follow-ups.\nCONCLUSIONS: The MSC program appears to be effective at enhancing self-compassion, mindfulness, and wellbeing.",
+        "citation": "J Clin Psychol. 2013 Jan;69(1):28-44."
+      }
+    },
+    {
+      "ref_no": 24,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1007/s12671-016-0662-1\"[AID] OR \"10.1007/s12671-016-0662-1\"[DOI]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_author_year",
+          "query": "Exploratory structural equation modeling analysis of the Self-Compassion Scale[Title] AND Tóth-Király[Author] AND 2017[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Exploratory structural equation modeling analysis of the Self-Compassion Scale",
+          "success": false,
+          "pmid": "35822872",
+          "match_score": 68.93203883495146,
+          "error": "fuzzy 69 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 25,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [],
+      "metadata": null
+    },
+    {
+      "ref_no": 26,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [],
+      "metadata": null
+    },
+    {
+      "ref_no": 27,
+      "pmid": null,
+      "final_strategy": null,
+      "attempts": [
+        {
+          "strategy": "title_author_year",
+          "query": "Cognitive therapy[Title] AND Moorey[Author] AND 2010[PDAT]",
+          "success": false,
+          "pmid": null,
+          "match_score": null,
+          "error": "no hits"
+        },
+        {
+          "strategy": "title_fuzzy",
+          "query": "Cognitive therapy",
+          "success": false,
+          "pmid": "42110900",
+          "match_score": 25.757575757575758,
+          "error": "fuzzy 26 < 90"
+        }
+      ],
+      "metadata": null
+    },
+    {
+      "ref_no": 28,
+      "pmid": "15280923",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1038/sj.bjc.6602051\"[AID] OR \"10.1038/sj.bjc.6602051\"[DOI]",
+          "success": true,
+          "pmid": "15280923",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "15280923",
+        "title": "Dual blockade of EGFR and ERK1/2 phosphorylation potentiates growth inhibition of breast cancer cells.",
+        "journal_full": "British journal of cancer",
+        "journal_iso": "Br J Cancer",
+        "volume": "91",
+        "issue": "4",
+        "pages": "795-802",
+        "year": "2004",
+        "month": "Aug",
+        "day": "16",
+        "create_date": "2004/09/14",
+        "authors": [
+          {
+            "last": "Lev",
+            "fore": "D C",
+            "initials": "DC",
+            "affiliations": [
+              "Department of Cancer Biology, University of Texas MD Anderson Cancer Center, Houston, TX 77030, USA."
+            ]
+          },
+          {
+            "last": "Kim",
+            "fore": "L S",
+            "initials": "LS",
+            "affiliations": []
+          },
+          {
+            "last": "Melnikova",
+            "fore": "V",
+            "initials": "V",
+            "affiliations": []
+          },
+          {
+            "last": "Ruiz",
+            "fore": "M",
+            "initials": "M",
+            "affiliations": []
+          },
+          {
+            "last": "Ananthaswamy",
+            "fore": "H N",
+            "initials": "HN",
+            "affiliations": []
+          },
+          {
+            "last": "Price",
+            "fore": "J E",
+            "initials": "JE",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1038/sj.bjc.6602051",
+        "pmcid": "PMC2364773",
+        "nihms_id": null,
+        "abstract": "One of the major targets for breast cancer therapy is the epidermal growth factor receptor (EGFR) and related receptors, which signal via different signal transduction pathways including the mitogen-activated protein kinase (MAPK) pathway. This study determined whether there is a correlation between EGFR/HER2 status and MAPK (ERK1/2) phosphorylation in breast cancer cells, and how this affects the response to an inhibitor of the receptors. Expression of EGFR, HER2 and phosphorylated ERK1/2 were measured by immunoblotting in a panel of breast cancer cell lines. Several lines expressed high levels of pERK1/2, with no obvious correlation with the level of EGFR/HER2. The EGFR tyrosine kinase inhibitor PKI166 inhibited growth and induced apoptosis in some cells with high levels of growth factor receptors (MDA-MB-468, SUM149, SKBR3), but was less effective in cells that also had high basal ERK1/2 activity (MDA-MB-231). The combination of an inhibitor of MAPK signalling (U0126) and PKI166 produced significantly more inhibition and apoptosis than either agent alone. This suggests that constitutive activation of the MAPK pathway may bypass inhibition of EGFR/HER2 tyrosine kinases, and lead to insensitivity to agents targeting the receptors. However, inhibiting both EGFR/HER2 and MAPK signalling can result in significant growth inhibition and apoptosis of EGFR-expressing breast cancer cells.",
+        "citation": "Br J Cancer. 2004 Aug 16;91(4):795-802."
+      }
+    },
+    {
+      "ref_no": 29,
+      "pmid": "20205038",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1080/08870440802074664\"[AID] OR \"10.1080/08870440802074664\"[DOI]",
+          "success": true,
+          "pmid": "20205038",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "20205038",
+        "title": "Perceived stigma, self-blame, and adjustment among lung, breast and prostate cancer patients.",
+        "journal_full": "Psychology & health",
+        "journal_iso": "Psychol Health",
+        "volume": "24",
+        "issue": "8",
+        "pages": "949-64",
+        "year": "2009",
+        "month": "Oct",
+        "day": null,
+        "create_date": "2010/06/02",
+        "authors": [
+          {
+            "last": "Else-Quest",
+            "fore": "Nicole M",
+            "initials": "NM",
+            "affiliations": [
+              "Department of Psychology, Villanova University, Villanova, USA. nicole.else.quest@villanova.edu"
+            ]
+          },
+          {
+            "last": "LoConte",
+            "fore": "Noelle K",
+            "initials": "NK",
+            "affiliations": []
+          },
+          {
+            "last": "Schiller",
+            "fore": "Joan H",
+            "initials": "JH",
+            "affiliations": []
+          },
+          {
+            "last": "Hyde",
+            "fore": "Janet Shibley",
+            "initials": "JS",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1080/08870440802074664",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "People who suffer from disease have often been stigmatised. The internalisation of stigma leads to the experience of self-blame. The relationship among stigma, self-blame and adjustment was framed with two theoretical perspectives: the looking-glass self and learned helplessness models. These models were studied in 96 lung, 30 breast and 46 prostate cancer patients. Consistent with the looking-glass-self model, we predicted that perceived stigma and self-blame would be associated with poorer psychological adjustment; the data supported these hypotheses. Consistent with the learned helplessness model, we predicted that self-blame would mediate the link between perceived stigma and psychological adjustment; data supported these hypotheses. The mediation model explained a greater percentage of the variance in adjustment in the lung cancer sample compared to the breast and prostate cancer sample. Participants who reported internal causal attributions reported poorer psychological adjustment. Lung cancer patients were more likely than breast or prostate cancer patients to report internal causal attributions for their cancer. Future research and cancer care are discussed in light of these findings.",
+        "citation": "Psychol Health. 2009 Oct;24(8):949-64."
+      }
+    },
+    {
+      "ref_no": 30,
+      "pmid": "19604706",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1016/j.critrevonc.2009.06.003\"[AID] OR \"10.1016/j.critrevonc.2009.06.003\"[DOI]",
+          "success": true,
+          "pmid": "19604706",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "19604706",
+        "title": "Associations of social networks with cancer mortality: a meta-analysis.",
+        "journal_full": "Critical reviews in oncology/hematology",
+        "journal_iso": "Crit Rev Oncol Hematol",
+        "volume": "75",
+        "issue": "2",
+        "pages": "122-37",
+        "year": "2010",
+        "month": "Aug",
+        "day": null,
+        "create_date": "2010/11/03",
+        "authors": [
+          {
+            "last": "Pinquart",
+            "fore": "Martin",
+            "initials": "M",
+            "affiliations": [
+              "Department of Psychology, Philipps University, Gutenbergstrasse 18, 35032 Marburg, Germany. pinquart@staff.uni-marburg.de"
+            ]
+          },
+          {
+            "last": "Duberstein",
+            "fore": "Paul R",
+            "initials": "PR",
+            "affiliations": []
+          }
+        ],
+        "doi": "10.1016/j.critrevonc.2009.06.003",
+        "pmcid": "PMC2910231",
+        "nihms_id": "NIHMS203998",
+        "abstract": "This meta-analysis integrates results of 87 studies on the associations of perceived social support, network size, and marital status with cancer survival. In controlled studies, having high levels of perceived social support, larger social network, and being married were associated with decreases in relative risk for mortality of 25%, 20%, and 12%, respectively. Moderator analyses revealed that never married patients had higher mortality rates than widowed and divorced/separated patients. Associations of social network with mortality were stronger in younger patients, and associations of marital status with mortality were stronger in studies with shorter time intervals, and in early-stage cancer. Relationships varied by cancer site, with stronger associations of social support observed in studies of patients with leukemia and lymphomas and stronger associations of network size observed in studies of breast cancer. Further randomized intervention studies are needed to test causal hypotheses about the role of social support and social network for cancer mortality.",
+        "citation": "Crit Rev Oncol Hematol. 2010 Aug;75(2):122-37."
+      }
+    },
+    {
+      "ref_no": 31,
+      "pmid": "25787828",
+      "final_strategy": "doi",
+      "attempts": [
+        {
+          "strategy": "doi",
+          "query": "\"10.1002/pon.3800\"[AID] OR \"10.1002/pon.3800\"[DOI]",
+          "success": true,
+          "pmid": "25787828",
+          "match_score": null,
+          "error": null
+        }
+      ],
+      "metadata": {
+        "pmid": "25787828",
+        "title": "Resilience in adults with cancer: development of a conceptual model.",
+        "journal_full": "Psycho-oncology",
+        "journal_iso": "Psychooncology",
+        "volume": "25",
+        "issue": "1",
+        "pages": "11-8",
+        "year": "2016",
+        "month": "Jan",
+        "day": null,
+        "create_date": "2017/06/20",
+        "authors": [
+          {
+            "last": "Deshields",
+            "fore": "Teresa L",
+            "initials": "TL",
+            "affiliations": [
+              "Siteman Counseling Service, Siteman Cancer Center, St. Louis, MO, United States."
+            ]
+          },
+          {
+            "last": "Heiland",
+            "fore": "Mark F",
+            "initials": "MF",
+            "affiliations": [
+              "Siteman Counseling Service, Siteman Cancer Center, St. Louis, MO, United States."
+            ]
+          },
+          {
+            "last": "Kracen",
+            "fore": "Amanda C",
+            "initials": "AC",
+            "affiliations": [
+              "Siteman Counseling Service, Siteman Cancer Center, St. Louis, MO, United States."
+            ]
+          },
+          {
+            "last": "Dua",
+            "fore": "Priya",
+            "initials": "P",
+            "affiliations": [
+              "National Agricultural Statistics Service, U.S. Department of Agriculture, St. Louis, MO, United States."
+            ]
+          }
+        ],
+        "doi": "10.1002/pon.3800",
+        "pmcid": null,
+        "nihms_id": null,
+        "abstract": "OBJECTIVE: Resilience is a construct addressed in the psycho-oncology literature and is especially relevant to cancer survivorship. The purpose of this paper is to propose a model for resilience that is specific to adults diagnosed with cancer.\nMETHODS: To establish the proposed model, a brief review of the various definitions of resilience and of the resilience literature in oncology is provided.\nRESULTS: The proposed model includes baseline attributes (personal and environmental) which impact how an individual responds to an adverse event, which in this paper is cancer-related. The survivor has an initial response that fits somewhere on the distress-resilience continuum; however, post-cancer experiences (and interventions) can modify the initial response through a process of recalibration.\nCONCLUSIONS: The literature reviewed indicates that resilience is a common response to cancer diagnosis or treatment. The proposed model supports the view of resilience as both an outcome and a dynamic process. Given the process of recalibration, a discussion is provided of interventions that might facilitate resilience in adults with cancer.",
+        "citation": "Psychooncology. 2016 Jan;25(1):11-8."
+      }
+    }
+  ],
+  "stage4_elapsed_seconds": 33.64
+}
