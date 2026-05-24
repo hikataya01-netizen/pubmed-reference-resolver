@@ -74,29 +74,23 @@ python main.py input_References.docx --overrides integration/src/manual_override
 python -m pytest tests/ -q
 ```
 
-現状 **97 passed + 1 skipped** (Day17 末)。
-skipped 分は LLM path のシナリオで、`ANTHROPIC_API_KEY` 未設定時にスキップされる設計。
+現状 **52 passed + 50 skipped** (Day23 末)。
+50 skipped の内訳: 5 file (test_mdpi_parser / test_overrides_contract / test_journal_audit / test_pre_integration_baseline / test_split_references_doi_boundary) が module-level pytestmark.skip 付与済 (Day23 で旧 mdpi_149refs fixture を削除した影響、新 mdpi_173refs に re-point + skip 解除は Day24+ 候補)。1 skipped は LLM path シナリオで `ANTHROPIC_API_KEY` 未設定時にスキップされる設計分。
 
 ## ゴールドスタンダード fixture (4 系統)
 
-`tests/fixtures/` に 4 系統の golden fixture を配備:
+`tests/fixtures/` に 4 系統の golden fixture を配備 (全て PMC OA CC BY 4.0 由来、Day23 で機密性懸念のあった旧 fixture 2 件を全 git history から消去し PMC OA 由来に置換):
 
-| Fixture | 件数 | スタイル | 由来 | 解決率 |
+| Fixture | 件数 (parsed) | スタイル | 由来 | 解決率 |
 |:---|---:|:---|:---|---:|
-| `mdpi_149refs/` | 149 | MDPI | OneDrive 実機 (Day1-7) | 全件 fast-path |
-| `vancouver_24refs/` | 24 | Vancouver/AMA | OneDrive 実機 (Day9) | 22/24 = 91.7% |
+| `mdpi_173refs/` | 173 (171) | MDPI | [PMC13164670](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13164670/) Nutrients review 2026 (Day23) | 159/171 = 93.0% |
+| `vancouver_35refs/` | 35 (31) | Vancouver/AMA | [PMC13179246](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13179246/) Supportive Care in Cancer 2026 (Day23) | 22/31 = 71.0% |
 | `apa_45refs/` | 45 | APA 7 | PMC OA 3 論文 (Day16) | 25/45 = 55.6% |
 | `cell_45refs/` | 45 | Cell Press | PMC OA 3 iScience (Day17) | 30/45 = 66.7% |
 
-Vancouver/APA/Cell は Day9 で導入された **Vancouver Veto** (`is_mdpi_style()` の `\((?:19|20)\d{2}[a-z]?\)` regex) により LLM path に強制 routing される. Day11 で確立された **`expected_*` (deterministic) / `baseline_*` (document-of-record)** ハイブリッド命名規約を踏襲.
+全 fixture が Day9 で導入された **Vancouver Veto** (`is_mdpi_style()` の `\((?:19|20)\d{2}[a-z]?\)` regex) または同等の判定により LLM path に routing される (新 mdpi_173refs は MDPI publisher 由来だが author 形式が fast-path 条件を満たさず LLM 経由). Day11 で確立された **`expected_*` (deterministic) / `baseline_*` (document-of-record)** ハイブリッド命名規約を踏襲.
 
-`tests/test_integration_149refs.py` (MDPI) で以下を byte 単位で検証:
-
-- Phase 2 構造化結果 (`expected_phase2_structured.json`)
-- Phase 3 PubMed 解決結果 (`expected_phase3_resolved.json`)
-- Phase 5 合成レポート (`expected_report.md`、timestamp 行マスク後)
-- ジャーナル監査 sidecar (`expected_journal_audit.json`)
-- in-memory 成果物の `stage5_journal_audit` キー存在
+各 fixture には `input_References.docx` + `expected_phase1_intermediate.json` + `baseline_phase3_resolved.json` + `baseline_report.md` + `baseline_three_class_classification.json` + `README.md` (出典明示) の 6 file が配置される. 詳細は各 fixture の `README.md` を参照.
 
 GitHub Actions (`.github/workflows/tests.yml`) で Python 3.11 / 3.12 に対して定常検証される。
 Python 3.14 は `continue-on-error: true` の実験枠として併走し、将来の Python 移行準備に利用する。
@@ -112,31 +106,34 @@ pubmed-reference-resolver/
 ├── nlm_catalog_check.py             # NLM Catalog journal indexing 確認 (Day15)
 ├── three_class_classifier.py        # PubMed 未ヒット 3 分類 audit (Day15)
 ├── requirements.txt                 # 依存マニフェスト
-├── tools/                           # 開発支援スクリプト群 (Day16-17)
-│   ├── build_apa_fixture.py         # APA 7 fixture 生成 (PMC OA → JATS XML → docx)
-│   └── build_cell_fixture.py        # Cell-style fixture 生成 (Day16 template 拡張)
+├── tools/                           # 開発支援スクリプト群 (Day16-23)
+│   ├── build_apa_fixture.py                    # APA 7 fixture 生成 (Day16, PMC OA → JATS XML → docx)
+│   ├── build_cell_fixture.py                   # Cell-style fixture 生成 (Day17, Day16 template 拡張)
+│   ├── build_vancouver_replacement_fixture.py  # Vancouver/AMA fixture 生成 (Day23)
+│   └── build_mdpi_replacement_fixture.py       # MDPI fixture 生成 (Day23)
 ├── integration/
-│   ├── INTEGRATION_BRIEF.md         # 7 コミット統合計画
+│   ├── INTEGRATION_BRIEF.md         # 7 コミット統合計画 (歴史資料、新 mdpi_173refs と直接連動せず)
 │   └── src/
-│       ├── manual_overrides.yaml    # 手動補正定義 (149-ref コーパス用)
+│       ├── manual_overrides.yaml    # 手動補正定義 (旧 149-ref コーパス時代の仕様、Day24+ 再評価対象)
 │       ├── journal_audit.py         # 仕様ベースライン (実装は repo root 側)
 │       └── mdpi_parser.py           # 仕様ベースライン (実装は repo root 側)
 ├── tests/
-│   ├── test_mdpi_parser.py
-│   ├── test_journal_audit.py
-│   ├── test_integration_149refs.py
-│   ├── test_integration_vancouver_24refs.py    # Day11
+│   ├── test_mdpi_parser.py                     # Day23: pytestmark.skip 付与 (新 mdpi_173refs re-point は Day24+)
+│   ├── test_journal_audit.py                   # Day23: 同上 (mdpi_149refs 依存)
+│   ├── test_pre_integration_baseline.py        # Day23: 同上
+│   ├── test_split_references_doi_boundary.py   # Day23: 同上
+│   ├── test_overrides_contract.py              # Day23: 同上
+│   ├── test_integration_mdpi_173refs.py        # Day23 (新)
+│   ├── test_integration_vancouver_35refs.py    # Day23 (新)
 │   ├── test_integration_apa_45refs.py          # Day16
 │   ├── test_integration_cell_45refs.py         # Day17
 │   ├── test_crossref_check.py                  # Day15
-│   ├── test_nlm_catalog_check.py               # Day15
+│   ├── test_nlm_catalog_check.py               # Day15 (Day22 で certifi SSL fix の regression guard 追加)
 │   ├── test_three_class_classifier.py          # Day15
-│   ├── test_overrides_contract.py
-│   ├── test_split_references_doi_boundary.py
-│   ├── test_pre_integration_baseline.py
+│   ├── test_env_loader.py                      # Day8
 │   └── fixtures/
-│       ├── mdpi_149refs/
-│       ├── vancouver_24refs/                   # Day11
+│       ├── mdpi_173refs/                       # Day23 (新、PMC13164670 Nutrients CC BY 4.0)
+│       ├── vancouver_35refs/                   # Day23 (新、PMC13179246 Supportive Care in Cancer CC BY 4.0)
 │       ├── apa_45refs/                         # Day16
 │       ├── cell_45refs/                        # Day17
 │       └── three_class_classification/         # Day15
