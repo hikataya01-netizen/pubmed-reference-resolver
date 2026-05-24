@@ -7,7 +7,6 @@ byte-level Ref #141 snapshot test was removed (see NOTE below).
 """
 from __future__ import annotations
 
-import json
 import sys
 from pathlib import Path
 
