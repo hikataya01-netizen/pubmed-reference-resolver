@@ -285,6 +285,20 @@ def _normalize_whitespace_and_chars(text: str) -> str:
     return text
 
 
+# Character class fragment for non-ASCII Latin uppercase author surnames.
+# Used in ref-boundary regex lookaheads across split_references(),
+# _strip_pre_references(), and preprocess() to recognize Norwegian/German/
+# French/Spanish/Portuguese surnames starting with Å Ö É Ñ Ø Ý Þ etc.
+# - A-Z: ASCII uppercase (U+0041-U+005A)
+# - À-Ö: Latin-1 Supplement uppercase A-O (U+00C0-U+00D6)
+# - Ø-Þ: Latin-1 Supplement uppercase remainder (U+00D8-U+00DE)
+# - U+00D7 (× multiplication sign) is intentionally EXCLUDED.
+# Day25 (split_references) と Day26 (_strip_pre_references + preprocess
+# ref_blocks_found counter) で導入. Day27+ で Latin Extended-A (Š Č Ł 等)
+# 拡張時は本定数を 1 行 update で 8 箇所へ伝播.
+_UPPERCASE_LATIN1 = "A-ZÀ-ÖØ-Þ"
+
+
 def _strip_pre_references(text: str) -> tuple[str, bool]:
     """`References` / `REFERENCES` / `Bibliography` ヘッダーより前を除去する。
 
@@ -296,11 +310,11 @@ def _strip_pre_references(text: str) -> tuple[str, bool]:
     if m:
         return text[m.end():].lstrip(), True
     # Case 2: インライン "References 1. Author..." 形式
-    m = re.search(r"(?i)\b(references|bibliography)\s+(?=\d+\.\s+[A-Z])", text)
+    m = re.search(rf"(?i)\b(references|bibliography)\s+(?=\d+\.\s+[{_UPPERCASE_LATIN1}])", text)
     if m:
         return text[m.end():].lstrip(), True
     # Case 3: 最初の "1. {大文字}" にジャンプ（保守的フォールバック）
-    m = re.search(r"(?<![\d.])1\.\s+[A-Z]", text)
+    m = re.search(rf"(?<![\d.])1\.\s+[{_UPPERCASE_LATIN1}]", text)
     if m:
         return text[m.start():], False
     return text, False
@@ -350,7 +364,7 @@ def preprocess(text: str, ln_report: LineNumberReport) -> tuple[str, PreprocessT
     text, soft_joined = _join_soft_linebreaks(text)
 
     # 参照ブロック数を概算（インライン化後は `\d+\. {大文字}` を数える）
-    blocks = re.findall(r"(?<![\d.])\d+\.\s+[A-Z]", text)
+    blocks = re.findall(rf"(?<![\d.])\d+\.\s+[{_UPPERCASE_LATIN1}]", text)
 
     trace = PreprocessTrace(
         hyphen_bridged_removed=hyphen_bridged_removed,
@@ -412,15 +426,12 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
     # NOTE: lookahead allows lowercase prefixes for Dutch/French surnames
     # (van, de, du, den, von) which start with lowercase letters.
     # Without this, refs like "40. van der Biessen" are silently dropped.
-    # Day25: lookahead also accepts Latin-1 Supplement uppercase
-    # ([A-ZÀ-ÖØ-Þ] = ASCII + U+00C0-U+00D6 + U+00D8-U+00DE, excluding × U+00D7)
-    # for Norwegian/German/French/Spanish/Portuguese surnames starting with
-    # Å Ö É Ñ etc. Without [A-ZÀ-ÖØ-Þ], refs like "55. Åkra" or "79. Özcan"
-    # are silently merged into the preceding ref (Day24 Task 1 reconnaissance
-    # discovered this on mdpi_173refs corpus).
+    # Latin-1 Supplement uppercase support は _UPPERCASE_LATIN1 定数 (本 file
+    # 上部、Stage 2 セクション開始部) で定義. Day25 で split_references()、
+    # Day26 で _strip_pre_references() + preprocess() に統一適用.
     matcher = re.compile(
-        r"(?<![\d.])(\d+)[\.\s]+"
-        r"(?=[A-ZÀ-ÖØ-Þ]|van\s|de\s+[A-ZÀ-ÖØ-Þ]|du\s+[A-ZÀ-ÖØ-Þ]|den\s+[A-ZÀ-ÖØ-Þ]|von\s+[A-ZÀ-ÖØ-Þ])"
+        rf"(?<![\d.])(\d+)[\.\s]+"
+        rf"(?=[{_UPPERCASE_LATIN1}]|van\s|de\s+[{_UPPERCASE_LATIN1}]|du\s+[{_UPPERCASE_LATIN1}]|den\s+[{_UPPERCASE_LATIN1}]|von\s+[{_UPPERCASE_LATIN1}])"
     )
     candidates = [(m.start(), m.end(), int(m.group(1))) for m in matcher.finditer(cleaned)]
     if not candidates:
@@ -437,8 +448,8 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
     if selected[0][2] > 3 or len(selected) < 2:
         # フォールバック: 標準regex のみで再試行
         standard = re.compile(
-            r"(?<![\d.])(\d+)\.\s+"
-            r"(?=[A-ZÀ-ÖØ-Þ]|van\s|de\s+[A-ZÀ-ÖØ-Þ]|du\s+[A-ZÀ-ÖØ-Þ]|den\s+[A-ZÀ-ÖØ-Þ]|von\s+[A-ZÀ-ÖØ-Þ])"
+            rf"(?<![\d.])(\d+)\.\s+"
+            rf"(?=[{_UPPERCASE_LATIN1}]|van\s|de\s+[{_UPPERCASE_LATIN1}]|du\s+[{_UPPERCASE_LATIN1}]|den\s+[{_UPPERCASE_LATIN1}]|von\s+[{_UPPERCASE_LATIN1}])"
         )
         strict_hits = list(standard.finditer(cleaned))
         if not strict_hits:
