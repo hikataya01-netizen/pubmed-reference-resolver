@@ -88,7 +88,7 @@ def _load_phase1_blocks_with_ln_report():
 
 
 def test_mdpi_173refs_routes_all_to_llm_path():
-    """171 件すべてが is_mdpi_style() で False を返し、LLM path に routing
+    """173 件すべてが is_mdpi_style() で False を返し、LLM path に routing
     されることを確認.
 
     本 fixture の Nutrients 引用は `Author P; Author S.` 形式 (初期名のみ、
@@ -96,11 +96,13 @@ def test_mdpi_173refs_routes_all_to_llm_path():
     形式必須) にマッチせず MDPI fast-path から除外される. これは設計通りの
     フォールバック動作であり、全 ref が LLM 経路で処理される.
     deterministic test (parser-only, no LLM/PubMed call).
+
+    Day25 fix(split): count updated 171 → 173 (#55 Åkra, #79 Özcan 復活).
     """
     import mdpi_parser  # noqa: E402
 
     blocks, _ = _load_phase1_blocks_with_ln_report()
-    assert len(blocks) == 171, f"Expected 171 blocks, got {len(blocks)}"
+    assert len(blocks) == 173, f"Expected 173 blocks, got {len(blocks)}"
 
     fast_path_blocks = []
     for b in blocks:
@@ -157,15 +159,15 @@ def test_phase1_reference_blocks_match_expected():
 # -----------------------------------------------------------------------------
 
 
-def test_phase1_extracts_171_reference_blocks():
-    """Phase 1 が MDPI 173-ref fixture から 171 件の reference を抽出.
+def test_phase1_extracts_173_reference_blocks():
+    """Phase 1 が MDPI 173-ref fixture から 173 件の reference を抽出.
 
     deterministic, helps catch parser regressions that change the count.
-    (fixture 名は "173refs" だが PMC13164670 の解析結果は 171 件.
-    余剰の 2 件は header/footer テキストとして除外される.)
+    Day25 fix(split): regex を [A-Z] → [A-ZÀ-ÖØ-Þ] に拡張することで
+    #55 Åkra と #79 Özcan が復活し、count が 171 → 173 に増加.
     """
     blocks, _ = _load_phase1_blocks_with_ln_report()
-    assert len(blocks) == 171, f"Expected 171 blocks, got {len(blocks)}"
+    assert len(blocks) == 173, f"Expected 173 blocks, got {len(blocks)}"
 
 
 # -----------------------------------------------------------------------------

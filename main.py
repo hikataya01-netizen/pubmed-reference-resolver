@@ -412,9 +412,15 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
     # NOTE: lookahead allows lowercase prefixes for Dutch/French surnames
     # (van, de, du, den, von) which start with lowercase letters.
     # Without this, refs like "40. van der Biessen" are silently dropped.
+    # Day25: lookahead also accepts Latin-1 Supplement uppercase
+    # ([A-ZÀ-ÖØ-Þ] = ASCII + U+00C0-U+00D6 + U+00D8-U+00DE, excluding × U+00D7)
+    # for Norwegian/German/French/Spanish/Portuguese surnames starting with
+    # Å Ö É Ñ etc. Without [A-ZÀ-ÖØ-Þ], refs like "55. Åkra" or "79. Özcan"
+    # are silently merged into the preceding ref (Day24 Task 1 reconnaissance
+    # discovered this on mdpi_173refs corpus).
     matcher = re.compile(
         r"(?<![\d.])(\d+)[\.\s]+"
-        r"(?=[A-Z]|van\s|de\s+[A-Z]|du\s+[A-Z]|den\s+[A-Z]|von\s+[A-Z])"
+        r"(?=[A-ZÀ-ÖØ-Þ]|van\s|de\s+[A-ZÀ-ÖØ-Þ]|du\s+[A-ZÀ-ÖØ-Þ]|den\s+[A-ZÀ-ÖØ-Þ]|von\s+[A-ZÀ-ÖØ-Þ])"
     )
     candidates = [(m.start(), m.end(), int(m.group(1))) for m in matcher.finditer(cleaned)]
     if not candidates:
@@ -432,7 +438,7 @@ def split_references(cleaned: str) -> list[ReferenceBlock]:
         # フォールバック: 標準regex のみで再試行
         standard = re.compile(
             r"(?<![\d.])(\d+)\.\s+"
-            r"(?=[A-Z]|van\s|de\s+[A-Z]|du\s+[A-Z]|den\s+[A-Z]|von\s+[A-Z])"
+            r"(?=[A-ZÀ-ÖØ-Þ]|van\s|de\s+[A-ZÀ-ÖØ-Þ]|du\s+[A-ZÀ-ÖØ-Þ]|den\s+[A-ZÀ-ÖØ-Þ]|von\s+[A-ZÀ-ÖØ-Þ])"
         )
         strict_hits = list(standard.finditer(cleaned))
         if not strict_hits:

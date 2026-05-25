@@ -1,6 +1,6 @@
 """
 test_split_references_doi_boundary.py — Phase 1 split_references の構造 invariant
-(Day24 historical archive 化版)
+(Day25 fix(split) 適用後版)
 
 旧目的:
     Day9 (commit ab25630) で Phase 1 split_references が DOI 終端直後の
@@ -13,12 +13,12 @@ Day24 historical archive 化 + 新 corpus 適用:
     / #92 van den Burg / #173 de Menezes が同種の lowercase-prefix 著者 ref
     として存在. 本 file は新 corpus の構造 invariant smoke check に refactor.
 
-Day24 Task 1 reconnaissance で発見した parser bug (Day25+ task):
-    新 corpus では split_references() が DOI URL 直後の <N>. boundary を
-    検出できず、#55 と #79 がそれぞれ #54 と #78 に merge されている.
-    結果: parsed count = 171 (本来の 173 から 2 件減).
-    本 test は CURRENT state (171 blocks、#55/#79 missing) を assert する.
-    Day25+ で parser fix が入れば本 test を 173/no-gaps に更新する想定.
+Day25 fix(split) で解消した parser bug:
+    Day24 Task 1 で「DOI URL 直後の <N>. boundary 検出失敗」と仮説立てしたが、
+    Day25 brainstorming で真因が「直後の著者姓が非 ASCII Latin uppercase
+    (Å Ö 等)」だったと判明. main.py regex を [A-Z] → [A-ZÀ-ÖØ-Þ] に拡張する
+    fix で #55 Åkra と #79 Özcan が復活、parsed count 171 → 173.
+    本 test は新状態 (173 blocks、no gaps) を assert.
 """
 from pathlib import Path
 import pytest
@@ -43,35 +43,35 @@ def blocks():
 class TestNewCorpusStructure:
     """新 mdpi_173refs corpus に対する Phase 1 split_references の構造 invariant.
 
-    Day24 Task 1 reconnaissance 実測値ベース. Day25+ で parser DOI-boundary
-    fix が入った場合、count assertion を 173 に、gap allowed list を空に更新する.
+    Day25 fix(split) 適用後の updated assertions. count = 173, no gaps,
+    no oversized blocks. Day26+ で新 parser regression が起きた場合に検出する.
     """
 
-    def test_ref_count_matches_current_parser_state(self, blocks):
-        """parsed ref count が 171 (Day24 Task 1 実測)."""
-        assert len(blocks) == 171, (
-            f"unexpected ref count: {len(blocks)} (Day24 Task 1 reported 171). "
-            f"If this drops to <171, parser regressed further. If it rises to 173, "
-            f"the Day25+ DOI-boundary fix has likely landed — update this assertion."
+    def test_ref_count_is_173(self, blocks):
+        """parsed ref count が 173 (Day25 fix(split) 後実測、Day24 末の 171 から +2 復活)."""
+        assert len(blocks) == 173, (
+            f"unexpected ref count: {len(blocks)} (Day25 fix(split) 後 173 が期待). "
+            f"If this drops to <173, parser regressed. Day25 fix(split) restored "
+            f"missing #55 and #79 (Latin-1 uppercase boundary detection)."
         )
 
     def test_ref_no_range_is_1_to_173(self, blocks):
-        """ref_no は 1 から 173 の範囲 (元 docx の番号体系を保持、ただし parser bug で gap あり)."""
+        """ref_no は 1 から 173 の範囲."""
         ref_nos = sorted(b.ref_no for b in blocks)
         assert ref_nos[0] == 1, f"first ref_no should be 1, got {ref_nos[0]}"
         assert ref_nos[-1] == 173, f"last ref_no should be 173, got {ref_nos[-1]}"
 
-    def test_known_parser_gaps_are_55_and_79(self, blocks):
-        """Day24 Task 1 で発見した parser DOI-boundary bug: #55 と #79 が
-        それぞれ #54 と #78 に merge されているため missing.
+    def test_no_parser_gaps_in_corpus(self, blocks):
+        """Day25 fix(split) 後: ref_no に gap が無いこと (1-173 全件揃う).
 
-        Day25+ で parser fix が入れば本 test は更新 (gap なしの assertion に).
+        Day24 では gap [55, 79] を tripwire pattern で assert していた.
+        Day25 fix(split) で gap 解消、本 test を空 list assertion に更新.
         """
         ref_nos = set(b.ref_no for b in blocks)
         all_expected = set(range(1, 174))
         actual_gaps = sorted(all_expected - ref_nos)
-        assert actual_gaps == [55, 79], (
-            f"unexpected parser gaps: {actual_gaps} (expected [55, 79] per Day24 Task 1 recon)"
+        assert actual_gaps == [], (
+            f"unexpected parser gaps: {actual_gaps} (expected [] after Day25 fix(split))"
         )
 
     def test_lowercase_prefix_refs_correctly_split(self, blocks):
@@ -86,22 +86,43 @@ class TestNewCorpusStructure:
         assert 173 in by_ref_no and by_ref_no[173].raw_text.startswith("de Menezes"), \
             "ref #173 should start with 'de Menezes'"
 
-    def test_no_block_exceeds_reasonable_size_except_known_merge_failures(self, blocks):
-        """各 block が 600 chars 以下 (parser merge failure の検知). 既知例外:
-        #54 と #78 は Day24 Task 1 recon で確認した DOI-boundary merge failure で 569ch.
-        Day25+ で parser fix 後はこの except 句も削除.
+    def test_ref55_starts_with_aring_author(self, blocks):
+        """Day25 fix(split) で復活した #55 が "Åkra" で始まることを確認.
+
+        Day24 Task 1 で merge 検出した bug の corpus-level regression guard.
+        Latin-1 Supplement uppercase Å (U+00C5) の boundary detection.
+        """
+        by_ref_no = {b.ref_no: b for b in blocks}
+        assert 55 in by_ref_no, "ref #55 missing (Day25 fix(split) may have regressed)"
+        assert by_ref_no[55].raw_text.startswith("Åkra"), \
+            f"ref #55 should start with 'Åkra', got: {by_ref_no[55].raw_text[:40]}"
+
+    def test_ref79_starts_with_oumlaut_author(self, blocks):
+        """Day25 fix(split) で復活した #79 が "Özcan" で始まることを確認.
+
+        Day24 Task 1 で merge 検出した bug の corpus-level regression guard.
+        Latin-1 Supplement uppercase Ö (U+00D6) の boundary detection.
+        """
+        by_ref_no = {b.ref_no: b for b in blocks}
+        assert 79 in by_ref_no, "ref #79 missing (Day25 fix(split) may have regressed)"
+        assert by_ref_no[79].raw_text.startswith("Özcan"), \
+            f"ref #79 should start with 'Özcan', got: {by_ref_no[79].raw_text[:40]}"
+
+    def test_no_block_exceeds_reasonable_size(self, blocks):
+        """各 block が 600 chars 以下 (parser merge failure の検知).
+
+        Day24 では known merge failure (#54, #78) を例外として excluded していたが、
+        Day25 fix(split) で merge 解消、本 test の例外 set 削除.
         """
         OVERSIZED_THRESHOLD = 600
-        KNOWN_MERGE_FAILURE_REFS = {54, 78}  # see Day24 Task 1 recon
         oversized = [
             (b.ref_no, b.char_length)
             for b in blocks
-            if b.char_length > OVERSIZED_THRESHOLD and b.ref_no not in KNOWN_MERGE_FAILURE_REFS
+            if b.char_length > OVERSIZED_THRESHOLD
         ]
         assert not oversized, (
-            f"Found {len(oversized)} new pathologically large blocks (>{OVERSIZED_THRESHOLD} chars, "
-            f"excluding known #54 #78 merge failures): {oversized[:5]}. "
-            f"This may indicate new split_references regression beyond the known bug."
+            f"Found {len(oversized)} pathologically large blocks (>{OVERSIZED_THRESHOLD} chars): "
+            f"{oversized[:5]}. This may indicate split_references boundary failure regression."
         )
 
     def test_no_block_is_empty(self, blocks):

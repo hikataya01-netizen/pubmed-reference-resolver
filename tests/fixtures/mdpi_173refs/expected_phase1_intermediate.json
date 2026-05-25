@@ -287,8 +287,13 @@
     },
     {
       "ref_no": 54,
-      "raw_text": "Longo M; Zatterale F; Naderi J; Parrillo L; Formisano P; Raciti G; Beguinot F; Miele C. Adipose Tissue Dysfunction as Determinant of Obesity-Associated Metabolic Complications. Int. J. Mol. Sci. 2019, 20. https://doi.org/10.3390/ijms20092358\n55. Åkra S; Aksnes T; Laa A; Eggesbo H; Pstad T; Jerve I; Seljeflot I. Markers of remodeling in subcutaneous adipose tissue are strongly associated with overweight and insulin sensitivity in healthy non-obese men. Sci. Rep. 2020, 10, 8023. https://doi.org/10.1038/s41598-020-71109-4",
-      "char_length": 524
+      "raw_text": "Longo M; Zatterale F; Naderi J; Parrillo L; Formisano P; Raciti G; Beguinot F; Miele C. Adipose Tissue Dysfunction as Determinant of Obesity-Associated Metabolic Complications. Int. J. Mol. Sci. 2019, 20. https://doi.org/10.3390/ijms20092358",
+      "char_length": 241
+    },
+    {
+      "ref_no": 55,
+      "raw_text": "Åkra S; Aksnes T; Laa A; Eggesbo H; Pstad T; Jerve I; Seljeflot I. Markers of remodeling in subcutaneous adipose tissue are strongly associated with overweight and insulin sensitivity in healthy non-obese men. Sci. Rep. 2020, 10, 8023. https://doi.org/10.1038/s41598-020-71109-4",
+      "char_length": 278
     },
     {
       "ref_no": 56,
@@ -402,8 +407,13 @@
     },
     {
       "ref_no": 78,
-      "raw_text": "Sakaguchi M; Fujisaka S; Cai W; Winnay J; Konishi M; O’Neill B; Li M; García-Martín R; Takahashi H; Hu J. Adipocyte Dynamics and Reversible Metabolic Syndrome in Mice with an Inducible Adipocyte-Specific Deletion of the Insulin Receptor. Cell Metab. 2017, 25, 448–462. https://doi.org/10.1016/j.cmet.2016.12.008\n79. Özcan U; Cao Q; Yilmaz E; Lee A; Iwakoshi N; Özdelen E; Tuncman G; Görgün C; Glimcher L; Hotamisligil G. Endoplasmic reticulum stress links obesity, insulin action, and type 2 diabetes. Science 2004, 306, 457–461. https://doi.org/10.1126/science.1103160",
-      "char_length": 569
+      "raw_text": "Sakaguchi M; Fujisaka S; Cai W; Winnay J; Konishi M; O’Neill B; Li M; García-Martín R; Takahashi H; Hu J. Adipocyte Dynamics and Reversible Metabolic Syndrome in Mice with an Inducible Adipocyte-Specific Deletion of the Insulin Receptor. Cell Metab. 2017, 25, 448–462. https://doi.org/10.1016/j.cmet.2016.12.008",
+      "char_length": 311
+    },
+    {
+      "ref_no": 79,
+      "raw_text": "Özcan U; Cao Q; Yilmaz E; Lee A; Iwakoshi N; Özdelen E; Tuncman G; Görgün C; Glimcher L; Hotamisligil G. Endoplasmic reticulum stress links obesity, insulin action, and type 2 diabetes. Science 2004, 306, 457–461. https://doi.org/10.1126/science.1103160",
+      "char_length": 253
     },
     {
       "ref_no": 80,
