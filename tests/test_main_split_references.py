@@ -71,3 +71,64 @@ def test_split_references_does_not_detect_inside_doi_url():
     assert len(blocks) == 2
     # 1 番目の block に DOI URL が含まれる (誤検出されていない)
     assert "ijms20092358" in blocks[0].raw_text
+
+
+# ============================================================================
+# Day26: _strip_pre_references + preprocess の Latin-1 uppercase 対応 unit test
+# ============================================================================
+
+
+def test_strip_pre_references_case2_inline_header_with_aring():
+    """Case 2 (inline "References 1. Author...") で Å (U+00C5) 先頭著者を
+    boundary として認識する.
+
+    Day26: bare [A-Z] → [A-ZÀ-ÖØ-Þ] 統一前は inline header 検出失敗 →
+    Case 3 fallback も同じ理由で失敗 → 結果 pre-references 部分が strip
+    されず本文が parser に流入する bug.
+    現状 (Day25 末) FAIL、Day26 fix で GREEN 化予定.
+    """
+    text = "Some intro paragraph blah blah References 1. Åberg S. Title. Journal 2020."
+    stripped, found = main._strip_pre_references(text)
+    assert found is True, "inline header should be detected"
+    assert stripped.startswith("1. Åberg"), (
+        f"expected stripped text to start with '1. Åberg', got: {stripped[:40]}"
+    )
+
+
+def test_strip_pre_references_case2_inline_header_with_ascii_baseline():
+    """Case 2 で ASCII 著者の場合の baseline 動作 (refactor 後も不変)."""
+    text = "Some intro References 1. Smith J. Title. Journal 2020."
+    stripped, found = main._strip_pre_references(text)
+    assert found is True
+    assert stripped.startswith("1. Smith")
+
+
+def test_strip_pre_references_case3_fallback_with_oumlaut():
+    """Case 3 fallback で Ö (U+00D6) 先頭著者を boundary として認識する.
+
+    Case 1 (独立行 References ヘッダー) なし、Case 2 (inline) なしの corpus
+    で、最初の "1. {大文字}" にジャンプする保守的フォールバック.
+    Day25 fix の延長で Case 3 でも Latin-1 を cover.
+    """
+    text = "Random preamble text with no References heading. 1. Özcan U. Title. Journal 2020."
+    stripped, found = main._strip_pre_references(text)
+    # Case 3 は found=False で返る (fallback fix なので確実な strip ではない)
+    assert found is False
+    assert stripped.startswith("1. Özcan"), (
+        f"expected stripped text to start with '1. Özcan', got: {stripped[:40]}"
+    )
+
+
+def test_preprocess_counts_aring_refs_correctly():
+    """preprocess() の PreprocessTrace.ref_blocks_found counter が
+    Latin-1 uppercase 著者の ref も正しくカウントする (Day26 fix).
+
+    旧 bare [A-Z] では counter が undercount、診断 log の信頼性低下.
+    """
+    # 3 refs: 1 ASCII + 2 Latin-1
+    text = "1. Smith J. Title A. Journal 2020.\n2. Åkra S. Title B. Journal 2021.\n3. Özcan U. Title C. Journal 2022."
+    _cleaned, trace = main.preprocess(text, main.detect_line_numbers(text))
+    assert trace.ref_blocks_found == 3, (
+        f"ref_blocks_found counter should detect all 3 refs (1 ASCII + 2 Latin-1), "
+        f"got {trace.ref_blocks_found}"
+    )
