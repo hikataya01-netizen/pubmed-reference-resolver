@@ -22,3 +22,6 @@ __pycache__/
 # macOS Finder metadata
 .DS_Store
 **/.DS_Store
+
+# uv virtual environment (Day27 で導入)
+.venv/

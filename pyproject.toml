@@ -1,0 +1,59 @@
+# pubmed-reference-resolver — 査読対象論文の Referenceセクション逆引き検証ツール
+# Day27 で requirements.txt → pyproject.toml + uv.lock に移行 (CLAUDE.md §8 整合).
+
+[project]
+name = "pubmed-reference-resolver"
+version = "0.1.0"
+description = "Reverse-lookup PubMed validation for peer-review reference sections (PDF/DOCX/TXT input)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+    {name = "Hideki Katayama"},
+]
+keywords = [
+    "pubmed",
+    "reference",
+    "peer-review",
+    "doi",
+    "crossref",
+    "nlm",
+    "bibliography",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "python-docx>=1.2,<2.0",
+    "rapidfuzz>=3.14,<4.0",
+    "PyYAML>=6.0,<7.0",
+    "certifi>=2024.0,<2027.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/hikataya01-netizen/pubmed-reference-resolver"
+Repository = "https://github.com/hikataya01-netizen/pubmed-reference-resolver"
+Issues = "https://github.com/hikataya01-netizen/pubmed-reference-resolver/issues"
+Release = "https://github.com/hikataya01-netizen/pubmed-reference-resolver/releases/tag/v0.1.0"
+
+# PEP 735 dev dependency group (uv-native、PyPI metadata に含まれない)
+[dependency-groups]
+dev = [
+    "pytest>=9.0,<10.0",
+]
+
+# Application mode: 本 repo は CLI application として `python3 main.py` で実行する
+# flat layout (main.py + 各 module が repo root 直下) を採用. PyPI publish (Day28+)
+# 時は package mode への移行を検討 (src/ layout + entry_points 追加が必要).
+[tool.uv]
+package = false
