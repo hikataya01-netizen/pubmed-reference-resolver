@@ -132,3 +132,61 @@ def test_preprocess_counts_aring_refs_correctly():
         f"ref_blocks_found counter should detect all 3 refs (1 ASCII + 2 Latin-1), "
         f"got {trace.ref_blocks_found}"
     )
+
+
+# ============================================================================
+# Day28: Latin Extended-A 大文字対応 unit test
+# (Šafránek/Łukasiewicz/Čech/Żelazny で始まる ref boundary の検出)
+# ============================================================================
+
+
+def test_split_references_detects_czech_scaron_boundary():
+    """Š (U+0160、チェコ語) で始まる著者の ref boundary が検出される.
+
+    Day28 で Latin Extended-A 拡張するまでは FAIL (boundary loss).
+    Day25/26 で対応した Latin-1 Supplement (À-Þ) では Š が範囲外のため
+    `_UPPERCASE_LATIN1 = "A-ZÀ-ÖØ-Þ"` では recognize できない.
+    """
+    cleaned = "1. Smith J. Title A. Journal 2020.\n2. Šafránek M. Title B. Journal 2021."
+    blocks = main.split_references(cleaned)
+    assert len(blocks) == 2, f"expected 2 blocks, got {len(blocks)}"
+    assert blocks[1].ref_no == 2
+    assert blocks[1].raw_text.startswith("Šafránek")
+
+
+def test_split_references_detects_polish_lstroke_boundary():
+    """Ł (U+0141、ポーランド語) で始まる著者の ref boundary が検出される.
+
+    Day28 で Latin Extended-A 拡張するまでは FAIL.
+    """
+    cleaned = "1. Smith J. Title A. Journal 2020.\n2. Łukasiewicz J. Title B. Journal 2021."
+    blocks = main.split_references(cleaned)
+    assert len(blocks) == 2, f"expected 2 blocks, got {len(blocks)}"
+    assert blocks[1].ref_no == 2
+    assert blocks[1].raw_text.startswith("Łukasiewicz")
+
+
+def test_split_references_detects_czech_ccaron_boundary():
+    """Č (U+010C、チェコ語) で始まる著者の ref boundary が検出される.
+
+    Day28 で Latin Extended-A 拡張するまでは FAIL.
+    Latin Extended-A の lower edge (U+0100-U+0136 範囲) をカバー.
+    """
+    cleaned = "1. Smith J. Title A. Journal 2020.\n2. Čech V. Title B. Journal 2021."
+    blocks = main.split_references(cleaned)
+    assert len(blocks) == 2, f"expected 2 blocks, got {len(blocks)}"
+    assert blocks[1].ref_no == 2
+    assert blocks[1].raw_text.startswith("Čech")
+
+
+def test_split_references_detects_polish_zdot_boundary():
+    """Ż (U+017B、ポーランド語) で始まる著者の ref boundary が検出される.
+
+    Day28 で Latin Extended-A 拡張するまでは FAIL.
+    Latin Extended-A の upper edge (U+014A-U+017D 範囲) をカバー.
+    """
+    cleaned = "1. Smith J. Title A. Journal 2020.\n2. Żelazny K. Title B. Journal 2021."
+    blocks = main.split_references(cleaned)
+    assert len(blocks) == 2, f"expected 2 blocks, got {len(blocks)}"
+    assert blocks[1].ref_no == 2
+    assert blocks[1].raw_text.startswith("Żelazny")
