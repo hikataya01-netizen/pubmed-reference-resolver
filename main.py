@@ -287,16 +287,23 @@ def _normalize_whitespace_and_chars(text: str) -> str:
 
 # Character class fragment for non-ASCII Latin uppercase author surnames.
 # Used in ref-boundary regex lookaheads across split_references(),
-# _strip_pre_references(), and preprocess() to recognize Norwegian/German/
-# French/Spanish/Portuguese surnames starting with Å Ö É Ñ Ø Ý Þ etc.
+# _strip_pre_references(), and preprocess() to recognize European surnames.
 # - A-Z: ASCII uppercase (U+0041-U+005A)
 # - À-Ö: Latin-1 Supplement uppercase A-O (U+00C0-U+00D6)
 # - Ø-Þ: Latin-1 Supplement uppercase remainder (U+00D8-U+00DE)
-# - U+00D7 (× multiplication sign) is intentionally EXCLUDED.
-# Day25 (split_references) と Day26 (_strip_pre_references + preprocess
-# ref_blocks_found counter) で導入. Day27+ で Latin Extended-A (Š Č Ł 等)
-# 拡張時は本定数を 1 行 update で 8 箇所へ伝播.
-_UPPERCASE_LATIN1 = "A-ZÀ-ÖØ-Þ"
+# - Ā-Ž: Latin Extended-A range (U+0100-U+017D) - Day28 で追加。
+#   中欧・東欧言語の Š Č Ž Ł Ń Ś Ć Ő Ű Ē Ī Ū Ā 等をカバー。
+# - U+00D7 (× multiplication sign) は意図的に EXCLUDE。
+# - 注: Latin Extended-A は大文字小文字が交互配置 (U+0100 Ā / U+0101 ā /
+#   U+0102 Ă / ...) のため、Python `re` の `[]` 文字クラスでは大文字専用
+#   レンジを取れない (loose 1-range)。boundary 文脈 (`\d+\.\s+` 直後) では
+#   小文字始まり著者姓は現実的に出現しないため、false positive のリアル
+#   ワールド影響はゼロ。精密大文字制御が必要になった場合は regex ライブラリ
+#   + \p{Lu} 化を Day29+ で検討。
+# Day25 (split_references) で Latin-1 Supplement 導入、Day26 で 8 箇所 DRY
+# 統一、Day28 で Latin Extended-A 拡張。将来 Latin Extended-B / Extended
+# Additional 拡張時も本定数を 1 行 update で 8 箇所へ伝播。
+_UPPERCASE_LATIN1 = "A-ZÀ-ÖØ-ÞĀ-Ž"
 
 
 def _strip_pre_references(text: str) -> tuple[str, bool]:
