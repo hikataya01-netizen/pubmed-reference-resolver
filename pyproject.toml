@@ -49,6 +49,7 @@ Release = "https://github.com/hikataya01-netizen/pubmed-reference-resolver/relea
 # PEP 735 dev dependency group (uv-native、PyPI metadata に含まれない)
 [dependency-groups]
 dev = [
+    "pre-commit>=4.0,<5.0",
     "pytest>=9.0,<10.0",
 ]
 

@@ -1,0 +1,7 @@
+# Day29 で導入 — Day23 機密データ事故の再発防止を目的とした gitleaks pre-commit hook
+# 設計仕様: docs/superpowers/specs/2026-05-28-day29-pre-commit-gitleaks-design.md
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
