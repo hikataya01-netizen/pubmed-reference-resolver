@@ -28,3 +28,6 @@ __pycache__/
 
 # gitleaks history audit report (Day29 で導入、機密 finding を含み得るため commit しない)
 .gitleaks-audit.json
+
+# gitleaks smoke test の一時ディレクトリ (Day30 で導入、test 実行時のみ生成)
+.gitleaks_smoke_tmp/
