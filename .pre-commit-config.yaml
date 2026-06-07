@@ -5,3 +5,17 @@ repos:
     rev: v8.30.1
     hooks:
       - id: gitleaks
+
+  # Day30 で追加 — 基本的な file hygiene (末尾改行 / 行末空白 / YAML / TOML 検証)
+  # auto-fix 系 (end-of-file-fixer / trailing-whitespace) は tests/fixtures/
+  # (byte 一致 golden) と integration/patches/ (patch の末尾空白が意味を持つ)
+  # を exclude する。
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: end-of-file-fixer
+        exclude: '^(tests/fixtures/|integration/patches/)'
+      - id: trailing-whitespace
+        exclude: '^(tests/fixtures/|integration/patches/)'
+      - id: check-yaml
+      - id: check-toml
