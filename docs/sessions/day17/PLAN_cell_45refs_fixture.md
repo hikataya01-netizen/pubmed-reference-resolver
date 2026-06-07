@@ -112,7 +112,7 @@ Usage:
     2. 各 XML の <ref-list> から先頭 N 件を抽出
     3. JATS の <element-citation> / <mixed-citation> を Cell-style plain text に
        structured-field 経路で常に再組成 (Day16 build_apa_fixture.py の format_as_apa7
-       を template に、Cell 用の compressed initials + ", and " connector + 
+       を template に、Cell 用の compressed initials + ", and " connector +
        no issue number + journal-volume no comma 形式に変換)
     4. python-docx で番号付き段落 (1. ~ 45.) として統合 docx 生成
 

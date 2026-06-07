@@ -545,7 +545,7 @@ gh repo create hikataya01-netizen/pubmed-reference-resolver \
   --remote origin
 ```
 
-Expected: 
+Expected:
 ```
 ✓ Created repository hikataya01-netizen/pubmed-reference-resolver on GitHub
 ✓ Added remote git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
@@ -585,7 +585,7 @@ To github.com:hikataya01-netizen/pubmed-reference-resolver.git
 branch 'main' set up to track 'origin/main' from 'origin'.
 ```
 
-⚠️ SSH 認証失敗 (`Permission denied (publickey)`): 
+⚠️ SSH 認証失敗 (`Permission denied (publickey)`):
 - `ssh -T git@github.com` で SSH 接続確認
 - 失敗時: `gh auth setup-git` で gh CLI 経由認証 + HTTPS push 試行 (但し SSH 推奨)
 
