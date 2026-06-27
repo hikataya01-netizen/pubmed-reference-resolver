@@ -147,7 +147,12 @@ pubmed-reference-resolver/
 ├── .github/
 │   └── workflows/
 │       └── tests.yml
-├── SKILL.md                         # Claude Code スキル定義
+├── skill_package/                   # Claude Code スキル配布パッケージ (repo root の mirror)
+│   ├── SKILL.md                     # Claude Code スキル定義
+│   ├── DEVELOPMENT_NOTES.md
+│   ├── main.py / mdpi_parser.py / journal_audit.py  # repo root と byte-identical
+│   ├── manual_overrides.yaml
+│   ├── examples/ + references/
 └── README.md
 ```
 
