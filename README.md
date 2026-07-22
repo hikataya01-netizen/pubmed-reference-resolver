@@ -35,7 +35,9 @@ PubMed 純正互換 CSV + 番号付き abstract text + 統合監査レポート�
 ```bash
 git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 cd pubmed-reference-resolver
-pip install -r requirements.txt
+
+# 依存同期 (Day27 で uv に移行。pyproject.toml + uv.lock が source of truth)
+uv sync --frozen --group dev
 
 # API key 設定 (Anthropic + NCBI)
 cp .env.example .env
@@ -50,13 +52,13 @@ Python 3.11 以上を推奨。CI では 3.11 / 3.12 を必須、3.14 を実験�
 ### 基本実行
 
 ```bash
-python main.py input_References.docx
+uv run python main.py input_References.docx
 ```
 
 ### 手動補正を含む実行 (MDPI などの特殊書誌向け)
 
 ```bash
-python main.py input_References.docx --overrides integration/src/manual_overrides.yaml
+uv run python main.py input_References.docx --overrides integration/src/manual_overrides.yaml
 ```
 
 `--overrides` は明示 opt-in。デフォルトパス検索はせず、別コーパスへの誤適用を防ぐ。
@@ -71,11 +73,12 @@ python main.py input_References.docx --overrides integration/src/manual_override
 ## テスト
 
 ```bash
-python -m pytest tests/ -q
+uv run pytest tests/ -q
 ```
 
-現状 **52 passed + 50 skipped** (Day23 末)。
-50 skipped の内訳: 5 file (test_mdpi_parser / test_overrides_contract / test_journal_audit / test_pre_integration_baseline / test_split_references_doi_boundary) が module-level pytestmark.skip 付与済 (Day23 で旧 mdpi_149refs fixture を削除した影響、新 mdpi_173refs に re-point + skip 解除は Day24+ 候補)。1 skipped は LLM path シナリオで `ANTHROPIC_API_KEY` 未設定時にスキップされる設計分。
+現状 **115 passed + 0 skipped** (Day28 末)。Day23 で旧 mdpi_149refs fixture 削除に伴い
+module-level skip されていた 5 file は Day24 で新 mdpi_173refs に re-point して skip 解除済。
+全テストは API key・ネットワーク不要でオフライン完走する (外部 API 呼び出しは fixture で DI 注入)。
 
 ## ゴールドスタンダード fixture (4 系統)
 
@@ -105,7 +108,7 @@ pubmed-reference-resolver/
 ├── crossref_check.py                # Crossref DOI 実在確認 (Day15)
 ├── nlm_catalog_check.py             # NLM Catalog journal indexing 確認 (Day15)
 ├── three_class_classifier.py        # PubMed 未ヒット 3 分類 audit (Day15)
-├── requirements.txt                 # 依存マニフェスト
+├── pyproject.toml + uv.lock         # 依存マニフェスト (Day27 で requirements.txt から移行)
 ├── tools/                           # 開発支援スクリプト群 (Day16-23)
 │   ├── build_apa_fixture.py                    # APA 7 fixture 生成 (Day16, PMC OA → JATS XML → docx)
 │   ├── build_cell_fixture.py                   # Cell-style fixture 生成 (Day17, Day16 template 拡張)
@@ -118,11 +121,11 @@ pubmed-reference-resolver/
 │       ├── journal_audit.py         # 仕様ベースライン (実装は repo root 側)
 │       └── mdpi_parser.py           # 仕様ベースライン (実装は repo root 側)
 ├── tests/
-│   ├── test_mdpi_parser.py                     # Day23: pytestmark.skip 付与 (新 mdpi_173refs re-point は Day24+)
-│   ├── test_journal_audit.py                   # Day23: 同上 (mdpi_149refs 依存)
-│   ├── test_pre_integration_baseline.py        # Day23: 同上
-│   ├── test_split_references_doi_boundary.py   # Day23: 同上
-│   ├── test_overrides_contract.py              # Day23: 同上
+│   ├── test_mdpi_parser.py                     # Day24: mdpi_173refs に re-point して skip 解除
+│   ├── test_journal_audit.py                   # Day24: 同上
+│   ├── test_pre_integration_baseline.py        # Day24: 同上
+│   ├── test_split_references_doi_boundary.py   # Day24: 同上
+│   ├── test_overrides_contract.py              # Day24: 同上
 │   ├── test_integration_mdpi_173refs.py        # Day23 (新)
 │   ├── test_integration_vancouver_35refs.py    # Day23 (新)
 │   ├── test_integration_apa_45refs.py          # Day16
@@ -144,7 +147,12 @@ pubmed-reference-resolver/
 ├── .github/
 │   └── workflows/
 │       └── tests.yml
-├── SKILL.md                         # Claude Code スキル定義
+├── skill_package/                   # Claude Code スキル配布パッケージ (repo root の mirror)
+│   ├── SKILL.md                     # Claude Code スキル定義
+│   ├── DEVELOPMENT_NOTES.md
+│   ├── main.py / mdpi_parser.py / journal_audit.py  # repo root と byte-identical
+│   ├── manual_overrides.yaml
+│   ├── examples/ + references/
 └── README.md
 ```
 
