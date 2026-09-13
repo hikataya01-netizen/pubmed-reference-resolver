@@ -1,0 +1,396 @@
+{
+  "resolutions": [
+    {
+      "ref_no": 1,
+      "pmid": "38572751",
+      "metadata": {
+        "pmid": "38572751",
+        "title": "Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries.",
+        "authors": [
+          "Bray F",
+          "Laversanne M",
+          "Sung H",
+          "Ferlay J",
+          "Siegel RL",
+          "Soerjomataram I",
+          "Jemal A"
+        ],
+        "first_author": "Bray F",
+        "journal": "CA Cancer J Clin",
+        "year": "2024",
+        "volume": "74",
+        "issue": "3",
+        "pages": "229-263",
+        "doi": "10.3322/caac.21834",
+        "pmcid": "",
+        "publication_types": "Journal Article; Research Support, Non-U.S. Gov't",
+        "abstract": "[abstract omitted from fixture: publisher text]",
+        "publication_types_list": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "issn": "1542-4863",
+        "issn_linking": "0007-9235",
+        "journal_full": "CA: a cancer journal for clinicians",
+        "nlm_unique_id": "0370647",
+        "comments_corrections": []
+      },
+      "resolution_path": "L1",
+      "attempts": [
+        {
+          "level": "L1",
+          "query": "efetch id=38572751",
+          "n_hits": 1,
+          "accepted": "38572751",
+          "rejected_reason": null
+        }
+      ],
+      "match_status": "RESOLVED",
+      "assessment": {
+        "retraction_status": "CLEAN",
+        "retraction_notice": "",
+        "recency": "最新",
+        "age_years": 2,
+        "originality": "原著",
+        "evidence_level": "3 (観察研究/記載なし)",
+        "indexing": "MEDLINE",
+        "predatory_risk": "低",
+        "claim_support": "NOT_ASSESSED"
+      }
+    },
+    {
+      "ref_no": 2,
+      "pmid": "38572751",
+      "metadata": {
+        "pmid": "38572751",
+        "title": "Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries.",
+        "authors": [
+          "Bray F",
+          "Laversanne M",
+          "Sung H",
+          "Ferlay J",
+          "Siegel RL",
+          "Soerjomataram I",
+          "Jemal A"
+        ],
+        "first_author": "Bray F",
+        "journal": "CA Cancer J Clin",
+        "year": "2024",
+        "volume": "74",
+        "issue": "3",
+        "pages": "229-263",
+        "doi": "10.3322/caac.21834",
+        "pmcid": "",
+        "publication_types": "Journal Article; Research Support, Non-U.S. Gov't",
+        "abstract": "[abstract omitted from fixture: publisher text]",
+        "publication_types_list": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "issn": "1542-4863",
+        "issn_linking": "0007-9235",
+        "journal_full": "CA: a cancer journal for clinicians",
+        "nlm_unique_id": "0370647",
+        "comments_corrections": []
+      },
+      "resolution_path": "L2",
+      "attempts": [
+        {
+          "level": "L2",
+          "query": "10.3322/caac.21834[DOI]",
+          "n_hits": 1,
+          "accepted": "38572751",
+          "rejected_reason": null
+        }
+      ],
+      "match_status": "RESOLVED",
+      "assessment": {
+        "retraction_status": "CLEAN",
+        "retraction_notice": "",
+        "recency": "最新",
+        "age_years": 2,
+        "originality": "原著",
+        "evidence_level": "3 (観察研究/記載なし)",
+        "indexing": "MEDLINE",
+        "predatory_risk": "低",
+        "claim_support": "NOT_ASSESSED"
+      }
+    },
+    {
+      "ref_no": 3,
+      "pmid": "9500320",
+      "metadata": {
+        "pmid": "9500320",
+        "title": "Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children.",
+        "authors": [
+          "Wakefield AJ",
+          "Murch SH",
+          "Anthony A",
+          "Linnell J",
+          "Casson DM",
+          "Malik M",
+          "Berelowitz M",
+          "Dhillon AP",
+          "Thomson MA",
+          "Harvey P",
+          "Valentine A",
+          "Davies SE",
+          "Walker-Smith JA"
+        ],
+        "first_author": "Wakefield AJ",
+        "journal": "Lancet",
+        "year": "1998",
+        "volume": "351",
+        "issue": "9103",
+        "pages": "637-41",
+        "doi": "10.1016/s0140-6736(97)11096-0",
+        "pmcid": "",
+        "publication_types": "Journal Article; Research Support, Non-U.S. Gov't; Retracted Publication",
+        "abstract": "BACKGROUND: [abstract omitted from fixture: publisher text]\nMETHODS: [abstract omitted from fixture: publisher text]\nFINDINGS: [abstract omitted from fixture: publisher text]\nINTERPRETATION: [abstract omitted from fixture: publisher text]",
+        "publication_types_list": [
+          "Journal Article",
+          "Research Support, Non-U.S. Gov't",
+          "Retracted Publication"
+        ],
+        "issn": "0140-6736",
+        "issn_linking": "0140-6736",
+        "journal_full": "Lancet (London, England)",
+        "nlm_unique_id": "2985213R",
+        "comments_corrections": [
+          {
+            "ref_type": "RetractionIn",
+            "ref_source": "Lancet. 2004 Mar 6;363(9411):750. doi: 10.1016/S0140-6736(04)15715-2.",
+            "pmid": "15016483",
+            "note": ""
+          },
+          {
+            "ref_type": "RetractionIn",
+            "ref_source": "Lancet. 2010 Feb 6;375(9713):445. doi: 10.1016/S0140-6736(10)60175-4.",
+            "pmid": "20137807",
+            "note": ""
+          },
+          {
+            "ref_type": "ExpressionOfConcernIn",
+            "ref_source": "Eur J Gastroenterol Hepatol. 2011 Nov;23(11):1082. doi: 10.1097/MEG.0b013e328349d184.",
+            "pmid": "21971344",
+            "note": ""
+          }
+        ]
+      },
+      "resolution_path": "L1",
+      "attempts": [
+        {
+          "level": "L1",
+          "query": "efetch id=9500320",
+          "n_hits": 1,
+          "accepted": "9500320",
+          "rejected_reason": null
+        }
+      ],
+      "match_status": "RESOLVED",
+      "assessment": {
+        "retraction_status": "RETRACTED",
+        "retraction_notice": "RetractionIn: Lancet. 2004 Mar 6;363(9411):750. doi: 10.1016/S0140-6736(04)15715-2. (PMID 15016483) / RetractionIn: Lancet. 2010 Feb 6;375(9713):445. doi: 10.1016/S0140-6736(10)60175-4. (PMID 20137807) / ExpressionOfConcernIn: Eur J Gastroenterol Hepatol. 2011 Nov;23(11):1082. doi: 10.1097/MEG.0b013e328349d184. (PMID 21971344)",
+        "recency": "古い",
+        "age_years": 28,
+        "originality": "原著",
+        "evidence_level": "3 (観察研究/記載なし)",
+        "indexing": "MEDLINE",
+        "predatory_risk": "低",
+        "claim_support": "NOT_ASSESSED"
+      }
+    },
+    {
+      "ref_no": 4,
+      "pmid": null,
+      "metadata": null,
+      "resolution_path": "UNRESOLVED",
+      "attempts": [
+        {
+          "level": "L3a",
+          "query": "nonexistent[Author] AND (completely[Title] AND fabricated[Title] AND citation[Title] AND invented[Title] AND regression[Title] AND testing[Title]) AND 2023[PDAT]",
+          "n_hits": 0,
+          "accepted": null,
+          "rejected_reason": "no hit"
+        },
+        {
+          "level": "L3b",
+          "query": "nonexistent[Author] AND J Fabricated Nonexistent Medicine[Journal] AND 2023[PDAT] AND (completely[Title] OR fabricated[Title] OR citation[Title] OR invented[Title] OR regression[Title] OR testing[Title])",
+          "n_hits": 0,
+          "accepted": null,
+          "rejected_reason": "no hit"
+        },
+        {
+          "level": "L3c",
+          "query": "nonexistent[Author] AND J Fabricated Nonexistent Medicine[Journal] AND 2023[PDAT]",
+          "n_hits": 0,
+          "accepted": null,
+          "rejected_reason": "no hit"
+        },
+        {
+          "level": "L3d",
+          "query": "completely[Title] AND fabricated[Title] AND citation[Title] AND invented[Title] AND regression[Title] AND testing[Title] AND 2023[PDAT]",
+          "n_hits": 0,
+          "accepted": null,
+          "rejected_reason": "no hit"
+        }
+      ],
+      "match_status": "UNRESOLVED",
+      "assessment": null
+    },
+    {
+      "ref_no": 5,
+      "pmid": "20818875",
+      "metadata": {
+        "pmid": "20818875",
+        "title": "Early palliative care for patients with metastatic non-small-cell lung cancer.",
+        "authors": [
+          "Temel JS",
+          "Greer JA",
+          "Muzikansky A",
+          "Gallagher ER",
+          "Admane S",
+          "Jackson VA",
+          "Dahlin CM",
+          "Blinderman CD",
+          "Jacobsen J",
+          "Pirl WF",
+          "Billings JA",
+          "Lynch TJ"
+        ],
+        "first_author": "Temel JS",
+        "journal": "N Engl J Med",
+        "year": "2010",
+        "volume": "363",
+        "issue": "8",
+        "pages": "733-42",
+        "doi": "10.1056/NEJMoa1000678",
+        "pmcid": "",
+        "publication_types": "Journal Article; Randomized Controlled Trial; Research Support, Non-U.S. Gov't",
+        "abstract": "BACKGROUND: [abstract omitted from fixture: publisher text]\nMETHODS: [abstract omitted from fixture: publisher text]\nRESULTS: [abstract omitted from fixture: publisher text]\nCONCLUSIONS: [abstract omitted from fixture: publisher text]",
+        "publication_types_list": [
+          "Journal Article",
+          "Randomized Controlled Trial",
+          "Research Support, Non-U.S. Gov't"
+        ],
+        "issn": "1533-4406",
+        "issn_linking": "0028-4793",
+        "journal_full": "The New England journal of medicine",
+        "nlm_unique_id": "0255562",
+        "comments_corrections": []
+      },
+      "resolution_path": "L1",
+      "attempts": [
+        {
+          "level": "L1",
+          "query": "efetch id=20818875",
+          "n_hits": 1,
+          "accepted": "20818875",
+          "rejected_reason": null
+        }
+      ],
+      "match_status": "RESOLVED",
+      "assessment": {
+        "retraction_status": "CLEAN",
+        "retraction_notice": "",
+        "recency": "古い",
+        "age_years": 16,
+        "originality": "原著",
+        "evidence_level": "2 (RCT)",
+        "indexing": "MEDLINE",
+        "predatory_risk": "低",
+        "claim_support": "NOT_ASSESSED"
+      }
+    },
+    {
+      "ref_no": 6,
+      "pmid": "38095590",
+      "metadata": {
+        "pmid": "38095590",
+        "title": "Medically assisted hydration for adults receiving palliative care.",
+        "authors": [
+          "Buchan EJ",
+          "Haywood A",
+          "Syrmis W",
+          "Good P"
+        ],
+        "first_author": "Buchan EJ",
+        "journal": "Cochrane Database Syst Rev",
+        "year": "2023",
+        "volume": "12",
+        "issue": "12",
+        "pages": "CD006273",
+        "doi": "10.1002/14651858.CD006273.pub4",
+        "pmcid": "PMC10720602",
+        "publication_types": "Systematic Review; Journal Article",
+        "abstract": "BACKGROUND: [abstract omitted from fixture: publisher text]\nOBJECTIVES: [abstract omitted from fixture: publisher text]\nSEARCH METHODS: [abstract omitted from fixture: publisher text]\nSELECTION CRITERIA: [abstract omitted from fixture: publisher text]\nDATA COLLECTION AND ANALYSIS: [abstract omitted from fixture: publisher text]",
+        "publication_types_list": [
+          "Systematic Review",
+          "Journal Article"
+        ],
+        "issn": "1469-493X",
+        "issn_linking": "1361-6137",
+        "journal_full": "The Cochrane database of systematic reviews",
+        "nlm_unique_id": "100909747",
+        "comments_corrections": []
+      },
+      "resolution_path": "L1",
+      "attempts": [
+        {
+          "level": "L1",
+          "query": "efetch id=38095590",
+          "n_hits": 1,
+          "accepted": "38095590",
+          "rejected_reason": null
+        }
+      ],
+      "match_status": "RESOLVED",
+      "assessment": {
+        "retraction_status": "CLEAN",
+        "retraction_notice": "",
+        "recency": "最新",
+        "age_years": 3,
+        "originality": "メタ解析/SR",
+        "evidence_level": "1 (メタ解析/SR)",
+        "indexing": "MEDLINE",
+        "predatory_risk": "低",
+        "claim_support": "NOT_ASSESSED"
+      }
+    },
+    {
+      "ref_no": 7,
+      "pmid": null,
+      "metadata": null,
+      "resolution_path": "NON_PUBMED",
+      "attempts": [],
+      "match_status": "NON_PUBMED",
+      "assessment": null
+    }
+  ],
+  "journal_info": {
+    "0007-9235": {
+      "issn": "0007-9235",
+      "journal": "CA Cancer J Clin",
+      "medline_indexed": true,
+      "doaj_listed": false
+    },
+    "0140-6736": {
+      "issn": "0140-6736",
+      "journal": "Lancet",
+      "medline_indexed": true,
+      "doaj_listed": false
+    },
+    "0028-4793": {
+      "issn": "0028-4793",
+      "journal": "N Engl J Med",
+      "medline_indexed": true,
+      "doaj_listed": false
+    },
+    "1361-6137": {
+      "issn": "1361-6137",
+      "journal": "Cochrane Database Syst Rev",
+      "medline_indexed": true,
+      "doaj_listed": false
+    }
+  }
+}

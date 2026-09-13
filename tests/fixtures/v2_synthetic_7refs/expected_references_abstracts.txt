@@ -1,0 +1,119 @@
+==============================================================================
+                               参照文献 抄録集
+              Pattern C 実装後 E2E 合成テストセット (2026-08-22)
+==============================================================================
+
+PubMed 逆引き照合により取得した抄録を参照番号順に収載する。PubMed 非対象および
+未解決の参照は、抄録を掲載せず判定根拠のみを示す。
+
+------------------------------------------------------------------------------
+1. Bray F; Laversanne M; Sung H; Ferlay J; Siegel RL; Soerjomataram I; Jemal A
+
+Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality
+worldwide for 36 cancers in 185 countries.
+
+CA Cancer J Clin. 2024;74(3):229-263.
+PMID: 38572751  DOI: 10.3322/caac.21834
+[解決経路: Level 1: PMID 直接 (一括 efetch)]
+[評価: 原著 / 水準 3 (観察研究/記載なし) / 最新(2024) / 収載 MEDLINE]
+
+[abstract omitted from fixture: publisher text]
+
+------------------------------------------------------------------------------
+2. Bray F; Laversanne M; Sung H; Ferlay J; Siegel RL; Soerjomataram I; Jemal A
+
+Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality
+worldwide for 36 cancers in 185 countries.
+
+CA Cancer J Clin. 2024;74(3):229-263.
+PMID: 38572751  DOI: 10.3322/caac.21834
+[解決経路: Level 2: DOI 検索 (esearch → 一括 efetch)]
+[評価: 原著 / 水準 3 (観察研究/記載なし) / 最新(2024) / 収載 MEDLINE]
+
+[abstract omitted from fixture: publisher text]
+
+------------------------------------------------------------------------------
+3. Wakefield AJ; Murch SH; Anthony A; Linnell J; Casson DM; Malik M;
+Berelowitz M; Dhillon AP; Thomson MA; Harvey P; Valentine A; Davies SE;
+Walker-Smith JA
+
+Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive
+developmental disorder in children.
+
+Lancet. 1998;351(9103):637-41.
+PMID: 9500320  DOI: 10.1016/s0140-6736(97)11096-0
+[解決経路: Level 1: PMID 直接 (一括 efetch)]
+[評価: 原著 / 水準 3 (観察研究/記載なし) / 古い(1998) / 収載 MEDLINE]
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+【警告】本論文は撤回されている。引用の妥当性を必ず再検討すること。引用が不可避
+な場合は撤回済みである旨を本文に明記する必要がある。
+撤回通知: RetractionIn: Lancet. 2004 Mar 6;363(9411):750. doi:
+10.1016/S0140-6736(04)15715-2. (PMID 15016483) / RetractionIn: Lancet. 2010
+Feb 6;375(9713):445. doi: 10.1016/S0140-6736(10)60175-4. (PMID 20137807) /
+ExpressionOfConcernIn: Eur J Gastroenterol Hepatol. 2011 Nov;23(11):1082. doi:
+10.1097/MEG.0b013e328349d184. (PMID 21971344)
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+BACKGROUND: [abstract omitted from fixture: publisher text]
+METHODS: [abstract omitted from fixture: publisher text]
+FINDINGS: [abstract omitted from fixture: publisher text]
+INTERPRETATION: [abstract omitted from fixture: publisher text]
+
+------------------------------------------------------------------------------
+4. Nonexistent A
+
+A completely fabricated citation invented for regression testing that should
+never resolve
+
+J Fabricated Nonexistent Medicine. 2023.
+
+【未解決】MEDLINE 非収録誌の可能性。CrossRef 等での確認を推奨
+試行経路: L3a, L3b, L3c, L3d
+抄録は掲載しない。
+
+------------------------------------------------------------------------------
+5. Temel JS; Greer JA; Muzikansky A; Gallagher ER; Admane S; Jackson VA;
+Dahlin CM; Blinderman CD; Jacobsen J; Pirl WF; Billings JA; Lynch TJ
+
+Early palliative care for patients with metastatic non-small-cell lung cancer.
+
+N Engl J Med. 2010;363(8):733-42.
+PMID: 20818875  DOI: 10.1056/NEJMoa1000678
+[解決経路: Level 1: PMID 直接 (一括 efetch)]
+[評価: 原著 / 水準 2 (RCT) / 古い(2010) / 収載 MEDLINE]
+
+BACKGROUND: [abstract omitted from fixture: publisher text]
+METHODS: [abstract omitted from fixture: publisher text]
+RESULTS: [abstract omitted from fixture: publisher text]
+CONCLUSIONS: [abstract omitted from fixture: publisher text]
+
+------------------------------------------------------------------------------
+6. Buchan EJ; Haywood A; Syrmis W; Good P
+
+Medically assisted hydration for adults receiving palliative care.
+
+Cochrane Database Syst Rev. 2023;12(12):CD006273.
+PMID: 38095590  PMCID: PMC10720602  DOI: 10.1002/14651858.CD006273.pub4
+[解決経路: Level 1: PMID 直接 (一括 efetch)]
+[評価: メタ解析/SR / 水準 1 (メタ解析/SR) / 最新(2023) / 収載 MEDLINE]
+
+BACKGROUND: [abstract omitted from fixture: publisher text]
+OBJECTIVES: [abstract omitted from fixture: publisher text]
+SEARCH METHODS: [abstract omitted from fixture: publisher text]
+SELECTION CRITERIA: [abstract omitted from fixture: publisher text]
+DATA COLLECTION AND ANALYSIS: [abstract omitted from fixture: publisher text]
+
+------------------------------------------------------------------------------
+7. Doyle D
+
+Oxford Textbook of Palliative Medicine, 3rd Edition
+
+Oxford Textbook of Palliative Medicine. 2004.
+
+【PubMed 非対象】書籍 (教科書) であり PubMed の対象外
+抄録は掲載しない。
+
+==============================================================================
+総参照数 7 件 / 抄録収載 5 件
+==============================================================================
