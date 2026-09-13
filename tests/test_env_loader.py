@@ -30,6 +30,15 @@ import main as main_mod
 # -----------------------------------------------------------------------------
 
 
+@pytest.fixture(autouse=True)
+def isolated_home(tmp_path_factory: pytest.TempPathFactory, monkeypatch: pytest.MonkeyPatch) -> Path:
+    """Point HOME at an empty dir so a real ~/.pubmed-reference-resolver.env
+    on the developer machine cannot leak into load_env_files() candidates."""
+    home = tmp_path_factory.mktemp("home")
+    monkeypatch.setenv("HOME", str(home))
+    return home
+
+
 @pytest.fixture
 def env_file_in_cwd(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Path:
     """Create a .env file in tmp_path and chdir to it so load_env_files()

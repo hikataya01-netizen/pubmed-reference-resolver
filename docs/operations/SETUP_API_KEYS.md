@@ -105,7 +105,7 @@ NCBI_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 | # | 候補パス | 用途 |
 |:---:|:---|:---|
-| 1 | `{スキル配置ディレクトリ}/.env` | main.py と同じ場所 (= project root) |
+| 1 | `{main.py の実体ディレクトリ}/.env` | `Path(__file__).resolve()` = symlink 解決後の project root (`skill_package/` ではない) |
 | 2 | `$HOME/.pubmed-reference-resolver.env` | ユーザー専用、ホーム直下 |
 | 3 | `{カレントディレクトリ}/.env` | 呼び出し元の cwd |
 | 4 | `{入力ファイルのディレクトリ}/.env` | 入力 PDF/DOCX と同じフォルダ |
@@ -114,23 +114,30 @@ NCBI_API_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 `--env-file <path>` で明示指定もできる (探索順序を bypass、単一 path のみ参照).
 
-### 3.3 推奨配置 (Day9 (Z) 実例)
+### 3.3 推奨配置 (2026-09-13 改訂)
 
-**スキル配置ディレクトリ** (`~/.claude/skills/pubmed-reference-resolver/.env`) が推奨. 理由:
+**ホーム直下** (`~/.pubmed-reference-resolver.env`) が推奨. 理由:
 
-- Day6 で確立された symlink 経由構成 (`~/.claude/skills/pubmed-reference-resolver` → project root の `skill_package/`) のため、**スキル管理パスから一元管理可能**
-- cwd を変えても自動探索でヒット
-- 既存実機検証 (Day7-9) で全て本配置で成功
+- 候補 #2 は cwd・入力ファイルの場所に依存せず常に探索される
+- repo (Desktop 配下、クラウド同期の対象になり得る) の外に key を置ける
+
+旧推奨の `~/.claude/skills/pubmed-reference-resolver/.env` は **非推奨**.
+`~/.claude/skills/pubmed-reference-resolver` は `skill_package/` への symlink だが、
+候補 #1 は `main.py` の symlink を解決した project root を指すため、
+`skill_package/.env` は **cwd が `skill_package/` のときだけ** (候補 #3 経由で) 読み込まれる.
+2026-09-13 に `cd ~` から実行して読み込まれないことを確認した (Day7-9 の成功は cwd 依存だった).
 
 実例 (heredoc + chmod 600):
 
 ```bash
-cat > ~/.claude/skills/pubmed-reference-resolver/.env <<'EOF'
+cat > ~/.pubmed-reference-resolver.env <<'EOF'
 ANTHROPIC_API_KEY=sk-ant-api03-XXXXXXXXXXXXXXXXXXXX
 NCBI_API_KEY=XXXXXXXXXXXXXXXXXXXX
 EOF
-chmod 600 ~/.claude/skills/pubmed-reference-resolver/.env
+chmod 600 ~/.pubmed-reference-resolver.env
 ```
+
+実行時に `[env] loaded from /Users/<USER>/.pubmed-reference-resolver.env (2 vars)` と表示されれば成功.
 
 **`chmod 600` を必ず実行**. 機密ファイルとして owner-only read/write に制限.
 
@@ -154,15 +161,15 @@ key 値の中身を直接 cat するのはセキュリティ上避ける. 以下
 
 ```bash
 # (a) ファイル存在 + permission 確認 (中身は表示しない)
-ls -la ~/.claude/skills/pubmed-reference-resolver/.env
+ls -la ~/.pubmed-reference-resolver.env
 # 期待: -rw-------@ 1 USER staff <SIZE> <DATE> .env
 
 # (b) key 名のみ抽出 (値は表示しない)
-grep -oE '^[A-Z_][A-Z_0-9]*=' ~/.claude/skills/pubmed-reference-resolver/.env
+grep -oE '^[A-Z_][A-Z_0-9]*=' ~/.pubmed-reference-resolver.env
 # 期待: ANTHROPIC_API_KEY= / NCBI_API_KEY=
 
 # (c) 行ごとの長さ (実 key かサンプル placeholder か推測)
-awk '{print NR, length($0)}' ~/.claude/skills/pubmed-reference-resolver/.env
+awk '{print NR, length($0)}' ~/.pubmed-reference-resolver.env
 # 実 key の長さ目安:
 #   ANTHROPIC_API_KEY=...  → 全 ~126 文字 (key 値は ~108 文字)
 #   NCBI_API_KEY=...       → 全 ~49 文字 (key 値は 36 文字)
@@ -194,7 +201,7 @@ if (not os.environ.get(k)) and v:
 Day7 (`b9wkuu7w0`) では Claude Code 環境で `RuntimeError: ANTHROPIC_API_KEY not set` が発生し、`env -u ANTHROPIC_API_KEY python3 ...` で workaround していた. Day8 改修以降は **workaround 不要**, 素直に:
 
 ```bash
-python3 main.py /path/to/input.docx -o /path/to/out/ --env-file ~/.claude/skills/pubmed-reference-resolver/.env
+.venv/bin/python main.py /path/to/input.docx -o /path/to/out/ --env-file ~/.pubmed-reference-resolver.env
 ```
 
 で動作 (Day8 (V) 実機検証で確認済、commit `bvmp5zypx`).

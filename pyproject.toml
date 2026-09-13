@@ -38,6 +38,10 @@ dependencies = [
     "rapidfuzz>=3.14,<4.0",
     "PyYAML>=6.0,<7.0",
     "certifi>=2024.0,<2027.0",
+    "pypdf>=6.0,<7.0",       # extract_text() — PDF ingestion (main use case)
+    "requests>=2.32,<3.0",   # Stage 4 NCBI E-utilities
+    "tenacity>=9.0,<10.0",   # Stage 4 retry (5xx/429)
+    "anthropic>=0.84,<1.0",  # Stage 3 LLM path (non-MDPI refs); lazy import, tests stay offline
 ]
 
 [project.urls]

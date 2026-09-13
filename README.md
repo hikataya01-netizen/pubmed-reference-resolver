@@ -37,11 +37,12 @@ git clone git@github.com:hikataya01-netizen/pubmed-reference-resolver.git
 cd pubmed-reference-resolver
 
 # 依存同期 (Day27 で uv に移行。pyproject.toml + uv.lock が source of truth)
-uv sync --frozen --group dev
+uv sync --frozen        # テストも実行する場合は --group dev を付ける
 
-# API key 設定 (Anthropic + NCBI)
-cp .env.example .env
-# .env を編集して REPLACE-WITH-YOUR-KEY を実 key に置換
+# API key 設定 (Anthropic + NCBI) — ホーム直下に置けば cwd に関係なく読み込まれる
+cp .env.example ~/.pubmed-reference-resolver.env
+chmod 600 ~/.pubmed-reference-resolver.env
+# REPLACE-WITH-YOUR-KEY を実 key に置換
 # 詳細: docs/operations/SETUP_API_KEYS.md
 ```
 
@@ -52,13 +53,13 @@ Python 3.11 以上を推奨。CI では 3.11 / 3.12 を必須、3.14 を実験�
 ### 基本実行
 
 ```bash
-uv run python main.py input_References.docx
+uv run python main.py input_References.docx -o out/
 ```
 
 ### 手動補正を含む実行 (MDPI などの特殊書誌向け)
 
 ```bash
-uv run python main.py input_References.docx --overrides integration/src/manual_overrides.yaml
+uv run python main.py input_References.docx -o out/ --overrides integration/src/manual_overrides.yaml
 ```
 
 `--overrides` は明示 opt-in。デフォルトパス検索はせず、別コーパスへの誤適用を防ぐ。
@@ -66,9 +67,10 @@ uv run python main.py input_References.docx --overrides integration/src/manual_o
 ### 出力ファイル
 
 - `report.md` — 統合監査レポート (ダッシュボード + 要確認項目 + 未解決参照詳細 + ジャーナル監査補遺)
-- `pubmed_csv-xxx.csv` — PubMed 純正互換 CSV
-- `abstract_text-xxx.txt` — 番号付き abstract text
+- `csv-{first_pmid}-set.csv` — PubMed 純正互換 CSV
+- `abstract-{first_pmid}-set.txt` — 番号付き abstract text
 - `journal_mismatch_audit.json` — ジャーナル名監査の機械可読 sidecar
+- `three_class_classification.json` — PubMed 未ヒット文献 3 分類の sidecar
 
 ## テスト
 
@@ -76,7 +78,7 @@ uv run python main.py input_References.docx --overrides integration/src/manual_o
 uv run pytest tests/ -q
 ```
 
-現状 **115 passed + 0 skipped** (Day28 末)。Day23 で旧 mdpi_149refs fixture 削除に伴い
+現状 **117 passed + 0 skipped** (2026-09-13)。Day23 で旧 mdpi_149refs fixture 削除に伴い
 module-level skip されていた 5 file は Day24 で新 mdpi_173refs に re-point して skip 解除済。
 全テストは API key・ネットワーク不要でオフライン完走する (外部 API 呼び出しは fixture で DI 注入)。
 
