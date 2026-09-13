@@ -9,18 +9,23 @@ description: 査読対象論文のReferences(PDF/DOCX/TXT、英語)を各文献�
 
 ## 配置と実行環境(最初に確認)
 
-- **本体リポジトリ**: `/Users/katayamaimac/Desktop/Claude/査読用/査読reference用/pubmed-reference-resolver`(以下 `$REPO`)
-  - `~/.claude/skills/pubmed-reference-resolver` は `$REPO/skill_package/` への symlink。`main.py` 等も `$REPO` 直下への symlink で、`three_class_classifier.py` / `crossref_check.py` / `nlm_catalog_check.py` は `$REPO` 直下にのみ存在する。**skill_package 単体をコピーして配布すると Phase 4 が動かない。**
+- **本体リポジトリ(`$REPO`)**: `~/.claude/skills/pubmed-reference-resolver` は `$REPO/skill_package/` への symlink。リポジトリの場所はパソコンごとに違ってよく、symlink から次のように求める(bash / zsh 共通):
+
+  ```bash
+  REPO="$(cd -P ~/.claude/skills/pubmed-reference-resolver/.. && pwd)"
+  ```
+
+  - `main.py` 等も `$REPO` 直下への symlink で、`three_class_classifier.py` / `crossref_check.py` / `nlm_catalog_check.py` は `$REPO` 直下にのみ存在する。**skill_package 単体をコピーして配布すると Phase 4 が動かない。**
+- **環境診断**: 初回・別のパソコン・エラー時は、まず `"$REPO/tools/doctor.sh"` を実行する。Python 環境、API キーの読込、スキル登録、サンプル PDF での動作、外部 API 疎通を確認し、問題があれば直し方(→ の行)を表示する。✘ が出たら、その手順をユーザーに示して解消してから本処理に進む(キーの値を表示・入力しない)。
 - **Python**: 必ず `$REPO/.venv/bin/python` を使う。システムの `python3` には依存ライブラリが揃っていない。
-  - `.venv` が無い/壊れた場合: `cd $REPO && uv sync --frozen`
-- **API キー**: `~/.pubmed-reference-resolver.env`(chmod 600)に `ANTHROPIC_API_KEY` と `NCBI_API_KEY` を置く。cwd に関係なく自動で読み込まれ、起動時に `[env] loaded from ...` と表示される。
-  - 表示されない場合はキー未読込。`--env-file` で明示するか、ユーザーに配置を依頼する(キーの値を表示・入力しない)。
+  - `.venv` が無い/壊れた場合: `cd "$REPO" && uv sync --frozen`
+- **API キー**: `~/.pubmed-reference-resolver.env`(chmod 600)に `ANTHROPIC_API_KEY` と `NCBI_API_KEY` を置く。cwd に関係なく自動で読み込まれ、起動時に `[env] loaded from ...` と表示される。キーは git 管理外なので、パソコンごとに配置が必要。
   - 詳細: `$REPO/docs/operations/SETUP_API_KEYS.md`
 
 ## 実行手順
 
 ```bash
-REPO="/Users/katayamaimac/Desktop/Claude/査読用/査読reference用/pubmed-reference-resolver"
+REPO="$(cd -P ~/.claude/skills/pubmed-reference-resolver/.. && pwd)"
 
 # 全工程 (Phase 4)
 "$REPO/.venv/bin/python" "$REPO/main.py" path/to/references.pdf -o path/to/out

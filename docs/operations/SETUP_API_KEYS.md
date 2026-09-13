@@ -138,6 +138,7 @@ chmod 600 ~/.pubmed-reference-resolver.env
 ```
 
 実行時に `[env] loaded from /Users/<USER>/.pubmed-reference-resolver.env (2 vars)` と表示されれば成功.
+`tools/doctor.sh` の「2. API キー」でも、値を表示せずに配置・権限・読込を確認できる.
 
 **`chmod 600` を必ず実行**. 機密ファイルとして owner-only read/write に制限.
 

@@ -32,3 +32,18 @@
 ## 未実施
 
 - Phase 4 (Crossref / NLM 通信) の実機実行 — 承認範囲外
+
+## 追補: パソコン間の可搬性 (同日、ユーザー承認済み)
+
+以前は別のパソコン (または手作業で依存を入れた Python) でのみ動いていた可能性があるため、環境依存を除く。
+
+- **A. パス固定の除去**: SKILL.md の `$REPO` を絶対パスではなく `REPO="$(cd -P ~/.claude/skills/pubmed-reference-resolver/.. && pwd)"` で symlink から求める (bash / zsh で確認)
+- **B. `tools/doctor.sh`**: Python 環境・依存 8 件・本体モジュール・uv.lock 整合・API キー (配置/権限/実ローダーでの読込、値は非表示)・スキル symlink・Phase 1 オフライン実行・外部 API 疎通 (`--offline` で省略) を診断し、✘ に直し方を表示。要対処があれば exit 1
+- README に展開手順、SKILL.md に「初回・エラー時はまず doctor」を追記
+
+検証:
+- 現環境: 全項目 ✔、exit 0
+- 空の HOME (新しいパソコン相当): API キー無し・スキル未登録を ✘ 3 件で検出、exit 1
+- 空値キー + 権限 644: 権限警告と ANTHROPIC_API_KEY 未設定を検出
+- symlink 経由での起動でもリポジトリ位置を正しく解決
+- SKILL.md 記載コマンドを zsh・cwd=/tmp で実行し env 読込を確認

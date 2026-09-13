@@ -44,7 +44,23 @@ cp .env.example ~/.pubmed-reference-resolver.env
 chmod 600 ~/.pubmed-reference-resolver.env
 # REPLACE-WITH-YOUR-KEY を実 key に置換
 # 詳細: docs/operations/SETUP_API_KEYS.md
+
+# Claude Code スキルとして登録 (clone した場所はどこでもよい)
+mkdir -p ~/.claude/skills
+ln -s "$PWD/skill_package" ~/.claude/skills/pubmed-reference-resolver
+
+# 環境診断 (✘ が出たら → の手順で直して再実行)
+tools/doctor.sh
 ```
+
+### 別のパソコンへの展開・動かなくなったとき
+
+API キーと `.venv` は git 管理外のため、パソコンごとに用意する。
+
+1. `git pull` → `uv sync --frozen`
+2. `~/.pubmed-reference-resolver.env` を配置 (`chmod 600`)
+3. `~/.claude/skills/pubmed-reference-resolver` → `skill_package/` の symlink を確認
+4. `tools/doctor.sh` で全項目 ✔ を確認 (外部通信を避けるなら `--offline`)
 
 Python 3.11 以上を推奨。CI では 3.11 / 3.12 を必須、3.14 を実験枠で併走。
 
@@ -112,6 +128,7 @@ pubmed-reference-resolver/
 ├── three_class_classifier.py        # PubMed 未ヒット 3 分類 audit (Day15)
 ├── pyproject.toml + uv.lock         # 依存マニフェスト (Day27 で requirements.txt から移行)
 ├── tools/                           # 開発支援スクリプト群 (Day16-23)
+│   ├── doctor.sh                               # 環境診断 (Python/依存/API key/スキル登録/疎通)
 │   ├── build_apa_fixture.py                    # APA 7 fixture 生成 (Day16, PMC OA → JATS XML → docx)
 │   ├── build_cell_fixture.py                   # Cell-style fixture 生成 (Day17, Day16 template 拡張)
 │   ├── build_vancouver_replacement_fixture.py  # Vancouver/AMA fixture 生成 (Day23)
