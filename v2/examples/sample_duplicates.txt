@@ -1,0 +1,13 @@
+References
+
+1. Bray F, Laversanne M, Sung H, et al. Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA Cancer J Clin. 2024;74(3):229-263. doi:10.3322/caac.21834.
+
+2. Wang Y, Feng W. Cancer-related psychosocial challenges. Gen Psychiatry. 2022;35(5):e100871. doi:10.1136/gpsych-2022-100871.
+
+3. Page MJ, McKenzie JE, Bossuyt PM, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ. 2021;372:n71. doi:10.1136/bmj.n71.
+
+4. Bray, F., Laversanne, M., Sung, H., Ferlay, J., Siegel, R.L., Soerjomataram, I., & Jemal, A. (2024). Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries. CA: A Cancer Journal for Clinicians, 74(3), 229-263. https://doi.org/10.3322/caac.21834
+
+5. Thieme M, Einenkel J, Zenger M, Hinz A. Optimism, pessimism and self-efficacy in female cancer patients. Jpn J Clin Oncol. 2017;47(9):849-855. doi:10.1093/jjco/hyx079.
+
+6. Wang Y, Feng W. Cancer-related psychosocial challenges. General Psychiatry. 2022;35(5):e100871.
