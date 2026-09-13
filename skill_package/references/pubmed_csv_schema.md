@@ -1,60 +1,76 @@
-# PubMed CSV 出力スキーマ仕様
+# references_pubmed.csv 出力スキーマ仕様 (v2, 29列)
 
-PubMed Web エクスポート (CSV format) と互換のスキーマ + 本スキル固有の補助2列。
+> **旧版注記**: 本ファイルは以前、廃止済みの `main.py` 時代の 13 列スキーマ
+> (`Ref_No, Duplicate_of, PMID, Title, Authors, Citation, First Author, Journal/Book,
+> Publication Year, Create Date, PMCID, NIHMS ID, DOI`) を記載していたが、
+> 現行の `audit.py` + `pipeline/outputs.py` パイプラインとは一致していなかった。
+> 本改訂 (2026-08-22) で `pipeline/outputs.py::CSV_COLUMNS` の実装に完全準拠させた。
 
-## カラム定義 (13列)
+## カラム定義 (29列、`pipeline/outputs.py::CSV_COLUMNS` が単一の情報源)
 
-| # | カラム名 | 必須 | 由来 | 説明 |
-|---|---------|:----:|-----|------|
-| 1 | `Ref_No` | 必須 | 本スキル固有 | 参照番号 (References 内の番号と一致) |
-| 2 | `Duplicate_of` | オプション | 本スキル固有 | 重複検出時、最初に出現した Ref_No。非重複なら空 |
-| 3 | `PMID` | 必須*¹ | PubMed | 8桁の数値 |
-| 4 | `Title` | PubMed | PubMed | `ArticleTitle` (末尾ピリオド含む) |
-| 5 | `Authors` | PubMed | PubMed | `"Bray F, Laversanne M, Sung H"` 形式 (カンマ区切り、姓+イニシャル) |
-| 6 | `Citation` | PubMed | PubMed | `"CA Cancer J Clin. 2024;74(3):229-263."` 形式 |
-| 7 | `First Author` | PubMed | PubMed | 筆頭著者のみ `"Bray F"` 形式 |
-| 8 | `Journal/Book` | PubMed | PubMed | 雑誌フルタイトル (`Journal/Title`) |
-| 9 | `Publication Year` | PubMed | PubMed | 4桁年 |
-| 10 | `Create Date` | PubMed | PubMed | `YYYY/MM/DD` 形式 (DateCompleted → DateRevised → DateCreated の順) |
-| 11 | `PMCID` | オプション | PubMed | PMC番号 (例: `PMC9540834`) |
-| 12 | `NIHMS ID` | オプション | PubMed | NIH Manuscript ID (該当時のみ) |
-| 13 | `DOI` | オプション | PubMed | canonical DOI (URL prefix なし) |
+### ①〜㉑ 基本 21 列 (実在性・書誌情報・重複・照合経路)
 
-*¹ 未ヒット文献は PMID 以降の全カラムが空文字列。行自体は削除せず、`Ref_No` と `Duplicate_of` のみ保持する。
+| # | カラム名 | 由来 | 説明 |
+|---|---------|-----|------|
+| 1 | `Ref_No` | refs.json | 参照番号 |
+| 2 | `Match_Status` | Stage4 | `RESOLVED` / `UNRESOLVED` / `NON_PUBMED` |
+| 3 | `PMID` | PubMed | 解決された PMID |
+| 4 | `PMCID` | PubMed | PMC番号 |
+| 5 | `Title` | PubMed | `ArticleTitle` |
+| 6 | `Authors` | PubMed | `"Bray F; Laversanne M; ..."` (セミコロン区切り) |
+| 7 | `First_Author` | PubMed | 筆頭著者 |
+| 8 | `Journal` | PubMed | `ISOAbbreviation` 優先 |
+| 9 | `Year` | PubMed | 発行年 |
+| 10 | `Volume` | PubMed | 巻 |
+| 11 | `Issue` | PubMed | 号 |
+| 12 | `Pages` | PubMed | ページ |
+| 13 | `DOI` | PubMed | canonical DOI |
+| 14 | `Publication_Types` | PubMed | `PublicationTypeList` をセミコロン結合 |
+| 15 | `Claimed_PMID` | refs.json | 引用元記載の PMID |
+| 16 | `Claimed_DOI` | refs.json | 引用元記載の DOI |
+| 17 | `Claimed_Year` | refs.json | 引用元記載の年 |
+| 18 | `Claimed_First_Author` | refs.json | 引用元記載の筆頭著者 |
+| 19 | `Claimed_Journal` | refs.json | 引用元記載の雑誌名 |
+| 20 | `Claimed_Title` | refs.json | 引用元記載のタイトル |
+| 21 | `Resolution_Path` | Stage4 | `L1`/`L2`/`L3a`〜`L3d`/`NON_PUBMED`/`UNRESOLVED` |
+
+### ㉒〜㉙ 文献評価 8 列 (v2 新規、`pipeline/assess.py` が算出)
+
+`Match_Status = UNRESOLVED` または `NON_PUBMED` の行はこの 8 列すべて空文字列になる
+(評価は RESOLVED 参照のみに対して実施する)。
+
+| # | カラム名 | 説明 | 値の例 |
+|---|---------|------|--------|
+| 22 | `Retraction_Status` | 撤回・懸念表明の状態 | `CLEAN` / `RETRACTED` / `PARTIAL_RETRACTION` / `EXPRESSION_OF_CONCERN` / `CORRECTED` |
+| 23 | `Retraction_Notice` | 撤回・懸念表明の通知詳細 (CommentsCorrectionsList 由来) | `RetractionIn: Lancet. 2010...(PMID 20137807)` |
+| 24 | `Recency` | 最新性 (発行年からの経過年数による分類) | `最新`(≤5年) / `妥当`(≤10年) / `古い`(>10年) / `判定不能` |
+| 25 | `Originality` | 原著性 (PublicationType ベースの決定論的分類) | `原著` / `レビュー` / `メタ解析/SR` / `ガイドライン` / `症例報告` / `レター/社説/コメント` |
+| 26 | `Evidence_Level` | エビデンス水準 (同上分類から導出、IF 等の商用指標は不使用) | `1 (メタ解析/SR)` / `2 (RCT)` / `3 (観察研究)` / `4 (症例報告)` |
+| 27 | `Indexing_Status` | 収載状況 (NLM Catalog + DOAJ 照会結果) | `MEDLINE` / `DOAJ` / `PubMed収録(要確認)` / `未確認` / `未評価`(`--offline`時) |
+| 28 | `Predatory_Risk` | Predatory Journal リスク (複合シグナルによる参考フラグ、断定ではない) | `低` / `要確認` / `未評価` |
+| 29 | `Claim_Support` | 主張支持性 (呼び出し側 LLM の読解判定、`--claim-support` 未実施時は常に `NOT_ASSESSED`) | `SUPPORTS` / `PARTIAL` / `DOES_NOT_SUPPORT` / `NOT_ASSESSED` |
 
 ## ファイル形式仕様
 
-- **文字コード**: UTF-8 **BOM付き** (Excel で開いた際の文字化け防止)
+- **文字コード**: UTF-8 **BOM付き** (`utf-8-sig`)
 - **改行コード**: LF
-- **引用符**: **全セルを二重引用符で囲む** (`QUOTE_ALL`)
-- **セル内引用符のエスケープ**: `""` (CSV 標準)
-- **ファイル名**: `csv-{first_resolved_pmid}-set.csv` (最初に解決された PMID を使用)
-  - 解決済みが0件の場合は `csv-nopmid-set.csv`
+- **引用符**: `csv.DictWriter` 既定 (フィールドにカンマ・引用符・改行を含む場合のみ自動クォート。全セル強制クォートではない)
+- **ファイル名**: `references_pubmed.csv` (固定、`OUT_CSV` で一元管理)
 
-## サンプル
+## サンプル (基本 21 列のみ抜粋、実際は 29 列)
 
 ```csv
-"Ref_No","Duplicate_of","PMID","Title","Authors","Citation","First Author","Journal/Book","Publication Year","Create Date","PMCID","NIHMS ID","DOI"
-"1","","38572751","Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries.","Bray F, Laversanne M, Sung H, Ferlay J, Siegel RL, Soerjomataram I, Jemal A","CA Cancer J Clin. 2024;74(3):229-263.","Bray F","CA: a cancer journal for clinicians","2024","2024/05/09","","","10.3322/caac.21834"
-"2","","36311374","Cancer-related psychosocial challenges.","Wang Y, Feng W","Gen Psychiatr. 2022;35(5):e100871.","Wang Y","General psychiatry","2022","2024/09/05","PMC9540834","","10.1136/gpsych-2022-100871"
-"3","","","","","","","","","","","",""
-"4","1","38572751","Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries.","Bray F, Laversanne M, Sung H, Ferlay J, Siegel RL, Soerjomataram I, Jemal A","CA Cancer J Clin. 2024;74(3):229-263.","Bray F","CA: a cancer journal for clinicians","2024","2024/05/09","","","10.3322/caac.21834"
+Ref_No,Match_Status,PMID,...,Resolution_Path,Retraction_Status,...,Predatory_Risk,Claim_Support
+1,RESOLVED,38572751,...,L1,CLEAN,...,低,NOT_ASSESSED
+3,RESOLVED,9500320,...,L1,RETRACTED,...,低,NOT_ASSESSED
+4,UNRESOLVED,,...,UNRESOLVED,,...,,
 ```
 
-- 行1: ヘッダー
-- 行2: 通常の解決済み参照
-- 行3: PMCID付き
-- 行4: 未ヒット参照 (全カラム空)
-- 行5: 重複 (`Duplicate_of=1`、以降は元と同じメタデータをコピー)
+行3 (Wakefield 1998, PMID 9500320) は `Retraction_Status=RETRACTED` となる実例。
+行4 は未解決のため文献評価 8 列すべて空。
 
-## PubMed 純正エクスポートとの差異
+## 拡張時の注意
 
-| 項目 | PubMed純正 | 本スキル |
-|------|-----------|---------|
-| `Ref_No` | ❌ なし | ✅ 追加 |
-| `Duplicate_of` | ❌ なし | ✅ 追加 |
-| PMID以降の列順 | PubMed準拠 | PubMed準拠 |
-| BOM付き UTF-8 | ✅ | ✅ |
-| 全セル引用符 | ✅ | ✅ |
-
-参照との対応関係を保持するため、先頭2列のみ拡張。PubMed純正CSVを期待する下流ツールには Python等で先頭2列を削除することで完全互換化可能。
+新しい列を追加する場合は `pipeline/outputs.py::CSV_COLUMNS` に列名を追記し、
+`write_csv()` の `w.writerow({...})` に対応する key/value を追加するだけでよい。
+列の並び順は既存部分を変更しないこと (下流の列位置依存を避けるため、末尾に追加する)。
