@@ -52,12 +52,16 @@ def record() -> None:
 
 
 def regenerate_expected() -> None:
+    captured: dict = {}
     with tempfile.TemporaryDirectory() as tmp, ExitStack() as st:
-        for obj, attr, val in replay_patches():
+        for obj, attr, val in replay_patches(captured):
             st.enter_context(mock.patch.object(obj, attr, val))
         rc = audit.main(["--structured", str(FIX / "refs.json"), "-o", tmp, "--no-docx"])
         if rc != 0:
             raise SystemExit(f"replay run failed: rc={rc}")
+        unrecorded = [k for c in captured.get("clients", []) for k in c.unrecorded]
+        if unrecorded:
+            raise SystemExit(f"unrecorded NCBI requests during replay: {unrecorded}")
         out = Path(tmp)
         shutil.copyfile(out / "references_pubmed.csv", FIX / "expected_references_pubmed.csv")
         shutil.copyfile(out / "references_abstracts.txt", FIX / "expected_references_abstracts.txt")

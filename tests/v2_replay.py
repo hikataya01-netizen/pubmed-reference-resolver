@@ -1,6 +1,12 @@
 """v2 パイプラインのテスト用: NCBI/DOAJ 応答の記録・再生と日付固定。
 
-テストはネットワークに出ない。未記録の NCBI リクエストは AssertionError。
+テストはネットワークに出ない。未記録の NCBI リクエストは ReplayClient.unrecorded に
+記録したうえで AssertionError を送出する。ただし pipeline/enrich.py の
+_medline_indexed (エンドポイントごとの try/except) と enrich_journals
+(呼び出し全体を包む try/except) はいずれも Exception を握りつぶす防御的設計のため、
+AssertionError もそこで飲み込まれ呼び出し元まで伝播しない。したがってテストは
+戻り値だけで「未記録リクエストがなかった」とは判定できず、client.unrecorded が
+空であることを明示的に assert しなければならない。
 """
 
 from __future__ import annotations
@@ -40,15 +46,22 @@ class RecordingClient(resolve.PubMedClient):
 
 
 class ReplayClient(resolve.PubMedClient):
-    """記録済み応答だけを返す。throttle・通信なし。"""
+    """記録済み応答だけを返す。throttle・通信なし。
+
+    未記録リクエストは self.unrecorded にキーを積んだうえで AssertionError を
+    送出する。pipeline/enrich.py 側で例外が握りつぶされる経路があるため、
+    テストは戻り値だけでなく client.unrecorded が空であることを確認すること。
+    """
 
     def __init__(self, responses: dict, api_key: str | None = None, **kw):
         super().__init__(api_key=api_key, **kw)
         self.responses = responses
+        self.unrecorded: list[str] = []
 
     def _get(self, endpoint: str, params: dict, retries: int = 3) -> str:
         key = request_key(endpoint, params)
         if key not in self.responses:
+            self.unrecorded.append(key)
             raise AssertionError(f"unrecorded NCBI request: {key}")
         self.n_requests += 1
         return self.responses[key]
@@ -69,7 +82,10 @@ def replay_patches(captured: dict | None = None) -> list[tuple[object, str, obje
     def client_factory(api_key=None, **kw):
         if captured is not None:
             captured["api_key"] = api_key
-        return ReplayClient(ncbi, api_key=api_key)
+        client = ReplayClient(ncbi, api_key=api_key)
+        if captured is not None:
+            captured.setdefault("clients", []).append(client)
+        return client
 
     return [
         (resolve, "PubMedClient", client_factory),

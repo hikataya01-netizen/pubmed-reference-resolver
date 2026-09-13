@@ -13,7 +13,7 @@ import pytest
 
 import audit
 from pipeline import assess, enrich, resolve
-from tests.v2_replay import FIX, replay_patches
+from tests.v2_replay import FIX, ReplayClient, replay_patches
 
 REPO = Path(__file__).resolve().parents[1]
 
@@ -27,8 +27,10 @@ def isolated_home(tmp_path_factory, monkeypatch):
 
 @pytest.fixture
 def replay(monkeypatch):
-    for obj, attr, val in replay_patches():
+    captured: dict = {}
+    for obj, attr, val in replay_patches(captured):
         monkeypatch.setattr(obj, attr, val)
+    return captured
 
 
 def _run(out: Path, *extra: str) -> int:
@@ -49,6 +51,7 @@ def test_golden_outputs_match_expected(tmp_path, replay):
         (FIX / "expected_references_abstracts.txt").read_text(encoding="utf-8")
     assert json.loads((out / "issues.json").read_text(encoding="utf-8")) == \
         json.loads((FIX / "expected_issues.json").read_text(encoding="utf-8"))
+    assert all(c.unrecorded == [] for c in replay["clients"])
 
 
 def test_retracted_wakefield_is_flagged_major(tmp_path, replay):
@@ -60,6 +63,19 @@ def test_retracted_wakefield_is_flagged_major(tmp_path, replay):
     issues = json.loads((out / "issues.json").read_text(encoding="utf-8"))["issues"]
     assert any(i["ref_no"] == 3 and i["category"] == "retracted_publication"
                and i["severity"] == "MAJOR" for i in issues)
+    assert all(c.unrecorded == [] for c in replay["clients"])
+
+
+def test_medline_indexed_swallows_unrecorded_request_but_records_it():
+    """pipeline/enrich.py の _medline_indexed は例外を握りつぶすため、
+
+    ReplayClient.unrecorded で未記録リクエストを検出できることを保証する回帰テスト
+    (この保証がないと、記録漏れが None 判定として静かに通ってしまう)。
+    """
+    client = ReplayClient({})
+    result = enrich._medline_indexed(client, "0140-6736")
+    assert result is None
+    assert client.unrecorded != []
 
 
 def test_load_refs_rejects_empty_and_duplicate(tmp_path):
