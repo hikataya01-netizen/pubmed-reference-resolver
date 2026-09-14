@@ -41,6 +41,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from pipeline import assess, consistency, enrich, outputs, resolve  # noqa: E402
+from main import _inject_env_kv, _parse_env_file, load_env_files  # noqa: E402  (API キー .env ローダー)
 
 REQUIRED_KEYS = ("ref_no",)
 SKILL_DIR = Path(__file__).resolve().parent
@@ -108,8 +109,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--source", default=None, help="元の入力ファイル名（レポート表紙用）")
     ap.add_argument("--md5", default=None)
     ap.add_argument("--subject", default=None)
-    ap.add_argument("--api-key", default=os.environ.get("NCBI_API_KEY"),
-                    help="NCBI API key（任意。あれば 10 req/sec）")
+    ap.add_argument("--api-key", default=None,
+                    help="NCBI API key（任意。あれば 10 req/sec。省略時は環境変数 / .env から）")
+    ap.add_argument("--env-file", type=Path, default=None,
+                    help="明示的な .env ファイル（省略時は ~/.pubmed-reference-resolver.env 等を自動探索）")
+    ap.add_argument("--no-env-file", action="store_true",
+                    help=".env ファイルを読まない")
     ap.add_argument("--no-docx", action="store_true", help="出力①をスキップ（デバッグ用）")
     ap.add_argument("--offline", action="store_true",
                     help="雑誌収載状況の照会 (NLM Catalog / DOAJ) をスキップ。"
@@ -128,7 +133,20 @@ def main(argv: list[str] | None = None) -> int:
     refs, meta = load_refs(args.structured)
     print(f"[Stage3] 構造化済み参照 {len(refs)} 件を読み込み（LLM 呼出なし）")
 
-    client = resolve.PubMedClient(api_key=args.api_key)
+    # .env 読み込み (CLI --api-key と、既に非空で設定済みの環境変数が優先)
+    if not args.no_env_file:
+        if args.env_file:
+            if args.env_file.is_file():
+                _inject_env_kv(_parse_env_file(args.env_file))
+                print(f"[env] loaded from {args.env_file}")
+            else:
+                print(f"WARN: --env-file not found: {args.env_file}", file=sys.stderr)
+        else:
+            for src in load_env_files(args.structured):
+                print(f"[env] loaded from {src}")
+    api_key = args.api_key or os.environ.get("NCBI_API_KEY") or None
+
+    client = resolve.PubMedClient(api_key=api_key)
     t_res = time.time()
     journal_info: dict | None = None
     if args.reuse_resolved:

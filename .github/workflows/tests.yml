@@ -21,6 +21,11 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
       - run: uv sync --frozen --group dev
       - run: uv run pytest tests/ -q
 
@@ -39,6 +44,11 @@ jobs:
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
       - run: uv sync --frozen --group dev
       - run: uv run pytest tests/ -q
 

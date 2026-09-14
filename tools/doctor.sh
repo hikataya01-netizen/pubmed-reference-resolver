@@ -82,8 +82,8 @@ EOF
     ng "依存ライブラリ不足: $missing" "cd \"$REPO\" && uv sync --frozen"
   fi
 
-  if (cd "$REPO" && "$PY" -c 'import main, journal_audit, mdpi_parser, three_class_classifier, crossref_check, nlm_catalog_check' >/dev/null 2>&1); then
-    ok "本体モジュール 6 件を読み込み可能"
+  if (cd "$REPO" && "$PY" -c 'import main, journal_audit, mdpi_parser, three_class_classifier, crossref_check, nlm_catalog_check, audit; from pipeline import resolve, enrich, consistency, assess, outputs' >/dev/null 2>&1); then
+    ok "本体モジュール (v2 audit/pipeline を含む) を読み込み可能"
   else
     ng "本体モジュールの読み込みに失敗" "cd \"$REPO\" && .venv/bin/python -c 'import main' でエラー内容を確認"
   fi
@@ -95,6 +95,26 @@ if command -v uv >/dev/null 2>&1 && [ -f "$REPO/uv.lock" ]; then
   else
     warn "uv.lock が pyproject.toml と一致しない" "cd \"$REPO\" && uv lock && uv sync"
   fi
+fi
+
+# --- 1b. Node.js (Word 出力) ---
+section "1b. Node.js (Word レポート生成)"
+NODE_OK=0
+if command -v node >/dev/null 2>&1; then
+  node_major="$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null)"
+  if [ "${node_major:-0}" -ge 18 ] 2>/dev/null; then
+    ok "node: $(node -v)"
+    if [ -d "$REPO/node_modules/docx" ]; then
+      ok "npm docx: $(node -p "require('$REPO/node_modules/docx/package.json').version" 2>/dev/null)"
+      NODE_OK=1
+    else
+      ng "npm docx が未導入" "cd \"$REPO\" && npm ci"
+    fi
+  else
+    ng "node が 18 未満: $(node -v)" "brew upgrade node"
+  fi
+else
+  ng "node が見つからない (Word レポートを生成できない)" "brew install node && cd \"$REPO\" && npm ci"
 fi
 
 # --- 2. API キー ---
@@ -153,25 +173,47 @@ elif [ -e "$SKILL_LINK" ]; then
 else
   ng "スキルが登録されていない" "mkdir -p \"$HOME/.claude/skills\" && ln -s \"$REPO/skill_package\" \"$SKILL_LINK\""
 fi
-for f in SKILL.md main.py journal_audit.py mdpi_parser.py manual_overrides.yaml; do
+for f in SKILL.md audit.py pipeline build_docx.js main.py journal_audit.py mdpi_parser.py manual_overrides.yaml; do
   [ -e "$REPO/skill_package/$f" ] || ng "skill_package/$f が無い、またはリンク切れ" "cd \"$REPO\" && git status / git checkout -- skill_package"
 done
 
-# --- 4. 動作確認 (オフライン) ---
-section "4. 動作確認 (Phase 1、外部通信なし)"
+# --- 4. 動作確認 (外部通信なし) ---
+section "4. 動作確認 (外部通信なし)"
+FIXDIR="$REPO/tests/fixtures/v2_synthetic_7refs"
+if [ "$PY_OK" = 1 ] && [ -f "$FIXDIR/refs.json" ] && [ -f "$FIXDIR/resolved.json" ]; then
+  tmp="$(mktemp -d)"
+  docx_flag=""
+  [ "$NODE_OK" = 1 ] || docx_flag="--no-docx"
+  if (cd / && "$PY" "$REPO/audit.py" --structured "$FIXDIR/refs.json" --reuse-resolved "$FIXDIR/resolved.json" \
+        --offline --no-env-file $docx_flag -o "$tmp" >"$tmp/log.txt" 2>&1) \
+     && [ -s "$tmp/references_pubmed.csv" ]; then
+    if [ "$NODE_OK" = 1 ]; then
+      if [ -s "$tmp/references_audit_report.docx" ]; then
+        ok "v2 audit.py: CSV・abstract・Word レポートを生成"
+      else
+        ng "v2 audit.py: Word レポートが生成されない" "ログ: $tmp/log.txt"; tmp=""
+      fi
+    else
+      warn "v2 audit.py: CSV・abstract のみ生成 (Word は Node.js 未整備のためスキップ)"
+    fi
+  else
+    ng "v2 audit.py の実行に失敗" "ログ: $tmp/log.txt"; tmp=""
+  fi
+  [ -n "$tmp" ] && rm -rf "$tmp"
+else
+  warn "v2 動作確認をスキップ (.venv または fixture が無い)"
+fi
+
 SAMPLE="$REPO/skill_package/examples/sample_reference_section.pdf"
 if [ "$PY_OK" = 1 ] && [ -f "$SAMPLE" ]; then
   tmp="$(mktemp -d)"
   if (cd / && "$PY" "$REPO/main.py" "$SAMPLE" -o "$tmp" --phase 1 --no-env-file --quiet >"$tmp/log.txt" 2>&1) \
      && [ -s "$tmp/phase1_intermediate.json" ]; then
-    ok "サンプル PDF の抽出に成功"
+    ok "参照文献の抽出 (main.py Phase 1、Stage 1-2 用) に成功"
   else
-    ng "サンプル PDF の抽出に失敗" "ログ: $tmp/log.txt"
-    tmp=""
+    ng "サンプル PDF の抽出に失敗" "ログ: $tmp/log.txt"; tmp=""
   fi
   [ -n "$tmp" ] && rm -rf "$tmp"
-else
-  warn "スキップ (.venv またはサンプル PDF が無い)"
 fi
 
 # --- 5. 外部 API 疎通 ---
@@ -192,8 +234,9 @@ else
   probe "NCBI E-utilities (Phase 3)" "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=pubmed&retmode=json" 2xx
   probe "Crossref (Phase 4)" "https://api.crossref.org/works/10.1136/bmj.n160" 2xx
   probe "NLM Catalog (Phase 4)" "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=nlmcatalog&term=BMJ&retmode=json" 2xx
+  probe "DOAJ (v2 収載状況)" "https://doaj.org/api/search/journals/issn%3A0140-6736" 2xx
   # ルートは 404 を返すため到達性のみ確認 (キーの有効性は課金を避けて検証しない)
-  probe "Anthropic API (Phase 2、到達性のみ)" "https://api.anthropic.com/" any
+  probe "Anthropic API (旧版 main.py Phase 2 のみ、到達性のみ)" "https://api.anthropic.com/" any
 fi
 
 # --- 結果 ---
