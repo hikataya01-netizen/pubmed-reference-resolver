@@ -130,20 +130,20 @@ if [ -f "$ENV_FILE" ]; then
     if grep -Eq "^${key}=['\"]?[^'\"[:space:]]+" "$ENV_FILE"; then
       ok "$key が設定されている (値は非表示)"
     elif [ "$key" = ANTHROPIC_API_KEY ]; then
-      ng "$key が未設定または空" "$ENV_FILE に ${key}=... を追記 (MDPI 以外の参照の構造化に必須)"
+      warn "$key が未設定または空" "任意。旧版 main.py の Phase 2 (LLM 構造化) でのみ使用。v2 (audit.py) では不要"
     else
       warn "$key が未設定または空" "任意。設定すると PubMed 検索が 3→10 req/sec に高速化"
     fi
   done
 else
-  ng "$ENV_FILE が無い" "cp \"$REPO/.env.example\" \"$ENV_FILE\" && chmod 600 \"$ENV_FILE\" し、キーを記入 (docs/operations/SETUP_API_KEYS.md)"
+  warn "$ENV_FILE が無い" "cp \"$REPO/.env.example\" \"$ENV_FILE\" && chmod 600 \"$ENV_FILE\" し、キーを記入 (docs/operations/SETUP_API_KEYS.md)。両キーとも任意 (v2 では NCBI_API_KEY のみ使用、設定すると PubMed 検索が高速化)"
 fi
 
 for stray in "$REPO/skill_package/.env" "$REPO/.env"; do
   [ -f "$stray" ] && warn "別の .env がある: $stray" "キーの管理場所を $ENV_FILE に一本化することを推奨"
 done
 
-if [ "$PY_OK" = 1 ]; then
+if [ "$PY_OK" = 1 ] && [ -f "$ENV_FILE" ]; then
   # 実際のローダーで、cwd に依存せず読み込めるかを確認 (キー名のみ出力)
   loaded="$(cd / && env -u ANTHROPIC_API_KEY -u NCBI_API_KEY "$PY" - "$REPO" <<'EOF' 2>/dev/null
 import os, sys
@@ -153,10 +153,11 @@ main.load_env_files(None)
 print(" ".join(k for k in ("ANTHROPIC_API_KEY", "NCBI_API_KEY") if os.environ.get(k)))
 EOF
 )"
-  case " $loaded " in
-    *" ANTHROPIC_API_KEY "*) ok "main.py のローダーで読み込み確認 (cwd=/): $loaded" ;;
-    *) ng "main.py のローダーで ANTHROPIC_API_KEY を読み込めない" "$ENV_FILE の書式 (KEY=VALUE) を確認" ;;
-  esac
+  if [ -n "$loaded" ]; then
+    ok "main.py のローダーで読み込み確認 (cwd=/): $loaded"
+  else
+    ng "$ENV_FILE を読み込めない" "$ENV_FILE の書式 (KEY=VALUE) を確認"
+  fi
 fi
 
 # --- 3. スキル登録 ---
