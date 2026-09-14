@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "source": "e2e_synthetic_test.txt",
+    "md5": "n/a-synthetic-test",
+    "subject": "Pattern C 実装後 E2E 合成テストセット (2026-08-22)",
+    "verdict": ["9基準検証の合成テストセット。各カテゴリの発火を確認する。"]
+  },
+  "references": [
+    {
+      "ref_no": 1,
+      "pmid": "38572751",
+      "doi": "10.3322/caac.21834",
+      "claimed_first_author": "Bray F",
+      "claimed_year": 2024,
+      "claimed_journal": "CA Cancer J Clin",
+      "claimed_title": "Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+      "raw": "1. Bray F, et al. CA Cancer J Clin. 2024."
+    },
+    {
+      "ref_no": 2,
+      "pmid": null,
+      "doi": "10.3322/caac.21834",
+      "claimed_first_author": "Bray F",
+      "claimed_year": 2024,
+      "claimed_journal": "CA Cancer J Clin",
+      "claimed_title": "Global cancer statistics 2022: GLOBOCAN estimates of incidence and mortality worldwide for 36 cancers in 185 countries",
+      "raw": "2. Bray F, et al. CA Cancer J Clin. 2024. (DOI経由の重複引用)"
+    },
+    {
+      "ref_no": 3,
+      "pmid": "9500320",
+      "doi": null,
+      "claimed_first_author": "Wakefield AJ",
+      "claimed_year": 1998,
+      "claimed_journal": "Lancet",
+      "claimed_title": "Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children",
+      "raw": "3. Wakefield AJ, et al. Lancet. 1998."
+    },
+    {
+      "ref_no": 4,
+      "pmid": null,
+      "doi": null,
+      "claimed_first_author": "Nonexistent A",
+      "claimed_year": 2023,
+      "claimed_journal": "J Fabricated Nonexistent Medicine",
+      "claimed_title": "A completely fabricated citation invented for regression testing that should never resolve",
+      "raw": "4. Nonexistent A, et al. J Fabricated Nonexistent Medicine. 2023."
+    },
+    {
+      "ref_no": 5,
+      "pmid": "20818875",
+      "doi": "10.1056/NEJMoa1000678",
+      "claimed_first_author": "Temel JS",
+      "claimed_year": 2010,
+      "claimed_journal": "N Engl J Med",
+      "claimed_title": "Early palliative care for patients with metastatic non-small-cell lung cancer",
+      "raw": "5. Temel JS, et al. N Engl J Med. 2010.",
+      "citation_contexts": ["緩和ケアの早期介入は生存期間を統計学的有意に2倍に延長した。"]
+    },
+    {
+      "ref_no": 6,
+      "pmid": "38095590",
+      "doi": "10.1002/14651858.CD006273.pub4",
+      "claimed_first_author": "Buchan EJ",
+      "claimed_year": 2023,
+      "claimed_journal": "Cochrane Database Syst Rev",
+      "claimed_title": "Medically assisted hydration for adults receiving palliative care",
+      "raw": "6. Buchan EJ, et al. Cochrane Database Syst Rev. 2023."
+    },
+    {
+      "ref_no": 7,
+      "pmid": null,
+      "doi": null,
+      "claimed_first_author": "Doyle D",
+      "claimed_year": 2004,
+      "claimed_journal": "Oxford Textbook of Palliative Medicine",
+      "claimed_title": "Oxford Textbook of Palliative Medicine, 3rd Edition",
+      "raw": "7. Doyle D, et al. Oxford Textbook of Palliative Medicine. 3rd ed. 2004.",
+      "is_non_pubmed": true,
+      "non_pubmed_reason": "書籍 (教科書) であり PubMed の対象外"
+    }
+  ]
+}

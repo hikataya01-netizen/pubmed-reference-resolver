@@ -1,0 +1,77 @@
+{
+  "summary": {
+    "by_severity": {
+      "MAJOR": 3,
+      "MODERATE": 0,
+      "MINOR": 0,
+      "INFO": 4
+    },
+    "by_category": {
+      "duplicate_citation": 1,
+      "retracted_publication": 1,
+      "unresolved": 1,
+      "missing_pmid": 1,
+      "missing_doi": 1,
+      "outdated_citation": 2
+    },
+    "total": 7
+  },
+  "issues": [
+    {
+      "ref_no": 2,
+      "category": "duplicate_citation",
+      "severity": "MAJOR",
+      "detail": "Ref #1 と同一文献の重複引用 (PMID: 38572751)",
+      "claimed": "Ref #2",
+      "found": "Ref #1"
+    },
+    {
+      "ref_no": 3,
+      "category": "retracted_publication",
+      "severity": "MAJOR",
+      "detail": "撤回された論文の引用。引用の妥当性を必ず再検討し、引用が不可避な場合は撤回済みである旨を本文に明記すること",
+      "claimed": "Ileal-lymphoid-nodular hyperplasia, non-specific colitis, and pervasive developmental disorder in children.",
+      "found": "RetractionIn: Lancet. 2004 Mar 6;363(9411):750. doi: 10.1016/S0140-6736(04)15715-2. (PMID 15016483) / RetractionIn: Lancet. 2010 Feb 6;375(9713):445. doi: 10.1016/S0140-6736(10)60175-4. (PMID 20137807) / ExpressionOfConcernIn: Eur J Gastroenterol Hepatol. 2011 Nov;23(11):1082. doi: 10.1097/MEG.0b013e328349d184. (PMID 21971344)"
+    },
+    {
+      "ref_no": 4,
+      "category": "unresolved",
+      "severity": "MAJOR",
+      "detail": "全戦略で PubMed 未ヒット。MEDLINE 非収録誌の可能性。CrossRef 等での確認を推奨",
+      "claimed": "A completely fabricated citation invented for regression testing that should never resolve",
+      "found": ""
+    },
+    {
+      "ref_no": 2,
+      "category": "missing_pmid",
+      "severity": "INFO",
+      "detail": "引用元に PMID 記載なし。追記により参照性が向上",
+      "claimed": "",
+      "found": "38572751"
+    },
+    {
+      "ref_no": 3,
+      "category": "missing_doi",
+      "severity": "INFO",
+      "detail": "引用元に DOI 記載なし。追記により参照性が向上",
+      "claimed": "",
+      "found": "10.1016/s0140-6736(97)11096-0"
+    },
+    {
+      "ref_no": 3,
+      "category": "outdated_citation",
+      "severity": "INFO",
+      "detail": "発行から 28 年経過。より新しいエビデンスの有無の確認を推奨",
+      "claimed": "",
+      "found": "1998"
+    },
+    {
+      "ref_no": 5,
+      "category": "outdated_citation",
+      "severity": "INFO",
+      "detail": "発行から 16 年経過。より新しいエビデンスの有無の確認を推奨",
+      "claimed": "",
+      "found": "2010"
+    }
+  ]
+}

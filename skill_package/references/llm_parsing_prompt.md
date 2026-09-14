@@ -1,97 +1,136 @@
-# LLM Parsing Prompt (Stage 3 Reference Structuring)
+# Stage 3: 参照構造化 (呼び出し側 LLM が in-context で実施)
 
-Version: 1.0 (2026-04-19)
-Model: claude-sonnet-4-6
-Purpose: 参照ブロック1件を構造化JSONへ変換する。プロンプトキャッシュ対応。
+Version: 2.0 (2026-08-22)
+Purpose: References セクションの生テキストを、`audit.py --structured` が読み込む
+`refs.json` へ変換する。**外部 API 呼び出しは行わない** — この作業は本スキルを
+実行しているセッションの Claude 自身が in-context で行う。
+
+> **旧版注記**: 本ファイルは以前、`main.py` 時代の Stage 3 (1 参照ごとに
+> Sonnet を HTTP 呼出しして構造化する設計) 向けの出力スキーマ
+> (`{ref_no, authors:[...], doi_alt, is_book, ...}`) を記載していたが、
+> これは現行 `audit.py::load_refs()` が実際に読み込むスキーマと一致していなかった。
+> 本改訂で `refs.json` の実スキーマに合わせて全面的に書き直した。
+> 以下の「既知の前処理アーティファクトへの耐性」の節は旧版から価値が高いため
+> そのまま引き継いでいる。
 
 ---
 
-## SYSTEM PROMPT (cached)
-
-You are an expert bibliographic parser for medical and scientific literature. Your task is to convert a single raw citation string — extracted from a PDF references section — into a strict JSON object matching the schema below. You will be given references one at a time, each with hints from upstream preprocessing.
-
-### Supported citation styles (style-agnostic extraction required)
-
-- Vancouver: `1. Smith J, Lee K. Title. N Engl J Med. 2020;382(5):123-30.`
-- AMA: `Smith J, Lee K. Title. N Engl J Med. 2020;382(5):123-130. doi:10.1056/xxx`
-- APA: `Smith, J., & Lee, K. (2020). Title. N Engl J Med, 382(5), 123-130.`
-- Harvard: `Smith, J. and Lee, K., 2020. Title. NEJM, 382(5), pp.123-130.`
-- Chicago: `Smith, John, and Kim Lee. "Title." NEJM 382, no. 5 (2020): 123-30.`
-- Nature: `Smith, J. & Lee, K. Title. Nat. Med. 382, 123-130 (2020).`
-- Cell: `Smith, J., and Lee, K. (2020). Title. NEJM 382, 123-130.`
-- MDPI: `1. Smith, J.; Lee, K. Title. N. Engl. J. Med. 2020, 382, 123-130, https://doi.org/...`
-
-Do not assume a specific style. Identify fields by semantic role, not position.
-
-### Known preprocessing artifacts to tolerate
-
-1. **Soft hyphens in words** — PDF line wrapping may have left hyphens in middle of words. Reconstruct words without the hyphen in the output:
-   - `RELA-TIONSHIP` → `RELATIONSHIP`
-   - `Charac-teriz-ing` → `Characterizing`
-   - `Re-sources` → `Resources`
-   - `dépres-sifs` → `dépressifs`
-   Heuristic: if removing a hyphen yields a plausible English/French/etc. word, remove it. If the fragments on both sides are themselves valid words separated by hyphen (compound like "state-of-the-art"), keep the hyphen.
-
-2. **DOI hyphen ambiguity** — DOIs may contain real hyphens, but line-wrap hyphens may also have been preserved. Examples:
-   - `10.1136/gpsych-2022-100871` — real DOI, hyphens required.
-   - `10.1016/j.jpsy-chores.2022.111139` — `jpsy-chores` is likely a line-break artifact of `jpsychores`.
-   When in doubt, populate BOTH `doi` (as-seen) and `doi_alt` (with internal hyphens removed from the path segment). Phase 4 will try both against PubMed.
-
-3. **Stray 3-digit numbers** — Line numbers in the original PDF were detected statistically (range typically 3-digit, 10+ consecutive). Most were stripped upstream. If any remain (usually 1-2 stragglers), ignore them when extracting volume/page/year.
-
-4. **Non-English content** — French, German, Spanish, Italian references are valid. Preserve all diacritics (é, è, ü, ñ, á).
-
-5. **Books vs journal articles** — Books have ISBN and publisher but no journal/volume/pages. Mark `is_book=true`. PubMed likely won't find them; that's expected.
-
-### Output schema (strict JSON, no prose, no markdown fences)
+## 出力スキーマ: `refs.json`
 
 ```json
 {
-  "ref_no": <int, copied from input>,
-  "authors": [
-    {"surname": "Smith", "given": "J.", "raw": "Smith, J."},
-    ...
-  ],
-  "title": "<cleaned article title>",
-  "journal": "<journal or publisher>",
-  "year": <int or null>,
-  "volume": "<string or null>",
-  "issue": "<string or null>",
-  "pages": "<string, e.g. '229-263' or 'e100871' or null>",
-  "doi": "<canonical DOI without URL prefix, or null>",
-  "doi_alt": "<alternative DOI form if internal hyphens are suspect, or null>",
-  "pmid": "<string of digits, or null>",
-  "is_book": <true|false>,
-  "language": "<en|fr|de|es|ja|other>",
-  "parsing_confidence": "<high|medium|low>",
-  "notes": "<optional free-text note on edge cases>"
+  "meta": {
+    "source": "reference.docx",
+    "md5": "<入力ファイルの MD5>",
+    "subject": "<論文の主題、1行>",
+    "verdict": ["査読観点の総評を箇条書きで", "..."]
+  },
+  "references": [
+    {
+      "ref_no": 1,
+      "pmid": "39036382",
+      "doi": "10.1016/j.jncc.2024.01.006",
+      "claimed_first_author": "Han B",
+      "claimed_year": 2024,
+      "claimed_journal": "J Natl Cancer Cent",
+      "claimed_title": "Cancer incidence and mortality in China, 2022",
+      "raw": "1. Han B, Zheng R, Zeng H, et al. Cancer incidence and mortality in China, 2022. J Natl Cancer Cent. 2024;4(1):47-53.",
+      "is_non_pubmed": false,
+      "non_pubmed_reason": null,
+      "non_pubmed_note_if_unresolved": null,
+      "citation_contexts": ["本文中でこの文献が引用されている箇所の一文 (任意、複数可)"]
+    }
+  ]
 }
 ```
 
-### Confidence rubric
+### フィールド説明
 
-- **high**: authors + title + journal + year all extracted; DOI present OR style is unambiguous.
-- **medium**: all major fields extracted but missing DOI; or minor formatting ambiguity.
-- **low**: missing one of {authors, title, journal}; parsing guess-work involved; book with no DOI; language other than English. Human review recommended.
+| フィールド | 必須 | 説明 |
+|---|:--:|---|
+| `ref_no` | 必須 | References 内の通し番号。重複不可 |
+| `pmid` | 任意 | 引用元に明記された PMID (`null` 可) |
+| `doi` | 任意 | 引用元に明記された DOI (`null` 可、URL prefix なし) |
+| `claimed_first_author` | 任意 | 引用元の筆頭著者姓 (Stage4 の L3 系検索と `_accept()` ガードに使う。省略すると誤マッチ検出の精度が下がる) |
+| `claimed_year` | 任意 | 引用元記載の発行年 |
+| `claimed_journal` | 任意 | 引用元記載の雑誌名 |
+| `claimed_title` | 任意 | 引用元記載のタイトル (L3 系検索の主要な手がかり。省略すると `_accept()` の類似度ガードが機能しない) |
+| `raw` | 推奨 | 元の引用文字列そのまま (レポート上での参照用) |
+| `is_non_pubmed` | 任意 | 書籍・ガイドライン等 PubMed 対象外なら `true` |
+| `non_pubmed_reason` | `is_non_pubmed=true` 時に推奨 | 対象外と判定した理由 |
+| `non_pubmed_note_if_unresolved` | 任意 | 未解決時に表示する補足 (省略時は既定文言) |
+| `citation_contexts` | 任意 (v2 新規) | この文献が本文中で引用されている箇所の一文または要約。**主張支持性評価 (`claim_not_supported`/`claim_partially_supported` カテゴリ) にのみ使う。省略した場合、その参照の主張支持性評価は自動的にスキップされる (パイプライン内 LLM 呼出は行わない)** |
 
-### Rules
-
-- NEVER invent data. If unclear, emit `null` and set `parsing_confidence=low`.
-- NEVER output text outside the JSON object.
-- NEVER include `https://doi.org/` or `doi:` prefix in the `doi` field.
-- ALWAYS preserve original casing for titles except when correcting all-caps titles (e.g., `POSITIVE PSYCHOLOGICAL CAPITAL` → `Positive Psychological Capital`) only if confident. If unsure, keep original.
-- ALWAYS copy `ref_no` from the input exactly.
+`ref_no` 以外の欠落フィールドは `audit.py::load_refs()` が `null`/`false` で
+自動補完するため、生成側で全フィールドを埋める必要はない。ただし
+`claimed_title` を省略すると L3 系解決の誤マッチガード (タイトル類似度 ≥0.50)
+が効かなくなるため、可能な限り埋めること。
 
 ---
 
-## USER MESSAGE (per reference)
+## 既知の前処理アーティファクトへの耐性 (旧版より継承)
 
-```
-REF_NO: {ref_no}
-RAW: {raw_text}
-HINTS:
-- detected_line_numbers_range: {min_val}-{max_val}
-- hyphen_bridge_rescued: {bool}
+References セクションが PDF からのコピー&ペーストである場合、以下のノイズが
+混入していることがある。`raw` への転記時に気づいたら妥当な範囲で補正してよいが、
+不確実な場合は補正せず `raw` に原文のまま残すこと (捏造を避けるため)。
+
+1. **単語中のソフトハイフン** — PDF の行折り返しでハイフンが単語中に残る:
+   `RELA-TIONSHIP` → `RELATIONSHIP`、`Charac-teriz-ing` → `Characterizing`。
+   ハイフンを除去して意味の通る語になる場合のみ除去する。`state-of-the-art` の
+   ような複合語のハイフンは保持する。
+2. **DOI 中のハイフンの曖昧性** — `10.1016/j.jpsy-chores.2022.111139` の
+   `jpsy-chores` は行折り返しアーティファクトの可能性が高い
+   (`jpsychores` が正しい可能性)。判断がつかない場合は `doi` に見たままの形を
+   入れ、`raw` に元の文字列を残す。Stage4 の DOI 検索は完全一致を要求しないため、
+   誤りがあっても L3 系カスケードでの再解決を試みる。
+3. **散在する数字の残骸** — 行番号統計検出 (Stage 1-2、`main.py::detect_line_numbers`)
+   で大半は除去済みだが、1〜2 個の残骸が残ることがある。巻号・ページ・年の
+   抽出時は無視する。
+4. **英語以外の文献** — フランス語・ドイツ語・スペイン語・イタリア語等の参照も
+   有効な入力である。ダイアクリティカルマーク (é, è, ü, ñ, á) は保持する。
+5. **書籍と雑誌論文の区別** — 書籍は ISBN・出版社の記載があり雑誌・巻・号がない。
+   `is_non_pubmed=true`、`non_pubmed_reason="書籍"` とする。PubMed でヒットしない
+   ことが正常であり、`unresolved` カテゴリで MAJOR 扱いにはしない。
+
+## 主張支持性評価のための `citation_contexts` 抽出指針 (v2 新規)
+
+`citation_contexts` は「本文が、この参照によって何を主張させているか」を示す
+最小限の手がかりである。以下の方針で抽出する。
+
+- 引用番号 `[n]` や上付き数字が本文中に現れる箇所を検索し、その文が含む
+  **事実主張・数値・結論**を短く抜き出す (原文の一文、または要約)。
+- 1 参照に複数の引用箇所がある場合は配列に複数格納してよい。
+- 本文が提供されていない (References セクションのみの検証依頼) 場合、
+  `citation_contexts` は省略してよい。省略時、当該参照の主張支持性評価は
+  自動スキップされ、CSV の `Claim_Support` 列は `NOT_ASSESSED` になる
+  (エラーにはならない)。
+- **捏造しないこと**: 本文中に該当する引用箇所が見当たらない場合は、
+  無理に主張を作らず省略する。
+
+## 主張支持性の判定 (2 パス目、`--claim-support`)
+
+Stage4 の PubMed 解決が完了した後、呼び出し側 LLM は解決済み参照の abstract
+(`resolved.json` または `references_abstracts.txt` から取得可能) と
+`citation_contexts` を突合し、以下の形式で `claim_support.json` を作成する。
+
+```json
+[
+  {"ref_no": 5, "verdict": "DOES_NOT_SUPPORT",
+   "rationale": "本文は『生存期間を2倍に延長』と主張するが、当該研究の主要評価項目は QOL であり、生存期間中央値に有意差はなかった。"}
+]
 ```
 
-Respond with a single JSON object matching the schema. No other text.
+`verdict` は `SUPPORTS` / `PARTIAL` / `DOES_NOT_SUPPORT` のいずれか。
+`DOES_NOT_SUPPORT` は `claim_not_supported` (MODERATE)、`PARTIAL` は
+`claim_partially_supported` (INFO) として issues に計上される。`SUPPORTS` は
+issue化しない (問題ではないため)。
+
+再実行コマンド:
+
+```bash
+python3 audit.py --structured refs.json -o ./out \
+    --reuse-resolved ./out/resolved.json \
+    --claim-support ./claim_support.json
+```
+
+`--reuse-resolved` により PubMed への再照会は発生しない (NCBI へのリクエスト 0 件)。

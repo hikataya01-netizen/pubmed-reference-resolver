@@ -31,3 +31,6 @@ __pycache__/
 
 # gitleaks smoke test の一時ディレクトリ (Day30 で導入、test 実行時のみ生成)
 .gitleaks_smoke_tmp/
+
+# Node.js (build_docx.js 用、npm ci で復元)
+node_modules/
