@@ -150,11 +150,15 @@ To re-record (e.g. after a PubMed bibliographic update changes the expected outp
 `tools/record_v2_fixture.py` (real network calls to NCBI E-utilities / NLM Catalog / DOAJ,
 no API key required).
 
-**Secrets.** API keys load via `load_env_files()` from a 4-path search: `--env-file`
-(explicit) > (auto-discovery, in order) the directory containing `main.py` `.env` >
-`$HOME/.pubmed-reference-resolver.env` > cwd `.env` > the input file's directory `.env`.
-An environment variable that is already set to a **non-empty** value is not overridden;
-recommended placement is `~/.pubmed-reference-resolver.env`. CLI `--api-key` /
-`--ncbi-api-key` win over env. Never commit real keys — `.gitignore` excludes `.env*`.
+**Secrets.** API keys load via `load_env_files()`, which auto-discovers `.env` from 4
+candidate paths, in this precedence order: 1) the directory containing `main.py` (repo
+root) `.env` 2) `$HOME/.pubmed-reference-resolver.env` (recommended placement) 3) cwd
+`.env` 4) the input file's directory `.env` (for `audit.py`/v2 this is the `refs.json`
+directory — placing a stray `.env` in a manuscript folder gets picked up here). `--env-file
+PATH` **replaces** this auto-discovery entirely (only that one file is read, none of the 4
+candidates); `--no-env-file` disables `.env` loading altogether. Regardless of how (or
+whether) a `.env` was loaded, an environment variable already set to a **non-empty** value
+is never overridden by it, and CLI `--api-key` / `--ncbi-api-key` win over both. Never
+commit real keys — `.gitignore` excludes `.env*`.
 Synthetic test secrets that trip gitleaks are documented in `.gitleaksignore` by fingerprint;
 add new false positives there with a rationale rather than rewriting fixtures.

@@ -119,6 +119,7 @@ fi
 
 # --- 2. API キー ---
 section "2. API キー"
+env_keys_found=0
 if [ -f "$ENV_FILE" ]; then
   perm="$(stat -f '%Lp' "$ENV_FILE" 2>/dev/null || stat -c '%a' "$ENV_FILE" 2>/dev/null)"
   if [ "$perm" = "600" ]; then
@@ -128,7 +129,18 @@ if [ -f "$ENV_FILE" ]; then
   fi
   for key in ANTHROPIC_API_KEY NCBI_API_KEY; do
     if grep -Eq "^${key}=['\"]?[^'\"[:space:]]+" "$ENV_FILE"; then
-      ok "$key が設定されている (値は非表示)"
+      value="$(grep -E "^${key}=" "$ENV_FILE" | head -1 | sed -E "s/^${key}=//; s/^['\"]//; s/['\"]\$//")"
+      case "$value" in
+        # .env.example の ANTHROPIC_API_KEY は "sk-ant-api03-REPLACE-..." のように
+        # 実キーの接頭辞付きプレースホルダなので、先頭一致ではなく部分一致で判定する
+        *REPLACE-*)
+          warn "$key がテンプレートのまま" ".env.example をコピーしただけの状態。\"$ENV_FILE\" を編集して実際のキーに置き換えてください (任意設定のため、使わないなら該当行を削除してもよい)"
+          ;;
+        *)
+          ok "$key が設定されている (値は非表示)"
+          env_keys_found=$((env_keys_found + 1))
+          ;;
+      esac
     elif [ "$key" = ANTHROPIC_API_KEY ]; then
       warn "$key が未設定または空" "任意。旧版 main.py の Phase 2 (LLM 構造化) でのみ使用。v2 (audit.py) では不要"
     else
@@ -143,7 +155,11 @@ for stray in "$REPO/skill_package/.env" "$REPO/.env"; do
   [ -f "$stray" ] && warn "別の .env がある: $stray" "キーの管理場所を $ENV_FILE に一本化することを推奨"
 done
 
-if [ "$PY_OK" = 1 ] && [ -f "$ENV_FILE" ]; then
+# env_keys_found が 0 (キー行が無い/コメントのみ/プレースホルダのまま) の場合は
+# ローダーが何も読み込めなくて当然なので、この確認自体をスキップする
+# (個別キーの警告は上のループで既に出ている)。✘ は「≥1 件の実キーがあるのに
+# ローダーが読めない」場合のみに限定する。
+if [ "$PY_OK" = 1 ] && [ "$env_keys_found" -gt 0 ]; then
   # 実際のローダーで、cwd に依存せず読み込めるかを確認 (キー名のみ出力)
   loaded="$(cd / && env -u ANTHROPIC_API_KEY -u NCBI_API_KEY "$PY" - "$REPO" <<'EOF' 2>/dev/null
 import os, sys
@@ -185,7 +201,7 @@ if [ "$PY_OK" = 1 ] && [ -f "$FIXDIR/refs.json" ] && [ -f "$FIXDIR/resolved.json
   tmp="$(mktemp -d)"
   docx_flag=""
   [ "$NODE_OK" = 1 ] || docx_flag="--no-docx"
-  if (cd / && "$PY" "$REPO/audit.py" --structured "$FIXDIR/refs.json" --reuse-resolved "$FIXDIR/resolved.json" \
+  if (cd / && "$PY" "$REPO/skill_package/audit.py" --structured "$FIXDIR/refs.json" --reuse-resolved "$FIXDIR/resolved.json" \
         --offline --no-env-file $docx_flag -o "$tmp" >"$tmp/log.txt" 2>&1) \
      && [ -s "$tmp/references_pubmed.csv" ]; then
     if [ "$NODE_OK" = 1 ]; then
@@ -215,6 +231,8 @@ if [ "$PY_OK" = 1 ] && [ -f "$SAMPLE" ]; then
     ng "サンプル PDF の抽出に失敗" "ログ: $tmp/log.txt"; tmp=""
   fi
   [ -n "$tmp" ] && rm -rf "$tmp"
+else
+  warn "抽出確認をスキップ (.venv またはサンプル PDF が無い)"
 fi
 
 # --- 5. 外部 API 疎通 ---

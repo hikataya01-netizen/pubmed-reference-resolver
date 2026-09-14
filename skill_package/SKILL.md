@@ -102,7 +102,7 @@ PY="$REPO/.venv/bin/python"
 - `~/.claude/skills/pubmed-reference-resolver` は `$REPO/skill_package/` への symlink。`audit.py`・`pipeline`・`build_docx.js` は `$REPO` 直下への symlink。
 - **初回・別のパソコン・エラー時は `"$REPO/tools/doctor.sh"` を実行**し、✘ を → の手順で解消してから進む (キーの値を表示・入力しない)。
 - Python は `$PY` を使う。Word 出力には Node.js と `$REPO/node_modules/docx` が必要 (無ければ `cd "$REPO" && npm ci`)。
-- `NCBI_API_KEY` (任意) は `~/.pubmed-reference-resolver.env` (chmod 600) に置けば自動で読み込まれる (`[env] loaded from ...`)。v2 は Anthropic API キーを使わない。
+- `NCBI_API_KEY` (任意) は次の 4 箇所を先頭から順に自動探索して読み込む (見つかった場所は `[env] loaded from ...` に出る): ① リポジトリ直下 (`main.py` と同じ場所) の `.env` ② `~/.pubmed-reference-resolver.env` **(推奨、chmod 600)** ③ カレントディレクトリの `.env` ④ `refs.json` と同じディレクトリの `.env`。**査読対象の論文フォルダに `.env` を置くと④で読み込まれてしまう点に注意**（意図せぬキー混入を避けるため、論文フォルダに `.env` を置かない）。`--env-file PATH` は上記自動探索の代わりに指定ファイルだけを読む。`--no-env-file` は `.env` を一切読まない。v2 は Anthropic API キーを使わない。
 
 ## 実行方法
 
