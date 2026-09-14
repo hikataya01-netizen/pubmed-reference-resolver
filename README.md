@@ -132,6 +132,12 @@ uv run pytest tests/ -q
 
 各 fixture には `input_References.docx` + `expected_phase1_intermediate.json` + `baseline_phase3_resolved.json` + `baseline_report.md` + `baseline_three_class_classification.json` + `README.md` (出典明示) の 6 file が配置される. 詳細は各 fixture の `README.md` を参照.
 
+上記 4 系統に加え、v2 (`audit.py` + `pipeline/`) 専用の 5 番目の fixture
+`tests/fixtures/v2_synthetic_7refs/` がある (Day31)。書誌メタデータ (タイトル・著者・
+雑誌名・DOI 等) は PubMed の公開メタデータそのものだが、非 OA 出版社の**抄録本文**は
+本リポジトリが公開であることを踏まえてプレースホルダに置換して収録している (撤回論文
+判定など書誌ベースの回帰テストには影響しない)。詳細は同 fixture の `README.md` を参照。
+
 GitHub Actions (`.github/workflows/tests.yml`) で Python 3.11 / 3.12 に対して定常検証される。
 Python 3.14 は `continue-on-error: true` の実験枠として併走し、将来の Python 移行準備に利用する。
 

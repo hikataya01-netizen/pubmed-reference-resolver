@@ -19,8 +19,23 @@ v2 (MacBook Air 版、2026-08-22) に同梱されていた合成テストセッ�
 - `expected_*`: 再生 + 実行日 2026-09-14 固定で生成した期待出力
 - `resolved.json`: `audit.py --reuse-resolved` 用 (doctor のオフライン確認でも使用)
 
+## 抄録本文について (プレースホルダ置換済み)
+
+本リポジトリは公開であり、`ncbi_responses.json` (efetch 応答) に含まれる書誌メタデータ
+(タイトル・著者・雑誌名・DOI 等) は問題ないが、非 OA 出版社 (Lancet / NEJM /
+Cochrane 等) の **抄録本文** をそのまま収録するのは著作権上望ましくない。そのため
+`<AbstractText>` 要素の本文はすべて `[abstract omitted from fixture: publisher text]`
+に置換してある (属性は保持、`tools/record_v2_fixture.py:sanitize_efetch_xml`)。
+`expected_references_abstracts.txt` / `resolved.json` もこの置換後の内容から再生成
+されている。書誌メタデータ・撤回検出等の回帰テストの有効性には影響しない。
+
 ## 再記録 (実通信あり)
 
     HOME="$(mktemp -d)" env -u NCBI_API_KEY .venv/bin/python tools/record_v2_fixture.py
 
 PubMed 側の書誌更新でゴールデンテストが意図せず変わる場合のみ実行し、差分をレビューしてコミットする。
+デフォルト実行 (フラグなし) は記録時に自動で抄録本文をサニタイズする。
+
+既存の記録済み応答を取り直さずサニタイズだけやり直したい場合 (実通信なし):
+
+    HOME="$(mktemp -d)" env -u NCBI_API_KEY .venv/bin/python tools/record_v2_fixture.py --sanitize-only
