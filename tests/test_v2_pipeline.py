@@ -6,6 +6,7 @@ import csv
 import json
 import shutil
 import subprocess
+import sys
 import zipfile
 from pathlib import Path
 
@@ -22,7 +23,10 @@ REPO = Path(__file__).resolve().parents[1]
 def isolated_home(tmp_path_factory, monkeypatch):
     """実機の ~/.pubmed-reference-resolver.env を読ませない。"""
     monkeypatch.setenv("HOME", str(tmp_path_factory.mktemp("home")))
-    monkeypatch.delenv("NCBI_API_KEY", raising=False)
+    # delenv だと元々未設定の場合は何も記録されず、他のテストで setenv された
+    # 値がプロセス環境に残っていても検出できない。空値でセットし直すことで
+    # _inject_env_kv の「空値は未設定とみなす」契約を使い、確実にリセットする。
+    monkeypatch.setenv("NCBI_API_KEY", "")
 
 
 @pytest.fixture
@@ -34,7 +38,8 @@ def replay(monkeypatch):
 
 
 def _run(out: Path, *extra: str) -> int:
-    return audit.main(["--structured", str(FIX / "refs.json"), "-o", str(out), "--no-docx", *extra])
+    return audit.main(["--structured", str(FIX / "refs.json"), "-o", str(out), "--no-docx",
+                        "--no-env-file", *extra])
 
 
 def _csv_rows(path: Path) -> list[dict]:
@@ -119,7 +124,14 @@ def test_predatory_without_journal_info_is_unassessed():
 
 
 def test_offline_reuse_makes_no_network_calls(tmp_path, monkeypatch):
+    # pipeline/enrich.py の _medline_indexed / enrich_journals は Exception を
+    # 握りつぶすため、AssertionError を投げるだけでは「呼ばれなかった」ことの
+    # 証明にならない (未評価への防御的フォールバックと結果的に区別できない)。
+    # 呼び出し自体を calls に記録し、テスト末尾で明示的に空であることを確認する。
+    calls: list[str] = []
+
     def no_network(*a, **kw):
+        calls.append(repr((a, kw)))
         raise AssertionError("network access during --offline --reuse-resolved")
 
     class NoNetClient(resolve.PubMedClient):
@@ -132,6 +144,30 @@ def test_offline_reuse_makes_no_network_calls(tmp_path, monkeypatch):
     resolved_rows = [r for r in _csv_rows(out / "references_pubmed.csv") if r["Match_Status"] == "RESOLVED"]
     assert resolved_rows
     assert {r["Predatory_Risk"] for r in resolved_rows} == {"未評価"}
+    assert calls == []
+
+
+def test_env_file_and_no_env_file_are_mutually_exclusive():
+    with pytest.raises(SystemExit):
+        audit.main(["--structured", str(FIX / "refs.json"),
+                    "--env-file", str(FIX / "refs.json"), "--no-env-file"])
+
+
+def test_symlinked_entrypoint_runs_via_skill_package(tmp_path):
+    """spec §11: Claude Code スキルは symlink 経由 (skill_package/audit.py) で起動される。
+
+    リポジトリ直下の audit.py を直接叩くテストだけでは symlink 越しの起動 (sys.path や
+    __file__ 解決) を検証できないため、実際の起動経路を subprocess で再現する。
+    """
+    result = subprocess.run(
+        [sys.executable, str(REPO / "skill_package" / "audit.py"),
+         "--structured", str(FIX / "refs.json"),
+         "--reuse-resolved", str(FIX / "resolved.json"),
+         "--offline", "--no-env-file", "--no-docx", "-o", str(tmp_path)],
+        cwd=tmp_path, capture_output=True, text=True,
+    )
+    assert result.returncode == 0, result.stderr
+    assert (tmp_path / "references_pubmed.csv").is_file()
 
 
 @pytest.mark.skipif(shutil.which("node") is None or not (REPO / "node_modules" / "docx").is_dir(),
@@ -139,7 +175,8 @@ def test_offline_reuse_makes_no_network_calls(tmp_path, monkeypatch):
 def test_docx_report_is_generated(tmp_path):
     out = tmp_path / "out"
     rc = audit.main(["--structured", str(FIX / "refs.json"), "-o", str(out),
-                     "--reuse-resolved", str(FIX / "resolved.json"), "--offline"])
+                     "--reuse-resolved", str(FIX / "resolved.json"), "--offline",
+                     "--no-env-file"])
     assert rc == 0
     docx = out / "references_audit_report.docx"
     assert docx.is_file()

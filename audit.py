@@ -111,9 +111,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--subject", default=None)
     ap.add_argument("--api-key", default=None,
                     help="NCBI API key（任意。あれば 10 req/sec。省略時は環境変数 / .env から）")
-    ap.add_argument("--env-file", type=Path, default=None,
+    env_group = ap.add_mutually_exclusive_group()
+    env_group.add_argument("--env-file", type=Path, default=None,
                     help="明示的な .env ファイル（省略時は ~/.pubmed-reference-resolver.env 等を自動探索）")
-    ap.add_argument("--no-env-file", action="store_true",
+    env_group.add_argument("--no-env-file", action="store_true",
                     help=".env ファイルを読まない")
     ap.add_argument("--no-docx", action="store_true", help="出力①をスキップ（デバッグ用）")
     ap.add_argument("--offline", action="store_true",
