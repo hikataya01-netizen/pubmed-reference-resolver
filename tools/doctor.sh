@@ -134,7 +134,13 @@ if [ -f "$ENV_FILE" ]; then
         # .env.example の ANTHROPIC_API_KEY は "sk-ant-api03-REPLACE-..." のように
         # 実キーの接頭辞付きプレースホルダなので、先頭一致ではなく部分一致で判定する
         *REPLACE-*)
-          warn "$key がテンプレートのまま" ".env.example をコピーしただけの状態。\"$ENV_FILE\" を編集して実際のキーに置き換えてください (任意設定のため、使わないなら該当行を削除してもよい)"
+          if [ "$key" = NCBI_API_KEY ]; then
+            # v2 (audit.py) は読み込んだ NCBI_API_KEY をそのまま NCBI に送るため、
+            # テンプレート値は PubMed 照合の失敗につながる
+            ng "$key がテンプレートのまま (v2 が無効なキーとして NCBI に送る)" "\"$ENV_FILE\" を編集して実際のキーに置き換えるか、使わないなら行を削除: sed -i '' '/^NCBI_API_KEY=.*REPLACE-/d' \"$ENV_FILE\""
+          else
+            warn "$key がテンプレートのまま" "旧版 main.py の Phase 2 でのみ使用。使うなら \"$ENV_FILE\" を編集して実際のキーに置き換え、使わないなら行を削除"
+          fi
           ;;
         *)
           ok "$key が設定されている (値は非表示)"
@@ -155,23 +161,38 @@ for stray in "$REPO/skill_package/.env" "$REPO/.env"; do
   [ -f "$stray" ] && warn "別の .env がある: $stray" "キーの管理場所を $ENV_FILE に一本化することを推奨"
 done
 
-# env_keys_found が 0 (キー行が無い/コメントのみ/プレースホルダのまま) の場合は
-# ローダーが何も読み込めなくて当然なので、この確認自体をスキップする
-# (個別キーの警告は上のループで既に出ている)。✘ は「≥1 件の実キーがあるのに
-# ローダーが読めない」場合のみに限定する。
-if [ "$PY_OK" = 1 ] && [ "$env_keys_found" -gt 0 ]; then
-  # 実際のローダーで、cwd に依存せず読み込めるかを確認 (キー名のみ出力)
+# 実際のローダーで、cwd に依存せず何が読み込まれるかを確認する (キー名のみ出力)。
+# $ENV_FILE 以外の候補 (repo 直下 .env 等) から読まれる値も含めて判定する。
+# テンプレート値は "KEY:placeholder" として区別する。
+if [ "$PY_OK" = 1 ]; then
   loaded="$(cd / && env -u ANTHROPIC_API_KEY -u NCBI_API_KEY "$PY" - "$REPO" <<'EOF' 2>/dev/null
 import os, sys
 sys.path.insert(0, sys.argv[1])
 import main
 main.load_env_files(None)
-print(" ".join(k for k in ("ANTHROPIC_API_KEY", "NCBI_API_KEY") if os.environ.get(k)))
+out = []
+for k in ("ANTHROPIC_API_KEY", "NCBI_API_KEY"):
+    v = os.environ.get(k)
+    if v:
+        out.append(f"{k}:placeholder" if "REPLACE-" in v else k)
+print(" ".join(out))
 EOF
 )"
-  if [ -n "$loaded" ]; then
-    ok "main.py のローダーで読み込み確認 (cwd=/): $loaded"
-  else
+  real_keys=""
+  for tok in $loaded; do
+    case "$tok" in *:placeholder) ;; *) real_keys="${real_keys:+$real_keys }$tok" ;; esac
+  done
+  case " $loaded " in
+    *" NCBI_API_KEY:placeholder "*)
+      # $ENV_FILE 由来なら上のループで ✘ 済み。それ以外の .env 由来ならここで ✘
+      if ! grep -Eq "^NCBI_API_KEY=.*REPLACE-" "$ENV_FILE" 2>/dev/null; then
+        ng "テンプレートの NCBI_API_KEY が別の .env から読み込まれる" "repo 直下などの .env を確認し、NCBI_API_KEY の行を修正または削除"
+      fi
+      ;;
+  esac
+  if [ -n "$real_keys" ]; then
+    ok "main.py のローダーで読み込み確認 (cwd=/): $real_keys"
+  elif [ -z "$loaded" ] && [ "$env_keys_found" -gt 0 ]; then
     ng "$ENV_FILE を読み込めない" "$ENV_FILE の書式 (KEY=VALUE) を確認"
   fi
 fi
