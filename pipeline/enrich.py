@@ -58,6 +58,8 @@ def _medline_indexed(client, issn: str) -> bool | None:
     """
     if not issn:
         return None
+    if getattr(client, "esearch_is_down", lambda: False)():
+        return None  # NCBI 障害中は 3 回リトライの待ちを払わず「未評価」に倒す
     try:
         body = client._get("esearch.fcgi", {
             "db": "nlmcatalog", "term": f"{issn}[ISSN]", "retmax": "3", "retmode": "json",
