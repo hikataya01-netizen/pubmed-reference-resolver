@@ -27,7 +27,13 @@ from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 
 NCBI_BASE = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
+EPMC_BASE = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 EFETCH_CHUNK = 150  # NCBI は GET で 200 程度まで許容。余裕をみて 150。
+ESEARCH_COOLDOWN = 300  # esearch 障害検知後、NCBI を再試行するまでの秒数
+
+
+class SearchBackendError(RuntimeError):
+    """NCBI esearch が検索不能（「ヒットなし」ではない）であることを示す。"""
 
 STOPWORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "in", "into",
@@ -119,6 +125,9 @@ class PubMedClient:
         self._last = 0.0
         self.n_requests = 0
         self.seconds_in_http = 0.0
+        self._esearch_down_until = 0.0   # この時刻まで NCBI esearch を試さない
+        self.n_fallback = 0              # Europe PMC へフォールバックした検索回数
+        self.last_esearch_error: str | None = None
 
     def _throttle(self) -> None:
         gap = time.time() - self._last
@@ -150,14 +159,71 @@ class PubMedClient:
         raise RuntimeError(f"NCBI request failed after {retries} attempts: {last_err}")
 
     def esearch(self, term: str, retmax: int = 5) -> list[str]:
-        body = self._get("esearch.fcgi", {
-            "db": "pubmed", "term": term, "retmax": str(retmax), "retmode": "json",
-        })
+        """NCBI esearch。障害（HTTP 5xx 継続・200 + ERROR 応答・非 JSON）は
+        SearchBackendError を送出する。「ヒットなし」と「検索不能」を区別するため、
+        障害時に空リストを返してはならない（実在文献が unresolved と誤判定される）。"""
         try:
-            data = json.loads(body)
-        except ValueError:
-            return []
-        return list(data.get("esearchresult", {}).get("idlist", []) or [])
+            body = self._get("esearch.fcgi", {
+                "db": "pubmed", "term": term, "retmax": str(retmax), "retmode": "json",
+            })
+        except RuntimeError as e:  # _get がリトライ上限到達で送出
+            raise SearchBackendError(str(e)) from e
+        try:
+            result = json.loads(body)["esearchresult"]
+        except (ValueError, KeyError, TypeError) as e:
+            raise SearchBackendError(f"esearch の応答を解釈できません: {body[:120]!r}") from e
+        if result.get("ERROR"):
+            raise SearchBackendError(f"esearch ERROR: {str(result['ERROR'])[:160]}")
+        return list(result.get("idlist", []) or [])
+
+    def esearch_is_down(self) -> bool:
+        return time.time() < self._esearch_down_until
+
+    def search(self, term: str, epmc_query: str | None = None,
+               retmax: int = 5) -> tuple[list[str], str]:
+        """PMID 検索。NCBI esearch を優先し、障害時は Europe PMC へ自動フォールバックする。
+
+        戻り値: (PMID リスト, 経路 "ncbi" | "europepmc")。
+        フォールバックしても PMID の確定後は NCBI efetch で書誌を取得するため、
+        メタデータの出所は変わらない。障害検知後 ESEARCH_COOLDOWN 秒は NCBI を
+        試さず直接 Europe PMC へ向かう（毎回 3 回リトライの待ち時間を払わないため）。
+        epmc_query が None（フォールバック不能）の場合は NCBI の障害をそのまま送出する。
+        """
+        if not self.esearch_is_down() or epmc_query is None:
+            try:
+                return self.esearch(term, retmax), "ncbi"
+            except (SearchBackendError, urllib.error.URLError) as e:
+                if epmc_query is None:
+                    raise
+                self._esearch_down_until = time.time() + ESEARCH_COOLDOWN
+                self.last_esearch_error = str(e)
+        ids = self.epmc_search(epmc_query, retmax)
+        self.n_fallback += 1
+        return ids, "europepmc"
+
+    def epmc_search(self, query: str, retmax: int = 5) -> list[str]:
+        """Europe PMC で検索し PubMed 収載記事（SRC:MED）の PMID を返す。"""
+        params = {"query": f"({query}) AND SRC:MED", "format": "json",
+                  "resultType": "lite", "pageSize": str(retmax)}
+        url = EPMC_BASE + "?" + urllib.parse.urlencode(params)
+        last_err: Exception | None = None
+        for attempt in range(3):
+            try:
+                self._throttle()
+                t0 = time.time()
+                req = urllib.request.Request(url, headers={"User-Agent": self.tool})
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    data = json.loads(r.read().decode("utf-8", errors="replace"))
+                self.seconds_in_http += time.time() - t0
+                self.n_requests += 1
+                results = data["resultList"]["result"]
+                return [str(x["pmid"]) for x in results
+                        if x.get("source") == "MED" and x.get("pmid")]
+            except (urllib.error.URLError, TimeoutError, ValueError, KeyError, TypeError) as e:
+                last_err = e
+                time.sleep(min(2 ** attempt * 2, 10))
+        raise RuntimeError(
+            f"NCBI esearch と Europe PMC の両方が利用できません: {last_err}")
 
     def efetch_many(self, pmids: list[str]) -> dict[str, dict]:
         """複数 PMID を一括取得する。これが速度最適化の中核。"""
@@ -320,6 +386,11 @@ def _accept(ref: dict, meta: dict) -> tuple[bool, str]:
     return True, ""
 
 
+def _tag(term: str, via: str) -> str:
+    """フォールバック経由の検索は、解決経路の透明性トレースに分かるよう印を付ける。"""
+    return term if via == "ncbi" else f"[Europe PMC フォールバック] {term}"
+
+
 def resolve_all(refs: list[dict], client: PubMedClient, verbose: bool = True) -> list[dict]:
     """参照リスト全体を解決する。戻り値は ref ごとの解決レコード。"""
     rec: dict[int, dict] = {
@@ -364,9 +435,9 @@ def resolve_all(refs: list[dict], client: PubMedClient, verbose: bool = True) ->
     for r in l2:
         d = norm_doi(r["doi"])
         term = f"{d}[DOI]"
-        ids = client.esearch(term, retmax=3)
+        ids, via = client.search(term, f'DOI:"{d}"', retmax=3)
         rec[r["ref_no"]]["attempts"].append(
-            Attempt("L2", term, len(ids), ids[0] if ids else None,
+            Attempt("L2", _tag(term, via), len(ids), ids[0] if ids else None,
                     None if ids else "no hit").__dict__)
         if ids:
             found[r["ref_no"]] = ids[0]
@@ -397,6 +468,9 @@ def resolve_all(refs: list[dict], client: PubMedClient, verbose: bool = True) ->
               f"UNRESOLVED {sum(1 for v in rec.values() if v['match_status'] == 'UNRESOLVED')} / "
               f"NON_PUBMED {sum(1 for v in rec.values() if v['match_status'] == 'NON_PUBMED')}  "
               f"HTTP {client.n_requests} req / {client.seconds_in_http:.2f} s")
+        if client.n_fallback:
+            print(f"[Stage4] NCBI esearch 障害のため Europe PMC へフォールバック: "
+                  f"{client.n_fallback} 検索 ({client.last_esearch_error})")
     return [rec[r["ref_no"]] for r in refs]
 
 
@@ -407,22 +481,36 @@ def _cascade_l3(ref: dict, out: dict, client: PubMedClient, verbose: bool = Fals
     jn = (ref.get("claimed_journal") or "").strip()
     kws = title_keywords(ref.get("claimed_title"))
 
-    plans: list[tuple[str, str]] = []
+    # 各プランは (レベル, NCBI 検索式, Europe PMC 検索式)。Europe PMC 側は NCBI 障害時の
+    # フォールバック専用で、同じ意味の検索を AUTH/TITLE/JOURNAL/PUB_YEAR で表現する。
+    # 採否は従来どおり efetch 後の _accept()（タイトル類似度 + 筆頭著者姓）で決まる。
+    plans: list[tuple[str, str, str]] = []
+    e_au = f'AUTH:"{au}"' if au else ""
+    e_jn = f'JOURNAL:"{norm_text(jn)}"' if jn else ""
+    e_yr = f"PUB_YEAR:{yr}" if yr else ""
     if au and kws:
         t = " AND ".join(f"{w}[Title]" for w in kws)
         q = f"{au}[Author] AND ({t})"
-        plans.append(("L3a", q + (f" AND {yr}[PDAT]" if yr else "")))
+        e_t = " AND ".join(f'TITLE:"{w}"' for w in kws)
+        plans.append(("L3a", q + (f" AND {yr}[PDAT]" if yr else ""),
+                      " AND ".join(x for x in (e_au, f"({e_t})", e_yr) if x)))
     if au and jn and yr:
         plans.append(("L3b",
                       f"{au}[Author] AND {jn}[Journal] AND {yr}[PDAT]"
-                      + (" AND (" + " OR ".join(f"{w}[Title]" for w in kws) + ")" if kws else "")))
-        plans.append(("L3c", f"{au}[Author] AND {jn}[Journal] AND {yr}[PDAT]"))
+                      + (" AND (" + " OR ".join(f"{w}[Title]" for w in kws) + ")" if kws else ""),
+                      f"{e_au} AND {e_jn} AND {e_yr}"
+                      + (" AND (" + " OR ".join(f'TITLE:"{w}"' for w in kws) + ")" if kws else "")))
+        plans.append(("L3c", f"{au}[Author] AND {jn}[Journal] AND {yr}[PDAT]",
+                      f"{e_au} AND {e_jn} AND {e_yr}"))
     if kws:
         t = " AND ".join(f"{w}[Title]" for w in kws)
-        plans.append(("L3d", t + (f" AND {yr}[PDAT]" if yr else "")))
+        e_t = " AND ".join(f'TITLE:"{w}"' for w in kws)
+        plans.append(("L3d", t + (f" AND {yr}[PDAT]" if yr else ""),
+                      e_t + (f" AND {e_yr}" if yr else "")))
 
-    for level, term in plans:
-        ids = client.esearch(term, retmax=5)
+    for level, term, epmc_q in plans:
+        ids, via = client.search(term, epmc_q, retmax=5)
+        term = _tag(term, via)
         if not ids:
             out["attempts"].append(Attempt(level, term, 0, None, "no hit").__dict__)
             continue

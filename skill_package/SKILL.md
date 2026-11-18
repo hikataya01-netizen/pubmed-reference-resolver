@@ -190,6 +190,11 @@ Stage 4    PubMed カスケード照合                   … pipeline/resolve.p
              L3b 著者 + 雑誌 + 年 + タイトル重要語
              L3c 著者 + 雑誌 + 年
              L3d タイトル重要語のみ + 年
+             ※ NCBI esearch 障害時（HTTP 5xx 継続・200+ERROR 応答）は PMID 検索のみ
+               Europe PMC へ自動フォールバック（5分間は NCBI を試さない）。書誌取得は
+               NCBI efetch のまま、採否は従来の二重ガードのまま。障害を「ヒットなし」と
+               取り違えて unresolved (MAJOR) と誤判定することはない。
+               フォールバックした検索式は resolved.json の attempts に印が付く。
 Stage 5.5  雑誌収載状況照会 (v2新設)                … pipeline/enrich.py
              NLM Catalog (MEDLINE収載) + DOAJ (無料・認証不要)。--offline でスキップ
 Stage 6    整合性チェック（19 カテゴリ / 4 段階）    … pipeline/consistency.py

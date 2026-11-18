@@ -190,6 +190,13 @@ def main(argv: list[str] | None = None) -> int:
           f"MINOR {summ['by_severity']['MINOR']} / INFO {summ['by_severity']['INFO']})")
 
     notes = self_check(refs, resolutions, issues) + enrich_notes + assess_notes
+    if client.n_fallback:
+        notes.append(
+            f"NCBI esearch の障害により {client.n_fallback} 件の PMID 検索を Europe PMC "
+            "経由で実施した（書誌情報の取得は NCBI efetch のまま）。該当の検索式は "
+            "resolved.json の attempts に「[Europe PMC フォールバック]」として記録している。"
+            "Europe PMC の検索は筆頭著者に限定されないため、採否は従来どおり "
+            "タイトル類似度+筆頭著者姓の二重ガードで判定されている。")
 
     (args.out / "resolved.json").write_text(
         json.dumps({"resolutions": resolutions, "journal_info": journal_info},
