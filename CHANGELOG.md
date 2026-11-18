@@ -10,6 +10,16 @@
 
 (Day21 以降の変更がここに記録される予定)
 
+### Fixed (修正)
+
+- **NCBI esearch の障害を「ヒットなし」と取り違える問題** (`pipeline/resolve.py`, `pipeline/enrich.py`, `audit.py`):
+  esearch が検索障害（HTTP 5xx 継続・HTTP 200 + ERROR 応答・非 JSON）のとき空リストを返していたため、
+  実在する文献が `unresolved` (MAJOR) と誤判定されていた（2026-11-13 の JAMA 論文の監査で、DOI 参照のすべてが
+  検索できなくなって発覚）。障害は `SearchBackendError` にし、PMID 検索のみ Europe PMC (`SRC:MED`) へ自動
+  フォールバックする（障害検知後 300 秒は NCBI を試さない。書誌取得は NCBI efetch のまま、L3 の二重ガードも有効）。
+  フォールバックした検索は `resolved.json` の attempts と自己点検に記録する。`tests/test_resolve_fallback.py` を追加
+  （13 件。全体 137 → 150 件）。
+
 ## [0.1.0] - 2026-05-22
 
 ### Day8-18 統合: Vancouver Veto + 4 fixture + 3 分類 audit + GitHub 公開準備
