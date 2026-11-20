@@ -65,12 +65,14 @@ function table(widths, header, rows, opts = {}) {
   if (header) {
     trs.push(new TableRow({
       tableHeader: true,
+      cantSplit: true,
       children: header.map((h, i) => cell(h, widths[i], {
         fill: HEAD, bold: true, size: opts.hsize || 18, align: AlignmentType.CENTER,
       })),
     }));
   }
   rows.forEach((r, ri) => trs.push(new TableRow({
+    cantSplit: true, // 行をページの途中で分断しない（最後の 1 行だけが次のページに溢れるのを防ぐ）
     children: r.map((c, i) => cell(c, widths[i], Object.assign(
       { fill: ri % 2 ? GRAY : undefined, size: opts.size || 18,
         align: opts.align && opts.align[i] },

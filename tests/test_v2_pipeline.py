@@ -182,3 +182,26 @@ def test_docx_report_is_generated(tmp_path):
     assert docx.is_file()
     with zipfile.ZipFile(docx) as z:
         assert "word/document.xml" in z.namelist()
+
+
+@pytest.mark.skipif(shutil.which("node") is None or not (REPO / "node_modules" / "docx").is_dir(),
+                    reason="node または npm docx が未導入 (npm ci で導入)")
+def test_docx_table_rows_do_not_split_across_pages(tmp_path):
+    """表の行がページをまたいで分断されない（行の最後の 1 行だけが次のページに溢れ、ほぼ空のページができる不具合の回帰）。
+
+    LibreOffice で docx を PDF にしたとき、§3.4 の表の最後の行がページ境界で分断されていた。
+    すべての表の行（見出し行を含む）に w:cantSplit が付いていることを確かめる。
+    """
+    import re
+
+    out = tmp_path / "out"
+    rc = audit.main(["--structured", str(FIX / "refs.json"), "-o", str(out),
+                     "--reuse-resolved", str(FIX / "resolved.json"), "--offline",
+                     "--no-env-file"])
+    assert rc == 0
+    with zipfile.ZipFile(out / "references_audit_report.docx") as z:
+        xml = z.read("word/document.xml").decode("utf-8")
+    rows = len(re.findall(r"<w:tr[ >]", xml))
+    cant_split = len(re.findall(r"<w:cantSplit", xml))
+    assert rows > 0
+    assert cant_split == rows, f"w:cantSplit が付いていない行がある: {cant_split}/{rows}"
